@@ -176,6 +176,7 @@ export function YouTubePlayer({
     let hasStarted = false;
     let timer: ReturnType<typeof setInterval> | undefined;
     let readinessTimer: ReturnType<typeof setTimeout> | undefined;
+    let bufferingTimer: ReturnType<typeof setTimeout> | undefined;
     let lastSavedAt = 0;
     let lastSavedPosition = -1;
     if (mountedVideoId.current !== video.id) {
@@ -273,6 +274,7 @@ export function YouTubePlayer({
           controls: "0",
           playsinline: "1",
           autoplay: "0",
+          start: String(Math.floor(Math.max(0, pendingSeek.current ?? 0))),
           origin: window.location.origin,
           rel: "0",
           hl: "ja",
@@ -298,9 +300,6 @@ export function YouTubePlayer({
               playerRef.current = player;
               clearTimeout(readinessTimer);
               setState("ready");
-              const resume = pendingSeek.current;
-              if (resume !== undefined && resume > 0)
-                player.seekTo(resume, true);
               syncControls();
               timer = setInterval(() => {
                 syncControls();
@@ -313,8 +312,26 @@ export function YouTubePlayer({
             },
             onStateChange: (event: { data: number }) => {
               if (disposed || !ready) return;
+              if (event.data === 3) {
+                if (!bufferingTimer) {
+                  bufferingTimer = setTimeout(() => {
+                    bufferingTimer = undefined;
+                    if (!disposed && player?.getPlayerState() === 3) {
+                      setState("error");
+                      setError(
+                        "動画の読み込みが停止しています。接続を確認して再試行するか、YouTubeで開いてください。",
+                      );
+                    }
+                  }, 30000);
+                }
+              } else {
+                clearTimeout(bufferingTimer);
+                bufferingTimer = undefined;
+              }
               if (event.data === 1) {
                 hasStarted = true;
+                setState("ready");
+                setError("");
                 setNotice("");
                 write({
                   lastViewedAt: Date.now(),
@@ -332,7 +349,7 @@ export function YouTubePlayer({
             onAutoplayBlocked: () => {
               if (!disposed)
                 setNotice(
-                  "ブラウザが再生を保留しました。再生ボタンをもう一度押してください。",
+                  "ブラウザが再生を保留しました。映像内のYouTube再生ボタンを押してください。",
                 );
             },
             onError: (event: { data: number }) => {
@@ -364,6 +381,7 @@ export function YouTubePlayer({
       disposed = true;
       clearInterval(timer);
       clearTimeout(readinessTimer);
+      clearTimeout(bufferingTimer);
       document.removeEventListener("visibilitychange", onHidden);
       window.removeEventListener("pagehide", onPageHide);
       playerRef.current = null;
