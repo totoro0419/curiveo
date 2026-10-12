@@ -1,0 +1,2028 @@
+{
+  "series": [
+    {
+      "id": "passlabo-patterns",
+      "title": "全パターン解説",
+      "channelId": "passlabo",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAnDT6QKCfFru7Fi0zGeJ4Nd"
+    },
+    {
+      "id": "passlabo-grammar",
+      "title": "英文法",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07"
+    },
+    {
+      "id": "passlabo-writing",
+      "title": "和訳・英訳・英作文",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAlLN-djcWYOXghRQQCgDa5L"
+    },
+    {
+      "id": "passlabo-reading",
+      "title": "英語長文",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAmqhqt-zCBWZH4UuHe91o_U"
+    },
+    {
+      "id": "stardy-complete",
+      "title": "完全網羅シリーズ",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPle_oAR1ojLTuV_nPhlHuLpy"
+    },
+    {
+      "id": "stardy-locus",
+      "title": "軌跡・領域【高校数学全パターン化】",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPldNDB2I46XNSal1NKsYm0L-"
+    }
+  ],
+  "videos": [
+    {
+      "id": "thR1ZyXqDLE",
+      "title": "【整数問題】入試頻出解法を”４時間で”全パターン解説",
+      "channelId": "passlabo",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "整数",
+      "seriesIds": [
+        "passlabo-patterns"
+      ],
+      "order": 1,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAnDT6QKCfFru7Fi0zGeJ4Nd",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=thR1ZyXqDLE",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "otl-bRSlwNE",
+      "title": "【高校数学】たった１本で「確率」全パターン徹底解説",
+      "channelId": "passlabo",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "確率",
+      "seriesIds": [
+        "passlabo-patterns"
+      ],
+      "order": 2,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAnDT6QKCfFru7Fi0zGeJ4Nd",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=otl-bRSlwNE",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "XdCwr54ZSKU",
+      "title": "【決定版】数Ⅲ積分150問を“6時間で”全パターン解説（基礎〜東大まで）",
+      "channelId": "passlabo",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "微分・積分",
+      "seriesIds": [
+        "passlabo-patterns"
+      ],
+      "order": 3,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAnDT6QKCfFru7Fi0zGeJ4Nd",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=XdCwr54ZSKU",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "aZh0LiWyV4c",
+      "title": "【整数問題】mod（合同式）をたった１本で全解説",
+      "channelId": "passlabo",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "整数",
+      "seriesIds": [
+        "passlabo-patterns"
+      ],
+      "order": 4,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAnDT6QKCfFru7Fi0zGeJ4Nd",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=aZh0LiWyV4c",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "T-PWkbwwiNA",
+      "title": "【2次直前対策】入試で差がつく「対称性」を2時間で全パターン解説",
+      "channelId": "passlabo",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "対称式",
+      "seriesIds": [
+        "passlabo-patterns"
+      ],
+      "order": 5,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAnDT6QKCfFru7Fi0zGeJ4Nd",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=T-PWkbwwiNA",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "qeDe_C0HYj0",
+      "title": "【数Ⅲ積分計算フローチャート】板書１枚にまとめてみた。",
+      "channelId": "passlabo",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "微分・積分",
+      "seriesIds": [
+        "passlabo-patterns"
+      ],
+      "order": 6,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAnDT6QKCfFru7Fi0zGeJ4Nd",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=qeDe_C0HYj0",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "5w3yAmSH8Zc",
+      "title": "【整数×数列/漸化式】入試頻出解法を”2時間で”全パターン解説",
+      "channelId": "passlabo",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "数列・漸化式",
+      "seriesIds": [
+        "passlabo-patterns"
+      ],
+      "order": 8,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAnDT6QKCfFru7Fi0zGeJ4Nd",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=5w3yAmSH8Zc",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "zThqGKkKjzQ",
+      "title": "【ベクトル】入試頻出解法を”6時間”で全パターン解説",
+      "channelId": "passlabo",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "ベクトル",
+      "seriesIds": [
+        "passlabo-patterns"
+      ],
+      "order": 10,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAnDT6QKCfFru7Fi0zGeJ4Nd",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=zThqGKkKjzQ",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "_Lo5dKVzYM0",
+      "title": "小学生から大人まで楽しめる【計算が速くなる裏技】全パターン解説",
+      "channelId": "passlabo",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "計算の工夫",
+      "seriesIds": [
+        "passlabo-patterns"
+      ],
+      "order": 11,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAnDT6QKCfFru7Fi0zGeJ4Nd",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=_Lo5dKVzYM0",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "aK2fAkmlrwQ",
+      "title": "【有料級】たった2時間で完全攻略「数Ⅲ極限」難関大完答シリーズ",
+      "channelId": "passlabo",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "極限",
+      "seriesIds": [
+        "passlabo-patterns"
+      ],
+      "order": 12,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAnDT6QKCfFru7Fi0zGeJ4Nd",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=aK2fAkmlrwQ",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "53Q7vLuzO7w",
+      "title": "【時短で総復習】英文法”否定”をこれ１本で!!",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "否定",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 1,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=53Q7vLuzO7w",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "NicGLu66lOk",
+      "title": "【基礎〜応用まで】受験生が苦手な文法事項25選をサクッと解説!!",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 2,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=NicGLu66lOk",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "YUqIqXZY174",
+      "title": "【サクッと理解】面倒な関係詞ルールを簡潔に!!",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "関係詞",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 3,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=YUqIqXZY174",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "4Px9Y7L6HiQ",
+      "title": "【英文読解の裏技】理解すれば文型ほど役立つ文法はない!!",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "文型",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 4,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=4Px9Y7L6HiQ",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "Qh2qxLWofkU",
+      "title": "【絶対忘れてる!】英文読解で困る比較を効率よく総復習",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "比較",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 5,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=Qh2qxLWofkU",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "jh5q5yzknwI",
+      "title": "【英文読解の鍵】受験生が嫌いな仮定法を時短復習!!",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "仮定法",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 6,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=jh5q5yzknwI",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "vG9M6aQMLek",
+      "title": "高校英文法を50分で総復習【頻出100問】",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 7,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=vG9M6aQMLek",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "BrmtOExhE2s",
+      "title": "【受験生用!!】試験前に見ておきたい！英語脳ウォーミングアップ動画",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 10,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=BrmtOExhE2s",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "1kB3cPzKd4s",
+      "title": "【７割超で合格!!】あなたの文法力を総チェック!! | 基礎〜難問まで20問出題",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 11,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=1kB3cPzKd4s",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "cHP2OZzrjXM",
+      "title": "【難問だけ!!】偏差値７０クラスの英文法２０問",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 12,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=cHP2OZzrjXM",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "-oUCVU3RGt8",
+      "title": "【文法力チェック】受験生が８割以下だと、、、英文法問題 | 20問",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 13,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=-oUCVU3RGt8",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "UT8Avsu5FCY",
+      "title": "【英文法総復習】ライバルと差がつく受験英文法２０問",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 14,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=UT8Avsu5FCY",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "NNKQqGg_GJ8",
+      "title": "【９割で合格!!】頻出英文法２０問であなたの基礎力チェック",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 15,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=NNKQqGg_GJ8",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "mt1IWDH83LA",
+      "title": "【早慶上智の難問】知ってたら差がつく英文法２０問",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 16,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=mt1IWDH83LA",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "ZcM69znNQd0",
+      "title": "【MARCH英文法】受験本番で正解すべき２０問（*必須知識だけ集めました。）",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 17,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=ZcM69znNQd0",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "n7zVNlOXADg",
+      "title": "【英文法２０題】早慶中級レベルの英語問題に挑戦!!",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 18,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=n7zVNlOXADg",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "uxe8D-rN_uY",
+      "title": "【完成版】10秒で文法ノック！動詞の語法を完全攻略せよ",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "動詞の語法",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 19,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=uxe8D-rN_uY",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "mcPLzsh0twM",
+      "title": "【必見】ややこしい助動詞を完全制覇せよ！【文法ノック#2】",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "助動詞",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 20,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=mcPLzsh0twM",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "4wyPI3B0H6M",
+      "title": "【英文法】差がつく良問を“１０秒”で解け！【８割で実力あり】",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 21,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=4wyPI3B0H6M",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "CUs3NWSzDIM",
+      "title": "【センター英文法】解けるかな？解いてみる？んま、無理なんですけどねｗ",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 22,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=CUs3NWSzDIM",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "PDr5KBPn9Xw",
+      "title": "【3秒で識別できる裏技】入試頻出のasの訳、分からなくなった時にお使いください",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 23,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=PDr5KBPn9Xw",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "xoUutJic4hU",
+      "title": "【文法ノック】やや難仮定法１０連クイズ!!←８点で合格!!",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "仮定法",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 24,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=xoUutJic4hU",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "dQBWPnaOR4A",
+      "title": "【英語】入試で差がつく文法・英作文問題！←全問正解できる？",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 25,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=dQBWPnaOR4A",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "c-bDkFRLrGA",
+      "title": "【満点なら上位1%】文法ノック←超難問も用意!!",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 26,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=c-bDkFRLrGA",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "41awE_NsFVs",
+      "title": "【目指せ８割!!】文法ノック←難問も用意!!",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 27,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=41awE_NsFVs",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "C1X3wWN8YPg",
+      "title": "【正答率１ケタ】怖いほど難しい文法問題←２００９年の問題",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 28,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=C1X3wWN8YPg",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "XtcB4QBlzQs",
+      "title": "ノーヒントで解けたら上位３％？！【英作文頻出問題】",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar",
+        "passlabo-writing"
+      ],
+      "order": 29,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=XtcB4QBlzQs",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "zdjiH9Zuaew",
+      "title": "【超難問】Google先生と英作文で対決？！東大医学部生が答えを見ずに大学入試頻出英作文を解説してみた（大学受験　英作文）",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar",
+        "passlabo-writing"
+      ],
+      "order": 30,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=zdjiH9Zuaew",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "8BjjwOlxt50",
+      "title": "【意外と知らん副詞のルール】何を修飾して、副詞はどこに置けばいいの？サクッと解説",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 31,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=8BjjwOlxt50",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "yzgYjxczjr0",
+      "title": "【要注意】目を凝らさないと間違える卑怯な英文法問題（慶應大学）*先に訂正見てね",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 32,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=yzgYjxczjr0",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "PwfCgUyRNGg",
+      "title": "コツを掴めば簡単？慶應の英語「間違い探し」にいざ挑戦！【慶應義塾大学：英語文法問題】",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 33,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=PwfCgUyRNGg",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "POanzx0h5Vs",
+      "title": "【センター試験を舐めるな】正答率6.6%！驚異のセンター英語2010を解けるか？（大学受験　英語文法問題）",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 34,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=POanzx0h5Vs",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "JGNkH2VcJvo",
+      "title": "【７７％の受験生が騙された良問】君は説明できるか？センター英語で正答率が悪い「前置詞」問題を徹底解説しました（大学受験　英語文法問題）",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 35,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=JGNkH2VcJvo",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "1ia-BT27nKg",
+      "title": "【３秒で品詞が分かる裏技を公開！】形容詞か副詞かわからなくなった時に使ってください。センター英語2016（英語文法問題）",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 36,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=1ia-BT27nKg",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "52Pp-dyPJNw",
+      "title": "【受験生必見】東大医学部が間違えた？！センター英語形式問題（全統記述模試改題）",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 37,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=52Pp-dyPJNw",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "5hfCaFFS08c",
+      "title": "【センター直前】確認しておきたい文法問題２０問←９割超えてほしい",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 38,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=5hfCaFFS08c",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "S7-5nRL-1TY",
+      "title": "【偏差値６５レベル】簡単そうなのに解けない英文法問題",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文法総合",
+      "seriesIds": [
+        "passlabo-grammar"
+      ],
+      "order": 39,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAkfGpwqcJ3cfHqwekcE4d07",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=S7-5nRL-1TY",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "96cjosPz3-U",
+      "title": "【受験生必見】自由英作文の解き方（賛否型/提案型/自己PR型/仮説型）",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "和訳・英訳・英作文",
+      "seriesIds": [
+        "passlabo-writing"
+      ],
+      "order": 1,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAlLN-djcWYOXghRQQCgDa5L",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=96cjosPz3-U",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "1TzteKj8Lk4",
+      "title": "【２次対策】英作文を得点源に！実践的な解き方を徹底解説【基礎編】",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "和訳・英訳・英作文",
+      "seriesIds": [
+        "passlabo-writing"
+      ],
+      "order": 2,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAlLN-djcWYOXghRQQCgDa5L",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=1TzteKj8Lk4",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "zTv00Iiug-M",
+      "title": "【初見殺し!!】難解構文を和訳せよ←受験生はやっておきたい",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "和訳・英訳・英作文",
+      "seriesIds": [
+        "passlabo-writing"
+      ],
+      "order": 3,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAlLN-djcWYOXghRQQCgDa5L",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=zTv00Iiug-M",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "e4qCdmrDEPo",
+      "title": "【京大入試】１分で中学単語を使って解ける？",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "和訳・英訳・英作文",
+      "seriesIds": [
+        "passlabo-writing"
+      ],
+      "order": 4,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAlLN-djcWYOXghRQQCgDa5L",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=e4qCdmrDEPo",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "y_YgeIRor6E",
+      "title": "【添削官はあなた!!】英作３つの間違いに気づけるか？",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "和訳・英訳・英作文",
+      "seriesIds": [
+        "passlabo-writing"
+      ],
+      "order": 5,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAlLN-djcWYOXghRQQCgDa5L",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=y_YgeIRor6E",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "njBSxiHpacQ",
+      "title": "減点されない「自由英作文」の勉強法｜やるべき勉強法と参考書も紹介！",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "和訳・英訳・英作文",
+      "seriesIds": [
+        "passlabo-writing"
+      ],
+      "order": 6,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAlLN-djcWYOXghRQQCgDa5L",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=njBSxiHpacQ",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "bjn909_xYM0",
+      "title": "【英作文で高得点を取るには？】東大医学部生が使っているルール４点を大公開！（大学受験　英作文　勉強法）",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "和訳・英訳・英作文",
+      "seriesIds": [
+        "passlabo-writing"
+      ],
+      "order": 7,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAlLN-djcWYOXghRQQCgDa5L",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=bjn909_xYM0",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "ICHnzNW3Vmk",
+      "title": "【超即興英作文】東大医学部にノーカットでいきなり解説させてみた結果・・・",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "和訳・英訳・英作文",
+      "seriesIds": [
+        "passlabo-writing"
+      ],
+      "order": 10,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAlLN-djcWYOXghRQQCgDa5L",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=ICHnzNW3Vmk",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "pZn-qwA8Rgc",
+      "title": "【英作文を９割攻略！】〇〇構文は使用NG！？難しい英作文に対応した解法パターンを使って解説してみた（大学受験　英作文　勉強法）",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "和訳・英訳・英作文",
+      "seriesIds": [
+        "passlabo-writing"
+      ],
+      "order": 11,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAlLN-djcWYOXghRQQCgDa5L",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=pZn-qwA8Rgc",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "9_OkT8neTno",
+      "title": "【わかれば天才?!】完答率５％の超難問英作文に現役東大医学部生が挑戦！",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "和訳・英訳・英作文",
+      "seriesIds": [
+        "passlabo-writing"
+      ],
+      "order": 12,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAlLN-djcWYOXghRQQCgDa5L",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=9_OkT8neTno",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "JCsZZHGck_M",
+      "title": "【東大生おすすめ】英文和訳が得点源に！不要語問題の解き方と「意訳の３原則」を東大生が具体的に解説します。",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "和訳・英訳・英作文",
+      "seriesIds": [
+        "passlabo-writing"
+      ],
+      "order": 13,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAlLN-djcWYOXghRQQCgDa5L",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=JCsZZHGck_M",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "R1xdFFQjCzA",
+      "title": "【東大英作文】「まゆつば」の意味がわからなくても解ける！？",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "和訳・英訳・英作文",
+      "seriesIds": [
+        "passlabo-writing"
+      ],
+      "order": 14,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAlLN-djcWYOXghRQQCgDa5L",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=R1xdFFQjCzA",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "ZgDn5YM88tY",
+      "title": "【京大英作文vs東大生】和文英訳の思考過程を大公開！",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "和訳・英訳・英作文",
+      "seriesIds": [
+        "passlabo-writing"
+      ],
+      "order": 15,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAlLN-djcWYOXghRQQCgDa5L",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=ZgDn5YM88tY",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "-cctu0OkbF4",
+      "title": "【阪大英作文vs東大生】思考回路を徹底解説！",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "和訳・英訳・英作文",
+      "seriesIds": [
+        "passlabo-writing"
+      ],
+      "order": 16,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAlLN-djcWYOXghRQQCgDa5L",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=-cctu0OkbF4",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "8gCss42-vYg",
+      "title": "【東北大英作文vs東大生】和文英訳の４つのポイントを全て見せます。",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "和訳・英訳・英作文",
+      "seriesIds": [
+        "passlabo-writing"
+      ],
+      "order": 17,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAlLN-djcWYOXghRQQCgDa5L",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=8gCss42-vYg",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "7b8qkGBZC9g",
+      "title": "【北大英作文vs東大生】差がつく英作文表現の訳し方",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "和訳・英訳・英作文",
+      "seriesIds": [
+        "passlabo-writing"
+      ],
+      "order": 18,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAlLN-djcWYOXghRQQCgDa5L",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=7b8qkGBZC9g",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "QGYu1T9SbRw",
+      "title": "【名大英作文vs東大生】４大論理で英作文を完答せよ。",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "和訳・英訳・英作文",
+      "seriesIds": [
+        "passlabo-writing"
+      ],
+      "order": 19,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAlLN-djcWYOXghRQQCgDa5L",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=QGYu1T9SbRw",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "K6Txg6AzE28",
+      "title": "【九大英作文vs東大生】英作文頻出表現を攻略せよ！",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "和訳・英訳・英作文",
+      "seriesIds": [
+        "passlabo-writing"
+      ],
+      "order": 20,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAlLN-djcWYOXghRQQCgDa5L",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=K6Txg6AzE28",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "9sZy34gbVm8",
+      "title": "【必ず伸びる】英文音読の効果・やり方全て見せます。",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文読解",
+      "seriesIds": [
+        "passlabo-reading"
+      ],
+      "order": 1,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAmqhqt-zCBWZH4UuHe91o_U",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=9sZy34gbVm8",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "sukyiUZd6YE",
+      "title": "英語長文が読めない人、必ず見てください。",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文読解",
+      "seriesIds": [
+        "passlabo-reading"
+      ],
+      "order": 2,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAmqhqt-zCBWZH4UuHe91o_U",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=sukyiUZd6YE",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "_ji39wSaz1U",
+      "title": "【忘れてない？】長文読解で必須の英語構文10選を総復習",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文読解",
+      "seriesIds": [
+        "passlabo-reading"
+      ],
+      "order": 4,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAmqhqt-zCBWZH4UuHe91o_U",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=_ji39wSaz1U",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "hgvM3N1osbM",
+      "title": "共通テスト英語対策｜factとopinion問題の攻略【英語速読術】",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文読解",
+      "seriesIds": [
+        "passlabo-reading"
+      ],
+      "order": 5,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAmqhqt-zCBWZH4UuHe91o_U",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=hgvM3N1osbM",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "uaHMozqdbj0",
+      "title": "【スラスラ読める!!】英文読解テク４選←今すぐ使える（前編）",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文読解",
+      "seriesIds": [
+        "passlabo-reading"
+      ],
+      "order": 6,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAmqhqt-zCBWZH4UuHe91o_U",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=uaHMozqdbj0",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "193NBtdEmwc",
+      "title": "【必ず伸びる】英文速読のコツ、見せます。",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文読解",
+      "seriesIds": [
+        "passlabo-reading"
+      ],
+      "order": 7,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAmqhqt-zCBWZH4UuHe91o_U",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=193NBtdEmwc",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "biaebstLzUk",
+      "title": "【知らなきゃ損】コロンとセミコロンって何のためにあるの？←2つの差も解説！",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文読解",
+      "seriesIds": [
+        "passlabo-reading"
+      ],
+      "order": 8,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAmqhqt-zCBWZH4UuHe91o_U",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=biaebstLzUk",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "yEr0U2Tn86Y",
+      "title": "【保存版】今すぐ使える英文読解テク２選←「ココ!!筆者の主張だ」",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文読解",
+      "seriesIds": [
+        "passlabo-reading"
+      ],
+      "order": 9,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAmqhqt-zCBWZH4UuHe91o_U",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=yEr0U2Tn86Y",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "2u9pskb7cMM",
+      "title": "【東大生おすすめ】英文解釈の具体的な解き方を基礎レベルから解説！（英文解釈の技術１００）",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文読解",
+      "seriesIds": [
+        "passlabo-reading"
+      ],
+      "order": 10,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAmqhqt-zCBWZH4UuHe91o_U",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=2u9pskb7cMM",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "d7UEh6dkS2M",
+      "title": "【１５秒で解ける？】東大の要約問題や長文読解にも繋がる！英文解釈の技術を基礎レベルで解説してみた",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文読解",
+      "seriesIds": [
+        "passlabo-reading"
+      ],
+      "order": 11,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAmqhqt-zCBWZH4UuHe91o_U",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=d7UEh6dkS2M",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "UdS59CZlRCI",
+      "title": "【長文読解の読み方とコツ】東大医学部生がスパッと解けるテクニックを披露!!",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文読解",
+      "seriesIds": [
+        "passlabo-reading"
+      ],
+      "order": 12,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAmqhqt-zCBWZH4UuHe91o_U",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=UdS59CZlRCI",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "BrpqS4IlEK0",
+      "title": "【東大入試でも出題！】ゴミ（全６種）←英語で言えるかな？（大学受験　英文解釈）",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文読解",
+      "seriesIds": [
+        "passlabo-reading"
+      ],
+      "order": 13,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAmqhqt-zCBWZH4UuHe91o_U",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=BrpqS4IlEK0",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "l5DjJDaiA6Q",
+      "title": "偏差値４５の英文に東大医学部が悩まされる？！意外と難しい神奈川の国立大学？！",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文読解",
+      "seriesIds": [
+        "passlabo-reading"
+      ],
+      "order": 14,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAmqhqt-zCBWZH4UuHe91o_U",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=l5DjJDaiA6Q",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "0cP1H712jPQ",
+      "title": "【英文読解】スラスラ読むにはこうすべし!!",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文読解",
+      "seriesIds": [
+        "passlabo-reading"
+      ],
+      "order": 15,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAmqhqt-zCBWZH4UuHe91o_U",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=0cP1H712jPQ",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "XEIFy7L7Brk",
+      "title": "【英語長文】論理読解のススメ（精読×速読）",
+      "channelId": "passlabo",
+      "subjectId": "english",
+      "level": "高校・大学受験",
+      "unit": "英文読解",
+      "seriesIds": [
+        "passlabo-reading"
+      ],
+      "order": 16,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLYlAoLxVWOAmqhqt-zCBWZH4UuHe91o_U",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UC7ly4Q6oT3rcdOKQcQVvMgg",
+      "watchUrl": "https://www.youtube.com/watch?v=XEIFy7L7Brk",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "-zc3v2L1dGM",
+      "title": "二次関数で差をつけろ【完全網羅】",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "二次関数",
+      "seriesIds": [
+        "stardy-complete"
+      ],
+      "order": 1,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPle_oAR1ojLTuV_nPhlHuLpy",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=-zc3v2L1dGM",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "zNcL6BNinmA",
+      "title": "これで微積が解けないわけない【保存版】",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "微分・積分",
+      "seriesIds": [
+        "stardy-complete"
+      ],
+      "order": 2,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPle_oAR1ojLTuV_nPhlHuLpy",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=zNcL6BNinmA",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "8wHABAo0Jbw",
+      "title": "【基礎〜応用網羅】1時間で三角関数は完全マスターできる！",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "三角関数",
+      "seriesIds": [
+        "stardy-complete"
+      ],
+      "order": 3,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPle_oAR1ojLTuV_nPhlHuLpy",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=8wHABAo0Jbw",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "tPdCHUqpuy0",
+      "title": "【完全保存版】軌跡・領域は全部パターン化したら絶対に解ける",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "軌跡・領域",
+      "seriesIds": [
+        "stardy-complete"
+      ],
+      "order": 4,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPle_oAR1ojLTuV_nPhlHuLpy",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=tPdCHUqpuy0",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "qpuhodUiMvM",
+      "title": "ベクトルを瞬殺して受験に打ち勝て",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "ベクトル",
+      "seriesIds": [
+        "stardy-complete"
+      ],
+      "order": 5,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPle_oAR1ojLTuV_nPhlHuLpy",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=qpuhodUiMvM",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "0KmXiVjSUmo",
+      "title": "【永久保存版】共通テスト頻出の積分テクニックを完全網羅！",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "微分・積分",
+      "seriesIds": [
+        "stardy-complete"
+      ],
+      "order": 6,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPle_oAR1ojLTuV_nPhlHuLpy",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=0KmXiVjSUmo",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "kBZcOC4Csv8",
+      "title": "群数列は絶対に解ける【全年度徹底解説】",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "数列",
+      "seriesIds": [
+        "stardy-complete"
+      ],
+      "order": 7,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPle_oAR1ojLTuV_nPhlHuLpy",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=kBZcOC4Csv8",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "x6UfvxWWuJA",
+      "title": "【全パターン網羅】数3の積分で無双して、ライバルに差をつけろ！",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "微分・積分",
+      "seriesIds": [
+        "stardy-complete"
+      ],
+      "order": 8,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPle_oAR1ojLTuV_nPhlHuLpy",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=x6UfvxWWuJA",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "xKLK7-EHblU",
+      "title": "センター数2Bの要領をつかみ切る！【2019年徹底解説】",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "数学総合",
+      "seriesIds": [
+        "stardy-complete"
+      ],
+      "order": 9,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPle_oAR1ojLTuV_nPhlHuLpy",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=xKLK7-EHblU",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "J8_PzOyi_fU",
+      "title": "ベクトルは必ず得点源にすべし【共通テスト】",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "ベクトル",
+      "seriesIds": [
+        "stardy-complete"
+      ],
+      "order": 10,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPle_oAR1ojLTuV_nPhlHuLpy",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=J8_PzOyi_fU",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "tKHwUwHAtzM",
+      "title": "\"二次関数\"がすらすら解けるようになります【永久保存版】",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "二次関数",
+      "seriesIds": [
+        "stardy-complete"
+      ],
+      "order": 11,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPle_oAR1ojLTuV_nPhlHuLpy",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=tKHwUwHAtzM",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "dedpYxMmdgs",
+      "title": "\"図形の性質\"がみるみる解けるようになる動画【永久保存版】",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "図形の性質",
+      "seriesIds": [
+        "stardy-complete"
+      ],
+      "order": 12,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPle_oAR1ojLTuV_nPhlHuLpy",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=dedpYxMmdgs",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "GMXmpN2V9lk",
+      "title": "“三角関数”はこの動画1本でマスターできます【永久保存版】",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "三角関数",
+      "seriesIds": [
+        "stardy-complete"
+      ],
+      "order": 13,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPle_oAR1ojLTuV_nPhlHuLpy",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=GMXmpN2V9lk",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "-UElWXaaPAU",
+      "title": "微積分は得点源にできる【永久保存版】",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "微分・積分",
+      "seriesIds": [
+        "stardy-complete"
+      ],
+      "order": 14,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPle_oAR1ojLTuV_nPhlHuLpy",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=-UElWXaaPAU",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "4WNAH5wlvf4",
+      "title": "【学ばないと大損】合同式(mod)を0から完全解説！整数問題に革命が起きる。",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "整数",
+      "seriesIds": [
+        "stardy-complete"
+      ],
+      "order": 15,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPle_oAR1ojLTuV_nPhlHuLpy",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=4WNAH5wlvf4",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "myxPzge37H4",
+      "title": "漸化式がゼロから\"必ず\"解けるようになる動画【初学者向け】",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "数列・漸化式",
+      "seriesIds": [
+        "stardy-complete"
+      ],
+      "order": 16,
+      "role": "exam",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPle_oAR1ojLTuV_nPhlHuLpy",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=myxPzge37H4",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "nxyG3pnWpOA",
+      "title": "軌跡・領域の初めの一歩はこれ！【軌跡・領域#1】",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "軌跡・領域",
+      "seriesIds": [
+        "stardy-locus"
+      ],
+      "order": 1,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPldNDB2I46XNSal1NKsYm0L-",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=nxyG3pnWpOA",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "-4oEDkUv9NU",
+      "title": "軌跡・領域でパラメータが出てきたら消去！！【軌跡・領域#2】",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "軌跡・領域",
+      "seriesIds": [
+        "stardy-locus"
+      ],
+      "order": 2,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPldNDB2I46XNSal1NKsYm0L-",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=-4oEDkUv9NU",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "g4Ry9IPOZXI",
+      "title": "本質は「存在条件」にあり！【軌跡・領域編#3】",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "軌跡・領域",
+      "seriesIds": [
+        "stardy-locus"
+      ],
+      "order": 3,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPldNDB2I46XNSal1NKsYm0L-",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=g4Ry9IPOZXI",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "WdIYNNM4Fwc",
+      "title": "【東大医学部流】点数に直結する同値性講義",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "論理と証明",
+      "seriesIds": [
+        "stardy-locus"
+      ],
+      "order": 4,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPldNDB2I46XNSal1NKsYm0L-",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=WdIYNNM4Fwc",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "F1xuPoBvPrE",
+      "title": "これで東大の軌跡領域ですら余裕な件【軌跡領域#4】",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "軌跡・領域",
+      "seriesIds": [
+        "stardy-locus"
+      ],
+      "order": 5,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPldNDB2I46XNSal1NKsYm0L-",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=F1xuPoBvPrE",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    },
+    {
+      "id": "XabGORZsHX4",
+      "title": "軌跡領域完全制覇【順像法】",
+      "channelId": "stardy",
+      "subjectId": "mathematics",
+      "level": "高校・大学受験",
+      "unit": "軌跡・領域",
+      "seriesIds": [
+        "stardy-locus"
+      ],
+      "order": 6,
+      "role": "reinforcement",
+      "sourceUrl": "https://www.youtube.com/playlist?list=PLcsZc78vRPldNDB2I46XNSal1NKsYm0L-",
+      "verification": "official-playlist-metadata",
+      "youtubeChannelId": "UCySNyY7ZlIyIeQ0T_8ah4Vg",
+      "watchUrl": "https://www.youtube.com/watch?v=XabGORZsHX4",
+      "verifiedAt": "2026-10-12",
+      "curriculumStatus": "unspecified"
+    }
+  ],
+  "collectionNotes": {
+    "sources": "Public YouTube playlist initial data. PASSLABO playlist identity cross-checked against its official note; Stardy playlists extracted from the official channel playlists tab.",
+    "verifiedFields": [
+      "youtube-video-id",
+      "official-title",
+      "youtube-channel-id",
+      "playlist-membership",
+      "playlist-order"
+    ],
+    "classification": "Unit/role assignments are derived from official titles and playlist labels, not a claim of individual playback/content review.",
+    "excluded": [
+      {
+        "id": "aNPW7qG6Mt8",
+        "reason": "Chemistry is outside the assigned mathematics/English supplement."
+      },
+      {
+        "id": "14k_cXxxLb8",
+        "reason": "Chemistry is outside the assigned mathematics/English supplement."
+      },
+      {
+        "id": "L5ZX_8BkAgw",
+        "reason": "Short-form clips excluded from primary learning courses."
+      },
+      {
+        "id": "PgI-aX1AEmI",
+        "reason": "Short-form clips excluded from primary learning courses."
+      },
+      {
+        "id": "ss9oBzin9GE",
+        "reason": "Short-form clips excluded from primary learning courses."
+      }
+    ],
+    "pending": []
+  }
+}

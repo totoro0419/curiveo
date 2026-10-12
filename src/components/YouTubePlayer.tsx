@@ -1,0 +1,648 @@
+import { useEffect, useRef, useState } from "react";
+import {
+  ExternalLink,
+  Maximize,
+  Minimize,
+  Pause,
+  Play,
+  RotateCcw,
+  Volume2,
+  VolumeX,
+  WifiOff,
+} from "lucide-react";
+import type { LearningPatch, LearningRecord, Video } from "../types";
+
+interface Player {
+  destroy(): void;
+  getCurrentTime(): number;
+  getDuration(): number;
+  getPlayerState(): number;
+  playVideo(): void;
+  pauseVideo(): void;
+  seekTo(seconds: number, allowSeekAhead: boolean): void;
+  getPlaybackRate(): number;
+  getAvailablePlaybackRates(): number[];
+  setPlaybackRate(rate: number): void;
+  getVolume(): number;
+  setVolume(volume: number): void;
+  isMuted(): boolean;
+  mute(): void;
+  unMute(): void;
+}
+interface YouTubeApi {
+  Player: new (
+    target: HTMLIFrameElement,
+    options: Record<string, unknown>,
+  ) => Player;
+}
+declare global {
+  interface Window {
+    YT?: YouTubeApi;
+    onYouTubeIframeAPIReady?: () => void;
+  }
+}
+
+let apiPromise: Promise<YouTubeApi> | null = null;
+function loadPlayerApi(): Promise<YouTubeApi> {
+  if (window.YT?.Player) return Promise.resolve(window.YT);
+  if (apiPromise) return apiPromise;
+  apiPromise = new Promise((resolve, reject) => {
+    const previous = window.onYouTubeIframeAPIReady;
+    const script = document.createElement("script");
+    let settled = false;
+    const finish = (error?: Error) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timeout);
+      window.onYouTubeIframeAPIReady = previous;
+      if (error) {
+        apiPromise = null;
+        script.remove();
+        reject(error);
+      } else if (window.YT?.Player) resolve(window.YT);
+      else {
+        apiPromise = null;
+        reject(new Error("YouTubeプレーヤーを読み込めませんでした。"));
+      }
+    };
+    const timeout = window.setTimeout(
+      () =>
+        finish(
+          new Error(
+            "YouTubeへの接続に時間がかかっています。再試行してください。",
+          ),
+        ),
+      15000,
+    );
+    window.onYouTubeIframeAPIReady = () => {
+      try {
+        previous?.();
+      } finally {
+        finish();
+      }
+    };
+    script.src = "https://www.youtube.com/iframe_api";
+    script.async = true;
+    script.onerror = () =>
+      finish(
+        new Error("YouTubeに接続できませんでした。接続を確認してください。"),
+      );
+    document.head.append(script);
+  });
+  return apiPromise;
+}
+
+interface Playback {
+  time: number;
+  duration: number;
+  state: number;
+  rate: number;
+  rates: number[];
+  volume: number;
+  muted: boolean;
+}
+const initialPlayback: Playback = {
+  time: 0,
+  duration: 0,
+  state: -1,
+  rate: 1,
+  rates: [1],
+  volume: 100,
+  muted: false,
+};
+function formatTime(seconds: number): string {
+  const value = Math.max(0, Math.floor(seconds || 0));
+  const minutes = Math.floor(value / 60);
+  return `${minutes}:${String(value % 60).padStart(2, "0")}`;
+}
+
+export function YouTubePlayer({
+  video,
+  record,
+  save,
+  initialSeek,
+}: {
+  video: Video;
+  record: LearningRecord;
+  save: (id: string, patch: LearningPatch) => Promise<void>;
+  initialSeek?: number;
+}) {
+  const root = useRef<HTMLDivElement>(null);
+  const container = useRef<HTMLDivElement>(null);
+  const playerRef = useRef<Player | null>(null);
+  const saveRef = useRef(save);
+  const recordRef = useRef(record);
+  const positionRef = useRef(record.playbackEnded ? 0 : record.position);
+  const mountedVideoId = useRef(video.id);
+  const initialSeekRef = useRef(initialSeek);
+  const pendingSeek = useRef<number | undefined>(initialSeek);
+  const seeking = useRef(false);
+  const savePositionRef = useRef<
+    (ended?: boolean, forcedPosition?: number) => void
+  >(() => {});
+  const lastVolume = useRef(100);
+  const [playback, setPlayback] = useState(initialPlayback);
+  const [seekPreview, setSeekPreview] = useState<number | null>(null);
+  const [state, setState] = useState<"loading" | "ready" | "error">("loading");
+  const [error, setError] = useState("");
+  const [notice, setNotice] = useState("");
+  const [saveError, setSaveError] = useState("");
+  const [attempt, setAttempt] = useState(0);
+  const [fullscreen, setFullscreen] = useState(false);
+  const [offline, setOffline] = useState(!navigator.onLine);
+  saveRef.current = save;
+  recordRef.current = record;
+  initialSeekRef.current = initialSeek;
+
+  useEffect(() => {
+    const update = () => setOffline(!navigator.onLine);
+    const onFullscreen = () =>
+      setFullscreen(document.fullscreenElement === root.current);
+    window.addEventListener("online", update);
+    window.addEventListener("offline", update);
+    document.addEventListener("fullscreenchange", onFullscreen);
+    return () => {
+      window.removeEventListener("online", update);
+      window.removeEventListener("offline", update);
+      document.removeEventListener("fullscreenchange", onFullscreen);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!container.current) return;
+    let disposed = false;
+    let player: Player | null = null;
+    let ready = false;
+    let hasStarted = false;
+    let timer: ReturnType<typeof setInterval> | undefined;
+    let readinessTimer: ReturnType<typeof setTimeout> | undefined;
+    let lastSavedAt = 0;
+    let lastSavedPosition = -1;
+    if (mountedVideoId.current !== video.id) {
+      mountedVideoId.current = video.id;
+      positionRef.current = recordRef.current.playbackEnded
+        ? 0
+        : recordRef.current.position;
+    }
+    pendingSeek.current = initialSeekRef.current ?? positionRef.current;
+    setState("loading");
+    setError("");
+    setNotice("");
+    setSaveError("");
+    setPlayback({ ...initialPlayback, time: pendingSeek.current ?? 0 });
+    setSeekPreview(null);
+    seeking.current = false;
+
+    const write = (patch: LearningPatch) => {
+      void saveRef
+        .current(video.id, patch)
+        .then(() => {
+          if (!disposed) setSaveError("");
+        })
+        .catch(() => {
+          lastSavedPosition = -1;
+          if (!disposed)
+            setSaveError(
+              "再生位置を保存できませんでした。端末の空き容量を確認してください。",
+            );
+        });
+    };
+    const persist = (ended = false, forcedPosition?: number) => {
+      if (!ready || !player) return;
+      const duration = Math.max(0, player.getDuration() || 0);
+      const position = Math.max(
+        0,
+        Math.min(duration, forcedPosition ?? player.getCurrentTime() ?? 0),
+      );
+      // A loading/cued player reporting zero must never erase a saved resume position.
+      if (
+        !duration ||
+        (!position && !hasStarted && !ended && forcedPosition === undefined)
+      )
+        return;
+      positionRef.current = position;
+      if (
+        Math.floor(position) === lastSavedPosition &&
+        !ended &&
+        forcedPosition === undefined
+      )
+        return;
+      lastSavedPosition = Math.floor(position);
+      lastSavedAt = Date.now();
+      write({
+        position: Math.floor(position),
+        duration: Math.floor(duration),
+        playbackEnded: ended,
+      });
+    };
+    savePositionRef.current = persist;
+    const syncControls = () => {
+      if (disposed || !ready || !player) return;
+      const duration = Math.max(0, player.getDuration() || 0);
+      const time = Math.max(0, player.getCurrentTime() || 0);
+      if (!seeking.current && (hasStarted || time > 0))
+        positionRef.current = time;
+      const availableRates = player.getAvailablePlaybackRates();
+      setPlayback((current) => ({
+        time: seeking.current ? current.time : time,
+        duration,
+        state: player!.getPlayerState(),
+        rate: player!.getPlaybackRate() || 1,
+        rates: availableRates?.length ? availableRates : [1],
+        volume: player!.getVolume(),
+        muted: player!.isMuted(),
+      }));
+    };
+    const onHidden = () => {
+      if (document.hidden) persist();
+    };
+    const onPageHide = () => persist();
+    document.addEventListener("visibilitychange", onHidden);
+    window.addEventListener("pagehide", onPageHide);
+    loadPlayerApi()
+      .then((api) => {
+        if (disposed || !container.current) return;
+        const iframe = document.createElement("iframe");
+        iframe.title = video.title;
+        iframe.referrerPolicy = "strict-origin-when-cross-origin";
+        iframe.allow =
+          "autoplay; encrypted-media; picture-in-picture; fullscreen; accelerometer; gyroscope; web-share";
+        iframe.allowFullscreen = true;
+        const params = new URLSearchParams({
+          enablejsapi: "1",
+          controls: "0",
+          playsinline: "1",
+          autoplay: "0",
+          origin: window.location.origin,
+          rel: "0",
+          hl: "ja",
+        });
+        iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(video.id)}?${params}`;
+        container.current.replaceChildren(iframe);
+        readinessTimer = setTimeout(() => {
+          if (!disposed) {
+            setState("error");
+            setError(
+              "YouTubeプレーヤーに接続できませんでした。再試行するか、YouTubeで開いてください。",
+            );
+          }
+        }, 20000);
+        player = new api.Player(iframe, {
+          width: "100%",
+          height: "100%",
+          events: {
+            onReady: (event: { target: Player }) => {
+              if (disposed) return;
+              player = event.target;
+              ready = true;
+              playerRef.current = player;
+              clearTimeout(readinessTimer);
+              setState("ready");
+              const resume = pendingSeek.current;
+              if (resume !== undefined && resume > 0)
+                player.seekTo(resume, true);
+              syncControls();
+              timer = setInterval(() => {
+                syncControls();
+                if (
+                  player?.getPlayerState() === 1 &&
+                  Date.now() - lastSavedAt >= 10000
+                )
+                  persist();
+              }, 500);
+            },
+            onStateChange: (event: { data: number }) => {
+              if (disposed || !ready) return;
+              if (event.data === 1) {
+                hasStarted = true;
+                setNotice("");
+                write({
+                  lastViewedAt: Date.now(),
+                  playbackEnded: false,
+                  ...(recordRef.current.status === "unstarted"
+                    ? { status: "learning" as const }
+                    : {}),
+                });
+              }
+              if (event.data === 0) persist(true);
+              if (event.data === 2) persist();
+              syncControls();
+            },
+            onPlaybackRateChange: syncControls,
+            onAutoplayBlocked: () => {
+              if (!disposed)
+                setNotice(
+                  "ブラウザが再生を保留しました。再生ボタンをもう一度押してください。",
+                );
+            },
+            onError: (event: { data: number }) => {
+              if (disposed) return;
+              clearTimeout(readinessTimer);
+              setState("error");
+              setError(
+                event.data === 101 || event.data === 150
+                  ? "この動画は埋め込み再生が許可されていません。YouTubeで開いてください。"
+                  : event.data === 153
+                    ? "YouTubeが再生元を確認できませんでした。再試行するか、YouTubeで開いてください。"
+                    : "この動画を再生できませんでした。公開状態や接続を確認してください。",
+              );
+            },
+          },
+        });
+      })
+      .catch((reason: unknown) => {
+        if (disposed) return;
+        setState("error");
+        setError(
+          reason instanceof Error
+            ? reason.message
+            : "YouTubeプレーヤーを読み込めませんでした。",
+        );
+      });
+    return () => {
+      persist();
+      disposed = true;
+      clearInterval(timer);
+      clearTimeout(readinessTimer);
+      document.removeEventListener("visibilitychange", onHidden);
+      window.removeEventListener("pagehide", onPageHide);
+      playerRef.current = null;
+      savePositionRef.current = () => {};
+      player?.destroy();
+    };
+    // Learning updates never recreate the iframe. Only changing the video or retrying does.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [video.id, attempt]);
+
+  useEffect(() => {
+    if (initialSeek === undefined) return;
+    pendingSeek.current = Math.max(0, initialSeek);
+    const player = playerRef.current;
+    if (!player) return;
+    const time = Math.max(
+      0,
+      Math.min(player.getDuration() || initialSeek, initialSeek),
+    );
+    player.seekTo(time, true);
+    positionRef.current = time;
+    setPlayback((current) => ({ ...current, time }));
+    savePositionRef.current(false, time);
+  }, [initialSeek]);
+
+  const seekTo = (seconds: number, commit: boolean) => {
+    const player = playerRef.current;
+    if (!player || state !== "ready" || !playback.duration) return;
+    const time = Math.max(0, Math.min(playback.duration, seconds));
+    player.seekTo(time, commit);
+    positionRef.current = time;
+    setPlayback((current) => ({ ...current, time }));
+    setSeekPreview(commit ? null : time);
+    if (commit) {
+      seeking.current = false;
+      savePositionRef.current(false, time);
+    }
+  };
+  const togglePlayback = () => {
+    const player = playerRef.current;
+    if (!player || state !== "ready") return;
+    if ([1, 3].includes(player.getPlayerState())) player.pauseVideo();
+    else player.playVideo();
+  };
+  const changeVolume = (volume: number) => {
+    const player = playerRef.current;
+    if (!player || state !== "ready") return;
+    player.setVolume(volume);
+    if (volume > 0) {
+      lastVolume.current = volume;
+      player.unMute();
+    }
+    setPlayback((current) => ({
+      ...current,
+      volume,
+      muted: volume > 0 ? false : current.muted,
+    }));
+  };
+  const toggleMute = () => {
+    const player = playerRef.current;
+    if (!player || state !== "ready") return;
+    if (player.isMuted() || player.getVolume() === 0) {
+      player.unMute();
+      if (!player.getVolume()) player.setVolume(lastVolume.current);
+      setPlayback((current) => ({
+        ...current,
+        muted: false,
+        volume: player.getVolume(),
+      }));
+    } else {
+      player.mute();
+      setPlayback((current) => ({ ...current, muted: true }));
+    }
+  };
+  const toggleFullscreen = async () => {
+    try {
+      if (document.fullscreenElement === root.current)
+        await document.exitFullscreen();
+      else if (root.current?.requestFullscreen)
+        await root.current.requestFullscreen();
+      else setNotice("このブラウザでは全画面表示を利用できません。");
+    } catch {
+      setNotice(
+        "全画面表示を開始できませんでした。ブラウザの設定を確認してください。",
+      );
+    }
+  };
+  const active = state === "ready";
+  const playing = [1, 3].includes(playback.state);
+  const displayTime = seekPreview ?? playback.time;
+  const muted = playback.muted || playback.volume === 0;
+  const youtubeUrl = `https://www.youtube.com/watch?v=${encodeURIComponent(video.id)}&t=${Math.floor(displayTime)}s`;
+
+  return (
+    <div className="player-shell" ref={root}>
+      <div
+        className="player-frame"
+        ref={container}
+        style={{ aspectRatio: "16 / 9", minHeight: 200 }}
+      />
+      <div className="player-controls">
+        <div className="player-seek">
+          <span className="player-time">{formatTime(displayTime)}</span>
+          <input
+            type="range"
+            min={0}
+            max={playback.duration || 1}
+            step={1}
+            value={Math.min(
+              displayTime,
+              playback.duration || Math.max(displayTime, 1),
+            )}
+            disabled={!active || !playback.duration}
+            aria-label="再生位置"
+            aria-valuetext={`${formatTime(displayTime)} / ${formatTime(playback.duration)}`}
+            onPointerDown={() => {
+              seeking.current = true;
+            }}
+            onChange={(event) =>
+              seekTo(Number(event.currentTarget.value), false)
+            }
+            onPointerUp={(event) =>
+              seekTo(Number(event.currentTarget.value), true)
+            }
+            onPointerCancel={(event) =>
+              seekTo(Number(event.currentTarget.value), true)
+            }
+            onKeyUp={(event) => {
+              if (
+                [
+                  "ArrowLeft",
+                  "ArrowRight",
+                  "ArrowUp",
+                  "ArrowDown",
+                  "Home",
+                  "End",
+                  "PageUp",
+                  "PageDown",
+                ].includes(event.key)
+              )
+                seekTo(Number(event.currentTarget.value), true);
+            }}
+            onBlur={(event) => {
+              if (seekPreview !== null)
+                seekTo(Number(event.currentTarget.value), true);
+            }}
+          />
+          <span className="player-time">{formatTime(playback.duration)}</span>
+        </div>
+        <div className="player-control-row">
+          <button
+            type="button"
+            className="icon-button"
+            disabled={!active || !playback.duration}
+            onClick={() => seekTo(playback.time - 10, true)}
+            aria-label="10秒戻る"
+            title="10秒戻る"
+          >
+            <RotateCcw size={20} />
+            <span className="skip-seconds">10</span>
+          </button>
+          <button
+            type="button"
+            className="button player-play"
+            disabled={!active}
+            onClick={togglePlayback}
+            aria-label={playing ? "一時停止" : "再生"}
+          >
+            {playing ? <Pause size={20} /> : <Play size={20} />}
+            <span>{playing ? "一時停止" : "再生"}</span>
+          </button>
+          <button
+            type="button"
+            className="icon-button"
+            disabled={!active || !playback.duration}
+            onClick={() => seekTo(playback.time + 10, true)}
+            aria-label="10秒進む"
+            title="10秒進む"
+          >
+            <RotateCcw size={20} style={{ transform: "scaleX(-1)" }} />
+            <span className="skip-seconds">10</span>
+          </button>
+          <label className="player-rate">
+            <span className="visually-hidden">再生速度</span>
+            <select
+              value={playback.rate}
+              disabled={!active}
+              onChange={(event) =>
+                playerRef.current?.setPlaybackRate(
+                  Number(event.currentTarget.value),
+                )
+              }
+            >
+              {playback.rates.map((rate) => (
+                <option key={rate} value={rate}>
+                  {rate}×
+                </option>
+              ))}
+            </select>
+          </label>
+          <div className="player-volume">
+            <button
+              type="button"
+              className="icon-button"
+              disabled={!active}
+              onClick={toggleMute}
+              aria-label={muted ? "ミュート解除" : "ミュート"}
+              aria-pressed={muted}
+            >
+              {muted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+            </button>
+            <input
+              type="range"
+              min={0}
+              max={100}
+              step={1}
+              value={muted ? 0 : playback.volume}
+              disabled={!active}
+              aria-label="音量"
+              aria-valuetext={`${muted ? 0 : playback.volume}%`}
+              onChange={(event) =>
+                changeVolume(Number(event.currentTarget.value))
+              }
+            />
+          </div>
+          <button
+            type="button"
+            className="icon-button player-fullscreen"
+            onClick={() => {
+              void toggleFullscreen();
+            }}
+            aria-label={fullscreen ? "全画面表示を終了" : "全画面表示"}
+            title={fullscreen ? "全画面表示を終了" : "全画面表示"}
+          >
+            {fullscreen ? <Minimize size={20} /> : <Maximize size={20} />}
+          </button>
+        </div>
+      </div>
+      {state === "loading" && (
+        <p className="notice" role="status">
+          YouTubeプレーヤーを読み込んでいます…
+        </p>
+      )}
+      {state === "error" && (
+        <div className="notice player-error" role="alert">
+          <p>{error}</p>
+          <button
+            type="button"
+            className="button"
+            onClick={() => setAttempt((current) => current + 1)}
+          >
+            <RotateCcw size={16} />
+            再試行
+          </button>
+        </div>
+      )}
+      {offline && (
+        <p className="notice" role="status">
+          <WifiOff size={16} />
+          オフラインです。動画の再生には通信が必要です。学習記録は端末に保存します。
+        </p>
+      )}
+      {notice && (
+        <p className="notice" role="status">
+          {notice}
+        </p>
+      )}
+      {saveError && (
+        <p className="notice" role="alert">
+          {saveError}
+        </p>
+      )}
+      <div className="player-footer">
+        <span>再生位置は自動保存</span>
+        <a href={youtubeUrl} target="_blank" rel="noopener noreferrer">
+          YouTubeで開く
+          <ExternalLink size={14} />
+        </a>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,73 @@
+import raw from "./data/catalog.json";
+import type { Catalog, Video, LearningRecord } from "./types";
+export const catalog = raw as Catalog;
+export const videoMap = new Map(catalog.videos.map((v) => [v.id, v]));
+export const unitMap = new Map(catalog.units.map((u) => [u.id, u]));
+export const seriesMap = new Map(catalog.series.map((s) => [s.id, s]));
+export const channelMap = new Map(catalog.channels.map((c) => [c.id, c]));
+export const subjectMap = new Map(catalog.subjects.map((s) => [s.id, s]));
+export const roleLabels = {
+  core: "基礎授業",
+  reinforcement: "理解補強",
+  exam: "問題演習",
+  advanced: "発展講義",
+};
+export const statusLabels = {
+  unstarted: "未学習",
+  learning: "学習中",
+  completed: "学習済み",
+};
+export function normalize(text: string) {
+  return text
+    .normalize("NFKC")
+    .toLocaleLowerCase("ja")
+    .replace(
+      /[ⅠⅡⅢⅣⅤ]/g,
+      (s) => ({ Ⅰ: "i", Ⅱ: "ii", Ⅲ: "iii", Ⅳ: "iv", Ⅴ: "v" })[s] || s,
+    )
+    .replace(/\s+/g, " ")
+    .trim();
+}
+const searchIndex = new Map(
+  catalog.videos.map((v) => [
+    v.id,
+    normalize(
+      [
+        v.title,
+        v.level,
+        ...v.unitIds.map((id) => unitMap.get(id)?.name),
+        subjectMap.get(v.subjectId)?.name,
+        channelMap.get(v.channelId)?.name,
+        ...v.seriesIds.map((id) => seriesMap.get(id)?.title),
+        roleLabels[v.role],
+      ].join(" "),
+    ),
+  ]),
+);
+export function searchVideos(query: string, list = catalog.videos) {
+  const terms = normalize(query).split(" ").filter(Boolean);
+  return terms.length
+    ? list.filter((v) => terms.every((t) => searchIndex.get(v.id)?.includes(t)))
+    : list;
+}
+export function progress(
+  list: Video[],
+  records: Record<string, LearningRecord>,
+) {
+  const ids = [...new Set(list.map((v) => v.id))];
+  const completed = ids.filter(
+    (id) => records[id]?.status === "completed",
+  ).length;
+  return {
+    total: ids.length,
+    completed,
+    percent: ids.length ? Math.round((100 * completed) / ids.length) : 0,
+  };
+}
+export function time(seconds: number) {
+  const s = Math.max(0, Math.floor(seconds));
+  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+}
+export function videoHref(v: Video, seriesId?: string) {
+  return `#/watch/${v.id}${seriesId ? `?series=${encodeURIComponent(seriesId)}` : ""}`;
+}

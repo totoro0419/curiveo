@@ -1,0 +1,3873 @@
+{
+  "series": [
+    {
+      "id": "tadayobi-physics-mechanics",
+      "title": "【物理】基本完成講座 — 力学",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理・物理基礎",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "curriculum": "not-confirmed"
+    },
+    {
+      "id": "tadayobi-physics-thermal",
+      "title": "【物理】基本完成講座 — 熱力学",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理・物理基礎",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "curriculum": "not-confirmed"
+    },
+    {
+      "id": "tadayobi-physics-waves",
+      "title": "【物理】基本完成講座 — 波動",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理・物理基礎",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "curriculum": "not-confirmed"
+    },
+    {
+      "id": "tadayobi-physics-electromagnetism",
+      "title": "【物理】基本完成講座 — 電磁気学",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理・物理基礎",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "curriculum": "not-confirmed"
+    },
+    {
+      "id": "tadayobi-physics-atomic",
+      "title": "【物理】基本完成講座 — 原子",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理・物理基礎",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "curriculum": "not-confirmed"
+    },
+    {
+      "id": "yobinori-physics-mechanics",
+      "title": "ヨビノリ 高校物理 — 力学",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "curriculum": "not-confirmed"
+    },
+    {
+      "id": "yobinori-physics-thermal",
+      "title": "ヨビノリ 高校物理 — 熱力学",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "curriculum": "not-confirmed"
+    },
+    {
+      "id": "yobinori-physics-waves",
+      "title": "ヨビノリ 高校物理 — 波動",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "curriculum": "not-confirmed"
+    },
+    {
+      "id": "yobinori-physics-atomic",
+      "title": "ヨビノリ 高校物理 — 原子",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "curriculum": "not-confirmed"
+    },
+    {
+      "id": "sekachan-information-basic",
+      "title": "高校情報Ⅰ 基礎講座",
+      "channelId": "sekachan",
+      "subjectId": "information",
+      "level": "情報Ⅰ",
+      "sourceUrl": "https://sekachan.net/info1-basic/",
+      "curriculum": "current"
+    },
+    {
+      "id": "sekachan-information-exercise",
+      "title": "高校情報Ⅰ 共通テスト対策講座",
+      "channelId": "sekachan",
+      "subjectId": "information",
+      "level": "情報Ⅰ",
+      "sourceUrl": "https://sekachan.net/info1-exercise/",
+      "curriculum": "current"
+    },
+    {
+      "id": "sekachan-information-review",
+      "title": "情報Ⅰ 総復習・共通テスト補強",
+      "channelId": "sekachan",
+      "subjectId": "information",
+      "level": "情報Ⅰ",
+      "sourceUrl": "https://sekachan.net/info1-exercise/",
+      "curriculum": "current"
+    }
+  ],
+  "videos": [
+    {
+      "id": "p7GJUg6Wbtw",
+      "title": "【物理基礎】力学【第1講】力の種類 その1",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 1,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=p7GJUg6Wbtw&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=1&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第1講】力の種類 その1",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "Q4DDFqKPGjQ",
+      "title": "【物理基礎】力学【第2講】力の種類 その2",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 2,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=Q4DDFqKPGjQ&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=2&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第2講】力の種類 その2",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "V71_4hQMIac",
+      "title": "【物理基礎】力学【第3講】摩擦力",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 3,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=V71_4hQMIac&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=3&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第3講】摩擦力",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "o6kVd2mqe_w",
+      "title": "【物理基礎】力学【第4講】浮力",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 4,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=o6kVd2mqe_w&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=4&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第4講】浮力",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "vtgy3R36pLE",
+      "title": "【物理】力学【第5講】力のモーメント その１",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 5,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=vtgy3R36pLE&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=1&pp=iAQB",
+      "officialIndexTitle": "【物理】力学【第5講】力のモーメント その１",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "ys7bOSIvwxE",
+      "title": "【物理】力学【第6講】力のモーメント その２",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 6,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=ys7bOSIvwxE&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=2&pp=iAQB",
+      "officialIndexTitle": "【物理】力学【第6講】力のモーメント その２",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "QBLWoArVOE0",
+      "title": "【物理】力学【第7講】重心",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 7,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=QBLWoArVOE0&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=3&pp=iAQB",
+      "officialIndexTitle": "【物理】力学【第7講】重心",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "L0xwyTUAB7Q",
+      "title": "【物理基礎】力学【第8講】速度、変位",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 8,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=L0xwyTUAB7Q&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=5&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第8講】速度、変位",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "0zalMywvAMU",
+      "title": "【物理基礎】力学【第9講】加速度",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 9,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=0zalMywvAMU&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=6&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第9講】加速度",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "MstVYHqT6IA",
+      "title": "【物理基礎】力学【第10講】等加速度直線運動の公式",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 10,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=MstVYHqT6IA&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=7&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第10講】等加速度直線運動の公式",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "nuO7oKy3xAA",
+      "title": "【物理基礎】力学【第11講】ｖ-ｔグラフの利用",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 11,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=nuO7oKy3xAA&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=8&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第11講】ｖ-ｔグラフの利用",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "g6k7oJO8ltU",
+      "title": "【物理基礎】力学【第12講】相対速度",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 12,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=g6k7oJO8ltU&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=9&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第12講】相対速度",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "nXPAlkAmtwQ",
+      "title": "【物理基礎】力学【第13講】運動の法則",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 13,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=nXPAlkAmtwQ&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=10&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第13講】運動の法則",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "ER0QWf_FllQ",
+      "title": "【物理基礎】力学【第14講】作用反作用と力のつり合い",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 14,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=ER0QWf_FllQ&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=11&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第14講】作用反作用と力のつり合い",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "wqIqZ0jJoXQ",
+      "title": "【物理基礎】力学【第15講】１物体の運動方程式",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 15,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=wqIqZ0jJoXQ&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=12&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第15講】１物体の運動方程式",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "yuaFExVd-eQ",
+      "title": "【物理基礎】力学【第16講】２物体の運動方程式",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 16,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=yuaFExVd-eQ&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=13&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第16講】２物体の運動方程式",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "xbe6ax8KfOI",
+      "title": "【物理基礎】力学【第17講】重畳二物体 その１",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 17,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=xbe6ax8KfOI&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=14&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第17講】重畳二物体 その１",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "IfKiJgbM-tI",
+      "title": "【物理基礎】力学【第18講】重畳二物体 その２",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 18,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=IfKiJgbM-tI&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=15&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第18講】重畳二物体 その２",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "g7E4Mtl4lYA",
+      "title": "【物理基礎】力学【第19講】落体の運動と反発係数",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 19,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=g7E4Mtl4lYA&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=16&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第19講】落体の運動と反発係数",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "RijxCCpxQLc",
+      "title": "【物理】力学【第20講】放物運動",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 20,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=RijxCCpxQLc&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=4&pp=iAQB",
+      "officialIndexTitle": "【物理】力学【第20講】放物運動",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "lDGMn7jKCAc",
+      "title": "【物理基礎】力学【第21講】仕事の定義式",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 21,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=lDGMn7jKCAc&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=17&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第21講】仕事の定義式",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "oRzwY3ELTjU",
+      "title": "【物理基礎】力学【第22講】力学的エネルギー保存則 その１",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 22,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=oRzwY3ELTjU&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=18&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第22講】力学的エネルギー保存則 その１",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "TWMbru3K2nE",
+      "title": "【物理基礎】力学【第23講】力学的エネルギー保存則 その２",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 23,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=TWMbru3K2nE&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=19&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第23講】力学的エネルギー保存則 その２",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "RjRKLHVbR3A",
+      "title": "【物理基礎】力学【第24講】力学的エネルギー保存則 その３",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 24,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=RjRKLHVbR3A&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=20&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第24講】力学的エネルギー保存則 その３",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "3Oi35DYsN64",
+      "title": "【物理基礎】力学【第25講】力学的エネルギー保存則の成立条件",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 25,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=3Oi35DYsN64&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=21&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第25講】力学的エネルギー保存則の成立条件",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "iwJwNKLfWpA",
+      "title": "【物理基礎】力学【第26講】摩擦力が仕事をするとき",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 26,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=iwJwNKLfWpA&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=22&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】力学【第26講】摩擦力が仕事をするとき",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "_ewuR0mflIc",
+      "title": "【物理】力学【第27講】力積と運動量",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 27,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=_ewuR0mflIc&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=5&pp=iAQB",
+      "officialIndexTitle": "【物理】力学【第27講】力積と運動量",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "NzowqRqK3f8",
+      "title": "【物理】力学【第28講】運動量保存則 その１",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 28,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=NzowqRqK3f8&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=6&pp=iAQB",
+      "officialIndexTitle": "【物理】力学【第28講】運動量保存則 その１",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "ADKfZOcWnX4",
+      "title": "【物理】力学【第29講】運動量保存則 その２",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 29,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=ADKfZOcWnX4&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=7&pp=iAQB",
+      "officialIndexTitle": "【物理】力学【第29講】運動量保存則 その２",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "Xu1uQwVwsL4",
+      "title": "【物理】力学【第30講】保存則",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 30,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=Xu1uQwVwsL4&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=8&pp=iAQB",
+      "officialIndexTitle": "【物理】力学【第30講】保存則",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "TavVx03B9lY",
+      "title": "【物理】力学【第31講】重心速度",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 31,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=TavVx03B9lY&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=9&pp=iAQB",
+      "officialIndexTitle": "【物理】力学【第31講】重心速度",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "vUrCLo0UjPA",
+      "title": "【物理】力学【第32講】運動量ゼロ型",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 32,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=vUrCLo0UjPA&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=10&pp=iAQB",
+      "officialIndexTitle": "【物理】力学【第32講】運動量ゼロ型",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "L1GW86qh9DQ",
+      "title": "【物理】力学【第33講】慣性力",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 33,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=L1GW86qh9DQ&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=11&pp=iAQB",
+      "officialIndexTitle": "【物理】力学【第33講】慣性力",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "Iqqd5PPuS2E",
+      "title": "【物理】力学【第34講】等速円運動",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 34,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://youtu.be/Iqqd5PPuS2E",
+      "officialIndexTitle": "【物理】力学【第34講】等速円運動",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "wFLS2w4Ms-A",
+      "title": "【物理】力学【第35講】鉛直面内の円運動　その１",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 35,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://youtu.be/wFLS2w4Ms-A",
+      "officialIndexTitle": "【物理】力学【第35講】鉛直面内の円運動 その１",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "YFuKWxvrVm8",
+      "title": "【物理】力学【第36講】鉛直面内の円運動　その２",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 36,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://youtu.be/YFuKWxvrVm8",
+      "officialIndexTitle": "【物理】力学【第36講】鉛直面内の円運動 その２",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "WDyTTINWrdQ",
+      "title": "【物理】力学【第37講】万有引力",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 37,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=WDyTTINWrdQ&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=15&pp=iAQB",
+      "officialIndexTitle": "【物理】力学【第37講】万有引力",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "sTlA_1NXWv8",
+      "title": "【物理】力学【第38講】ケプラーの法則",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 38,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=sTlA_1NXWv8&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=16&pp=iAQB",
+      "officialIndexTitle": "【物理】力学【第38講】ケプラーの法則",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "Nup9Z0AODk8",
+      "title": "【物理】力学【第39講】単振動　その１",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 39,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=Nup9Z0AODk8&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=17&pp=iAQB",
+      "officialIndexTitle": "【物理】力学【第39講】単振動 その１",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "Xq5xdUGeMAw",
+      "title": "【物理】力学【第40講】単振動　その２",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 40,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=Xq5xdUGeMAw&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=18&pp=iAQB",
+      "officialIndexTitle": "【物理】力学【第40講】単振動 その２",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "FKkudOrh-RA",
+      "title": "【物理】力学【第41講】単振動　その３",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 41,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=FKkudOrh-RA&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=19&pp=iAQB",
+      "officialIndexTitle": "【物理】力学【第41講】単振動 その３",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "55wy5R9HW50",
+      "title": "【物理】力学【第42講】単振動　その４",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 42,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=55wy5R9HW50&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=20&pp=iAQB",
+      "officialIndexTitle": "【物理】力学【第42講】単振動 その４",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "08NkwAnr9Ok",
+      "title": "【物理】力学【第43講】単振動　その５",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "tadayobi-physics-mechanics"
+      ],
+      "order": 43,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=08NkwAnr9Ok&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=21&pp=iAQB",
+      "officialIndexTitle": "【物理】力学【第43講】単振動 その５",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "_RRaFZ8APyo",
+      "title": "【物理基礎】熱【第1講】比熱と熱容量",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "熱力学",
+      "seriesIds": [
+        "tadayobi-physics-thermal"
+      ],
+      "order": 1,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=_RRaFZ8APyo&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=23&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】熱【第1講】比熱と熱容量",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "mlucwfofidM",
+      "title": "【物理基礎】熱【第2講】熱量保存",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "熱力学",
+      "seriesIds": [
+        "tadayobi-physics-thermal"
+      ],
+      "order": 2,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=mlucwfofidM&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=22&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】熱【第2講】熱量保存",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "jLG8c0QlftE",
+      "title": "【物理】熱【第3講】状態方程式",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "熱力学",
+      "seriesIds": [
+        "tadayobi-physics-thermal"
+      ],
+      "order": 3,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=jLG8c0QlftE&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=23&pp=iAQB",
+      "officialIndexTitle": "【物理】熱【第3講】状態方程式",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "XYeb1cWwbBQ",
+      "title": "【物理】熱【第4講】気体分子運動論",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "熱力学",
+      "seriesIds": [
+        "tadayobi-physics-thermal"
+      ],
+      "order": 4,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=XYeb1cWwbBQ&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=24&pp=iAQB",
+      "officialIndexTitle": "【物理】熱【第4講】気体分子運動論",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "dOk_W3b2zNE",
+      "title": "【物理】熱【第5講】内部エネルギーと熱力学第一法則",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "熱力学",
+      "seriesIds": [
+        "tadayobi-physics-thermal"
+      ],
+      "order": 5,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=dOk_W3b2zNE&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=25&pp=iAQB",
+      "officialIndexTitle": "【物理】熱【第5講】内部エネルギーと熱力学第一法則",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "LyNgVxkuGrk",
+      "title": "【物理】熱【第6講】定積変化と定圧変化",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "熱力学",
+      "seriesIds": [
+        "tadayobi-physics-thermal"
+      ],
+      "order": 6,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=LyNgVxkuGrk&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=26&pp=iAQB",
+      "officialIndexTitle": "【物理】熱【第6講】定積変化と定圧変化",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "IxaNqby0uuk",
+      "title": "【物理】熱【第7講】マイヤーの関係",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "熱力学",
+      "seriesIds": [
+        "tadayobi-physics-thermal"
+      ],
+      "order": 7,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=IxaNqby0uuk&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=27&pp=iAQB",
+      "officialIndexTitle": "【物理】熱【第7講】マイヤーの関係",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "WEafBnv7_-g",
+      "title": "【物理】熱【第8講】等温変化と断熱変化",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "熱力学",
+      "seriesIds": [
+        "tadayobi-physics-thermal"
+      ],
+      "order": 8,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=WEafBnv7_-g&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=28&pp=iAQB",
+      "officialIndexTitle": "【物理】熱【第8講】等温変化と断熱変化",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "iPkWrZIil-c",
+      "title": "【物理】熱【第9講】熱効率",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "熱力学",
+      "seriesIds": [
+        "tadayobi-physics-thermal"
+      ],
+      "order": 9,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=iPkWrZIil-c&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=29&pp=iAQB",
+      "officialIndexTitle": "【物理】熱【第9講】熱効率",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "phL5PcPnUPM",
+      "title": "【物理】熱【第10講】気体の混合",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "熱力学",
+      "seriesIds": [
+        "tadayobi-physics-thermal"
+      ],
+      "order": 10,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=phL5PcPnUPM&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=30&pp=iAQB",
+      "officialIndexTitle": "【物理】熱【第10講】気体の混合",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "eTMMQh71NuE",
+      "title": "【物理基礎】波【第1講】波の基本式",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "波動",
+      "seriesIds": [
+        "tadayobi-physics-waves"
+      ],
+      "order": 1,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=eTMMQh71NuE&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=24&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】波【第1講】波の基本式",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "iCxEdBdFQYQ",
+      "title": "【物理基礎】波【第2講】媒質の振動と波のグラフ",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "波動",
+      "seriesIds": [
+        "tadayobi-physics-waves"
+      ],
+      "order": 2,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=iCxEdBdFQYQ&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=25&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】波【第2講】媒質の振動と波のグラフ",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "-Um1aIJp3go",
+      "title": "【物理】波【第3講】波の式",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "波動",
+      "seriesIds": [
+        "tadayobi-physics-waves"
+      ],
+      "order": 3,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=-Um1aIJp3go&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=31&pp=iAQB",
+      "officialIndexTitle": "【物理】波【第3講】波の式",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "nqEKsfEfTbI",
+      "title": "【物理基礎】波【第4講】縦波と横波、合成波、反射波",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "波動",
+      "seriesIds": [
+        "tadayobi-physics-waves"
+      ],
+      "order": 4,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=nqEKsfEfTbI&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=26&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】波【第4講】縦波と横波、合成波、反射波",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "6aCb3jEt2c0",
+      "title": "【物理基礎】波【第5講】定常波",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "波動",
+      "seriesIds": [
+        "tadayobi-physics-waves"
+      ],
+      "order": 5,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=6aCb3jEt2c0&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=27&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】波【第5講】定常波",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "-mn8iRpVcNc",
+      "title": "【物理基礎】波【第6講】反射、屈折、回折、干渉",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "波動",
+      "seriesIds": [
+        "tadayobi-physics-waves"
+      ],
+      "order": 6,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=-mn8iRpVcNc&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=29&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】波【第6講】反射、屈折、回折、干渉",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "G8Od6Q9-5ZY",
+      "title": "【物理基礎】波【第7講】弦と気柱",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "波動",
+      "seriesIds": [
+        "tadayobi-physics-waves"
+      ],
+      "order": 7,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=G8Od6Q9-5ZY&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=28&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】波【第7講】弦と気柱",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "MZHzV6ukvrg",
+      "title": "【物理】波【第8講】ドップラー効果",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "波動",
+      "seriesIds": [
+        "tadayobi-physics-waves"
+      ],
+      "order": 8,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=MZHzV6ukvrg&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=32&pp=iAQB",
+      "officialIndexTitle": "【物理】波【第8講】ドップラー効果",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "g9UWnaCUT7A",
+      "title": "【物理】波【第9講】光",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "波動",
+      "seriesIds": [
+        "tadayobi-physics-waves"
+      ],
+      "order": 9,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=g9UWnaCUT7A&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=33&pp=iAQB",
+      "officialIndexTitle": "【物理】波【第9講】光",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "1eCBS0-dToA",
+      "title": "【物理】波【第10講】レンズの特徴",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "波動",
+      "seriesIds": [
+        "tadayobi-physics-waves"
+      ],
+      "order": 10,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=1eCBS0-dToA&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=34&pp=iAQB",
+      "officialIndexTitle": "【物理】波【第10講】レンズの特徴",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "ZFrJyQ2dJvw",
+      "title": "【物理】波【第11講】レンズの公式",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "波動",
+      "seriesIds": [
+        "tadayobi-physics-waves"
+      ],
+      "order": 11,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=ZFrJyQ2dJvw&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=35&pp=iAQB",
+      "officialIndexTitle": "【物理】波【第11講】レンズの公式、倍率",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "iJM614nA1d4",
+      "title": "【物理】波【第12講】光の干渉　その1",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "波動",
+      "seriesIds": [
+        "tadayobi-physics-waves"
+      ],
+      "order": 12,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=iJM614nA1d4&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=36&pp=iAQB",
+      "officialIndexTitle": "【物理】波【第12講】光の干渉 その1",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "8XH_MTtlkWI",
+      "title": "【物理】波【第13講】光の干渉　その2",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "波動",
+      "seriesIds": [
+        "tadayobi-physics-waves"
+      ],
+      "order": 13,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=8XH_MTtlkWI&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=37&pp=iAQB",
+      "officialIndexTitle": "【物理】波【第13講】光の干渉 その2",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "xjcX9Jc9-OU",
+      "title": "【物理】電磁気【第1講】クーロンの法則",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 1,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=xjcX9Jc9-OU&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=38&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第1講】クーロンの法則",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "bcyrRDRA56s",
+      "title": "【物理】電磁気【第2講】電場、電位",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 2,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=bcyrRDRA56s&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=39&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁波【第2講】電場、電位",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "kHPQb_ve82U",
+      "title": "【物理】電磁気【第３講】ガウスの法則",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 3,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=kHPQb_ve82U&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=40&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第３講】ガウスの法則",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "_ew6adOQmvo",
+      "title": "【物理】電磁気【第4講】一様電場、荷電粒子の運動",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 4,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=_ew6adOQmvo&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=41&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第4講】一様電場、荷電粒子の運動",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "nQqk0y-yjXI",
+      "title": "【物理基礎】電磁気【第5講】電位と電位差、オームの法則、合成抵抗",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "物理基礎",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 5,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=nQqk0y-yjXI&list=PLtdcmqO4ps6WYj1j1FE8urvAxST_xBlnK&index=30&pp=iAQB",
+      "officialIndexTitle": "【物理基礎】電磁気【第5講】電位と電位差、オームの法則、合成抵抗",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "7sVTSrPErz0",
+      "title": "【物理】電磁気【第6講】キルヒホッフの法則",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 6,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=7sVTSrPErz0&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=42&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第6講】キルヒホッフの法則",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "qB6Vk-qAwOQ",
+      "title": "【物理】電磁気【第7講】コンデンサーの基本式",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 7,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=qB6Vk-qAwOQ&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=43&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第7講】コンデンサーの基本式",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "PJ1Ww_i7Lr8",
+      "title": "【物理】電磁気【第8講】合成容量（１）",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 8,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=PJ1Ww_i7Lr8&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=44&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第8講】合成容量（１）",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "SWc62IsDYgU",
+      "title": "【物理】電磁気【第9講】合成容量（２）",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 9,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=SWc62IsDYgU&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=45&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第9講】合成容量（２）",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "LmZQahS9AqU",
+      "title": "【物理】電磁気【第10講】合成容量（３）",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 10,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=LmZQahS9AqU&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=46&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第10講】合成容量（３）",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "oMMShe4hXKY",
+      "title": "【物理】電磁気【第11講】コンデンサー回路（１）",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 11,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=oMMShe4hXKY&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=47&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第11講】コンデンサー回路（１）",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "0G3zLlGew4g",
+      "title": "【物理】電磁気【第12講】コンデンサー回路（２）",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 12,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=0G3zLlGew4g&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=48&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第12講】コンデンサー回路（２）",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "pch1rOHax_Y",
+      "title": "【物理】電磁気【第13講】コンデンサー回路（３）",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 13,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=pch1rOHax_Y&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=49&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第13講】コンデンサー回路（３）",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "fkjBFqMh7Mg",
+      "title": "【物理】電磁気【第14講】電流計電圧計、電池の内部抵抗",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 14,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=fkjBFqMh7Mg&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=50&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第14講】電流計電圧計、電池の内部抵抗",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "-jSSsPJCzhA",
+      "title": "【物理】電磁気【第15講】ホイートストン・ブリッジと電位差計",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 15,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=-jSSsPJCzhA&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=51&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第15講】ホイートストン・ブリッジと電位差計",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "bnKIk2e4U0A",
+      "title": "【物理】電磁気【第16講】電流ー電圧特性曲線",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 16,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=bnKIk2e4U0A&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=52&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第16講】電流ー電圧特性曲線",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "nO4DkpFZHAI",
+      "title": "【物理】電磁気【第17講】電流周りの磁場",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 17,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=nO4DkpFZHAI&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=53&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第17講】電流周りの磁場",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "qhfks1-LFOM",
+      "title": "【物理】電磁気【第18講】ローレンツ力",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 18,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=qhfks1-LFOM&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=54&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第18講】ローレンツ力",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "_wXHLTRYGoU",
+      "title": "【物理】電磁気【第19講】電磁力",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 19,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=_wXHLTRYGoU&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=55&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第19講】電磁力",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "NDtzezKgetE",
+      "title": "【物理】電磁気【第20講】誘導起電力（１）",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 20,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=NDtzezKgetE&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=56&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第20講】誘導起電力（１）",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "iD_P_NcA2c4",
+      "title": "【物理】電磁気【第21講】誘導起電力（２）",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 21,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=iD_P_NcA2c4&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=57&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第21講】誘導起電力（２）",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "kq9Rc51ko1M",
+      "title": "【物理】電磁気【第22講】誘電起電力（３）",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 22,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=kq9Rc51ko1M&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=58&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第22講】誘電起電力（３）",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "6RF6HZSonuM",
+      "title": "【物理】電磁気【第23講】ファラデーの電磁誘導の法則とレンツの法則",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 23,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=6RF6HZSonuM&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=59&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第23講】ファラデーの電磁誘導の法則とレンツの法則",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "HaI_F0GR2-0",
+      "title": "【物理】電磁気【第24講】自己誘導と相互誘導",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 24,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=HaI_F0GR2-0&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=60&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第24講】自己誘導と相互誘導",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "jcI37JYIDcc",
+      "title": "【物理】電磁気【第25講】過渡現象",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 25,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=jcI37JYIDcc&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=61&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第25講】過渡現象",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "gB2KCXRu6_k",
+      "title": "【物理】電磁気【第26講】交流（1）",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 26,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=gB2KCXRu6_k&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=62&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第26講】交流（1）",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "6ILB6xrWVpc",
+      "title": "【物理】電磁気【第27講】交流（2）",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 27,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=6ILB6xrWVpc&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=63&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第27講】交流（2）",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "8nmwBpavgQY",
+      "title": "【物理】電磁気【第28講】電気振動",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "電磁気学",
+      "seriesIds": [
+        "tadayobi-physics-electromagnetism"
+      ],
+      "order": 28,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=8nmwBpavgQY&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=64&pp=iAQB",
+      "officialIndexTitle": "【物理】電磁気【第28講】電気振動",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "3c_C7Wz3mSw",
+      "title": "【物理】原子【第１講】光電効果の解釈",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "原子",
+      "seriesIds": [
+        "tadayobi-physics-atomic"
+      ],
+      "order": 1,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=3c_C7Wz3mSw&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=65&pp=iAQB",
+      "officialIndexTitle": "【物理】原子【第１講】光電効果の解釈",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "KC8i5s7xkFA",
+      "title": "【物理】原子【第2講】コンプトン効果、ブラッグ反射",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "原子",
+      "seriesIds": [
+        "tadayobi-physics-atomic"
+      ],
+      "order": 2,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=KC8i5s7xkFA&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=66&pp=iAQB",
+      "officialIndexTitle": "【物理】原子【第2講】コンプトン効果、ブラッグ反射",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "tUg6mbNjCI4",
+      "title": "【物理】原子【第3講】ボーアの理論",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "原子",
+      "seriesIds": [
+        "tadayobi-physics-atomic"
+      ],
+      "order": 3,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=tUg6mbNjCI4&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=67&pp=iAQB",
+      "officialIndexTitle": "【物理】原子【第3講】ボーアの理論",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "14OZYhDNJVc",
+      "title": "【物理】原子【第4講】X線の発生",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "原子",
+      "seriesIds": [
+        "tadayobi-physics-atomic"
+      ],
+      "order": 4,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=14OZYhDNJVc&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=68&pp=iAQB",
+      "officialIndexTitle": "【物理】原子【第4講】X線の発生",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "SisecPlB7nU",
+      "title": "【物理】原子【第5講】放射性崩壊・半減期",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "原子",
+      "seriesIds": [
+        "tadayobi-physics-atomic"
+      ],
+      "order": 5,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://youtu.be/SisecPlB7nU?si=zVsjv1J88jmbOHxJ",
+      "officialIndexTitle": "【物理】原子【第5講】放射性崩壊・半減期",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "t9bMH4VNfG4",
+      "title": "【物理】原子【第6講】質量欠損と結合エネルギー",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "原子",
+      "seriesIds": [
+        "tadayobi-physics-atomic"
+      ],
+      "order": 6,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=t9bMH4VNfG4&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=69&pp=iAQB",
+      "officialIndexTitle": "【物理】原子【第6講】質量欠損と結合エネルギー",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "_HXljVUNIHs",
+      "title": "【物理】原子【第7講】核反応と核エネルギー",
+      "channelId": "tadayobi",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "原子",
+      "seriesIds": [
+        "tadayobi-physics-atomic"
+      ],
+      "order": 7,
+      "role": "core",
+      "sourceUrl": "https://tadayobi.com/blog/butsuri/butsuri02/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "instructor": "飯泉摩美",
+      "officialUrl": "https://www.youtube.com/watch?v=_HXljVUNIHs&list=PLtdcmqO4ps6XrAiCUfdWtCmPhKfuJ-Rny&index=70&pp=iAQB",
+      "officialIndexTitle": "【物理】原子【第7講】核反応と核エネルギー",
+      "channelName": "「ただよび」理系チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@tadayobi-science"
+    },
+    {
+      "id": "9XEX4mZFOhA",
+      "title": "高校の力学を全部解説する授業(前編)【物理】",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "yobinori-physics-mechanics"
+      ],
+      "order": 1,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/9XEX4mZFOhA",
+      "officialIndexTitle": "高校の力学を全部解説する授業(前編)",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "j5l9vk1xGZI",
+      "title": "高校の力学を全部解説する授業(後編)【物理】",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "yobinori-physics-mechanics"
+      ],
+      "order": 2,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/j5l9vk1xGZI",
+      "officialIndexTitle": "高校の力学を全部解説する授業(後編)",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "uUfauafaX6c",
+      "title": "1つの動画で力学を総復習",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "yobinori-physics-mechanics"
+      ],
+      "order": 3,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/uUfauafaX6c",
+      "officialIndexTitle": "1つの動画で力学を総復習",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "Jg1F8NbI84k",
+      "title": "【高校物理】水圧と浮力①(圧力と水圧)/全2講【力学】",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "yobinori-physics-mechanics"
+      ],
+      "order": 4,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/Jg1F8NbI84k",
+      "officialIndexTitle": "水圧と浮力①(圧力と水圧)",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "JAlQHeXXLtc",
+      "title": "【高校物理】水圧と浮力②(浮力)/全2講【力学】",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "yobinori-physics-mechanics"
+      ],
+      "order": 5,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/JAlQHeXXLtc",
+      "officialIndexTitle": "水圧と浮力②(浮力)",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "46g2QvXVj1s",
+      "title": "ブラックホールの半径を導く！？(シュワルツシルト半径)",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理（発展）",
+      "unit": "力学",
+      "seriesIds": [
+        "yobinori-physics-mechanics"
+      ],
+      "order": 6,
+      "role": "advanced",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/46g2QvXVj1s",
+      "officialIndexTitle": "ブラックホールの半径を導く！？(シュワルツシルト半径)",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "X4SNMOMM8PI",
+      "title": "あれもこれも距離の二乗に反比例！理由は○○性にあり！",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "力学",
+      "seriesIds": [
+        "yobinori-physics-mechanics"
+      ],
+      "order": 7,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/X4SNMOMM8PI",
+      "officialIndexTitle": "あれもこれも距離の二乗に反比例！",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "PvDtTc7DFKc",
+      "title": "高校の熱分野を全部解説する授業【物理】",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "熱力学",
+      "seriesIds": [
+        "yobinori-physics-thermal"
+      ],
+      "order": 1,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/PvDtTc7DFKc",
+      "officialIndexTitle": "3時間20分で熱力学を完成させる授業",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "5pyy93bgv5U",
+      "title": "1つの動画で熱分野を総復習",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "熱力学",
+      "seriesIds": [
+        "yobinori-physics-thermal"
+      ],
+      "order": 2,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/5pyy93bgv5U",
+      "officialIndexTitle": "1つの動画で熱分野を総復習",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "jiifZNNr3XE",
+      "title": "【高校物理】気体分子運動論【熱力学】",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "熱力学",
+      "seriesIds": [
+        "yobinori-physics-thermal"
+      ],
+      "order": 3,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/jiifZNNr3XE",
+      "officialIndexTitle": "気体分子運動論",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "zNIbk5nQPsk",
+      "title": "【高校物理】レンズ①(凸レンズ、凹レンズの性質)【波動】",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "波動",
+      "seriesIds": [
+        "yobinori-physics-waves"
+      ],
+      "order": 1,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/zNIbk5nQPsk",
+      "officialIndexTitle": "レンズ\\UTF{2460}(凸レンズ、凹レンズの性質)",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "R3ipOvwmY0M",
+      "title": "【高校物理】レンズ②(レンズの公式)【波動】",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "波動",
+      "seriesIds": [
+        "yobinori-physics-waves"
+      ],
+      "order": 2,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/R3ipOvwmY0M",
+      "officialIndexTitle": "レンズ\\UTF{2461}(レンズの公式)",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "6KH403yr7vE",
+      "title": "【高校物理】レンズ③(球面鏡：凹面鏡)【波動】",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "波動",
+      "seriesIds": [
+        "yobinori-physics-waves"
+      ],
+      "order": 3,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/6KH403yr7vE",
+      "officialIndexTitle": "レンズ③(球面鏡：凹面鏡)",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "61MRf1h0_qQ",
+      "title": "【高校物理】レンズ④(凸面鏡)【波動】",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "波動",
+      "seriesIds": [
+        "yobinori-physics-waves"
+      ],
+      "order": 4,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/61MRf1h0_qQ",
+      "officialIndexTitle": "レンズ④(凸面鏡)",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "krVkvuCsy5E",
+      "title": "【高校物理】うなり①(基本編)【波動】",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "波動",
+      "seriesIds": [
+        "yobinori-physics-waves"
+      ],
+      "order": 5,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/krVkvuCsy5E",
+      "officialIndexTitle": "うなり①(基本編)",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "cWlE5mUYr_I",
+      "title": "【高校物理】うなり②(発展編)【波動】",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理（発展）",
+      "unit": "波動",
+      "seriesIds": [
+        "yobinori-physics-waves"
+      ],
+      "order": 6,
+      "role": "advanced",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/cWlE5mUYr_I",
+      "officialIndexTitle": "うなり②(発展編)",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "GsiSZzpElSQ",
+      "title": "【高校物理】ドップラー効果①(音源が動く場合)/全4講【波動】",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "波動",
+      "seriesIds": [
+        "yobinori-physics-waves"
+      ],
+      "order": 7,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/GsiSZzpElSQ",
+      "officialIndexTitle": "ドップラー効果①(音源が動く場合)",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "7Ii6Q97pkR8",
+      "title": "【高校物理】ドップラー効果②(観測者が動く場合)/全4講【波動】",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "波動",
+      "seriesIds": [
+        "yobinori-physics-waves"
+      ],
+      "order": 8,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/7Ii6Q97pkR8",
+      "officialIndexTitle": "ドップラー効果②(観測者が動く場合)",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "QakzbO6JeOs",
+      "title": "【高校物理】ドップラー効果③(風、反射板)/全4講【波動】",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "波動",
+      "seriesIds": [
+        "yobinori-physics-waves"
+      ],
+      "order": 9,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/QakzbO6JeOs",
+      "officialIndexTitle": "ドップラー効果③(風、反射板)",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "Ljaz6XKXeUg",
+      "title": "【高校物理】ドップラー効果④(斜めドップラー)/全4講【波動】",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "波動",
+      "seriesIds": [
+        "yobinori-physics-waves"
+      ],
+      "order": 10,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/Ljaz6XKXeUg",
+      "officialIndexTitle": "ドップラー効果④(斜めドップラー)",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "5DJflBnhp74",
+      "title": "高校の原子分野を全部解説する授業【物理】",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "原子",
+      "seriesIds": [
+        "yobinori-physics-atomic"
+      ],
+      "order": 1,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/5DJflBnhp74",
+      "officialIndexTitle": "4時間10分で原子分野を完成させる授業",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "bsw4pSqUekY",
+      "title": "1つの動画で原子分野を総復習",
+      "channelId": "yobinori",
+      "subjectId": "physics",
+      "level": "高校物理",
+      "unit": "原子",
+      "seriesIds": [
+        "yobinori-physics-atomic"
+      ],
+      "order": 2,
+      "role": "reinforcement",
+      "sourceUrl": "https://yobinori.jp/video/phys-hs.html",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialUrl": "https://youtu.be/bsw4pSqUekY",
+      "officialIndexTitle": "1つの動画で原子分野を総復習",
+      "channelName": "予備校のノリで学ぶ「大学の数学・物理」",
+      "youtubeChannelUrl": "https://www.youtube.com/@yobinori"
+    },
+    {
+      "id": "IDqy3b1ICiQ",
+      "title": "情報Iの共通テスト対策はここから始めよう【高校情報1 1章】情報社会の問題解決",
+      "channelId": "sekachan",
+      "subjectId": "information",
+      "level": "情報Ⅰ",
+      "unit": "情報社会の問題解決",
+      "seriesIds": [
+        "sekachan-information-basic"
+      ],
+      "order": 1,
+      "role": "core",
+      "sourceUrl": "https://sekachan.net/info1-basic/chap1/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "chapters": [
+        {
+          "title": "情報とは",
+          "startSeconds": 33,
+          "durationSeconds": 441,
+          "label": "1"
+        },
+        {
+          "title": "メディアの特性",
+          "startSeconds": 474,
+          "durationSeconds": 393,
+          "label": "2"
+        },
+        {
+          "title": "発想法のツール",
+          "startSeconds": 867,
+          "durationSeconds": 544,
+          "label": "3"
+        },
+        {
+          "title": "計画管理のツール",
+          "startSeconds": 1411,
+          "durationSeconds": 528,
+          "label": "4"
+        },
+        {
+          "title": "知的財産権",
+          "startSeconds": 1939,
+          "durationSeconds": 631,
+          "label": "5"
+        },
+        {
+          "title": "個人情報",
+          "startSeconds": 2570,
+          "durationSeconds": 587,
+          "label": "6"
+        },
+        {
+          "title": "サイバー犯罪",
+          "startSeconds": 3157,
+          "durationSeconds": 661,
+          "label": "7"
+        },
+        {
+          "title": "不正なソフトウェア",
+          "startSeconds": 3818,
+          "durationSeconds": 646,
+          "label": "8"
+        },
+        {
+          "title": "情報モラル",
+          "startSeconds": 4464,
+          "durationSeconds": 561,
+          "label": "9"
+        },
+        {
+          "title": "情報技術の発展",
+          "startSeconds": 5025,
+          "durationSeconds": 564,
+          "label": "10"
+        }
+      ],
+      "officialIndexTitle": "情報Iの共通テスト対策はここから始めよう【高校情報1 1章】情報社会の問題解決",
+      "channelName": "せかチャン - 世界一わかりやすい情報科チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@SekaChan"
+    },
+    {
+      "id": "D-hrd_ugBos",
+      "title": "【この1本でOK】満足度日本一IT講師による高校情報I講座｜2章：コミュニケーションと情報デザイン",
+      "channelId": "sekachan",
+      "subjectId": "information",
+      "level": "情報Ⅰ",
+      "unit": "コミュニケーションと情報デザイン",
+      "seriesIds": [
+        "sekachan-information-basic"
+      ],
+      "order": 2,
+      "role": "core",
+      "sourceUrl": "https://sekachan.net/info1-basic/chap2/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "chapters": [
+        {
+          "title": "アナログとデジタル",
+          "startSeconds": 45,
+          "durationSeconds": 588,
+          "label": "1-1"
+        },
+        {
+          "title": "情報量",
+          "startSeconds": 633,
+          "durationSeconds": 661,
+          "label": "1-2"
+        },
+        {
+          "title": "10進数と2進数",
+          "startSeconds": 1294,
+          "durationSeconds": 699,
+          "label": "1-3"
+        },
+        {
+          "title": "16進数",
+          "startSeconds": 1993,
+          "durationSeconds": 771,
+          "label": "1-4"
+        },
+        {
+          "title": "加減算と補数",
+          "startSeconds": 2764,
+          "durationSeconds": 692,
+          "label": "1-5"
+        },
+        {
+          "title": "2進数の乗除算",
+          "startSeconds": 3456,
+          "durationSeconds": 642,
+          "label": "1-6"
+        },
+        {
+          "title": "小数のデジタル表現",
+          "startSeconds": 4098,
+          "durationSeconds": 654,
+          "label": "1-7"
+        },
+        {
+          "title": "誤差",
+          "startSeconds": 4752,
+          "durationSeconds": 656,
+          "label": "1-8"
+        },
+        {
+          "title": "文字のデジタル表現",
+          "startSeconds": 5408,
+          "durationSeconds": 659,
+          "label": "1-9"
+        },
+        {
+          "title": "音のデジタル表現",
+          "startSeconds": 6067,
+          "durationSeconds": 547,
+          "label": "1-10"
+        },
+        {
+          "title": "色のデジタル表現",
+          "startSeconds": 6614,
+          "durationSeconds": 802,
+          "label": "1-11"
+        },
+        {
+          "title": "画像のデジタル表現",
+          "startSeconds": 7416,
+          "durationSeconds": 580,
+          "label": "1-12"
+        },
+        {
+          "title": "動画のデジタル表現",
+          "startSeconds": 7996,
+          "durationSeconds": 505,
+          "label": "1-13"
+        },
+        {
+          "title": "データの圧縮",
+          "startSeconds": 8501,
+          "durationSeconds": 677,
+          "label": "1-14"
+        },
+        {
+          "title": "メディアの発達",
+          "startSeconds": 9178,
+          "durationSeconds": 520,
+          "label": "2-1"
+        },
+        {
+          "title": "メディアの特性",
+          "startSeconds": 9698,
+          "durationSeconds": 473,
+          "label": "2-2"
+        },
+        {
+          "title": "情報デザイン",
+          "startSeconds": 10171,
+          "durationSeconds": 448,
+          "label": "3-1"
+        },
+        {
+          "title": "ユニバーサルデザイン",
+          "startSeconds": 10619,
+          "durationSeconds": 617,
+          "label": "3-2"
+        }
+      ],
+      "officialIndexTitle": "【この1本でOK】満足度日本一IT講師による高校情報Ⅰ講座｜2章：コミュニケーションと情報デザイン",
+      "channelName": "せかチャン - 世界一わかりやすい情報科チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@SekaChan"
+    },
+    {
+      "id": "6iGuHiFv7lM",
+      "title": "【高校情報I 3章Python編】コンピュータの構成からアルゴリズム、プログラミングまで基本から徹底解説！",
+      "channelId": "sekachan",
+      "subjectId": "information",
+      "level": "情報Ⅰ",
+      "unit": "コンピュータとプログラミング（Python）",
+      "seriesIds": [
+        "sekachan-information-basic"
+      ],
+      "order": 3,
+      "role": "core",
+      "sourceUrl": "https://sekachan.net/info1-basic/chap3-py/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "chapters": [
+        {
+          "title": "コンピュータの構成",
+          "startSeconds": 47,
+          "durationSeconds": 477,
+          "label": "1-1"
+        },
+        {
+          "title": "CPUとメモリの仕組み",
+          "startSeconds": 524,
+          "durationSeconds": 579,
+          "label": "1-2"
+        },
+        {
+          "title": "演算の仕組み",
+          "startSeconds": 1103,
+          "durationSeconds": 763,
+          "label": "1-3"
+        },
+        {
+          "title": "ソフトウェアの種類",
+          "startSeconds": 1866,
+          "durationSeconds": 377,
+          "label": "1-4"
+        },
+        {
+          "title": "アルゴリズムの表現方法",
+          "startSeconds": 2243,
+          "durationSeconds": 587,
+          "label": "2-1"
+        },
+        {
+          "title": "フローチャートの基本",
+          "startSeconds": 2830,
+          "durationSeconds": 498,
+          "label": "2-2"
+        },
+        {
+          "title": "分岐構造",
+          "startSeconds": 3328,
+          "durationSeconds": 600,
+          "label": "2-3"
+        },
+        {
+          "title": "反復構造",
+          "startSeconds": 3928,
+          "durationSeconds": 659,
+          "label": "2-4"
+        },
+        {
+          "title": "配列",
+          "startSeconds": 4587,
+          "durationSeconds": 625,
+          "label": "2-5"
+        },
+        {
+          "title": "線形探索法",
+          "startSeconds": 5212,
+          "durationSeconds": 775,
+          "label": "2-6"
+        },
+        {
+          "title": "二分探索法",
+          "startSeconds": 5987,
+          "durationSeconds": 683,
+          "label": "2-7"
+        },
+        {
+          "title": "基本交換法",
+          "startSeconds": 6670,
+          "durationSeconds": 961,
+          "label": "2-8"
+        },
+        {
+          "title": "基本選択法",
+          "startSeconds": 7631,
+          "durationSeconds": 764,
+          "label": "2-9"
+        },
+        {
+          "title": "基本挿入法",
+          "startSeconds": 8395,
+          "durationSeconds": 759,
+          "label": "2-10"
+        },
+        {
+          "title": "プログラミングの基本",
+          "startSeconds": 9154,
+          "durationSeconds": 726,
+          "label": "3"
+        },
+        {
+          "title": "Pythonとは",
+          "startSeconds": 9880,
+          "durationSeconds": 467,
+          "label": "4-1"
+        },
+        {
+          "title": "Pythonを動かそう",
+          "startSeconds": 10347,
+          "durationSeconds": 711,
+          "label": "4-2"
+        },
+        {
+          "title": "Google Colaboratoryの使い方",
+          "startSeconds": 11058,
+          "durationSeconds": 257,
+          "label": "コラム"
+        },
+        {
+          "title": "Pythonの基本",
+          "startSeconds": 11315,
+          "durationSeconds": 660,
+          "label": "4-3"
+        },
+        {
+          "title": "変数",
+          "startSeconds": 11975,
+          "durationSeconds": 517,
+          "label": "4-4"
+        },
+        {
+          "title": "データ型",
+          "startSeconds": 12492,
+          "durationSeconds": 696,
+          "label": "4-5"
+        },
+        {
+          "title": "配列/リスト",
+          "startSeconds": 13188,
+          "durationSeconds": 801,
+          "label": "4-6"
+        },
+        {
+          "title": "演算子",
+          "startSeconds": 13989,
+          "durationSeconds": 742,
+          "label": "4-7"
+        },
+        {
+          "title": "分岐処理",
+          "startSeconds": 14731,
+          "durationSeconds": 655,
+          "label": "4-8"
+        },
+        {
+          "title": "反復/繰り返し処理",
+          "startSeconds": 15386,
+          "durationSeconds": 840,
+          "label": "4-9"
+        },
+        {
+          "title": "関数",
+          "startSeconds": 16226,
+          "durationSeconds": 873,
+          "label": "4-10"
+        },
+        {
+          "title": "ライブラリ",
+          "startSeconds": 17099,
+          "durationSeconds": 917,
+          "label": "4-11"
+        },
+        {
+          "title": "API",
+          "startSeconds": 18016,
+          "durationSeconds": 766,
+          "label": "4-12"
+        },
+        {
+          "title": "モデル化とシミュレーション",
+          "startSeconds": 18782,
+          "durationSeconds": 599,
+          "label": "5-1"
+        },
+        {
+          "title": "つり銭問題",
+          "startSeconds": 19381,
+          "durationSeconds": 786,
+          "label": "5-2"
+        },
+        {
+          "title": "待ち行列",
+          "startSeconds": 20167,
+          "durationSeconds": 1026,
+          "label": "5-3"
+        }
+      ],
+      "officialIndexTitle": "【高校情報I 3章Python編】コンピュータの構成からアルゴリズム、プログラミングまで基本から徹底解説！",
+      "channelName": "せかチャン - 世界一わかりやすい情報科チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@SekaChan"
+    },
+    {
+      "id": "sHLlw4ICpPI",
+      "title": "【高校情報I 3章ExcelVBA編】コンピュータの構成からアルゴリズム、プログラミングまで基本から徹底解説！",
+      "channelId": "sekachan",
+      "subjectId": "information",
+      "level": "情報Ⅰ",
+      "unit": "コンピュータとプログラミング（表計算マクロ）",
+      "seriesIds": [
+        "sekachan-information-basic"
+      ],
+      "order": 3.5,
+      "role": "core",
+      "sourceUrl": "https://sekachan.net/info1-basic/chap3-vba/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "chapters": [
+        {
+          "title": "コンピュータの構成",
+          "startSeconds": 41,
+          "durationSeconds": 477,
+          "label": "1-1"
+        },
+        {
+          "title": "CPUとメモリの仕組み",
+          "startSeconds": 518,
+          "durationSeconds": 579,
+          "label": "1-2"
+        },
+        {
+          "title": "演算の仕組み",
+          "startSeconds": 1097,
+          "durationSeconds": 763,
+          "label": "1-3"
+        },
+        {
+          "title": "ソフトウェアの種類",
+          "startSeconds": 1860,
+          "durationSeconds": 377,
+          "label": "1-4"
+        },
+        {
+          "title": "アルゴリズムの表現方法",
+          "startSeconds": 2237,
+          "durationSeconds": 587,
+          "label": "2-1"
+        },
+        {
+          "title": "フローチャートの基本",
+          "startSeconds": 2824,
+          "durationSeconds": 498,
+          "label": "2-2"
+        },
+        {
+          "title": "分岐構造",
+          "startSeconds": 3322,
+          "durationSeconds": 600,
+          "label": "2-3"
+        },
+        {
+          "title": "反復構造",
+          "startSeconds": 3922,
+          "durationSeconds": 659,
+          "label": "2-4"
+        },
+        {
+          "title": "配列",
+          "startSeconds": 4581,
+          "durationSeconds": 625,
+          "label": "2-5"
+        },
+        {
+          "title": "線形探索法",
+          "startSeconds": 5206,
+          "durationSeconds": 775,
+          "label": "2-6"
+        },
+        {
+          "title": "二分探索法",
+          "startSeconds": 5981,
+          "durationSeconds": 683,
+          "label": "2-7"
+        },
+        {
+          "title": "基本交換法",
+          "startSeconds": 6664,
+          "durationSeconds": 961,
+          "label": "2-8"
+        },
+        {
+          "title": "基本選択法",
+          "startSeconds": 7625,
+          "durationSeconds": 764,
+          "label": "2-9"
+        },
+        {
+          "title": "基本挿入法",
+          "startSeconds": 8389,
+          "durationSeconds": 759,
+          "label": "2-10"
+        },
+        {
+          "title": "プログラミングの基本",
+          "startSeconds": 9148,
+          "durationSeconds": 726,
+          "label": "3"
+        },
+        {
+          "title": "表計算マクロ言語とは",
+          "startSeconds": 9874,
+          "durationSeconds": 314,
+          "label": "4-1"
+        },
+        {
+          "title": "VBAマクロを動かしてみよう",
+          "startSeconds": 10188,
+          "durationSeconds": 464,
+          "label": "4-2"
+        },
+        {
+          "title": "VBAの基本",
+          "startSeconds": 10652,
+          "durationSeconds": 622,
+          "label": "4-3"
+        },
+        {
+          "title": "変数",
+          "startSeconds": 11274,
+          "durationSeconds": 537,
+          "label": "4-4"
+        },
+        {
+          "title": "データ型",
+          "startSeconds": 11811,
+          "durationSeconds": 673,
+          "label": "4-5"
+        },
+        {
+          "title": "配列",
+          "startSeconds": 12484,
+          "durationSeconds": 597,
+          "label": "4-6"
+        },
+        {
+          "title": "演算子",
+          "startSeconds": 13081,
+          "durationSeconds": 600,
+          "label": "4-7"
+        },
+        {
+          "title": "分岐処理",
+          "startSeconds": 13681,
+          "durationSeconds": 631,
+          "label": "4-8"
+        },
+        {
+          "title": "反復処理",
+          "startSeconds": 14312,
+          "durationSeconds": 874,
+          "label": "4-9"
+        },
+        {
+          "title": "関数",
+          "startSeconds": 15186,
+          "durationSeconds": 950,
+          "label": "4-10"
+        },
+        {
+          "title": "ライブラリ",
+          "startSeconds": 16136,
+          "durationSeconds": 808,
+          "label": "4-11"
+        },
+        {
+          "title": "モデル化とシミュレーション",
+          "startSeconds": 16944,
+          "durationSeconds": 599,
+          "label": "5-1"
+        },
+        {
+          "title": "つり銭問題",
+          "startSeconds": 17543,
+          "durationSeconds": 804,
+          "label": "5-2"
+        },
+        {
+          "title": "待ち行列",
+          "startSeconds": 18347,
+          "durationSeconds": 946,
+          "label": "5-3"
+        }
+      ],
+      "officialIndexTitle": "【高校情報Ⅰ3章】コンピュータの構成からアルゴリズム、プログラミングまで基本から徹底解説！",
+      "channelName": "せかチャン - 世界一わかりやすい情報科チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@SekaChan"
+    },
+    {
+      "id": "o9YLtvlk8oc",
+      "title": "【総集編】高校情報I 4章 情報通信ネットワークとデータの活用｜プロIT講師による授業動画",
+      "channelId": "sekachan",
+      "subjectId": "information",
+      "level": "情報Ⅰ",
+      "unit": "情報通信ネットワークとデータの活用",
+      "seriesIds": [
+        "sekachan-information-basic"
+      ],
+      "order": 4,
+      "role": "core",
+      "sourceUrl": "https://sekachan.net/info1-basic/chap4/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "chapters": [
+        {
+          "title": "ネットワークの基本",
+          "startSeconds": 37,
+          "durationSeconds": 565,
+          "label": "1-1"
+        },
+        {
+          "title": "有線LAN",
+          "startSeconds": 602,
+          "durationSeconds": 551,
+          "label": "1-2"
+        },
+        {
+          "title": "無線LAN",
+          "startSeconds": 1153,
+          "durationSeconds": 662,
+          "label": "1-3"
+        },
+        {
+          "title": "TCP/IP4階層モデル",
+          "startSeconds": 1815,
+          "durationSeconds": 771,
+          "label": "1-4"
+        },
+        {
+          "title": "IPアドレス",
+          "startSeconds": 2586,
+          "durationSeconds": 830,
+          "label": "1-5"
+        },
+        {
+          "title": "ルーティング",
+          "startSeconds": 3416,
+          "durationSeconds": 792,
+          "label": "1-6"
+        },
+        {
+          "title": "通信の信頼性",
+          "startSeconds": 4208,
+          "durationSeconds": 664,
+          "label": "1-7"
+        },
+        {
+          "title": "Webの仕組み",
+          "startSeconds": 4872,
+          "durationSeconds": 565,
+          "label": "1-8"
+        },
+        {
+          "title": "URLとDNS",
+          "startSeconds": 5437,
+          "durationSeconds": 689,
+          "label": "1-9"
+        },
+        {
+          "title": "情報セキュリティ",
+          "startSeconds": 6126,
+          "durationSeconds": 346,
+          "label": "2-1"
+        },
+        {
+          "title": "ユーザ認証とアクセス制御",
+          "startSeconds": 6472,
+          "durationSeconds": 640,
+          "label": "2-2"
+        },
+        {
+          "title": "暗号化の仕組み",
+          "startSeconds": 7112,
+          "durationSeconds": 609,
+          "label": "2-3"
+        },
+        {
+          "title": "デジタル署名と電子認証",
+          "startSeconds": 7721,
+          "durationSeconds": 739,
+          "label": "2-4"
+        },
+        {
+          "title": "情報システム",
+          "startSeconds": 8460,
+          "durationSeconds": 383,
+          "label": "3-1"
+        },
+        {
+          "title": "データベースの基本",
+          "startSeconds": 8843,
+          "durationSeconds": 529,
+          "label": "3-2"
+        },
+        {
+          "title": "データモデル",
+          "startSeconds": 9372,
+          "durationSeconds": 514,
+          "label": "3-3"
+        },
+        {
+          "title": "データの収集と整理",
+          "startSeconds": 9886,
+          "durationSeconds": 574,
+          "label": "4-1"
+        },
+        {
+          "title": "代表値と分散・標準偏差",
+          "startSeconds": 10460,
+          "durationSeconds": 728,
+          "label": "4-2"
+        },
+        {
+          "title": "データの可視化",
+          "startSeconds": 11188,
+          "durationSeconds": 570,
+          "label": "4-3"
+        },
+        {
+          "title": "相関と回帰分析",
+          "startSeconds": 11758,
+          "durationSeconds": 757,
+          "label": "4-4"
+        },
+        {
+          "title": "テキストマイニング",
+          "startSeconds": 12515,
+          "durationSeconds": 659,
+          "label": "4-5"
+        }
+      ],
+      "officialIndexTitle": "【総集編】高校情報I 4章 情報通信ネットワークとデータの活用｜プロIT講師による授業動画",
+      "channelName": "せかチャン - 世界一わかりやすい情報科チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@SekaChan"
+    },
+    {
+      "id": "aFBu1yaE-7M",
+      "title": "【情報I共テ対策】試験頻出の知的財産権や個人情報、サイバー犯罪を完全攻略！",
+      "channelId": "sekachan",
+      "subjectId": "information",
+      "level": "情報Ⅰ",
+      "unit": "情報社会の問題解決",
+      "seriesIds": [
+        "sekachan-information-exercise"
+      ],
+      "order": 1,
+      "role": "exam",
+      "sourceUrl": "https://sekachan.net/info1-exercise/chap1/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "chapters": [
+        {
+          "title": "情報とメディアの特性",
+          "startSeconds": 36,
+          "durationSeconds": 825,
+          "label": "1"
+        },
+        {
+          "title": "問題解決の流れとツール",
+          "startSeconds": 847,
+          "durationSeconds": 700,
+          "label": "2"
+        },
+        {
+          "title": "知的財産権",
+          "startSeconds": 1547,
+          "durationSeconds": 1176,
+          "label": "3"
+        },
+        {
+          "title": "個人情報",
+          "startSeconds": 2723,
+          "durationSeconds": 839,
+          "label": "4"
+        },
+        {
+          "title": "サイバー犯罪",
+          "startSeconds": 3562,
+          "durationSeconds": 840,
+          "label": "5"
+        },
+        {
+          "title": "情報技術の発展と課題",
+          "startSeconds": 4402,
+          "durationSeconds": 771,
+          "label": "6"
+        }
+      ],
+      "officialIndexTitle": "【情報I共テ対策】試験頻出の知的財産権や個人情報、サイバー犯罪を完全攻略！",
+      "channelName": "せかチャン - 世界一わかりやすい情報科チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@SekaChan"
+    },
+    {
+      "id": "i7DhvHqg8AE",
+      "title": "【情報I共テ対策】試験に出やすい10進数・2進数・16進数の変換から浮動小数点数、情報デザインまで完全攻略！",
+      "channelId": "sekachan",
+      "subjectId": "information",
+      "level": "情報Ⅰ",
+      "unit": "コミュニケーションと情報デザイン",
+      "seriesIds": [
+        "sekachan-information-exercise"
+      ],
+      "order": 2,
+      "role": "exam",
+      "sourceUrl": "https://sekachan.net/info1-exercise/chap2/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "chapters": [
+        {
+          "title": "アナログとデジタル",
+          "startSeconds": 27,
+          "durationSeconds": 1042,
+          "label": "1"
+        },
+        {
+          "title": "10進数・2進数・16進数の変換",
+          "startSeconds": 1069,
+          "durationSeconds": 1035,
+          "label": "2"
+        },
+        {
+          "title": "2進数の計算",
+          "startSeconds": 2104,
+          "durationSeconds": 797,
+          "label": "3"
+        },
+        {
+          "title": "浮動小数点数",
+          "startSeconds": 2901,
+          "durationSeconds": 1055,
+          "label": "4"
+        },
+        {
+          "title": "誤差",
+          "startSeconds": 3956,
+          "durationSeconds": 910,
+          "label": "5"
+        },
+        {
+          "title": "文字のデジタル表現",
+          "startSeconds": 4866,
+          "durationSeconds": 675,
+          "label": "6"
+        },
+        {
+          "title": "音のデジタル表現",
+          "startSeconds": 5541,
+          "durationSeconds": 1003,
+          "label": "7"
+        },
+        {
+          "title": "画像のデジタル表現",
+          "startSeconds": 6544,
+          "durationSeconds": 1031,
+          "label": "8"
+        },
+        {
+          "title": "動画のデジタル表現",
+          "startSeconds": 7575,
+          "durationSeconds": 840,
+          "label": "9"
+        },
+        {
+          "title": "データの圧縮",
+          "startSeconds": 8415,
+          "durationSeconds": 885,
+          "label": "10"
+        },
+        {
+          "title": "メディアとコミュニケーション",
+          "startSeconds": 9300,
+          "durationSeconds": 870,
+          "label": "11"
+        },
+        {
+          "title": "情報デザイン",
+          "startSeconds": 10170,
+          "durationSeconds": 936,
+          "label": "12"
+        }
+      ],
+      "officialIndexTitle": "【情報I共テ対策】試験に出やすい10進数・2進数・16進数の変換から浮動小数点数、情報デザインまで完全攻略！",
+      "channelName": "せかチャン - 世界一わかりやすい情報科チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@SekaChan"
+    },
+    {
+      "id": "SF0qLGeaKu8",
+      "title": "【情報I共テ対策】試験に出るプログラミングやアルゴリズム、シミュレーションの問題を分かりやすく解説！（共通テスト用プログラム表記に対応）",
+      "channelId": "sekachan",
+      "subjectId": "information",
+      "level": "情報Ⅰ",
+      "unit": "コンピュータとプログラミング",
+      "seriesIds": [
+        "sekachan-information-exercise"
+      ],
+      "order": 3,
+      "role": "exam",
+      "sourceUrl": "https://sekachan.net/info1-exercise/chap3/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "chapters": [
+        {
+          "title": "コンピュータの構成",
+          "startSeconds": 36,
+          "durationSeconds": 729,
+          "label": "1-1"
+        },
+        {
+          "title": "演算の仕組み",
+          "startSeconds": 765,
+          "durationSeconds": 808,
+          "label": "1-2"
+        },
+        {
+          "title": "ソフトウェアの種類",
+          "startSeconds": 1573,
+          "durationSeconds": 601,
+          "label": "1-3"
+        },
+        {
+          "title": "プログラミングとシミュレーション",
+          "startSeconds": 2174,
+          "durationSeconds": 1403,
+          "label": "1-4"
+        },
+        {
+          "title": "共通テスト用プログラム表記",
+          "startSeconds": 3577,
+          "durationSeconds": 506,
+          "label": "2-1"
+        },
+        {
+          "title": "変数",
+          "startSeconds": 4083,
+          "durationSeconds": 580,
+          "label": "2-2"
+        },
+        {
+          "title": "配列",
+          "startSeconds": 4663,
+          "durationSeconds": 724,
+          "label": "2-3"
+        },
+        {
+          "title": "演算子",
+          "startSeconds": 5387,
+          "durationSeconds": 642,
+          "label": "2-4"
+        },
+        {
+          "title": "分岐処理",
+          "startSeconds": 6029,
+          "durationSeconds": 805,
+          "label": "2-5"
+        },
+        {
+          "title": "繰り返し処理",
+          "startSeconds": 6834,
+          "durationSeconds": 1111,
+          "label": "2-6"
+        },
+        {
+          "title": "関数",
+          "startSeconds": 7945,
+          "durationSeconds": 1260,
+          "label": "2-7"
+        },
+        {
+          "title": "探索アルゴリズム",
+          "startSeconds": 9205,
+          "durationSeconds": 1278,
+          "label": "2-8"
+        },
+        {
+          "title": "整列アルゴリズム",
+          "startSeconds": 10483,
+          "durationSeconds": 1355,
+          "label": "2-9"
+        },
+        {
+          "title": "共通テスト試作問題",
+          "startSeconds": 11838,
+          "durationSeconds": 1402,
+          "label": "2-10"
+        }
+      ],
+      "officialIndexTitle": "【情報I共テ対策】試験に出るプログラミングやアルゴリズム、シミュレーションの問題を分かりやすく解説！（共通テスト用プログラム表記に対応）",
+      "channelName": "せかチャン - 世界一わかりやすい情報科チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@SekaChan"
+    },
+    {
+      "id": "ei830TMh3oo",
+      "title": "【情報I共テ対策】ネットワークや情報セキュリティ、データベース、データ分析の問題を基本から徹底解説！",
+      "channelId": "sekachan",
+      "subjectId": "information",
+      "level": "情報Ⅰ",
+      "unit": "情報通信ネットワークとデータの活用",
+      "seriesIds": [
+        "sekachan-information-exercise"
+      ],
+      "order": 4,
+      "role": "exam",
+      "sourceUrl": "https://sekachan.net/info1-exercise/chap4/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "chapters": [
+        {
+          "title": "ネットワークの構成",
+          "startSeconds": 31,
+          "durationSeconds": 900,
+          "label": "1"
+        },
+        {
+          "title": "TCP/IP4階層モデル",
+          "startSeconds": 931,
+          "durationSeconds": 781,
+          "label": "2"
+        },
+        {
+          "title": "IPアドレスとルーティング",
+          "startSeconds": 1712,
+          "durationSeconds": 962,
+          "label": "3"
+        },
+        {
+          "title": "Webの仕組み",
+          "startSeconds": 2674,
+          "durationSeconds": 746,
+          "label": "4"
+        },
+        {
+          "title": "情報セキュリティ",
+          "startSeconds": 3420,
+          "durationSeconds": 926,
+          "label": "5"
+        },
+        {
+          "title": "暗号化の仕組み",
+          "startSeconds": 4346,
+          "durationSeconds": 662,
+          "label": "6"
+        },
+        {
+          "title": "デジタル署名と電子認証",
+          "startSeconds": 5008,
+          "durationSeconds": 916,
+          "label": "7"
+        },
+        {
+          "title": "情報システム",
+          "startSeconds": 5924,
+          "durationSeconds": 515,
+          "label": "8"
+        },
+        {
+          "title": "データベース",
+          "startSeconds": 6439,
+          "durationSeconds": 1170,
+          "label": "9"
+        },
+        {
+          "title": "データの収集と整理",
+          "startSeconds": 7609,
+          "durationSeconds": 803,
+          "label": "10"
+        },
+        {
+          "title": "データの分析①",
+          "startSeconds": 8412,
+          "durationSeconds": 1274,
+          "label": "11"
+        },
+        {
+          "title": "データの分析②",
+          "startSeconds": 9686,
+          "durationSeconds": 1142,
+          "label": "12"
+        }
+      ],
+      "officialIndexTitle": "【情報I共テ対策】ネットワークや情報セキュリティ、データベース、データ分析の問題を基本から徹底解説！",
+      "channelName": "せかチャン - 世界一わかりやすい情報科チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@SekaChan"
+    },
+    {
+      "id": "iSK2KbQtfAo",
+      "title": "【この1本でOK】情報I全範囲をマインドマップで総復習",
+      "channelId": "sekachan",
+      "subjectId": "information",
+      "level": "情報Ⅰ",
+      "unit": "総復習",
+      "seriesIds": [
+        "sekachan-information-review"
+      ],
+      "order": 3,
+      "role": "reinforcement",
+      "sourceUrl": "https://sekachan.net/info1-basic/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialIndexTitle": "【この1本でOK】情報I全範囲をマインドマップで総復習",
+      "channelName": "せかチャン - 世界一わかりやすい情報科チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@SekaChan"
+    },
+    {
+      "id": "lOly9ZRgUAs",
+      "title": "【共通テスト対策】情報I 一問一答まとめ【頻出166語を解説】",
+      "channelId": "sekachan",
+      "subjectId": "information",
+      "level": "情報Ⅰ",
+      "unit": "一問一答",
+      "seriesIds": [
+        "sekachan-information-review"
+      ],
+      "order": 3,
+      "role": "exam",
+      "sourceUrl": "https://sekachan.net/info1-exercise/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialIndexTitle": "【共通テスト対策】情報I 一問一答まとめ【頻出166語を解説】",
+      "channelName": "せかチャン - 世界一わかりやすい情報科チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@SekaChan"
+    },
+    {
+      "id": "lPO9rsnnnDk",
+      "title": "【共通テスト情報Ⅰ】勉強のコツとマーク問題の解法テクニック",
+      "channelId": "sekachan",
+      "subjectId": "information",
+      "level": "情報Ⅰ",
+      "unit": "共通テスト対策",
+      "seriesIds": [
+        "sekachan-information-review"
+      ],
+      "order": 4,
+      "role": "exam",
+      "sourceUrl": "https://sekachan.net/info1-exercise/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialIndexTitle": "【共通テスト情報Ⅰ】勉強のコツとマーク問題の解法テクニック",
+      "channelName": "せかチャン - 世界一わかりやすい情報科チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@SekaChan"
+    },
+    {
+      "id": "WGhTsst1m38",
+      "title": "【完全版】共通テスト情報I プログラミング対策講座【この1本で大丈夫!】",
+      "channelId": "sekachan",
+      "subjectId": "information",
+      "level": "情報Ⅰ",
+      "unit": "コンピュータとプログラミング",
+      "seriesIds": [
+        "sekachan-information-review"
+      ],
+      "order": 5,
+      "role": "exam",
+      "sourceUrl": "https://sekachan.net/info1-exercise/",
+      "verification": "official-index+youtube-oembed",
+      "checkedAt": "2026-10-12",
+      "officialIndexTitle": "【完全版】共通テスト情報I プログラミング対策講座【この1本で大丈夫!】",
+      "channelName": "せかチャン - 世界一わかりやすい情報科チャンネル",
+      "youtubeChannelUrl": "https://www.youtube.com/@SekaChan"
+    }
+  ],
+  "sources": [
+    "https://tadayobi.com/blog/butsuri/butsuri02/",
+    "https://yobinori.jp/video/phys-hs.html",
+    "https://sekachan.net/info1-basic/",
+    "https://sekachan.net/info1-exercise/"
+  ],
+  "limitations": [
+    "公式目次に基づく登録。各動画の再生・埋め込み可否は全件検査していない。",
+    "物理講座の課程年は公式目次で確認できないため not-confirmed。",
+    "せかチャン情報Ⅰは公式サイトの章別長尺授業を登録。各単元の開始時刻を保持し、同じ動画IDを複数授業として水増ししない。"
+  ],
+  "metadataVerification": {
+    "youtubeOembedSuccess": 136,
+    "officialIndexOnly": 0
+  }
+}
