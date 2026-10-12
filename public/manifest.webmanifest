@@ -1,1 +1,39 @@
-{"id":"/curiveo/","name":"Curiveo — 学びを、つなぐ。","short_name":"Curiveo","lang":"ja","start_url":"/curiveo/","scope":"/curiveo/","display":"standalone","background_color":"#fafbfd","theme_color":"#2563eb","icons":[{"src":"icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},{"src":"icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]}
+{
+  "id": "/curiveo/",
+  "name": "Curiveo — 学びを、つなぐ。",
+  "short_name": "Curiveo",
+  "lang": "ja",
+  "start_url": "/curiveo/",
+  "scope": "/curiveo/",
+  "display": "standalone",
+  "background_color": "#fafbfd",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "description": "公式講座の順番で学び、続きを自動保存する総合学習アプリ",
+  "orientation": "any"
+}

@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import type { FormEvent } from "react";
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
+
 import {
   Home,
   Search,
@@ -52,281 +52,22 @@ import {
 import type { Video, SubjectId, Series, LearningPatch } from "./types";
 import { useLearning } from "./hooks/useLearning";
 import { YouTubePlayer } from "./components/YouTubePlayer";
+import { SearchBox, SubjectTiles, SectionHeading, Thumb, VideoList, ProgressBar, CourseList, icons } from "./components/catalog-ui";
+import { go, useRoute, useViewState } from "./navigation/route";
+import { useInteractionMotion, usePageMotion } from "./lib/motion";
+import { Disclosure } from "./components/Disclosure";
+import { SectionTabs } from "./components/SectionTabs";
+import { usePwa } from "./hooks/usePwa";
+import { registerUpdateGuard } from "./lib/pwa";
+const HierarchyPage = lazy(()=>import("./pages/HierarchyPage"));
+const CollectionPage = lazy(()=>import("./pages/HierarchyPage").then(module=>({default:module.CollectionPage})));
+const WatchTrail = lazy(()=>import("./pages/HierarchyPage").then(module=>({default:module.WatchTrail})));
 type Learning = ReturnType<typeof useLearning>;
-const icons: Record<string, LucideIcon> = {
-  Sigma,
-  Languages,
-  FlaskConical,
-  Atom,
-  BookOpen,
-  Landmark,
-  Globe,
-  Binary,
-};
 const navItems = [
   { path: "/", label: "ホーム", icon: Home },
   { path: "/discover", label: "探す", icon: Search },
   { path: "/library", label: "マイライブラリ", icon: Library },
 ];
-function useRoute() {
-  const [route, setRoute] = useState(() => location.hash.slice(1) || "/");
-  useEffect(() => {
-    const onHash = () => {
-      setRoute(location.hash.slice(1) || "/");
-      window.scrollTo(0, 0);
-    };
-    window.addEventListener("hashchange", onHash);
-    return () => window.removeEventListener("hashchange", onHash);
-  }, []);
-  return route;
-}
-function go(path: string) {
-  location.hash = path;
-}
-function SearchBox({
-  onSearch,
-  initial = "",
-  placeholder = "教科・単元・授業を検索",
-}: {
-  onSearch: (s: string) => void;
-  initial?: string;
-  placeholder?: string;
-}) {
-  const [query, setQuery] = useState(initial);
-  useEffect(() => setQuery(initial), [initial]);
-  return (
-    <form
-      className="search-box"
-      role="search"
-      onSubmit={(e) => {
-        e.preventDefault();
-        onSearch(query);
-      }}
-    >
-      <Search size={19} />
-      <input
-        aria-label={placeholder}
-        type="search"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder={placeholder}
-      />
-      <button type="submit" className="icon-button" aria-label="検索する">
-        <ArrowRight size={20} />
-      </button>
-    </form>
-  );
-}
-function SubjectTiles({ learning }: { learning: Learning }) {
-  return (
-    <div className="subject-grid">
-      {catalog.subjects.map((s) => {
-        const Icon = icons[s.icon] || BookOpen;
-        const list = catalog.videos.filter((v) => v.subjectId === s.id);
-        const p = progress(list, learning.records);
-        return (
-          <a className="subject-tile" href={`#/subject/${s.id}`} key={s.id}>
-            <span className="subject-icon">
-              <Icon size={25} strokeWidth={1.8} />
-            </span>
-            <div>
-              <h3>{s.name}</h3>
-              <p>{s.description}</p>
-              <span className="small muted">
-                {list.length.toLocaleString()}授業
-                {p.completed ? ` · ${p.percent}% 学習済み` : ""}
-              </span>
-            </div>
-            <ChevronRight className="tile-arrow" size={18} />
-          </a>
-        );
-      })}
-    </div>
-  );
-}
-function SectionHeading({
-  title,
-  link,
-  label = "すべて見る",
-}: {
-  title: string;
-  link?: string;
-  label?: string;
-}) {
-  return (
-    <div className="section-heading">
-      <h2>{title}</h2>
-      {link && (
-        <a href={link}>
-          {label}
-          <ChevronRight size={16} />
-        </a>
-      )}
-    </div>
-  );
-}
-function Thumb({
-  video,
-  className = "",
-}: {
-  video: Video;
-  className?: string;
-}) {
-  return (
-    <img
-      className={`thumbnail ${className}`}
-      src={`https://i.ytimg.com/vi/${video.id}/mqdefault.jpg`}
-      alt=""
-      loading="lazy"
-      referrerPolicy="strict-origin-when-cross-origin"
-      onError={(e) => {
-        e.currentTarget.style.visibility = "hidden";
-      }}
-    />
-  );
-}
-function VideoList({
-  videos,
-  learning,
-  seriesId,
-  empty = "該当する授業がありません。",
-}: {
-  videos: Video[];
-  learning: Learning;
-  seriesId?: string;
-  empty?: string;
-}) {
-  const [limit, setLimit] = useState(40);
-  useEffect(() => setLimit(40), [videos]);
-  if (!videos.length)
-    return (
-      <div className="empty">
-        <BookOpen />
-        <h3>{empty}</h3>
-        <p>教科や講座を選んで、学びたい授業を見つけましょう。</p>
-        <a className="button" href="#/discover">
-          授業を探す
-          <ArrowRight size={16} />
-        </a>
-      </div>
-    );
-  return (
-    <>
-      <div className="video-list">
-        {videos.slice(0, limit).map((v, i) => {
-          const r = learning.get(v.id);
-          return (
-            <a href={videoHref(v, seriesId)} className="video-row" key={v.id}>
-              <span
-                className={`row-index ${r.status === "completed" ? "is-completed" : ""}`}
-              >
-                {r.status === "completed" ? (
-                  <Check size={17} />
-                ) : (
-                  String(i + 1).padStart(2, "0")
-                )}
-              </span>
-              <Thumb video={v} />
-              <div className="video-info">
-                <h3>{v.title}</h3>
-                <p>
-                  {subjectMap.get(v.subjectId)?.name} ·{" "}
-                  {unitMap.get(v.unitIds[0])?.name}{" "}
-                  <span className="channel-label">
-                    · {channelMap.get(v.channelId)?.name}
-                  </span>
-                </p>
-                <div className="row-meta">
-                  {r.position > 0 && (
-                    <span>
-                      {time(r.position)}
-                      {r.playbackEnded ? " · 再生終了" : " から再開"}
-                    </span>
-                  )}
-                  {v.verification === "needs-review" && <span>分類確認中</span>}
-                  {v.role !== "core" && <span>{roleLabels[v.role]}</span>}
-                </div>
-              </div>
-              <ChevronRight size={18} />
-            </a>
-          );
-        })}
-      </div>
-      {limit < videos.length && (
-        <button
-          className="button load-more"
-          onClick={() => setLimit((n) => n + 40)}
-        >
-          さらに表示 ({Math.min(limit, videos.length)} / {videos.length})
-          <ChevronDown size={16} />
-        </button>
-      )}
-    </>
-  );
-}
-function ProgressBar({
-  list,
-  learning,
-}: {
-  list: Video[];
-  learning: Learning;
-}) {
-  const p = progress(list, learning.records);
-  return (
-    <div className="progress-block">
-      <div>
-        <span>
-          {p.completed} / {p.total}授業 学習済み
-        </span>
-        <strong>{p.percent}%</strong>
-      </div>
-      <progress
-        value={p.completed}
-        max={Math.max(1, p.total)}
-        aria-label="学習済みの割合"
-      />
-    </div>
-  );
-}
-function CourseList({
-  courses,
-  learning,
-}: {
-  courses: Series[];
-  learning: Learning;
-}) {
-  if (!courses.length)
-    return <p className="empty">収録済みの講座はありません。</p>;
-  return (
-    <div className="course-list">
-      {courses.map((s) => {
-        const list = s.videoIds.flatMap((id) =>
-          videoMap.get(id) ? [videoMap.get(id)!] : [],
-        );
-        const p = progress(list, learning.records);
-        return (
-          <a href={`#/course/${s.id}`} className="course-row" key={s.id}>
-            <span className="course-mark">
-              <BookOpen size={23} />
-            </span>
-            <div>
-              <p className="eyebrow">
-                {subjectMap.get(s.subjectId)?.name} ·{" "}
-                {channelMap.get(s.channelId)?.name}
-              </p>
-              <h3>{s.title}</h3>
-              <p className="small muted">
-                {s.videoIds.length}授業 · {s.level}
-                {p.completed ? ` · ${p.completed}授業 学習済み` : ""}
-              </p>
-            </div>
-            <ChevronRight size={19} />
-          </a>
-        );
-      })}
-    </div>
-  );
-}
 function HomePage({ learning }: { learning: Learning }) {
   const recent = Object.values(learning.records)
     .filter((r) => r.lastViewedAt > 0 && videoMap.has(r.videoId))
@@ -402,11 +143,11 @@ function DiscoverPage({
   learning: Learning;
   params: URLSearchParams;
 }) {
-  const [mode, setMode] = useState(params.get("q") ? "search" : "subjects");
-  const [query, setQuery] = useState(params.get("q") || "");
-  const [subject, setSubject] = useState("all");
-  const [role, setRole] = useState("all");
-  const [status, setStatus] = useState("all");
+  const [mode, setMode] = useViewState("discover-mode", params.get("q") ? "search" : "subjects");
+  const [query, setQuery] = useViewState("discover-query",params.get("q") || "");
+  const [subject, setSubject] = useViewState("discover-subject","all");
+  const [role, setRole] = useViewState("discover-role","all");
+  const [status, setStatus] = useViewState("discover-status","all");
   useEffect(() => {
     setQuery(params.get("q") || "");
     if (params.get("q")) setMode("search");
@@ -433,24 +174,11 @@ function DiscoverPage({
         onSearch={(q) => {
           setQuery(q);
           setMode("search");
+          go(`/discover?q=${encodeURIComponent(q)}`);
         }}
       />
-      <div className="segmented" aria-label="探し方">
-        {[
-          ["subjects", "教科"],
-          ["courses", "講座"],
-          ["channels", "チャンネル"],
-          ...(mode === "search" ? [["search", "検索結果"]] : []),
-        ].map(([id, label]) => (
-          <button
-            key={id}
-            aria-pressed={mode === id}
-            onClick={() => setMode(id)}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
+      <SectionTabs items={[{id:"subjects",label:"教科"},{id:"courses",label:"講座"},{id:"channels",label:"チャンネル"},...(mode==="search"?[{id:"search",label:"検索結果"}]:[])]} value={mode} onChange={setMode}/>
+      <div id="discovery-panel" role="tabpanel" aria-label={mode==="search"?"検索結果":mode==="courses"?"講座":mode==="channels"?"チャンネル":"教科"} className="results-enter" key={mode}>
       {mode === "subjects" ? (
         <SubjectTiles learning={learning} />
       ) : mode === "courses" ? (
@@ -469,12 +197,7 @@ function DiscoverPage({
               ))}
             </select>
           </label>
-          <CourseList
-            courses={catalog.series.filter(
-              (s) => subject === "all" || s.subjectId === subject,
-            )}
-            learning={learning}
-          />
+          {subject === "all" ? <><p className="section-intro">教科を選ぶと、チャンネル別の講座を表示します。</p><SubjectTiles learning={learning}/></> : catalog.channels.filter(channel=>catalog.series.some(series=>series.subjectId===subject&&series.channelId===channel.id)).map((channel,index)=><Disclosure key={channel.id} stateKey={`discover-channel:${channel.id}`} title={channel.name} defaultOpen={index===0}><CourseList courses={catalog.series.filter(series=>series.subjectId===subject&&series.channelId===channel.id)} learning={learning}/></Disclosure>)}
         </>
       ) : mode === "channels" ? (
         <div className="course-list">
@@ -555,203 +278,7 @@ function DiscoverPage({
           <VideoList videos={list} learning={learning} />
         </>
       )}
-    </>
-  );
-}
-function SubjectPage({ id, learning }: { id: string; learning: Learning }) {
-  const s = subjectMap.get(id as SubjectId);
-  const [level, setLevel] = useState("all");
-  if (!s) return <NotFound />;
-  const Icon = icons[s.icon] || BookOpen;
-  const units = catalog.units.filter((u) => u.subjectId === id);
-  const levels = [...new Set(units.map((u) => u.level))];
-  const list = catalog.videos.filter((v) => v.subjectId === id);
-  const visible = units.filter((u) => level === "all" || u.level === level);
-  const fields = [...new Set(visible.map((u) => u.field))];
-  return (
-    <>
-      <a className="back-link" href="#/discover">
-        <ArrowLeft size={17} />
-        教科一覧
-      </a>
-      <header className="page-heading with-icon">
-        <span className="subject-icon large">
-          <Icon size={32} />
-        </span>
-        <div>
-          <h1>{s.name}</h1>
-          <p>{s.description}</p>
-        </div>
-      </header>
-      <ProgressBar list={list} learning={learning} />
-      <div className="chips">
-        <button
-          className={level === "all" ? "selected" : ""}
-          onClick={() => setLevel("all")}
-        >
-          すべて
-        </button>
-        {levels.map((l) => (
-          <button
-            key={l}
-            className={l === level ? "selected" : ""}
-            onClick={() => setLevel(l)}
-          >
-            {l}
-          </button>
-        ))}
       </div>
-      {fields.map((field) => (
-        <section className="section" key={field}>
-          <SectionHeading title={field} />
-          <div className="unit-list">
-            {visible
-              .filter((u) => u.field === field)
-              .map((u) => {
-                const rows = list.filter((v) => v.unitIds.includes(u.id));
-                const p = progress(rows, learning.records);
-                return (
-                  <a href={`#/unit/${u.id}`} className="unit-row" key={u.id}>
-                    <div>
-                      <h3>{u.name}</h3>
-                      <p>
-                        {rows.length}授業
-                        {p.completed ? ` · ${p.completed}授業 学習済み` : ""}
-                      </p>
-                    </div>
-                    {p.completed > 0 && (
-                      <span className="small muted">{p.percent}%</span>
-                    )}
-                    <ChevronRight size={18} />
-                  </a>
-                );
-              })}
-          </div>
-        </section>
-      ))}
-      <section className="section">
-        <SectionHeading title="この教科の講座" />
-        <CourseList
-          courses={catalog.series.filter((s) => s.subjectId === id)}
-          learning={learning}
-        />
-      </section>
-      {!list.length && (
-        <p className="notice">この教科は現在収録を準備しています。</p>
-      )}
-    </>
-  );
-}
-function CollectionPage({
-  kind,
-  id,
-  learning,
-}: {
-  kind: "unit" | "course" | "channel";
-  id: string;
-  learning: Learning;
-}) {
-  const item =
-    kind === "unit"
-      ? unitMap.get(id)
-      : kind === "course"
-        ? seriesMap.get(id)
-        : channelMap.get(id);
-  if (!item) return <NotFound />;
-  const list =
-    kind === "unit"
-      ? catalog.videos
-          .filter((v) => v.unitIds.includes(id))
-          .sort((a, b) => a.order - b.order)
-      : kind === "course"
-        ? seriesMap
-            .get(id)!
-            .videoIds.flatMap((id) =>
-              videoMap.get(id) ? [videoMap.get(id)!] : [],
-            )
-        : catalog.videos.filter((v) => v.channelId === id);
-  const title =
-    kind === "unit"
-      ? unitMap.get(id)!.name
-      : kind === "course"
-        ? seriesMap.get(id)!.title
-        : channelMap.get(id)!.name;
-  const subjectId = "subjectId" in item ? item.subjectId : undefined;
-  return (
-    <>
-      <a
-        className="back-link"
-        href={subjectId ? `#/subject/${subjectId}` : "#/discover"}
-      >
-        <ArrowLeft size={17} />
-        {subjectId ? subjectMap.get(subjectId)?.name : "探す"}
-      </a>
-      <header className="page-heading">
-        <p className="eyebrow">
-          {kind === "course" ? "COURSE" : kind === "unit" ? "UNIT" : "CHANNEL"}
-        </p>
-        <h1>{title}</h1>
-        <p>
-          {list.length}授業
-          {kind === "course"
-            ? ` · ${channelMap.get(seriesMap.get(id)!.channelId)?.name}`
-            : ""}
-        </p>
-      </header>
-      <ProgressBar list={list} learning={learning} />
-      {kind === "channel" && (
-        <>
-          <a
-            className="text-link"
-            href={channelMap.get(id)!.url}
-            target="_blank"
-            rel="noreferrer"
-          >
-            公式サイトを開く
-            <ExternalLink size={15} />
-          </a>
-          <section className="section">
-            <SectionHeading title="講座" />
-            <CourseList
-              courses={catalog.series.filter((s) => s.channelId === id)}
-              learning={learning}
-            />
-          </section>
-          <SectionHeading title="収録授業" />
-        </>
-      )}
-      {kind === "course" && (
-        <details className="coverage">
-          <summary>収録範囲・出典</summary>
-          <p>{seriesMap.get(id)!.coverage}</p>
-          <a
-            className="text-link"
-            href={seriesMap.get(id)!.sourceUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            公式の講座一覧
-            <ExternalLink size={14} />
-          </a>
-        </details>
-      )}
-      {kind === "unit" ? (
-        (["core", "reinforcement", "exam", "advanced"] as const).map((role) => {
-          const rows = list.filter((v) => v.role === role);
-          return rows.length ? (
-            <section className="section" key={role}>
-              <SectionHeading title={roleLabels[role]} />
-              <VideoList videos={rows} learning={learning} />
-            </section>
-          ) : null;
-        })
-      ) : (
-        <VideoList
-          videos={list}
-          learning={learning}
-          seriesId={kind === "course" ? id : undefined}
-        />
-      )}
     </>
   );
 }
@@ -872,21 +399,20 @@ function NoteEditor({ video, learning }: { video: Video; learning: Learning }) {
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
-  const commitRef = useRef<() => void>(() => {});
-  commitRef.current = () => {
+  const pending=useRef<Promise<void>|null>(null);
+  const commitRef = useRef<() => Promise<void>>(() => Promise.resolve());
+  commitRef.current = async () => {
     if (timer.current) clearTimeout(timer.current);
+    if(pending.current)await pending.current;
     if (!dirty.current) return;
     const value = draftRef.current;
     setSaving(true);
-    learning
-      .save(video.id, { note: value })
-      .then(() => {
-        if (draftRef.current === value) dirty.current = false;
-        setError("");
-      })
-      .catch((e) => setError(String(e.message || e)))
-      .finally(() => setSaving(false));
+    const request=learning.save(video.id,{note:value});pending.current=request;
+    try{await request;if(draftRef.current===value)dirty.current=false;setError("");}
+    catch(e){setError(e instanceof Error?e.message:String(e));throw e;}
+    finally{pending.current=null;setSaving(false);}
   };
+  useEffect(()=>registerUpdateGuard(()=>commitRef.current()),[video.id]);
   useEffect(() => {
     if (!dirty.current) {
       setDraft(record.note);
@@ -894,7 +420,7 @@ function NoteEditor({ video, learning }: { video: Video; learning: Learning }) {
     }
   }, [record.note]);
   useEffect(() => {
-    const flush = () => commitRef.current();
+    const flush = () => {void commitRef.current().catch(()=>{});};
     window.addEventListener("pagehide", flush);
     document.addEventListener("visibilitychange", flush);
     return () => {
@@ -927,14 +453,14 @@ function NoteEditor({ video, learning }: { video: Video; learning: Learning }) {
           draftRef.current = e.target.value;
           setDraft(e.target.value);
           if (timer.current) clearTimeout(timer.current);
-          timer.current = setTimeout(() => commitRef.current(), 700);
+          timer.current = setTimeout(() => {void commitRef.current().catch(()=>{});}, 700);
         }}
-        onBlur={() => commitRef.current()}
+        onBlur={() => {void commitRef.current().catch(()=>{});}}
       />
       {error && (
         <div className="notice error">
           {error}
-          <button className="button" onClick={() => commitRef.current()}>
+          <button className="button" onClick={() => {void commitRef.current().catch(()=>{});}}>
             再試行
           </button>
         </div>
@@ -954,7 +480,7 @@ function NoteEditor({ video, learning }: { video: Video; learning: Learning }) {
                   dirty.current = true;
                   draftRef.current = n.text;
                   setDraft(n.text);
-                  commitRef.current();
+                  void commitRef.current().catch(()=>{});
                 }}
               >
                 この内容を使う
@@ -976,7 +502,10 @@ function WatchPage({
   learning: Learning;
 }) {
   const v = videoMap.get(id);
-  const [seek, setSeek] = useState<number>();
+  const [seek, setSeek] = useState<number | undefined>(()=>{const value=params.get("t");return value!==null&&Number.isFinite(Number(value))?Math.max(0,Number(value)):undefined;});
+  const [seekNonce,setSeekNonce]=useState(0);
+  const [episodePage,setEpisodePage]=useViewState("episode-page",Math.floor(Math.max(0,(seriesMap.get(params.get("series") || videoMap.get(id)?.seriesIds[0] || "")?.videoIds.indexOf(id)||0))/30));
+  useEffect(()=>{const value=params.get("t");if(value!==null&&Number.isFinite(Number(value))){setSeek(Math.max(0,Number(value)));setSeekNonce(n=>n+1);}},[params.get("t")]);
   const [actionError, setActionError] = useState("");
   if (!v) return <NotFound />;
   const r = learning.get(id);
@@ -1003,6 +532,7 @@ function WatchPage({
         <ArrowLeft size={17} />
         {series?.title || subjectMap.get(v.subjectId)?.name}
       </a>
+      <Suspense fallback={null}><WatchTrail video={v} seriesId={series?.id}/></Suspense>
       <div className="watch-layout">
         <div className="watch-main">
           {learning.ready ? (
@@ -1012,6 +542,7 @@ function WatchPage({
               record={r}
               save={learning.save}
               initialSeek={seek}
+              seekNonce={seekNonce}
             />
           ) : (
             <div className="player-placeholder">
@@ -1125,7 +656,7 @@ function WatchPage({
                 {v.chapters.map((c, i) => (
                   <button
                     key={`${c.startSeconds}-${i}`}
-                    onClick={() => setSeek(c.startSeconds)}
+                    onClick={() => {setSeek(c.startSeconds);setSeekNonce(n=>n+1);}}
                   >
                     <span>{time(c.startSeconds)}</span>
                     {c.title}
@@ -1176,7 +707,8 @@ function WatchPage({
             </span>
           </div>
           <div className="episode-list">
-            {sequence.map((videoId, i) => {
+            {sequence.slice(episodePage*30,(episodePage+1)*30).map((videoId, offset) => {
+              const i=episodePage*30+offset;
               const episode = videoMap.get(videoId);
               if (!episode) return null;
               const done = learning.records[videoId]?.status === "completed";
@@ -1200,6 +732,7 @@ function WatchPage({
               );
             })}
           </div>
+          {sequence.length>30&&<div className="episode-pager"><button className="icon-button" aria-label="目次の前の30授業" disabled={episodePage===0} onClick={()=>setEpisodePage(n=>n-1)}><ArrowLeft size={16}/></button><span>{episodePage*30+1}–{Math.min((episodePage+1)*30,sequence.length)}</span><button className="icon-button" aria-label="目次の次の30授業" disabled={(episodePage+1)*30>=sequence.length} onClick={()=>setEpisodePage(n=>n+1)}><ArrowRight size={16}/></button></div>}
         </aside>
       </div>
     </>
@@ -1208,15 +741,7 @@ function WatchPage({
 function SettingsPage({ learning }: { learning: Learning }) {
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
-  const [install, setInstall] = useState<any>(null);
-  useEffect(() => {
-    const event = (e: Event) => {
-      e.preventDefault();
-      setInstall(e);
-    };
-    window.addEventListener("beforeinstallprompt", event);
-    return () => window.removeEventListener("beforeinstallprompt", event);
-  }, []);
+  const pwa=usePwa();
   const action = async (fn: () => Promise<unknown>, success?: string) => {
     setBusy(true);
     setMessage("");
@@ -1344,17 +869,11 @@ function SettingsPage({ learning }: { learning: Learning }) {
         <p>
           ブラウザの「ホーム画面に追加」または「アプリをインストール」から利用できます。オフラインでは収録一覧と学習記録を開けます。動画の再生には通信が必要です。
         </p>
-        {install && (
-          <button
-            className="button"
-            onClick={async () => {
-              await install.prompt();
-              setInstall(null);
-            }}
-          >
-            Curiveoをインストール
-          </button>
-        )}
+        <p className="small muted">{pwa.installed?"アプリとして起動しています。":pwa.installAvailable?"このブラウザからインストールできます。":"ブラウザのメニューまたは共有から「ホーム画面に追加」を選んでください。"}</p>
+        {pwa.installAvailable&&<button className="button primary" onClick={()=>void pwa.install().catch(()=>{})}><Download size={17}/>Curiveoをインストール</button>}
+        <p className="small muted">{pwa.offlineReady?"オフライン用のアプリを端末に保存済み。":"オフライン用のアプリを準備中。初回はオンラインで開いてください。"}</p>
+        <div className="action-row"><button className="button" disabled={pwa.applying} onClick={()=>void(pwa.updateAvailable?pwa.applyUpdate():pwa.checkForUpdate()).catch(()=>{})}><RotateCcw size={16}/>{pwa.applying?"記録を保存中…":pwa.updateAvailable?"保存して更新":"更新を確認"}</button></div>
+        {pwa.error&&<p className="notice error" role="alert">{pwa.error}</p>}
       </section>
       <section className="settings-section">
         <h2>収録について</h2>
@@ -1364,7 +883,7 @@ function SettingsPage({ learning }: { learning: Learning }) {
         </p>
         <p className="small muted">
           収録更新: {new Date(catalog.updatedAt).toLocaleDateString("ja-JP")} ·
-          Curiveo v1.0
+          Curiveo v1.1
         </p>
         {catalog.gaps.length > 0 && (
           <details>
@@ -1405,7 +924,11 @@ function NotFound() {
   );
 }
 export function App() {
-  const route = useRoute();
+  const {route,direction} = useRoute();
+  const mainRef=useRef<HTMLElement>(null);
+  useInteractionMotion();
+  usePageMotion(mainRef,route.split("?")[0],direction);
+  const pwa=usePwa();
   const [path, queryString = ""] = route.split("?");
   const parts = path.split("/").filter(Boolean);
   const params = new URLSearchParams(queryString);
@@ -1441,8 +964,7 @@ export function App() {
       </a>
       <aside className="sidebar">
         <a className="brand" href="#/">
-          <img src={`${import.meta.env.BASE_URL}icon.svg`} alt="" />
-          <span>Curiveo</span>
+          <img className="brand-symbol" src={`${import.meta.env.BASE_URL}brand/symbol.webp`} alt="" /><img className="brand-wordmark" src={`${import.meta.env.BASE_URL}brand/wordmark.webp`} alt="Curiveo" />
         </a>
         <nav className="main-nav" aria-label="メインナビゲーション">
           {navItems.map((n) => (
@@ -1471,8 +993,7 @@ export function App() {
       <div className="app-content">
         <header className="topbar">
           <a className="mobile-brand brand" href="#/">
-            <img src={`${import.meta.env.BASE_URL}icon.svg`} alt="" />
-            <span>Curiveo</span>
+            <img className="brand-symbol" src={`${import.meta.env.BASE_URL}brand/symbol.webp`} alt="" /><img className="brand-wordmark" src={`${import.meta.env.BASE_URL}brand/wordmark.webp`} alt="Curiveo" />
           </a>
           <span className="desktop-kicker">学びを、つなぐ。</span>
           <div className="topbar-actions">
@@ -1495,19 +1016,23 @@ export function App() {
             学習記録は端末内に保存します。動画再生には通信が必要です。
           </div>
         )}
+        {pwa.updateAvailable&&<div className="update-banner" role="status"><span>新しいCuriveoを利用できます</span><button className="button" disabled={pwa.applying} onClick={()=>void pwa.applyUpdate().catch(()=>{})}>{pwa.applying?"記録を保存中…":"保存して更新"}</button></div>}
+        {pwa.error&&<p className="notice error" role="alert">{pwa.error}</p>}
         {learning.error && (
           <div className="notice error" role="alert">
             {learning.error}
             <a href="#/settings">バックアップ・再試行</a>
           </div>
         )}
-        <main id="main-content" className="main-content" tabIndex={-1}>
-          {current === "home" ? (
+        <main ref={mainRef} id="main-content" className="main-content" tabIndex={-1}>
+          <Suspense fallback={<div className="page-skeleton" role="status">講座を開いています…</div>}>{current === "home" ? (
             <HomePage learning={learning} />
           ) : current === "discover" ? (
             <DiscoverPage learning={learning} params={params} />
           ) : current === "subject" ? (
-            <SubjectPage key={parts[1]} id={parts[1]} learning={learning} />
+            <HierarchyPage key={path} subjectId={parts[1]} learning={learning} />
+          ) : current === "category" ? (
+            <HierarchyPage key={path} nodeId={parts[1]} learning={learning} />
           ) : current === "unit" ||
             current === "course" ||
             current === "channel" ? (
@@ -1531,6 +1056,7 @@ export function App() {
           ) : (
             <NotFound />
           )}
+          </Suspense>
         </main>
         <footer className="footer">
           Curiveo <span>学びたい授業を、すぐそばに。</span>

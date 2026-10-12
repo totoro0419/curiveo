@@ -22,6 +22,8 @@ import {
   startLearningSync,
 } from "../lib/sync";
 
+import { registerUpdateGuard } from "../lib/pwa";
+
 type Sync = ReturnType<typeof startLearningSync>;
 const message = (error: unknown) =>
   error instanceof Error ? error.message : "学習記録を保存できませんでした。";
@@ -39,6 +41,8 @@ export function useLearning() {
     displayName: string | null;
     email: string | null;
   } | null>(null);
+  const pendingWrites=useRef(new Set<Promise<unknown>>());
+  useEffect(()=>registerUpdateGuard(async()=>{while(pendingWrites.current.size){const results=await Promise.allSettled([...pendingWrites.current]);const failed=results.find((result):result is PromiseRejectedResult=>result.status==="rejected");if(failed)throw failed.reason;}}),[]);
   const scope = useRef(GUEST_SCOPE);
   const sync = useRef<Sync | undefined>(undefined);
   const mounted = useRef(false);
@@ -153,7 +157,8 @@ export function useLearning() {
       const owner = scope.current;
       setSaveState("保存中…");
       try {
-        await saveRecord(owner, id, patch);
+        const request=saveRecord(owner,id,patch);pendingWrites.current.add(request);
+        try{await request;}finally{pendingWrites.current.delete(request);}
         if (owner === scope.current && mounted.current) {
           await refresh(owner);
           setSaveState("端末に保存済み");
@@ -228,7 +233,8 @@ export function useLearning() {
             "バックアップは20MB以内のJSONファイルを選択してください。",
           );
         const imports = parseBackup(JSON.parse(await file.text()));
-        const count = await restoreRecords(owner, imports);
+        const request=restoreRecords(owner, imports);pendingWrites.current.add(request);
+        let count:number;try{count=await request;}finally{pendingWrites.current.delete(request);}
         if (owner === scope.current) {
           await refresh(owner);
           setSaveState("端末に保存済み");

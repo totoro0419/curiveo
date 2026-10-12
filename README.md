@@ -1,12 +1,15 @@
 # Curiveo
 
-厳選された教育動画を教科・単元・講座で整理する、個人学習用のWebアプリ。
+厳選された教育動画をチャンネル・シリーズ中心に整理する、個人学習用のWebアプリ。
 
 **公開先:** https://totoro0419.github.io/curiveo/
 
 ## 利用できる機能
 
-- ホームから学習再開。教科・講座・チャンネルと横断検索から授業へアクセス
+- ホームから学習再開。教科 → チャンネル・講座 → 講座内の単元目次 → 授業。公式順を保ち、チャンネルを混ぜずに学習
+- 単元階層・横断検索で直接ジャンプ。単元からも講座を選択して授業を表示。パンくず、戻る、一覧の表示件数・選択状態・スクロール復元
+- 短い方向付き画面遷移、アイコンの共有遷移、ばねの押下応答、目次開閉、タブ、進捗・登録状態のモーション。OSの動きを減らす設定に対応
+- 正式ロゴ、シンボル単独の通常/Maskableアイコン、起動直後からのインストール案内、保存完了後の明示的PWA更新、上端Pull-to-Refresh抑止
 - 公式YouTube IFrame API、映像外の再生・一時停止・±10秒・シーク・速度・音量・全画面、前後の授業
 - 再生位置・履歴の自動保存、お気に入り、後で見る、手動の学習完了、理解度、復習、メモ
 - 動画IDによる重複排除、教科・講座の進捗、情報Ⅰの公式単元目次へジャンプ
@@ -60,3 +63,15 @@ Video IDを正規キーに統合し、単元と講座の複数所属を参照で
 [超わかる数学](https://kouki-honda.jp/youtube_hs-math/) / [英語](https://kouki-honda.jp/youtube_hs-english/) / [ただよび物理](https://tadayobi.com/blog/butsuri/butsuri02/) / [ヨビノリ高校物理](https://yobinori.jp/video/phys-hs.html) / [せかチャン](https://sekachan.net/info1-basic/) / [ムンディ世界史](https://mundisensei.com/lesson-videos-world/) / [日本史](https://mundisensei.com/lesson-videos-japan/)
 
 個々の講座・動画には追加の公式出典URLを記録しています。
+
+## UI・PWAの構成
+
+表示用の分類は `src/navigation/hierarchy.ts`、講座内目次は `course-outline.ts`。動画ID・IndexedDBスキーマは変更せず、講座の元の授業順を保持します。分類は公式目次・既存単元・動画名が根拠で、未確定2本は「その他・分類確認中」に保持します。学習単元の探索は補助導線です。
+
+モーションはCSSとWeb Animations APIを使用し、追加のライブラリはありません。押下のばねは減衰振動の標本、ページとアイコンはtransform/opacity中心。YouTube iframeの再生成条件は動画変更・再試行だけです。
+
+PWAは版をそろえたローカルshellをキャッシュし、更新は明示操作で適用します。適用前に進行中の端末内保存・メモ・再生位置を待ち、失敗時には再読み込みしません。直前版のlazy chunkを保護し、IndexedDBには触れません。YouTubeやFirebaseをキャッシュしません。`overscroll-behavior-y: contain`をルートと内部縦スクロール領域に適用し、通常のtouchmoveは阻止しません。実Androidの挙動は別途確認が必要です。
+
+正式ロゴの原本は `public/brand/curiveo-original.png`。シンボル/ワードマークは元画像を保持した派生素材で、アイコンは文字なし。再生成はPillowを利用して `python scripts/build-brand.py`（通常ビルドでは不要）。Maskable用の色付きシンボルは中心の安全円内に収めています。
+
+最小検証と実機・外部設定の制限は [検証記録](docs/verification.md) を参照してください。

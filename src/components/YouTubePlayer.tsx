@@ -11,6 +11,7 @@ import {
   WifiOff,
 } from "lucide-react";
 import type { LearningPatch, LearningRecord, Video } from "../types";
+import { registerUpdateGuard } from "../lib/pwa";
 
 interface Player {
   destroy(): void;
@@ -121,11 +122,13 @@ export function YouTubePlayer({
   record,
   save,
   initialSeek,
+  seekNonce,
 }: {
   video: Video;
   record: LearningRecord;
   save: (id: string, patch: LearningPatch) => Promise<void>;
   initialSeek?: number;
+  seekNonce?: number;
 }) {
   const root = useRef<HTMLDivElement>(null);
   const container = useRef<HTMLDivElement>(null);
@@ -137,9 +140,10 @@ export function YouTubePlayer({
   const initialSeekRef = useRef(initialSeek);
   const pendingSeek = useRef<number | undefined>(initialSeek);
   const seeking = useRef(false);
+  const pendingWrites = useRef(new Set<Promise<void>>());
   const savePositionRef = useRef<
-    (ended?: boolean, forcedPosition?: number) => void
-  >(() => {});
+    (ended?: boolean, forcedPosition?: number) => Promise<void>
+  >(() => Promise.resolve());
   const lastVolume = useRef(100);
   const [playback, setPlayback] = useState(initialPlayback);
   const [seekPreview, setSeekPreview] = useState<number | null>(null);
@@ -194,21 +198,31 @@ export function YouTubePlayer({
     setSeekPreview(null);
     seeking.current = false;
 
-    const write = (patch: LearningPatch) => {
-      void saveRef
-        .current(video.id, patch)
+    const write = (patch: LearningPatch): Promise<void> => {
+      const saving = Promise.resolve()
+        .then(() => saveRef.current(video.id, patch))
         .then(() => {
           if (!disposed) setSaveError("");
         })
-        .catch(() => {
+        .catch((reason: unknown) => {
           lastSavedPosition = -1;
           if (!disposed)
             setSaveError(
               "再生位置を保存できませんでした。端末の空き容量を確認してください。",
             );
+          throw reason;
         });
+      pendingWrites.current.add(saving);
+      void saving.then(
+        () => pendingWrites.current.delete(saving),
+        () => pendingWrites.current.delete(saving),
+      );
+      return saving;
     };
-    const persist = (ended = false, forcedPosition?: number) => {
+    const persist = async (
+      ended = false,
+      forcedPosition?: number,
+    ): Promise<void> => {
       if (!ready || !player) return;
       const duration = Math.max(0, player.getDuration() || 0);
       const position = Math.max(
@@ -230,13 +244,33 @@ export function YouTubePlayer({
         return;
       lastSavedPosition = Math.floor(position);
       lastSavedAt = Date.now();
-      write({
+      await write({
         position: Math.floor(position),
         duration: Math.floor(duration),
         playbackEnded: ended,
       });
     };
     savePositionRef.current = persist;
+    const persistQuietly = (ended = false, forcedPosition?: number) => {
+      void persist(ended, forcedPosition).catch(() => {});
+    };
+    const unregisterUpdateGuard = registerUpdateGuard(async () => {
+      const currentPosition = persist(
+        player?.getPlayerState() === 0,
+        seeking.current ? positionRef.current : undefined,
+      );
+      const waitForWrites = async (writes: Promise<void>[]) => {
+        const results = await Promise.allSettled(writes);
+        const failed = results.find(
+          (result): result is PromiseRejectedResult =>
+            result.status === "rejected",
+        );
+        if (failed) throw failed.reason;
+      };
+      await waitForWrites([currentPosition, ...pendingWrites.current]);
+      while (pendingWrites.current.size)
+        await waitForWrites([...pendingWrites.current]);
+    });
     const syncControls = () => {
       if (disposed || !ready || !player) return;
       const duration = Math.max(0, player.getDuration() || 0);
@@ -255,9 +289,9 @@ export function YouTubePlayer({
       }));
     };
     const onHidden = () => {
-      if (document.hidden) persist();
+      if (document.hidden) persistQuietly();
     };
-    const onPageHide = () => persist();
+    const onPageHide = () => persistQuietly();
     document.addEventListener("visibilitychange", onHidden);
     window.addEventListener("pagehide", onPageHide);
     loadPlayerApi()
@@ -307,7 +341,7 @@ export function YouTubePlayer({
                   player?.getPlayerState() === 1 &&
                   Date.now() - lastSavedAt >= 10000
                 )
-                  persist();
+                  persistQuietly();
               }, 500);
             },
             onStateChange: (event: { data: number }) => {
@@ -333,16 +367,16 @@ export function YouTubePlayer({
                 setState("ready");
                 setError("");
                 setNotice("");
-                write({
+                void write({
                   lastViewedAt: Date.now(),
                   playbackEnded: false,
                   ...(recordRef.current.status === "unstarted"
                     ? { status: "learning" as const }
                     : {}),
-                });
+                }).catch(() => {});
               }
-              if (event.data === 0) persist(true);
-              if (event.data === 2) persist();
+              if (event.data === 0) persistQuietly(true);
+              if (event.data === 2) persistQuietly();
               syncControls();
             },
             onPlaybackRateChange: syncControls,
@@ -377,15 +411,16 @@ export function YouTubePlayer({
         );
       });
     return () => {
-      persist();
+      persistQuietly();
       disposed = true;
+      unregisterUpdateGuard();
       clearInterval(timer);
       clearTimeout(readinessTimer);
       clearTimeout(bufferingTimer);
       document.removeEventListener("visibilitychange", onHidden);
       window.removeEventListener("pagehide", onPageHide);
       playerRef.current = null;
-      savePositionRef.current = () => {};
+      savePositionRef.current = () => Promise.resolve();
       player?.destroy();
     };
     // Learning updates never recreate the iframe. Only changing the video or retrying does.
@@ -404,8 +439,8 @@ export function YouTubePlayer({
     player.seekTo(time, true);
     positionRef.current = time;
     setPlayback((current) => ({ ...current, time }));
-    savePositionRef.current(false, time);
-  }, [initialSeek]);
+    void savePositionRef.current(false, time).catch(() => {});
+  }, [initialSeek, seekNonce, attempt]);
 
   const seekTo = (seconds: number, commit: boolean) => {
     const player = playerRef.current;
@@ -417,7 +452,7 @@ export function YouTubePlayer({
     setSeekPreview(commit ? null : time);
     if (commit) {
       seeking.current = false;
-      savePositionRef.current(false, time);
+      void savePositionRef.current(false, time).catch(() => {});
     }
   };
   const togglePlayback = () => {
