@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Search, ArrowRight, ChevronRight, BookOpen, Play, Check, ChevronDown, Sigma, Languages, FlaskConical, Atom, Landmark, Globe, Binary } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { catalog, subjectMap, unitMap, channelMap, roleLabels, videoMap, progress, time, videoHref } from "../catalog";
+import { catalog, inSubject, videoSubjects, subjectMap, unitMap, channelMap, roleLabels, videoMap, progress, time, videoHref } from "../catalog";
 import type { Video, Series } from "../types";
 import type { useLearning } from "../hooks/useLearning";
 import { listKey, useViewState } from "../navigation/route";
@@ -55,7 +55,7 @@ export function SubjectTiles({ learning }: { learning: Learning }) {
     <div className="subject-grid">
       {catalog.subjects.map((s) => {
         const Icon = icons[s.icon] || BookOpen;
-        const list = catalog.videos.filter((v) => v.subjectId === s.id);
+        const list = catalog.videos.filter((v) => inSubject(v,s.id));
         const p = progress(list, learning.records);
         return (
           <a className="subject-tile interactive-card" href={`#/subject/${s.id}`} key={s.id}>
@@ -123,11 +123,17 @@ export function VideoList({
   videos,
   learning,
   seriesId,
+  routeId,
+  subjectId,
+  contextLabel,
   empty = "該当する授業がありません。",
 }: {
   videos: Video[];
   learning: Learning;
   seriesId?: string;
+  routeId?: string;
+  subjectId?: string;
+  contextLabel?: string;
   empty?: string;
 }) {
   const [limit, setLimit] = useViewState(`video-list:${seriesId || "all"}:${listKey(videos.map(v=>v.id))}`, 40);
@@ -149,7 +155,7 @@ export function VideoList({
         {videos.slice(0, limit).map((v, i) => {
           const r = learning.get(v.id);
           return (
-            <a href={videoHref(v, seriesId)} className="video-row" key={v.id}>
+            <a href={videoHref(v, seriesId,routeId,subjectId)} className="video-row" key={v.id}>
               <span
                 className={`row-index ${r.status === "completed" ? "is-completed" : ""}`}
               >
@@ -163,8 +169,8 @@ export function VideoList({
               <div className="video-info">
                 <h3>{v.title}</h3>
                 <p>
-                  {subjectMap.get(v.subjectId)?.name} ·{" "}
-                  {unitMap.get(v.unitIds[0])?.name}{" "}
+                  {subjectId?subjectMap.get(subjectId as Video["subjectId"])?.name:videoSubjects(v).map(id=>subjectMap.get(id)?.name).join("・")} ·{" "}
+                  {contextLabel||unitMap.get(v.unitIds[0])?.name}{" "}
                   <span className="channel-label">
                     · {channelMap.get(v.channelId)?.name}
                   </span>
@@ -220,9 +226,11 @@ export function ProgressBar({
 export function CourseList({
   courses,
   learning,
+  subjectId,
 }: {
   courses: Series[];
   learning: Learning;
+  subjectId?: string;
 }) {
   if (!courses.length)
     return <p className="empty">収録済みの講座はありません。</p>;
@@ -234,13 +242,13 @@ export function CourseList({
         );
         const p = progress(list, learning.records);
         return (
-          <a href={`#/course/${s.id}`} className="course-row" key={s.id}>
+          <a href={`#/course/${s.id}${subjectId&&subjectId!==s.subjectId?`?subject=${subjectId}`:""}`} className="course-row" key={s.id}>
             <span className="course-mark">
               <BookOpen size={23} />
             </span>
             <div>
               <p className="eyebrow">
-                {subjectMap.get(s.subjectId)?.name} ·{" "}
+                {subjectMap.get((subjectId||s.subjectId) as Video["subjectId"])?.name} ·{" "}
                 {channelMap.get(s.channelId)?.name}
               </p>
               <h3>{s.title}</h3>

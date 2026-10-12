@@ -9,6 +9,7 @@ const sources =
         "data/source-catalogs/science.json",
         "data/source-catalogs/humanities.json",
         "data/source-catalogs/supplement.json",
+        "data/source-catalogs/audit-2026-10-13.json",
       ];
 const inventory = JSON.parse(
   readFileSync(`${reference}/src/data/registered-videos.json`, "utf8"),
@@ -172,9 +173,13 @@ for (const v of inventory.videos) {
 }
 const gaps = [];
 const seriesOrders = new Map();
+const patches=[], unitPatches=[], routes=[], chapterIndex=[];
 for (const file of sources) {
   if (!existsSync(file)) throw new Error(`Input not found: ${file}`);
   const input = JSON.parse(readFileSync(file, "utf8"));
+  for(const channel of input.channels || []){if(!channels.some(c=>c.id===channel.id))channels.push(channel);}
+  for(const unit of input.units || []){if(!units.some(u=>u.id===unit.id))units.push(unit);}
+  patches.push(...(input.videoPatches||[]));unitPatches.push(...(input.unitPatches||[]));routes.push(...(input.routes||[]));chapterIndex.push(...(input.chapterIndex||[]));
   for (const s of input.series || []) {
     if (!series.some((x) => x.id === s.id))
       series.push({
@@ -200,10 +205,11 @@ for (const file of sources) {
         name,
         order: v.unitOrder ?? units.length,
       });
+    const unitIds=[...new Set([unitId,...(v.unitIds||[])])];
     const sids = v.seriesIds || [];
     const existing = videos.get(v.id);
     if (existing) {
-      existing.unitIds = [...new Set([...existing.unitIds, unitId])];
+      existing.unitIds = [...new Set([...existing.unitIds, ...unitIds])];
       existing.seriesIds = [...new Set([...existing.seriesIds, ...sids])];
     } else
       videos.set(v.id, {
@@ -211,7 +217,7 @@ for (const file of sources) {
         uploaderName: v.uploaderName || v.channelName,
         youtubeChannelId: v.youtubeChannelId || v.uploaderYouTubeId,
         level,
-        unitIds: [unitId],
+        unitIds,
         seriesIds: sids,
         curriculum: ["current", "legacy", "mixed"].includes(v.curriculum)
           ? v.curriculum
@@ -240,6 +246,8 @@ for (const file of sources) {
     }
   }
 }
+for(const patch of unitPatches){const u=units.find(u=>u.id===patch.id);if(!u)throw new Error(`Missing patch unit ${patch.id}`);Object.assign(u,patch);}
+for(const patch of patches){const video=videos.get(patch.id);if(!video)throw new Error(`Missing patch video ${patch.id}`);for(const id of patch.addUnitIds||[])if(!units.some(u=>u.id===id))throw new Error(`Missing patch target ${id}`);video.unitIds=[...new Set([...video.unitIds,...(patch.addUnitIds||[])])];if(patch.classificationEvidenceAppend&&!video.classificationEvidence.includes(patch.classificationEvidenceAppend))video.classificationEvidence+=` ${patch.classificationEvidenceAppend}`;}
 for (const s of series)
   s.videoIds = s.videoIds
     .filter((id) => videos.has(id))
@@ -262,13 +270,15 @@ const data = {
   series,
   videos: [...videos.values()],
   gaps,
+  routes,
+  chapterIndex,
 };
 mkdirSync("src/data", { recursive: true });
 writeFileSync("src/data/catalog.json", JSON.stringify(data));
 const counts = Object.fromEntries(
   subjects.map((s) => [
     s.name,
-    data.videos.filter((v) => v.subjectId === s.id).length,
+    data.videos.filter((v) => (v.subjectIds||[v.subjectId]).includes(s.id)).length,
   ]),
 );
 console.log(

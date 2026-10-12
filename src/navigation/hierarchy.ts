@@ -1,4 +1,4 @@
-import { catalog, seriesMap, unitMap, videoMap } from "../catalog";
+import { catalog, videoSubjects, seriesInSubject, seriesMap, unitMap, videoMap } from "../catalog";
 import type { Series, SubjectId, Unit, Video } from "../types";
 
 export interface LearningNode {
@@ -289,18 +289,18 @@ function addInformation(video: Video, units: Unit[]) {
   }
 }
 
-for (const video of catalog.videos) {
-  const units = sources(video).sort((a, b) => (unitOrder.get(a.id) ?? 0) - (unitOrder.get(b.id) ?? 0));
-  if (!units.length) { unknown(video, units); continue; }
-  switch (video.subjectId) {
-    case "mathematics": addMath(video, units); break;
-    case "english": addEnglish(video, units); break;
-    case "physics": addPhysics(video, units); break;
-    case "chemistry": addChemistry(video, units); break;
-    case "japanese-history": case "world-history": addHistory(video, units); break;
-    case "japanese": addJapanese(video, units); break;
-    case "information": addInformation(video, units); break;
-  }
+function attachStructured(video:Video,unit:Unit){let parent=root(unit.subjectId);const labels=(unit.path||[]).filter(title=>title!==parent.title);for(const [index,title] of labels.entries()){const last=index===labels.length-1;const known=unit.subjectId==='mathematics'&&index===0?mathLevelNodes.get(title):undefined;parent=known||child(parent,title,last?'unit':index===0&&['数学','化学','文学国語','論理国語','歴史総合'].some(prefix=>title.startsWith(prefix))?'level':'field',unit.evidence||sourceEvidence);}attach(parent,video,[unit]);}
+for (const canonical of catalog.videos) {
+ for(const subjectId of videoSubjects(canonical)){
+  const video=subjectId===canonical.subjectId?canonical:{...canonical,subjectId};
+  const units=sources(video).sort((a,b)=>(unitOrder.get(a.id)||0)-(unitOrder.get(b.id)||0));
+  if(!units.length){unknown(video,units);continue;}
+  const structured=units.filter(unit=>unit.path?.length);for(const unit of structured)attachStructured(video,unit);
+  const original=units.filter(unit=>!unit.path?.length);
+  if(structured.length&&!['mathematics','japanese-history','world-history'].includes(subjectId))continue;
+  if(!original.length)continue;
+  switch(subjectId){case 'mathematics':addMath(video,original);break;case 'english':addEnglish(video,original);break;case 'physics':addPhysics(video,original);break;case 'chemistry':addChemistry(video,original);break;case 'japanese-history':case 'world-history':addHistory(video,original);break;case 'japanese':addJapanese(video,original);break;case 'information':addInformation(video,original);break;}
+ }
 }
 
 // Expose a small-unit layer when titles actually repeat (e.g. explanation/exercise pairs).
@@ -341,6 +341,16 @@ function finalize(node: LearningNode): void {
   }
 }
 for (const id of Object.values(hierarchyRoots)) finalize(learningNodes.get(id)!);
+// Correct visible headings without changing existing navigation IDs.
+for(const node of learningNodes.values()){
+ if(node.subjectId!=='mathematics'||node.kind!=='field')continue;
+ const parent=learningNodes.get(node.parentId||'');
+ if(node.title==='数と式・論理'&&parent?.title==='数学Ⅰ')node.title='数と式';
+ if(node.title==='数と式・論理'&&parent?.title==='数学Ⅱ')node.title='いろいろな式';
+ if(node.title==='図形'&&parent?.title==='数学Ⅰ')node.title='図形と計量';
+ if(node.title==='図形と座標'&&parent?.title==='数学Ⅱ')node.title='図形と方程式';
+ if(node.title==='図形と座標'&&parent?.title==='数学C')node.title='ベクトル・平面上の曲線と複素数平面';
+}
 for (const [id, node] of learningNodes) if (node.kind !== "subject" && node.videoIds.length === 0) learningNodes.delete(id);
 
 export function getNodePath(id: string): LearningNode[] {
@@ -377,7 +387,7 @@ export function primarySeriesFor(node: LearningNode): Series | undefined {
   if (node.kind === "subject" || node.kind === "level") return undefined;
   const ids = new Set(node.videoIds);
   const preferred = channelPriority[node.subjectId];
-  const candidates = catalog.series.filter(s => s.subjectId === node.subjectId).map((series, index) => {
+  const candidates = catalog.series.filter(s => seriesInSubject(s,node.subjectId)).map((series, index) => {
     const matching = series.videoIds.filter(id => ids.has(id));
     const core = matching.filter(id => videoMap.get(id)?.role === "core").length;
     const rank = preferred.indexOf(series.channelId);

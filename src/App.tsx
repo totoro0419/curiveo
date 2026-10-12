@@ -36,7 +36,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import {
-  catalog,
+  catalog, inSubject, seriesInSubject, routeMap, routeSequence,
   videoMap,
   seriesMap,
   unitMap,
@@ -60,6 +60,7 @@ import { SectionTabs } from "./components/SectionTabs";
 import { usePwa } from "./hooks/usePwa";
 import { registerUpdateGuard } from "./lib/pwa";
 const HierarchyPage = lazy(()=>import("./pages/HierarchyPage"));
+const LearningRoutePage=lazy(()=>import("./pages/HierarchyPage").then(module=>({default:module.LearningRoutePage})));
 const CollectionPage = lazy(()=>import("./pages/HierarchyPage").then(module=>({default:module.CollectionPage})));
 const WatchTrail = lazy(()=>import("./pages/HierarchyPage").then(module=>({default:module.WatchTrail})));
 type Learning = ReturnType<typeof useLearning>;
@@ -157,7 +158,7 @@ function DiscoverPage({
     () =>
       searchVideos(query).filter(
         (v) =>
-          (subject === "all" || v.subjectId === subject) &&
+          (subject === "all" || inSubject(v,subject)) &&
           (channel === "all" || v.channelId === channel) &&
           (role === "all" || v.role === role) &&
           (status === "all" || learning.get(v.id).status === status),
@@ -199,7 +200,7 @@ function DiscoverPage({
               ))}
             </select>
           </label>
-          {subject === "all" ? <><p className="section-intro">教科を選ぶと、チャンネル別の講座を表示します。</p><SubjectTiles learning={learning}/></> : catalog.channels.filter(channel=>catalog.series.some(series=>series.subjectId===subject&&series.channelId===channel.id)).map((channel,index)=><Disclosure key={channel.id} stateKey={`discover-channel:${channel.id}`} title={channel.name} defaultOpen={index===0}><CourseList courses={catalog.series.filter(series=>series.subjectId===subject&&series.channelId===channel.id)} learning={learning}/></Disclosure>)}
+          {subject === "all" ? <><p className="section-intro">教科を選ぶと、チャンネル別の講座を表示します。</p><SubjectTiles learning={learning}/></> : catalog.channels.filter(channel=>catalog.series.some(series=>seriesInSubject(series,subject)&&series.channelId===channel.id)).map((channel,index)=><Disclosure key={channel.id} stateKey={`discover-channel:${channel.id}`} title={channel.name} defaultOpen={index===0}><CourseList courses={catalog.series.filter(series=>seriesInSubject(series,subject)&&series.channelId===channel.id)} learning={learning} subjectId={subject}/></Disclosure>)}
         </>
       ) : mode === "channels" ? (
         <div className="course-list">
@@ -281,7 +282,7 @@ function DiscoverPage({
               </div>
             </details>
           </div>
-          <VideoList videos={list} learning={learning} />
+          <VideoList videos={list} learning={learning} subjectId={subject==='all'?undefined:subject}/>
         </>
       )}
       </div>
@@ -363,7 +364,7 @@ function LibraryPage({
                 <ChevronRight size={18} />
               </a>
               <ProgressBar
-                list={catalog.videos.filter((v) => v.subjectId === s.id)}
+                list={catalog.videos.filter((v) => inSubject(v,s.id))}
                 learning={learning}
               />
             </section>
@@ -511,14 +512,18 @@ function WatchPage({
   const v = videoMap.get(id);
   const [seek, setSeek] = useState<number | undefined>(()=>{const value=params.get("t");return value!==null&&Number.isFinite(Number(value))?Math.max(0,Number(value)):undefined;});
   const [seekNonce,setSeekNonce]=useState(0);
-  const [episodePage,setEpisodePage]=useViewState("episode-page",Math.floor(Math.max(0,(seriesMap.get(params.get("series") || videoMap.get(id)?.seriesIds[0] || "")?.videoIds.indexOf(id)||0))/30));
+  const [episodePage,setEpisodePage]=useViewState("episode-page",Math.floor(Math.max(0,params.get("route")?routeSequence(params.get("route")!).findIndex(step=>step.videoId===id):(seriesMap.get(params.get("series") || videoMap.get(id)?.seriesIds[0] || "")?.videoIds.indexOf(id)||0))/30));
   useEffect(()=>{const value=params.get("t");if(value!==null&&Number.isFinite(Number(value))){setSeek(Math.max(0,Number(value)));setSeekNonce(n=>n+1);}},[params.get("t")]);
   const [actionError, setActionError] = useState("");
   if (!v) return <NotFound />;
+  const subjectContext=params.get("subject")&&inSubject(v,params.get("subject")!)?params.get("subject")!:v.subjectId;
   const r = learning.get(id);
   const series = seriesMap.get(params.get("series") || v.seriesIds[0]);
+  const routeId=params.get("route")||undefined;
+  const learningRoute=routeId?routeMap.get(routeId):undefined;
+  const steps=routeId?routeSequence(routeId):[];
   const sequence =
-    series?.videoIds ||
+    learningRoute?steps.map(step=>step.videoId):series?.videoIds ||
     catalog.videos
       .filter((x) => x.unitIds.some((id) => v.unitIds.includes(id)))
       .sort((a, b) => a.order - b.order)
@@ -534,12 +539,12 @@ function WatchPage({
     <>
       <a
         className="back-link"
-        href={series ? `#/course/${series.id}` : `#/subject/${v.subjectId}`}
+        href={learningRoute?`#/route/${routeId}`:series ? `#/course/${series.id}${subjectContext!==series.subjectId?`?subject=${subjectContext}`:""}` : `#/subject/${subjectContext}`}
       >
         <ArrowLeft size={17} />
-        {series?.title || subjectMap.get(v.subjectId)?.name}
+        {learningRoute?.title || series?.title || subjectMap.get(v.subjectId)?.name}
       </a>
-      <Suspense fallback={null}><WatchTrail video={v} seriesId={series?.id}/></Suspense>
+      <Suspense fallback={null}><WatchTrail video={v} seriesId={series?.id} subjectId={subjectContext}/></Suspense>
       <div className="watch-layout">
         <div className="watch-main">
           {learning.ready ? (
@@ -556,9 +561,10 @@ function WatchPage({
               学習記録を読み込んでいます…
             </div>
           )}
+          {series?.notice&&<p className="notice">{series.notice}</p>}
           <div className="lesson-heading">
             <p className="eyebrow">
-              {subjectMap.get(v.subjectId)?.name} ·{" "}
+              {subjectMap.get(subjectContext as SubjectId)?.name} ·{" "}
               {unitMap.get(v.unitIds[0])?.name}
             </p>
             <h1>{v.title}</h1>
@@ -639,7 +645,7 @@ function WatchPage({
           {actionError && <p className="notice error">{actionError}</p>}
           <nav className="lesson-navigation" aria-label="前後の授業">
             {previous ? (
-              <a href={videoHref(previous, series?.id)}>
+              <a href={videoHref(previous,steps.find(step=>step.videoId===previous.id)?.seriesId||series?.id,routeId,subjectContext)}>
                 <ArrowLeft size={18} />
                 <span>
                   <small>前の授業</small>
@@ -650,7 +656,7 @@ function WatchPage({
               <span />
             )}
             {next ? (
-              <a href={videoHref(next, series?.id)}>
+              <a href={videoHref(next,steps.find(step=>step.videoId===next.id)?.seriesId||series?.id,routeId,subjectContext)}>
                 <span>
                   <small>次の授業</small>
                   {next.title}
@@ -713,7 +719,7 @@ function WatchPage({
         </div>
         <aside className="watch-sidebar">
           <div className="section-heading">
-            <h2>{series ? "この講座の授業" : "関連する授業"}</h2>
+            <h2>{learningRoute?"この学習ルートの授業":series ? "この講座の授業" : "関連する授業"}</h2>
             <span className="small muted">
               {index + 1} / {sequence.length}
             </span>
@@ -726,7 +732,7 @@ function WatchPage({
               const done = learning.records[videoId]?.status === "completed";
               return (
                 <a
-                  href={videoHref(episode, series?.id)}
+                  href={videoHref(episode,steps.find(step=>step.videoId===episode.id)?.seriesId||series?.id,routeId,subjectContext)}
                   key={videoId}
                   aria-current={videoId === id ? "page" : undefined}
                   className={videoId === id ? "active" : ""}
@@ -902,7 +908,7 @@ function SettingsPage({ learning }: { learning: Learning }) {
             <summary>収録上の未確認・不足事項</summary>
             {catalog.gaps.map((g, i) => (
               <p key={i}>
-                {channelMap.get(g.channelId)?.name}: {g.reason}
+                {channelMap.get(g.channelId||"")?.name||subjectMap.get(g.subjectId as SubjectId)?.name||"教材監査"}: {g.reason}
               </p>
             ))}
           </details>
@@ -1044,6 +1050,8 @@ export function App() {
             <DiscoverPage learning={learning} params={params} />
           ) : current === "subject" ? (
             <HierarchyPage key={path} subjectId={parts[1]} learning={learning} />
+          ) : current === "route" ? (
+            <LearningRoutePage key={path} id={parts[1]} learning={learning}/>
           ) : current === "category" ? (
             <HierarchyPage key={path} nodeId={parts[1]} learning={learning} />
           ) : current === "unit" ||
@@ -1051,6 +1059,7 @@ export function App() {
             current === "channel" ? (
             <CollectionPage
               key={path}
+              subjectId={params.get("subject")||undefined}
               kind={current}
               id={parts[1]}
               learning={learning}

@@ -1,0 +1,47 @@
+[
+  {
+    "file": "README_AUDIT.md",
+    "sha256": "1a0650e01041647c2e224f8fb5214d2d635ef1cd257784484f4bc22ba1f8732c",
+    "bytes": 869
+  },
+  {
+    "file": "A_coverage_report.md",
+    "sha256": "fc5e42f71b4c700e75971db0ac069edad3e55db6382177c5d7666d12a1dddaf0",
+    "bytes": 8557
+  },
+  {
+    "file": "A_curriculum_coverage_matrix.csv",
+    "sha256": "e9b30c86d3c0b1d191345818fdc25bb16098e0e1ba857771d0c111ead8166b02",
+    "bytes": 38787
+  },
+  {
+    "file": "B_prioritized_gaps.csv",
+    "sha256": "a2aeba2842980dfc855115e3e069053dc11b4e9ff09910ec9875ea14cc7a496b",
+    "bytes": 4834
+  },
+  {
+    "file": "C_additional_videos_selected.csv",
+    "sha256": "e530f79ca8b40cdb01fb172d39e4aa56a41a8a57e6bdd8165f4d73b2a9e9b913",
+    "bytes": 41925
+  },
+  {
+    "file": "C_additional_videos_selected.json",
+    "sha256": "4074261abf4a60daad88a3580e7396d4bfe767e376a40d56b2aea74669cb8778",
+    "bytes": 71949
+  },
+  {
+    "file": "C_deferred_videos.csv",
+    "sha256": "455de11cb4807e1b9b1b9323d940fd208c0c69549f05fd4b099cda6f2e952a31",
+    "bytes": 1382
+  },
+  {
+    "file": "D_reclassification_instructions.csv",
+    "sha256": "cfa5bc2df8e61de09bcf599d34f222a54c8a583d96e5b03bbb638be3355446ee",
+    "bytes": 3327
+  },
+  {
+    "file": "E_WORK_handoff.md",
+    "sha256": "ea783f6fad68d86f1922241bc528d66fbd136f7ded0e0c8230a7b71b088f1b0f",
+    "bytes": 5999
+  }
+]

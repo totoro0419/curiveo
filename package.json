@@ -8,7 +8,9 @@
     "build": "tsc --noEmit && node scripts/validate-catalog.mjs && vite build && node scripts/build-sw.mjs",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview --host 0.0.0.0",
-    "catalog:validate": "node scripts/validate-catalog.mjs"
+    "catalog:validate": "node scripts/validate-catalog.mjs",
+    "audit:validate": "node scripts/validate-audit.mjs",
+    "audit:integrate": "node scripts/integrate-audit.mjs"
   },
   "dependencies": {
     "firebase": "^12.4.0",
