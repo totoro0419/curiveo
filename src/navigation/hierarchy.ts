@@ -346,6 +346,7 @@ for(const node of learningNodes.values()){
  if(node.subjectId!=='mathematics'||node.kind!=='field')continue;
  const parent=learningNodes.get(node.parentId||'');
  if(node.title==='数と式・論理'&&parent?.title==='数学Ⅰ')node.title='数と式';
+ if(node.title==='数と式・論理'&&parent?.title==='数学A')node.title='整数・記数法（旧課程の講座）';
  if(node.title==='数と式・論理'&&parent?.title==='数学Ⅱ')node.title='いろいろな式';
  if(node.title==='図形'&&parent?.title==='数学Ⅰ')node.title='図形と計量';
  if(node.title==='図形と座標'&&parent?.title==='数学Ⅱ')node.title='図形と方程式';
