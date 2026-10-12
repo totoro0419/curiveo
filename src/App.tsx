@@ -146,6 +146,7 @@ function DiscoverPage({
   const [mode, setMode] = useViewState("discover-mode", params.get("q") ? "search" : "subjects");
   const [query, setQuery] = useViewState("discover-query",params.get("q") || "");
   const [subject, setSubject] = useViewState("discover-subject","all");
+  const [channel,setChannel]=useViewState("discover-channel","all");
   const [role, setRole] = useViewState("discover-role","all");
   const [status, setStatus] = useViewState("discover-status","all");
   useEffect(() => {
@@ -157,10 +158,11 @@ function DiscoverPage({
       searchVideos(query).filter(
         (v) =>
           (subject === "all" || v.subjectId === subject) &&
+          (channel === "all" || v.channelId === channel) &&
           (role === "all" || v.role === role) &&
           (status === "all" || learning.get(v.id).status === status),
       ),
-    [query, subject, role, status, learning.records],
+    [query, subject, channel, role, status, learning.records],
   );
   return (
     <>
@@ -178,7 +180,7 @@ function DiscoverPage({
         }}
       />
       <SectionTabs items={[{id:"subjects",label:"教科"},{id:"courses",label:"講座"},{id:"channels",label:"チャンネル"},...(mode==="search"?[{id:"search",label:"検索結果"}]:[])]} value={mode} onChange={setMode}/>
-      <div id="discovery-panel" role="tabpanel" aria-label={mode==="search"?"検索結果":mode==="courses"?"講座":mode==="channels"?"チャンネル":"教科"} className="results-enter" key={mode}>
+      <div id="discovery-panel" role="tabpanel" aria-labelledby={`discovery-panel-${mode}`} aria-label={mode==="search"?"検索結果":mode==="courses"?"講座":mode==="channels"?"チャンネル":"教科"} className="results-enter" key={mode}>
       {mode === "subjects" ? (
         <SubjectTiles learning={learning} />
       ) : mode === "courses" ? (
@@ -243,6 +245,10 @@ function DiscoverPage({
                       </option>
                     ))}
                   </select>
+                </label>
+                <label>
+                  チャンネル
+                  <select value={channel} onChange={event=>setChannel(event.target.value)}><option value="all">すべて</option>{catalog.channels.map(item=><option key={item.id} value={item.id}>{item.name}</option>)}</select>
                 </label>
                 <label>
                   授業の種類
@@ -446,6 +452,7 @@ function NoteEditor({ video, learning }: { video: Video; learning: Learning }) {
       </div>
       <textarea
         aria-label="授業メモ"
+        disabled={!learning.ready}
         value={draft}
         placeholder="わかったこと、あとで確かめたいこと。"
         onChange={(e) => {
@@ -560,8 +567,9 @@ function WatchPage({
               <ChevronRight size={14} />
             </a>
           </div>
-          <div className="lesson-actions">
+          <div className="lesson-actions" aria-busy={!learning.ready}>
             <button
+              disabled={!learning.ready}
               className={`button ${r.status === "completed" ? "completed" : "primary"}`}
               onClick={() =>
                 save({
@@ -575,6 +583,7 @@ function WatchPage({
             </button>
             <button
               className="icon-button"
+              disabled={!learning.ready}
               onClick={() => save({ favorite: !r.favorite })}
               aria-label={r.favorite ? "お気に入りを解除" : "お気に入りに登録"}
               aria-pressed={r.favorite}
@@ -583,6 +592,7 @@ function WatchPage({
             </button>
             <button
               className="icon-button"
+              disabled={!learning.ready}
               onClick={() => save({ watchLater: !r.watchLater })}
               aria-label={r.watchLater ? "後で見るから解除" : "後で見るに登録"}
               aria-pressed={r.watchLater}
@@ -597,6 +607,7 @@ function WatchPage({
             <label>
               理解度
               <select
+                disabled={!learning.ready}
                 value={r.understanding}
                 onChange={(e) =>
                   save({
@@ -612,6 +623,7 @@ function WatchPage({
             </label>
             <button
               className="text-button"
+              disabled={!learning.ready}
               aria-pressed={r.review}
               onClick={() => save({ review: !r.review })}
             >

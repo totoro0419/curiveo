@@ -7,7 +7,7 @@ function files(dir) {
     return statSync(path).isDirectory() ? files(path) : [path];
   });
 }
-const paths = files('dist').filter(path => !path.endsWith('/sw.js') && !path.endsWith('/brand/curiveo-original.png')).sort();
+const paths = files('dist').filter(path => !path.endsWith('/sw.js') && !path.endsWith('/.nojekyll') && !path.endsWith('/brand/curiveo-original.png')).sort();
 if (!paths.includes('dist/index.html')) throw new Error('The production app shell is missing.');
 const hash = createHash('sha256');
 for (const path of paths) hash.update(path.slice(5)).update(readFileSync(path));

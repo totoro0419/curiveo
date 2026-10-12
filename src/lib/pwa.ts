@@ -13,6 +13,10 @@ const updateGuards = new Set<() => Promise<void>>();
 let installPrompt: InstallPromptEvent | undefined;
 let registration: ServiceWorkerRegistration | undefined;
 let registrationPromise: Promise<ServiceWorkerRegistration | undefined> | undefined;
+let registrationAttempt: Promise<ServiceWorkerRegistration> | undefined;
+const monitoredRegistrations = new WeakSet<ServiceWorkerRegistration>();
+const monitoredWorkers = new WeakSet<ServiceWorker>();
+const latestInstalling = new WeakMap<ServiceWorkerRegistration, ServiceWorker>();
 let initialized = false;
 let installedObserved = false;
 let reloadNeeded = false;
@@ -47,10 +51,59 @@ async function refreshOfflineStatus() {
   });
   if (requestId === statusRequest) patch({ offlineReady: status?.type === 'CURIVEO_STATUS' && status.cacheReady === true });
 }
-function monitorWorker(worker: ServiceWorker | null) {
-  if (!worker) return;
-  const change = () => { updateWaiting(); if (worker.state === 'activated') void refreshOfflineStatus(); };
+function hasWorker(value: ServiceWorkerRegistration) {
+  return [value.installing, value.waiting, value.active].some(worker => worker && worker.state !== 'redundant');
+}
+function monitorWorker(worker: ServiceWorker | null, owner: ServiceWorkerRegistration) {
+  if (!worker || monitoredWorkers.has(worker)) return;
+  monitoredWorkers.add(worker);
+  const wasInstalling = worker === owner.installing || worker.state === 'installing';
+  if (wasInstalling) latestInstalling.set(owner, worker);
+  const change = () => {
+    if (registration !== owner) return;
+    updateWaiting();
+    if (worker.state === 'activated') void refreshOfflineStatus();
+    else if (worker.state === 'redundant' && wasInstalling) {
+      patch({ error: 'アプリのオフライン準備に失敗しました。通信を確認し、更新確認で再試行してください。', ...(owner.active ? {} : { offlineReady: false }) });
+    }
+  };
   worker.addEventListener('statechange', change); change();
+}
+function adoptRegistration(value: ServiceWorkerRegistration) {
+  registration = value;
+  if (!monitoredRegistrations.has(value)) {
+    monitoredRegistrations.add(value);
+    value.addEventListener('updatefound', () => monitorWorker(value.installing, value));
+  }
+  monitorWorker(value.installing, value); monitorWorker(value.waiting, value); monitorWorker(value.active, value);
+  updateWaiting(); void refreshOfflineStatus(); return value;
+}
+function registerWorker(): Promise<ServiceWorkerRegistration> {
+  if (registrationAttempt) return registrationAttempt;
+  const attempt = Promise.resolve().then(() => navigator.serviceWorker.register(`${base}sw.js`, { scope: base, updateViaCache: 'none' })).then(adoptRegistration);
+  registrationAttempt = attempt;
+  void attempt.then(() => { if (registrationAttempt === attempt) registrationAttempt = undefined; }, () => { if (registrationAttempt === attempt) registrationAttempt = undefined; });
+  return attempt;
+}
+async function currentRegistration() {
+  const value = await navigator.serviceWorker.getRegistration(base);
+  // getRegistration may otherwise return a different worker with a broader, origin-wide scope.
+  return value?.scope === new URL(base, window.location.href).href ? value : undefined;
+}
+async function installationSettled(value: ServiceWorkerRegistration, worker = value.installing): Promise<void> {
+  if (!worker) {
+    if (!hasWorker(value)) throw new Error('オフライン準備が完了していません。通信を確認し、更新確認で再試行してください。');
+    return;
+  }
+  await new Promise<void>((resolve, reject) => {
+    const cleanup = () => { clearTimeout(timeout); worker.removeEventListener('statechange', change); };
+    const change = () => {
+      if (worker.state === 'redundant') { cleanup(); reject(new Error('アプリのオフライン準備に失敗しました。通信を確認し、更新確認で再試行してください。')); }
+      else if (['installed', 'activating', 'activated'].includes(worker.state)) { cleanup(); resolve(); }
+    };
+    const timeout = setTimeout(() => { cleanup(); reject(new Error('オフライン準備の完了をまだ確認できません。しばらくして更新確認を再試行してください。')); }, 20000);
+    worker.addEventListener('statechange', change); change();
+  });
 }
 function reloadAfterApproval() {
   if (!requestedReload) return;
@@ -91,12 +144,7 @@ export function initializePwa(): void {
   if (initialized || typeof window === 'undefined') return;
   initialized = true;
   if (!('serviceWorker' in navigator) || !env.PROD) return;
-  registrationPromise = navigator.serviceWorker.register(`${base}sw.js`, { scope: base, updateViaCache: 'none' }).then(value => {
-    registration = value;
-    value.addEventListener('updatefound', () => monitorWorker(value.installing));
-    monitorWorker(value.installing); monitorWorker(value.active);
-    updateWaiting(); void refreshOfflineStatus(); return value;
-  }).catch(error => { initialized = false; registrationPromise = undefined; patch({ error: errorMessage(error), offlineReady: false }); return undefined; });
+  registrationPromise = registerWorker().catch(error => { initialized = false; registrationPromise = undefined; patch({ error: errorMessage(error), offlineReady: false }); return undefined; });
 }
 export async function installPwa(): Promise<void> {
   const prompt = installPrompt; if (!prompt || snapshot.installed) return;
@@ -109,12 +157,36 @@ export async function installPwa(): Promise<void> {
 }
 export async function checkPwaUpdate(): Promise<void> {
   initializePwa(); patch({ error: '' });
-  const value = registration ?? await registrationPromise;
-  if (!value) {
-    const error = new Error(snapshot.error || 'この環境ではアプリの更新を確認できません。公開版を対応ブラウザで開いてください。');
-    patch({ error: error.message }); throw error;
+  try {
+    if (!('serviceWorker' in navigator) || !env.PROD) throw new Error('この環境ではアプリの更新を確認できません。公開版を対応ブラウザで開いてください。');
+    await registrationPromise;
+    let value = await currentRegistration();
+    if (!value || !hasWorker(value)) {
+      // register() can resolve before install completes. Failed initial installs leave an empty,
+      // detached registration whose update() has no script URL and rejects InvalidStateError.
+      value = await registerWorker();
+      await installationSettled(value);
+    } else {
+      adoptRegistration(value);
+      if (value.installing) await installationSettled(value);
+      else {
+        const before = latestInstalling.get(value);
+        try { await value.update(); }
+        catch (error) {
+          if (!(error && typeof error === 'object' && 'name' in error && error.name === 'InvalidStateError')) throw error;
+          const current = await currentRegistration();
+          if (current && current !== value && hasWorker(current)) {
+            value = adoptRegistration(current); await value.update();
+          } else value = await registerWorker();
+        }
+        const latest = latestInstalling.get(value);
+        await installationSettled(value, value.installing ?? (latest !== before ? latest ?? null : null));
+      }
+    }
+    updateWaiting(); await refreshOfflineStatus();
+    if (!hasWorker(value)) throw new Error('アプリのオフライン準備に失敗しました。通信を確認し、更新確認で再試行してください。');
+    patch({ error: '' });
   }
-  try { await value.update(); updateWaiting(); await refreshOfflineStatus(); }
   catch (error) { patch({ error: errorMessage(error) }); throw error; }
 }
 export async function applyPwaUpdate(): Promise<void> {
