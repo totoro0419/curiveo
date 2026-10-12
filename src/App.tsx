@@ -200,7 +200,7 @@ function DiscoverPage({
               ))}
             </select>
           </label>
-          {subject === "all" ? <><p className="section-intro">教科を選ぶと、チャンネル別の講座を表示します。</p><SubjectTiles learning={learning}/></> : catalog.channels.filter(channel=>catalog.series.some(series=>seriesInSubject(series,subject)&&series.channelId===channel.id)).map((channel,index)=><Disclosure key={channel.id} stateKey={`discover-channel:${channel.id}`} title={channel.name} defaultOpen={index===0}><CourseList courses={catalog.series.filter(series=>seriesInSubject(series,subject)&&series.channelId===channel.id)} learning={learning}/></Disclosure>)}
+          {subject === "all" ? <><p className="section-intro">教科を選ぶと、チャンネル別の講座を表示します。</p><SubjectTiles learning={learning}/></> : catalog.channels.filter(channel=>catalog.series.some(series=>seriesInSubject(series,subject)&&series.channelId===channel.id)).map((channel,index)=><Disclosure key={channel.id} stateKey={`discover-channel:${channel.id}`} title={channel.name} defaultOpen={index===0}><CourseList courses={catalog.series.filter(series=>seriesInSubject(series,subject)&&series.channelId===channel.id)} learning={learning} subjectId={subject}/></Disclosure>)}
         </>
       ) : mode === "channels" ? (
         <div className="course-list">
@@ -512,7 +512,7 @@ function WatchPage({
   const v = videoMap.get(id);
   const [seek, setSeek] = useState<number | undefined>(()=>{const value=params.get("t");return value!==null&&Number.isFinite(Number(value))?Math.max(0,Number(value)):undefined;});
   const [seekNonce,setSeekNonce]=useState(0);
-  const [episodePage,setEpisodePage]=useViewState("episode-page",Math.floor(Math.max(0,(seriesMap.get(params.get("series") || videoMap.get(id)?.seriesIds[0] || "")?.videoIds.indexOf(id)||0))/30));
+  const [episodePage,setEpisodePage]=useViewState("episode-page",Math.floor(Math.max(0,params.get("route")?routeSequence(params.get("route")!).findIndex(step=>step.videoId===id):(seriesMap.get(params.get("series") || videoMap.get(id)?.seriesIds[0] || "")?.videoIds.indexOf(id)||0))/30));
   useEffect(()=>{const value=params.get("t");if(value!==null&&Number.isFinite(Number(value))){setSeek(Math.max(0,Number(value)));setSeekNonce(n=>n+1);}},[params.get("t")]);
   const [actionError, setActionError] = useState("");
   if (!v) return <NotFound />;
@@ -564,7 +564,7 @@ function WatchPage({
           {series?.notice&&<p className="notice">{series.notice}</p>}
           <div className="lesson-heading">
             <p className="eyebrow">
-              {subjectMap.get(v.subjectId)?.name} ·{" "}
+              {subjectMap.get(subjectContext as SubjectId)?.name} ·{" "}
               {unitMap.get(v.unitIds[0])?.name}
             </p>
             <h1>{v.title}</h1>
