@@ -59,3 +59,8 @@ for (const s of c.series) {
 console.log(
   `Catalog validated: ${ids.size} unique videos / ${series.size} series / ${units.size} units`,
 );
+
+const videoMap=new Map(c.videos.map(v=>[v.id,v]));const seriesMap=new Map(c.series.map(s=>[s.id,s]));const unitMap=new Map(c.units.map(u=>[u.id,u]));
+for(const v of c.videos){const memberships=v.subjectIds||[v.subjectId];assert(memberships.includes(v.subjectId)&&new Set(memberships).size===memberships.length&&memberships.every(id=>subjects.has(id)),`Invalid subjects ${v.id}`);assert(v.unitIds.every(id=>memberships.includes(unitMap.get(id).subjectId)),`Cross-subject unit ${v.id}`);assert(v.seriesIds.every(id=>seriesMap.get(id).videoIds.includes(v.id)),`Missing reverse series reference ${v.id}`);}
+for(const route of c.routes||[]){assert(route.id&&route.title&&route.steps.length,`Empty route ${route.id}`);for(const step of route.steps){const course=seriesMap.get(step.seriesId);assert(course,`Missing route series ${step.seriesId}`);assert((step.videoIds||course.videoIds).every(id=>course.videoIds.includes(id)&&videoMap.has(id)),`Invalid route selection ${route.id}`);}}
+assert(new Set((c.routes||[]).map(r=>r.id)).size===(c.routes||[]).length,'Duplicate routes');

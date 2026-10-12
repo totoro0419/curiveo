@@ -32,7 +32,7 @@ function sourceUnit(series: Series, video: Video): Unit | undefined {
     // Review compilations retain each lesson's existing original learning unit.
     const titleMatch = name.length > 1 && title.includes(name) ? 3 : 0;
     const seriesMatch = normalize(series.title).includes(name) ? 1 : 0;
-    return direct + titleMatch + seriesMatch;
+    return direct + titleMatch + seriesMatch + (unit.path?.length ? 2 : 0);
   };
   return candidates.sort((a, b) => score(b) - score(a) || a.order - b.order)[0];
 }

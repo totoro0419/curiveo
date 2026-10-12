@@ -28,8 +28,13 @@ export interface Unit {
   field: string;
   name: string;
   order: number;
+  path?: string[];
+  classificationStatus?: "title-supported" | "needs-review";
+  evidence?: string;
 }
 export interface Series {
+  subjectIds?: SubjectId[];
+  notice?: string;
   id: string;
   title: string;
   channelId: string;
@@ -40,6 +45,9 @@ export interface Series {
   coverage: string;
 }
 export interface Video {
+  subjectIds?: SubjectId[];
+  topic?: string;
+  availability?: {publicMetadata:"confirmed"|"unverified";embedMetadata:"allowed"|"unavailable"|"unverified";playback:"unverified"|"confirmed";checkedAt:string};
   id: string;
   title: string;
   channelId: string;
@@ -56,7 +64,11 @@ export interface Video {
   classificationEvidence: string;
   chapters?: { title: string; startSeconds: number }[];
 }
+export interface LearningRoute {id:string;title:string;subjectIds:SubjectId[];description:string;steps:{seriesId:string;videoIds?:string[];label?:string}[];}
+export interface ChapterReference {videoId:string;chapterIndex:number;title:string;startSeconds:number;field:string|null;classificationStatus:"source-field"|"needs-review";evidence:string;}
 export interface Catalog {
+  routes?: LearningRoute[];
+  chapterIndex?: ChapterReference[];
   schemaVersion: 1;
   updatedAt: string;
   mathveoSourceCommit: string;
@@ -65,7 +77,7 @@ export interface Catalog {
   units: Unit[];
   series: Series[];
   videos: Video[];
-  gaps: { channelId: string; subjectId: string; reason: string }[];
+  gaps: { channelId?: string; subjectId: string; reason: string }[];
 }
 export type LearningStatus = "unstarted" | "learning" | "completed";
 export interface Video {
