@@ -939,6 +939,7 @@ export function App() {
   const {route,direction} = useRoute();
   const mainRef=useRef<HTMLElement>(null);
   useInteractionMotion();
+  useEffect(()=>{const preload=()=>{void import("./pages/HierarchyPage").catch(()=>{});};if(typeof window.requestIdleCallback==="function"){const handle=window.requestIdleCallback(preload,{timeout:1000});return()=>window.cancelIdleCallback(handle);}const handle=setTimeout(preload,350);return()=>clearTimeout(handle);},[]);
   usePageMotion(mainRef,route.split("?")[0],direction);
   const pwa=usePwa();
   const [path, queryString = ""] = route.split("?");

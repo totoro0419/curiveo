@@ -26,5 +26,5 @@
 - 正式ロゴ表示、192/512通常・Maskable画像寸法、Maskableの色付きシンボルが中央の安全円（半径40%以内）に収まることを確認。
 - 公開DOMのhtml/bodyのoverscroll-behavior-yがcontain、目次・内部スクロールにも適用。実AndroidのPull-to-Refresh・60fps・インストール後の起動/回転は未検証。
 - 代表動画でAPI時間取得・シークと保存、再読み込み後のメモ・お気に入り・保存位置20秒を確認。お気に入り変更前後でiframe IDが同一。実映像の継続再生は今回も未確認（読み込み待ち）。
-- PWAのguard成功/失敗、別タブ自動reload禁止、キャッシュ版整合、空registration回復等の最小mock検証成功。公開で初回install失敗を検出し、配信されない.nojekyllのprecache除外と再登録回復を修正。公開での最終キャッシュ・更新確認は下記に追記。
+- PWAのguard成功/失敗、別タブ自動reload禁止、キャッシュ版整合、空registration回復等の最小mock検証成功。公開で初回install失敗を検出し、配信されない.nojekyllのprecache除外と再登録回復を修正。修正版の公開Chromeで「オフライン用のアプリを端末に保存済み」を確認（active workerの全14素材キャッシュ確認）。更新確認もエラーなく完了。
 - Firebase設定未提供・Android実機未使用の制限は引き続き残る。OSによるPWA表示やYouTube配信そのものを実装検証と同一視しない。
