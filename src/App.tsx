@@ -465,7 +465,7 @@ function WatchPage({
                       String(i + 1).padStart(2, "0")
                     )}
                   </span>
-                  <span>{episode.title}{duration!==null&&<small className="episode-duration">{durationTime(duration)}</small>}</span>
+                  <span><span className="episode-title" title={episode.title}>{episode.title}</span>{duration!==null&&<small className="episode-duration">{durationTime(duration)}</small>}</span>
                   {videoId === id && <Play size={13} />}
                 </a>
                 <VideoActions video={episode} learning={learning}/>

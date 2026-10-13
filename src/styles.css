@@ -1887,7 +1887,8 @@ html[data-section-motion=native] .results-enter[role=tabpanel] { view-transition
 .watch-playlist .episode-list a { min-width:0;flex:1;min-height:44px;padding:10px;gap:6px;border:0; }
 .episode-row { display:flex;align-items:center;border-bottom:1px solid #f0f3f8; }
 .episode-row:has(a.active) { background:#edf4ff; }
-.episode-row .video-actions-trigger { width:36px;min-height:44px; }
+.episode-row .video-actions-trigger { width:44px;min-height:44px; }
+.episode-title { display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden; }
 .episode-duration { display:block;color:var(--muted);font-size:10px;font-variant-numeric:tabular-nums; }
 .watch-layout { display:grid;grid-template-columns:minmax(0,1fr);gap:0; }
 .watch-main { --video-width:min(100%,calc((100dvh - 260px)*1.777778)); }
@@ -1917,17 +1918,17 @@ html[data-section-motion=native] .results-enter[role=tabpanel] { view-transition
 .video-actions-panel button[aria-pressed=true] { color:var(--blue);background:#f1f6ff; }
 .video-actions-trigger:disabled,.video-actions-panel button:disabled { opacity:.45; }
 @media(hover:hover) { .video-actions-trigger:hover,.video-actions-panel button:not(:disabled):hover { background:#edf4ff; } }
-@media(min-width:960px) {
+@media(min-width:840px) {
  .watch-layout { grid-template-columns:minmax(0,1fr) 280px;gap:16px;max-width:calc((100dvh - 260px)*1.777778 + 296px);margin-inline:auto;align-items:start; }
  .watch-main { grid-column:1;grid-row:1;--video-width:100%; }
  .watch-playlist { grid-column:2;grid-row:1;max-height:calc(100dvh - 148px);overflow:auto;overscroll-behavior-y:contain;scrollbar-width:thin; }
  .watch-playlist .episode-list { max-height:calc(100dvh - 240px); }
  .watch-playlist .chapter-targets { max-height:180px;overflow:auto; }
 }
-@media(min-width:601px) and (max-width:959px) {
+@media(min-width:601px) and (max-width:839px) {
  .watch-toolbar { max-width:100%; }
  .watch-playlist { max-width:100%; }
- .watch-layout:has(.watch-playlist .is-open) .watch-main { --video-width:min(100%,calc((100dvh - 590px)*1.777778)); }
+ .watch-layout:has(.watch-playlist .is-open) .watch-main { --video-width:min(100%,calc((100dvh - 650px)*1.777778)); }
 }
 @media(max-width:600px) {
  .watch-app .app-content { margin-left:0; }

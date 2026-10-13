@@ -2,8 +2,8 @@ import { useLayoutEffect, useRef, useSyncExternalStore } from 'react';
 import type { ReactNode } from 'react';
 import { Disclosure } from './Disclosure';
 
-const wide=()=>window.matchMedia('(min-width:960px)').matches;
-const subscribe=(update:()=>void)=>{const query=window.matchMedia('(min-width:960px)');query.addEventListener('change',update);return()=>query.removeEventListener('change',update);};
+const wide=()=>window.matchMedia('(min-width:840px)').matches;
+const subscribe=(update:()=>void)=>{const query=window.matchMedia('(min-width:840px)');query.addEventListener('change',update);return()=>query.removeEventListener('change',update);};
 
 export function WatchPlaylist({children,currentId,index,count}:{children:ReactNode;currentId:string;index:number;count:number}) {
  const beside=useSyncExternalStore(subscribe,wide,()=>false);
