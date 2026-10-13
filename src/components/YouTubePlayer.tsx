@@ -30,6 +30,8 @@ interface Player {
   isMuted(): boolean;
   mute(): void;
   unMute(): void;
+  // Not documented as a stable method: best effort when YouTube honors it.
+  unloadModule?(module: string): void;
 }
 interface YouTubeApi {
   Player: new (
@@ -275,6 +277,16 @@ export function YouTubePlayer({
       while (pendingWrites.current.size)
         await waitForWrites([...pendingWrites.current]);
     });
+    const applyPreferredCaptionOff = () => {
+      if (disposed || !ready || !player || preferencesRef.current.captionsEnabled) return;
+      // YouTube has no documented force-OFF parameter. Some iframe player
+      // versions support unloading the captions module; never rely on it alone.
+      try {
+        player.unloadModule?.("captions");
+      } catch {
+        // Keep playback running if the host does not support this operation.
+      }
+    };
     const applyPreferredRate = () => {
       if (disposed || !ready || !player) return;
       const rates = player.getAvailablePlaybackRates();
@@ -333,11 +345,12 @@ export function YouTubePlayer({
           rel: "0",
           hl: "ja",
         });
-        const preferredCaptions = preferencesRef.current.captions;
-        if (preferredCaptions !== "youtube") {
+        const { captionsEnabled, captionLanguage } = preferencesRef.current;
+        if (captionsEnabled) {
           params.set("cc_load_policy", "1");
-          params.set("cc_lang_pref", preferredCaptions);
+          params.set("cc_lang_pref", captionLanguage);
         }
+        // OFF omits cc_load_policy; YouTube account preferences may override.
         iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(video.id)}?${params}`;
         container.current.replaceChildren(iframe);
         readinessTimer = setTimeout(() => {
@@ -360,6 +373,7 @@ export function YouTubePlayer({
               clearTimeout(readinessTimer);
               setState("ready");
               applyPreferredRate();
+              applyPreferredCaptionOff();
               syncControls();
               timer = setInterval(() => {
                 syncControls();
@@ -372,6 +386,7 @@ export function YouTubePlayer({
             },
             onStateChange: (event: { data: number }) => {
               if (disposed || !ready) return;
+              applyPreferredCaptionOff();
               if (event.data === 3) {
                 if (!bufferingTimer) {
                   bufferingTimer = setTimeout(() => {
@@ -515,10 +530,18 @@ export function YouTubePlayer({
   const changeRate = (rate: number) => {
     if (updatePlayerPreferences({ rate })) playerRef.current?.setPlaybackRate(rate);
   };
-  const changeCaptions = (captions: typeof playerPreferences.captions) => {
-    if (updatePlayerPreferences({ captions })) {
+  const changeCaptions = (captionsEnabled: boolean) => {
+    if (updatePlayerPreferences({ captionsEnabled })) {
+      if (!captionsEnabled) {
+        // Best effort for the current video without destroying its iframe.
+        try { playerRef.current?.unloadModule?.("captions"); } catch { /* unsupported by this player */ }
+      }
       setNotice("字幕の初期設定を保存しました。次の動画から適用されます。");
     }
+  };
+  const changeCaptionLanguage = (captionLanguage: typeof playerPreferences.captionLanguage) => {
+    if (updatePlayerPreferences({ captionLanguage }))
+      setNotice("字幕の言語を保存しました。次の動画から適用されます。");
   };
   const toggleMute = () => {
     const player = playerRef.current;
@@ -659,17 +682,29 @@ export function YouTubePlayer({
             </select>
           </label>
           <label className="player-captions">
-            <span className="visually-hidden">字幕の初期設定</span>
+            <span className="visually-hidden">字幕ON・OFF</span>
             <select
-              value={playerPreferences.captions}
-              aria-label="字幕の初期設定"
-              onChange={(event) => changeCaptions(event.currentTarget.value as typeof playerPreferences.captions)}
+              value={playerPreferences.captionsEnabled ? "on" : "off"}
+              aria-label="字幕ON・OFF"
+              onChange={(event) => changeCaptions(event.currentTarget.value === "on")}
             >
-              <option value="youtube">字幕: YouTube設定</option>
-              <option value="ja">字幕: 日本語優先</option>
-              <option value="en">字幕: 英語優先</option>
+              <option value="off">字幕: OFF</option>
+              <option value="on">字幕: ON</option>
             </select>
           </label>
+          {playerPreferences.captionsEnabled && (
+            <label className="player-captions">
+              <span className="visually-hidden">字幕の言語</span>
+              <select
+                value={playerPreferences.captionLanguage}
+                aria-label="字幕の言語"
+                onChange={(event) => changeCaptionLanguage(event.currentTarget.value as typeof playerPreferences.captionLanguage)}
+              >
+                <option value="ja">日本語</option>
+                <option value="en">英語</option>
+              </select>
+            </label>
+          )}
           <div className="player-volume">
             <button
               type="button"

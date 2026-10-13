@@ -867,20 +867,31 @@ function SettingsPage({ learning }: { learning: Learning }) {
             </select>
           </label>
           <label>
-            <span>字幕の初期設定</span>
+            <span>字幕（初期設定：OFF）</span>
             <select
-              value={playerPreferences.captions}
-              onChange={(event) => updatePlayerPreferences({ captions: event.currentTarget.value as PlaybackPreferences["captions"] })}
+              value={playerPreferences.captionsEnabled ? "on" : "off"}
+              onChange={(event) => updatePlayerPreferences({ captionsEnabled: event.currentTarget.value === "on" })}
             >
-              <option value="youtube">YouTubeの設定に従う</option>
-              <option value="ja">日本語字幕を優先して表示</option>
-              <option value="en">英語字幕を優先して表示</option>
+              <option value="off">OFF</option>
+              <option value="on">ON</option>
             </select>
           </label>
+          {playerPreferences.captionsEnabled && (
+            <label>
+              <span>字幕の言語</span>
+              <select
+                value={playerPreferences.captionLanguage}
+                onChange={(event) => updatePlayerPreferences({ captionLanguage: event.currentTarget.value as PlaybackPreferences["captionLanguage"] })}
+              >
+                <option value="ja">日本語</option>
+                <option value="en">英語</option>
+              </select>
+            </label>
+          )}
         </div>
         <p className="small muted">
           設定はこの端末に保存します。速度は動画が対応する倍率のみ適用されます。
-          字幕は動画に提供されている場合に表示できます。YouTube公式APIでは字幕を常に非表示に固定することはできません。
+          字幕ONは動画が対応する場合に適用されます。OFFはYouTube側の設定によっては表示されることがあり、完全な非表示は保証されません。
           字幕の変更は次の動画から適用されます。
         </p>
       </section>
