@@ -446,6 +446,11 @@ function WatchPage({
     learning
       .save(id, patch)
       .catch((e) => setActionError(String(e.message || e)));
+  // Advancing on purpose is stronger evidence of skipping than playback position.
+  const markAdvancedLesson = () => {
+    if (learning.ready && r.status !== "completed" && !r.playbackEnded)
+      void save({ resumeDismissed: true });
+  };
   const playlist=(<>
         <div className="watch-sidebar">
           <p className="duration-summary">{durationSummary(sequence.map(id=>videoMap.get(id)!),learning.records)}</p>
@@ -466,6 +471,10 @@ function WatchPage({
                 <div className="episode-row" key={videoId}>
                 <a
                   href={videoHref(episode,steps.find(step=>step.videoId===episode.id)?.seriesId||series?.id,routeId,subjectContext)}
+                  onClick={(event) => {
+                    if (i > index && index >= 0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey)
+                      markAdvancedLesson();
+                  }}
                   aria-current={videoId === id ? "page" : undefined}
                   className={videoId === id ? "active" : ""}
                 >
@@ -494,7 +503,10 @@ function WatchPage({
         <a className="back-link" href={learningRoute?`#/route/${routeId}`:series?`#/course/${series.id}${subjectContext!==series.subjectId?`?subject=${subjectContext}`:""}`:`#/subject/${subjectContext}`}>
           <ArrowLeft size={17}/>講座に戻る
         </a>
-        {nextLesson?<a className="watch-next" href={videoHref(nextLesson,steps.find(step=>step.videoId===nextLesson.id)?.seriesId||series?.id,routeId,subjectContext)}>次の授業<ArrowRight size={16}/></a>:<span className="small muted">最後の授業</span>}
+        {nextLesson?<a className="watch-next" href={videoHref(nextLesson,steps.find(step=>step.videoId===nextLesson.id)?.seriesId||series?.id,routeId,subjectContext)} onClick={(event) => {
+          if (!event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey)
+            markAdvancedLesson();
+        }}>次の授業<ArrowRight size={16}/></a>:<span className="small muted">最後の授業</span>}
       </div>
       <div className="watch-layout">
         <WatchPlaylist currentId={id} index={index} count={sequence.length}>{playlist}</WatchPlaylist>
