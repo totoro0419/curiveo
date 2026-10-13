@@ -10,7 +10,9 @@ const DATABASE = "curiveo-learning";
 const FIELDS = [
   "position",
   "duration",
+  "watchedSeconds",
   "playbackEnded",
+  "resumeDismissed",
   "status",
   "understanding",
   "favorite",
@@ -166,6 +168,9 @@ function applyOperation(
   return {
     ...current,
     ...operation.patch,
+    ...(operation.patch.watchedSeconds !== undefined
+      ? { watchedSeconds: Math.max(current.watchedSeconds ?? 0, operation.patch.watchedSeconds) }
+      : {}),
     noteVersions: unionNotes(current.noteVersions, operation.noteVersions),
     versions,
     deviceId: operation.deviceId,
@@ -205,7 +210,7 @@ export function validatePatch(patch: LearningPatch): LearningPatch {
   for (const field of FIELDS) {
     if (!(field in patch)) continue;
     const value = patch[field];
-    if (["position", "duration", "lastViewedAt"].includes(field)) {
+    if (["position", "duration", "watchedSeconds", "lastViewedAt"].includes(field)) {
       if (
         typeof value !== "number" ||
         !Number.isFinite(value) ||
@@ -428,7 +433,7 @@ export async function claimGuest(scope: string): Promise<void> {
     );
     const patch: LearningPatch = {};
     for (const field of FIELDS)
-      if (guest.record.versions[field] && !existing?.record.versions[field])
+      if (guest.record.versions[field] && !existing?.record.versions[field] && guest.record[field] !== undefined)
         (patch as Record<string, unknown>)[field] = guest.record[field];
     await writeOperation(
       tx,
@@ -474,7 +479,8 @@ export function parseBackup(input: unknown): LearningRecord[] {
     ids.add(id);
     const patch = validatePatch(record as LearningPatch);
     if (
-      !FIELDS.every((field) => field in patch) ||
+      !FIELDS.filter((field) => field !== "watchedSeconds" && field !== "resumeDismissed")
+        .every((field) => field in patch) ||
       !Array.isArray(record.noteVersions) ||
       record.noteVersions.length > 5000
     )
@@ -525,7 +531,7 @@ export async function restoreRecords(
       const patch: LearningPatch = {};
       // Restore missing fields only; live edits survive, and every imported note remains available.
       for (const field of FIELDS)
-        if (!existing?.record.versions[field])
+        if (!existing?.record.versions[field] && imported[field] !== undefined)
           (patch as Record<string, unknown>)[field] = imported[field];
       await writeOperation(
         tx,
