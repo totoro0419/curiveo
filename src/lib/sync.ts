@@ -107,6 +107,9 @@ export function mergeCloudOperations(
     record = {
       ...record,
       ...operation.patch,
+      ...(operation.patch.watchedSeconds !== undefined
+        ? { watchedSeconds: Math.max(record.watchedSeconds ?? 0, operation.patch.watchedSeconds) }
+        : {}),
       versions,
       noteVersions: unionNotes(record.noteVersions, operation.noteVersions),
       deviceId: operation.deviceId,
