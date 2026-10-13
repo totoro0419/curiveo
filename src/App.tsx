@@ -100,7 +100,7 @@ function HomePage({ learning }: { learning: Learning }) {
       </header>
       {v && recommendation && (
         <div className="resume-card">
-          <a className="resume-panel" href={videoHref(v)}>
+          <a className="resume-panel" href={videoHref(v, recommendation.seriesId)}>
             <div className="resume-copy">
               <span className="eyebrow">{recommendation.kind === "next" ? "次の授業へ" : "続きから学ぶ"}</span>
               <h2>{v.title}</h2>
