@@ -517,7 +517,7 @@ export function YouTubePlayer({
   };
   const changeCaptions = (captions: typeof playerPreferences.captions) => {
     if (updatePlayerPreferences({ captions })) {
-      setNotice("字幕の初期設定を保存しました。次の動画から適用されます。現在の動画はYouTubeプレーヤーで変更してください。");
+      setNotice("字幕の初期設定を保存しました。次の動画から適用されます。");
     }
   };
   const toggleMute = () => {
