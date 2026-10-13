@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import type { LearningPatch, LearningRecord, Video } from "../types";
 import { registerUpdateGuard } from "../lib/pwa";
+import { readPlaybackPreferences, savePlaybackPreferences } from "../lib/playback-preferences";
 
 interface Player {
   destroy(): void;
@@ -145,6 +146,9 @@ export function YouTubePlayer({
     (ended?: boolean, forcedPosition?: number) => Promise<void>
   >(() => Promise.resolve());
   const lastVolume = useRef(100);
+  const [playerPreferences, setPlayerPreferences] = useState(readPlaybackPreferences);
+  const preferencesRef = useRef(playerPreferences);
+  preferencesRef.current = playerPreferences;
   const [playback, setPlayback] = useState(initialPlayback);
   const [seekPreview, setSeekPreview] = useState<number | null>(null);
   const [state, setState] = useState<"loading" | "ready" | "error">("loading");
@@ -271,6 +275,22 @@ export function YouTubePlayer({
       while (pendingWrites.current.size)
         await waitForWrites([...pendingWrites.current]);
     });
+    const applyPreferredRate = () => {
+      if (disposed || !ready || !player) return;
+      const rates = player.getAvailablePlaybackRates();
+      if (!rates?.length) return;
+      // A player may initially report [1] before video metadata is ready.
+      if (rates.length === 1 && rates[0] === 1 && player.getPlayerState() !== 1)
+        return;
+      const preferred = preferencesRef.current.rate;
+      const chosen = rates.includes(preferred)
+        ? preferred
+        : rates.reduce((best, rate) =>
+            Math.abs(rate - preferred) < Math.abs(best - preferred) ? rate : best
+          );
+      if (Math.abs((player.getPlaybackRate() || 1) - chosen) > 0.001)
+        player.setPlaybackRate(chosen);
+    };
     const syncControls = () => {
       if (disposed || !ready || !player) return;
       const duration = Math.max(0, player.getDuration() || 0);
@@ -313,6 +333,11 @@ export function YouTubePlayer({
           rel: "0",
           hl: "ja",
         });
+        const preferredCaptions = preferencesRef.current.captions;
+        if (preferredCaptions !== "youtube") {
+          params.set("cc_load_policy", "1");
+          params.set("cc_lang_pref", preferredCaptions);
+        }
         iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(video.id)}?${params}`;
         container.current.replaceChildren(iframe);
         readinessTimer = setTimeout(() => {
@@ -334,6 +359,7 @@ export function YouTubePlayer({
               playerRef.current = player;
               clearTimeout(readinessTimer);
               setState("ready");
+              applyPreferredRate();
               syncControls();
               timer = setInterval(() => {
                 syncControls();
@@ -377,6 +403,7 @@ export function YouTubePlayer({
               }
               if (event.data === 0) persistQuietly(true);
               if (event.data === 2) persistQuietly();
+              if (event.data === 1 || event.data === 5) applyPreferredRate();
               syncControls();
             },
             onPlaybackRateChange: syncControls,
@@ -474,6 +501,24 @@ export function YouTubePlayer({
       volume,
       muted: volume > 0 ? false : current.muted,
     }));
+  };
+  const updatePlayerPreferences = (patch: Partial<typeof playerPreferences>) => {
+    const next = { ...preferencesRef.current, ...patch };
+    if (!savePlaybackPreferences(next)) {
+      setNotice("再生設定をこの端末に保存できませんでした。ブラウザの保存設定を確認してください。");
+      return false;
+    }
+    preferencesRef.current = next;
+    setPlayerPreferences(next);
+    return true;
+  };
+  const changeRate = (rate: number) => {
+    if (updatePlayerPreferences({ rate })) playerRef.current?.setPlaybackRate(rate);
+  };
+  const changeCaptions = (captions: typeof playerPreferences.captions) => {
+    if (updatePlayerPreferences({ captions })) {
+      setNotice("字幕の初期設定を保存しました。次の動画から適用されます。現在の動画はYouTubeプレーヤーで変更してください。");
+    }
   };
   const toggleMute = () => {
     const player = playerRef.current;
@@ -604,17 +649,25 @@ export function YouTubePlayer({
             <select
               value={playback.rate}
               disabled={!active}
-              onChange={(event) =>
-                playerRef.current?.setPlaybackRate(
-                  Number(event.currentTarget.value),
-                )
-              }
+              onChange={(event) => changeRate(Number(event.currentTarget.value))}
             >
               {playback.rates.map((rate) => (
                 <option key={rate} value={rate}>
                   {rate}×
                 </option>
               ))}
+            </select>
+          </label>
+          <label className="player-captions">
+            <span className="visually-hidden">字幕の初期設定</span>
+            <select
+              value={playerPreferences.captions}
+              aria-label="字幕の初期設定"
+              onChange={(event) => changeCaptions(event.currentTarget.value as typeof playerPreferences.captions)}
+            >
+              <option value="youtube">字幕: YouTube設定</option>
+              <option value="ja">字幕: 日本語優先</option>
+              <option value="en">字幕: 英語優先</option>
             </select>
           </label>
           <div className="player-volume">
