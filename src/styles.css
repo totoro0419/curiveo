@@ -823,6 +823,24 @@ progress::-moz-progress-bar {
   font-size: 13px;
   margin-bottom: 15px;
 }
+.playback-preference-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+.playback-preference-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
+}
+.playback-preference-fields select {
+  width: 100%;
+  min-width: 0;
+}
 .sync-status {
   color: #335e9a;
   font-weight: 600;
@@ -1127,6 +1145,12 @@ progress::-moz-progress-bar {
 .player-rate select {
   min-height: 40px;
   padding: 6px 23px 6px 7px;
+}
+.player-captions select {
+  min-height: 40px;
+  max-width: 158px;
+  font-size: 11px;
+  padding: 6px 20px 6px 8px;
 }
 .player-time {
   font-size: 10px;
