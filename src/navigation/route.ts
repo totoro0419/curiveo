@@ -1,8 +1,11 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 import { transitionSurface } from '../lib/motion';
-let hierarchyModule: Promise<unknown> | undefined;
-export function preloadHierarchy(){return hierarchyModule ??= import('../pages/HierarchyPage').catch(error=>{hierarchyModule=undefined;throw error;});}
+type HierarchyModule = typeof import('../pages/HierarchyPage');
+let hierarchyModule: Promise<HierarchyModule> | undefined;
+let readyHierarchy: HierarchyModule | undefined;
+export function getReadyHierarchy(){return readyHierarchy;}
+export function preloadHierarchy(){return hierarchyModule ??= import('../pages/HierarchyPage').then(module=>{readyHierarchy=module;return module;}).catch(error=>{hierarchyModule=undefined;throw error;});}
 type Entry = { key:string; index:number; route:string; fromRoute?:string; x:number; y:number };
 const memory = new Map<string, unknown>();
 const read = <T,>(key:string, fallback:T):T => { if(memory.has(key))return memory.get(key) as T;try {const value=sessionStorage.getItem(`curiveo:view:${key}`);if(value!==null){const parsed=JSON.parse(value) as T;memory.set(key,parsed);return parsed;}}catch{}return fallback; };

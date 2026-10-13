@@ -55,15 +55,15 @@ import { useLearning } from "./hooks/useLearning";
 import { YouTubePlayer } from "./components/YouTubePlayer";
 import { PLAYBACK_RATES, readPlaybackPreferences, savePlaybackPreferences, type PlaybackPreferences } from "./lib/playback-preferences";
 import { SearchBox, SubjectTiles, SectionHeading, Thumb, VideoList, ProgressBar, CourseList, icons } from "./components/catalog-ui";
-import { go, preloadHierarchy, useRoute, useViewState } from "./navigation/route";
+import { go, getReadyHierarchy, preloadHierarchy, useRoute, useViewState } from "./navigation/route";
 import { useInteractionMotion, usePageMotion } from "./lib/motion";
 import { Disclosure } from "./components/Disclosure";
 import { SectionTabs } from "./components/SectionTabs";
 import { usePwa } from "./hooks/usePwa";
 import { durationSummary } from "./lib/duration";
-const HierarchyPage = lazy(()=>import("./pages/HierarchyPage"));
-const LearningRoutePage=lazy(()=>import("./pages/HierarchyPage").then(module=>({default:module.LearningRoutePage})));
-const CollectionPage = lazy(()=>import("./pages/HierarchyPage").then(module=>({default:module.CollectionPage})));
+const LazyHierarchyPage = lazy(preloadHierarchy);
+const LazyLearningRoutePage=lazy(()=>preloadHierarchy().then(module=>({default:module.LearningRoutePage})));
+const LazyCollectionPage = lazy(()=>preloadHierarchy().then(module=>({default:module.CollectionPage})));
 
 type Learning = ReturnType<typeof useLearning>;
 const navItems = [
@@ -743,6 +743,12 @@ function NotFound() {
 }
 export function App() {
   const {route,direction} = useRoute();
+  // React.lazy suspends on its first render even when import() is already cached.
+  // Navigation awaits this module; render it directly so transitions capture the page.
+  const hierarchy=getReadyHierarchy();
+  const HierarchyPage=hierarchy?.default ?? LazyHierarchyPage;
+  const LearningRoutePage=hierarchy?.LearningRoutePage ?? LazyLearningRoutePage;
+  const CollectionPage=hierarchy?.CollectionPage ?? LazyCollectionPage;
   const mainRef=useRef<HTMLElement>(null);
   useInteractionMotion();
   useEffect(()=>{const preload=()=>{void preloadHierarchy().catch(()=>{});};if(typeof window.requestIdleCallback==="function"){const handle=window.requestIdleCallback(preload,{timeout:1000});return()=>window.cancelIdleCallback(handle);}const handle=setTimeout(preload,350);return()=>clearTimeout(handle);},[]);
