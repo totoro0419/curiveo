@@ -1863,7 +1863,7 @@ html[data-section-motion=native] .results-enter[role=tabpanel] { view-transition
 @keyframes surface-in { from { opacity:0;transform:translate3d(var(--motion-enter,12px),0,0); } to { opacity:1;transform:translate3d(0,0,0); } }
 @keyframes surface-out { from { opacity:1;transform:translate3d(0,0,0); } to { opacity:0;transform:translate3d(var(--motion-exit,-10px),0,0); } }
 
-/* Watch mode gives the video the viewport; the existing lecture list lives above it. */
+/* Keep playback and learning commands in view; the playlist scrolls independently. */
 .watch-app .sidebar { width:72px;padding:20px 8px; }
 .watch-app .sidebar .brand { justify-content:center;padding:0; }
 .watch-app .sidebar .brand-wordmark,.watch-app .main-nav a > span,.watch-app .sidebar-bottom p,.watch-app .sidebar-bottom a > span { display:none; }
@@ -1874,17 +1874,22 @@ html[data-section-motion=native] .results-enter[role=tabpanel] { view-transition
 .watch-app .app-content { margin-left:72px; }
 .watch-app .topbar { height:48px;padding-inline:18px; }
 .watch-app .main-content { width:100%;max-width:none;padding:8px max(12px,env(safe-area-inset-left)) 12px max(12px,env(safe-area-inset-right)); }
-.watch-toolbar { display:grid;grid-template-columns:minmax(0,1fr) minmax(150px,230px);gap:12px;align-items:start;max-width:1180px;margin:0 auto 8px; }
+.watch-toolbar { display:flex;align-items:center;max-width:calc((100dvh - 260px)*1.777778 + 296px);margin:0 auto 4px; }
 .watch-toolbar .back-link { min-height:44px;align-items:center;margin:0;font-size:12px; }
-.watch-course-menu .disclosure { margin:0;border:0;background:transparent;border-radius:8px; }
-.watch-course-menu .disclosure-trigger { min-height:44px;padding:10px;font-size:11px; }
-.watch-course-menu .disclosure-inner { padding:0; }
-.watch-course-menu .watch-sidebar { border-radius:8px; }
-.watch-course-menu .section-heading { padding:8px 12px; }
-.watch-course-menu .duration-summary { padding:10px 12px 0;font-size:10px; }
-.watch-course-menu .episode-list { max-height:240px; }
-.watch-course-menu .episode-list a { min-height:44px;padding:10px; }
-.watch-layout { display:block; }
+.watch-playlist { min-width:0; }
+.watch-playlist .disclosure { margin:0 0 8px;border:0;background:transparent;border-radius:8px; }
+.watch-playlist .disclosure-trigger { min-height:44px;padding:10px 12px;font-size:12px; }
+.watch-playlist .disclosure-inner { padding:0; }
+.watch-playlist .watch-sidebar { border-radius:8px;margin:0; }
+.watch-playlist .section-heading { padding:10px 12px; }
+.watch-playlist .duration-summary { padding:10px 12px 0;font-size:11px;margin:0; }
+.watch-playlist .episode-list { position:relative;max-height:240px;overscroll-behavior-y:contain; }
+.watch-playlist .episode-list a { min-width:0;flex:1;min-height:44px;padding:10px;gap:6px;border:0; }
+.episode-row { display:flex;align-items:center;border-bottom:1px solid #f0f3f8; }
+.episode-row:has(a.active) { background:#edf4ff; }
+.episode-row .video-actions-trigger { width:36px;min-height:44px; }
+.episode-duration { display:block;color:var(--muted);font-size:10px;font-variant-numeric:tabular-nums; }
+.watch-layout { display:grid;grid-template-columns:minmax(0,1fr);gap:0; }
 .watch-main { --video-width:min(100%,calc((100dvh - 260px)*1.777778)); }
 .watch-main .player-shell,.watch-main .lesson-actions { width:max(280px,var(--video-width));max-width:100%;margin-inline:auto; }
 .watch-main .player-frame { min-height:200px!important; }
@@ -1900,11 +1905,35 @@ html[data-section-motion=native] .results-enter[role=tabpanel] { view-transition
 .watch-app .footer { display:none; }
 .duration-summary { color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums; }
 .lesson-duration { font-variant-numeric:tabular-nums; }
+.video-row-shell { display:flex;align-items:center;gap:4px;border-bottom:1px solid var(--line); }
+.video-row-shell .video-row { flex:1;min-width:0;border:0; }
+.video-row-shell .video-row > svg { display:none; }
+.video-actions { flex:none; }
+.video-actions-trigger { display:flex;align-items:center;justify-content:center;width:44px;min-height:44px;background:transparent;border:0;border-radius:8px;color:var(--muted); }
+.video-actions-trigger[aria-expanded=true] { color:var(--blue);background:#edf4ff; }
+.video-actions-panel { position:fixed;inset:auto;margin:0;padding:4px;width:min(224px,calc(100vw - 24px));border:1px solid var(--line);border-radius:12px;background:white;box-shadow:0 8px 30px #193c7026; }
+.video-actions-panel button { width:100%;display:flex;align-items:center;gap:10px;min-height:44px;padding:10px 12px;border:0;border-radius:8px;background:transparent;text-align:left;font-size:12px;color:var(--ink); }
+.video-actions-panel button span { flex:1; }
+.video-actions-panel button[aria-pressed=true] { color:var(--blue);background:#f1f6ff; }
+.video-actions-trigger:disabled,.video-actions-panel button:disabled { opacity:.45; }
+@media(hover:hover) { .video-actions-trigger:hover,.video-actions-panel button:not(:disabled):hover { background:#edf4ff; } }
+@media(min-width:960px) {
+ .watch-layout { grid-template-columns:minmax(0,1fr) 280px;gap:16px;max-width:calc((100dvh - 260px)*1.777778 + 296px);margin-inline:auto;align-items:start; }
+ .watch-main { grid-column:1;grid-row:1;--video-width:100%; }
+ .watch-playlist { grid-column:2;grid-row:1;max-height:calc(100dvh - 148px);overflow:auto;overscroll-behavior-y:contain;scrollbar-width:thin; }
+ .watch-playlist .episode-list { max-height:calc(100dvh - 240px); }
+ .watch-playlist .chapter-targets { max-height:180px;overflow:auto; }
+}
+@media(min-width:601px) and (max-width:959px) {
+ .watch-toolbar { max-width:100%; }
+ .watch-playlist { max-width:100%; }
+ .watch-layout:has(.watch-playlist .is-open) .watch-main { --video-width:min(100%,calc((100dvh - 590px)*1.777778)); }
+}
 @media(max-width:600px) {
  .watch-app .app-content { margin-left:0; }
  .watch-app .topbar { height:44px;padding-inline:12px; }
  .watch-app .main-content { padding:4px 0 calc(12px + env(safe-area-inset-bottom)); }
- .watch-toolbar { padding-inline:12px;gap:6px;margin-bottom:4px;grid-template-columns:minmax(0,1fr) 140px; }
+ .watch-toolbar { padding-inline:12px;gap:6px;margin-bottom:0; }
  .watch-toolbar .back-link { font-size:11px; }
  .watch-main { --video-width:100%; }
  .watch-main .player-shell { border-radius:0;border-inline:0; }
@@ -1912,6 +1941,7 @@ html[data-section-motion=native] .results-enter[role=tabpanel] { view-transition
 }
 @media(min-width:600px) and (max-height:500px) {
  .watch-app .topbar { display:none; }
+ .watch-layout,.watch-toolbar { max-width:none; }
  .watch-main .player-shell:not(:fullscreen) { display:grid;grid-template-columns:minmax(0,1fr) 176px;grid-template-rows:auto auto;width:min(100%,calc((100dvh - 110px)*1.777778 + 176px)); }
  .watch-main .player-shell:not(:fullscreen) .player-frame { grid-column:1;grid-row:1/span 2;align-self:start;height:auto; }
  .watch-main .player-shell:not(:fullscreen) .player-controls { grid-column:2;grid-row:1;padding:4px; }

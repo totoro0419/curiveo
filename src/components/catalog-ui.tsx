@@ -7,6 +7,7 @@ import type { useLearning } from "../hooks/useLearning";
 import { listKey, useViewState } from "../navigation/route";
 import { videoDuration, durationTime, durationSummary } from '../lib/duration';
 import { sortCourses } from '../navigation/curriculum-order';
+import { VideoActions } from './VideoActions';
 export type Learning = ReturnType<typeof useLearning>;
 export const icons: Record<string, LucideIcon> = {
   Sigma,
@@ -153,12 +154,13 @@ export function VideoList({
     );
   return (
     <>
-      <div className="video-list">
+      <div className="video-list" tabIndex={-1}>
         {videos.slice(0, limit).map((v, i) => {
           const r = learning.get(v.id);
           const length=videoDuration(v,learning.records);
           return (
-            <a href={videoHref(v, seriesId,routeId,subjectId)} className="video-row" key={v.id}>
+            <div className="video-row-shell" key={v.id}>
+            <a href={videoHref(v, seriesId,routeId,subjectId)} className="video-row">
               <span
                 className={`row-index ${r.status === "completed" ? "is-completed" : ""}`}
               >
@@ -192,6 +194,8 @@ export function VideoList({
               </div>
               <ChevronRight size={18} />
             </a>
+            <VideoActions video={v} learning={learning}/>
+            </div>
           );
         })}
       </div>

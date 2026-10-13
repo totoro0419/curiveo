@@ -60,7 +60,9 @@ import { useInteractionMotion, usePageMotion } from "./lib/motion";
 import { Disclosure } from "./components/Disclosure";
 import { SectionTabs } from "./components/SectionTabs";
 import { usePwa } from "./hooks/usePwa";
-import { durationSummary } from "./lib/duration";
+import { durationSummary, durationTime, videoDuration } from "./lib/duration";
+import { WatchPlaylist } from "./components/WatchPlaylist";
+import { VideoActions } from "./components/VideoActions";
 const LazyHierarchyPage = lazy(preloadHierarchy);
 const LazyLearningRoutePage=lazy(()=>preloadHierarchy().then(module=>({default:module.LearningRoutePage})));
 const LazyCollectionPage = lazy(()=>preloadHierarchy().then(module=>({default:module.CollectionPage})));
@@ -433,14 +435,7 @@ function WatchPage({
     learning
       .save(id, patch)
       .catch((e) => setActionError(String(e.message || e)));
-  return (
-    <>
-      <div className="watch-toolbar">
-        <a className="back-link" href={learningRoute?`#/route/${routeId}`:series?`#/course/${series.id}${subjectContext!==series.subjectId?`?subject=${subjectContext}`:""}`:`#/subject/${subjectContext}`}>
-          <ArrowLeft size={17}/>講座に戻る
-        </a>
-        <div className="watch-course-menu">
-          <Disclosure stateKey="watch-course-list" title={`授業 ${index+1} / ${sequence.length}`}>
+  const playlist=(<>
         <div className="watch-sidebar">
           <p className="duration-summary">{durationSummary(sequence.map(id=>videoMap.get(id)!),learning.records)}</p>
           <div className="section-heading">
@@ -449,16 +444,17 @@ function WatchPage({
               {index + 1} / {sequence.length}
             </span>
           </div>
-          <div className="episode-list">
+          <div className="episode-list" tabIndex={-1}>
             {sequence.slice(episodePage*30,(episodePage+1)*30).map((videoId, offset) => {
               const i=episodePage*30+offset;
               const episode = videoMap.get(videoId);
               if (!episode) return null;
               const done = learning.records[videoId]?.status === "completed";
+              const duration=videoDuration(episode,learning.records);
               return (
+                <div className="episode-row" key={videoId}>
                 <a
                   href={videoHref(episode,steps.find(step=>step.videoId===episode.id)?.seriesId||series?.id,routeId,subjectContext)}
-                  key={videoId}
                   aria-current={videoId === id ? "page" : undefined}
                   className={videoId === id ? "active" : ""}
                 >
@@ -469,19 +465,27 @@ function WatchPage({
                       String(i + 1).padStart(2, "0")
                     )}
                   </span>
-                  <span>{episode.title}</span>
+                  <span>{episode.title}{duration!==null&&<small className="episode-duration">{durationTime(duration)}</small>}</span>
                   {videoId === id && <Play size={13} />}
                 </a>
+                <VideoActions video={episode} learning={learning}/>
+                </div>
               );
             })}
           </div>
           {sequence.length>30&&<div className="episode-pager"><button className="icon-button" aria-label="目次の前の30授業" disabled={episodePage===0} onClick={()=>setEpisodePage(n=>n-1)}><ArrowLeft size={16}/></button><span>{episodePage*30+1}–{Math.min((episodePage+1)*30,sequence.length)}</span><button className="icon-button" aria-label="目次の次の30授業" disabled={(episodePage+1)*30>=sequence.length} onClick={()=>setEpisodePage(n=>n+1)}><ArrowRight size={16}/></button></div>}
         </div>
             {!!v.chapters?.length&&<div className="chapter-targets">{v.chapters.map((chapter,i)=><button className="text-button" key={i} onClick={()=>{setSeek(chapter.startSeconds);setSeekNonce(n=>n+1);}}>{time(chapter.startSeconds)} · {chapter.title}</button>)}</div>}
-          </Disclosure>
-        </div>
+  </>);
+  return (
+    <>
+      <div className="watch-toolbar">
+        <a className="back-link" href={learningRoute?`#/route/${routeId}`:series?`#/course/${series.id}${subjectContext!==series.subjectId?`?subject=${subjectContext}`:""}`:`#/subject/${subjectContext}`}>
+          <ArrowLeft size={17}/>講座に戻る
+        </a>
       </div>
       <div className="watch-layout">
+        <WatchPlaylist currentId={id} index={index} count={sequence.length}>{playlist}</WatchPlaylist>
         <div className="watch-main">
           {learning.ready?<YouTubePlayer key={id} video={v} record={r} save={learning.save} initialSeek={seek} seekNonce={seekNonce}/>:<div className="player-placeholder">学習記録を読み込んでいます…</div>}
           <div className="lesson-actions compact" aria-label="学習操作" aria-busy={!learning.ready}>
