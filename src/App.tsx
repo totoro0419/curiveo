@@ -431,6 +431,7 @@ function WatchPage({
       .sort((a, b) => a.order - b.order)
       .map((x) => x.id);
   const index = sequence.indexOf(id);
+  const nextLesson=videoMap.get(sequence[index+1]);
   const save = (patch: LearningPatch) =>
     learning
       .save(id, patch)
@@ -483,6 +484,7 @@ function WatchPage({
         <a className="back-link" href={learningRoute?`#/route/${routeId}`:series?`#/course/${series.id}${subjectContext!==series.subjectId?`?subject=${subjectContext}`:""}`:`#/subject/${subjectContext}`}>
           <ArrowLeft size={17}/>講座に戻る
         </a>
+        {nextLesson?<a className="watch-next" href={videoHref(nextLesson,steps.find(step=>step.videoId===nextLesson.id)?.seriesId||series?.id,routeId,subjectContext)}>次の授業<ArrowRight size={16}/></a>:<span className="small muted">最後の授業</span>}
       </div>
       <div className="watch-layout">
         <WatchPlaylist currentId={id} index={index} count={sequence.length}>{playlist}</WatchPlaylist>

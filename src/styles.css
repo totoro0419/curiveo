@@ -1872,9 +1872,10 @@ html[data-section-motion=native] .results-enter[role=tabpanel] { view-transition
 .watch-app .main-nav a,.watch-app .sidebar-bottom a { justify-content:center;padding:12px; }
 .watch-app .sidebar-bottom { padding-inline:0; }
 .watch-app .app-content { margin-left:72px; }
-.watch-app .topbar { height:48px;padding-inline:18px; }
+.watch-app .topbar { display:none; }
 .watch-app .main-content { width:100%;max-width:none;padding:8px max(12px,env(safe-area-inset-left)) 12px max(12px,env(safe-area-inset-right)); }
-.watch-toolbar { display:flex;align-items:center;max-width:calc((100dvh - 260px)*1.777778 + 296px);margin:0 auto 4px; }
+.watch-toolbar { display:flex;align-items:center;justify-content:space-between;max-width:calc((100dvh - 210px)*1.777778 + 296px);margin:0 auto 4px; }
+.watch-next { display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:8px 12px;color:var(--blue);font-size:12px;border-radius:8px;background:var(--wash); }
 .watch-toolbar .back-link { min-height:44px;align-items:center;margin:0;font-size:12px; }
 .watch-playlist { min-width:0; }
 .watch-playlist .disclosure { margin:0 0 8px;border:0;background:transparent;border-radius:8px; }
@@ -1891,7 +1892,7 @@ html[data-section-motion=native] .results-enter[role=tabpanel] { view-transition
 .episode-title { display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden; }
 .episode-duration { display:block;color:var(--muted);font-size:10px;font-variant-numeric:tabular-nums; }
 .watch-layout { display:grid;grid-template-columns:minmax(0,1fr);gap:0; }
-.watch-main { --video-width:min(100%,calc((100dvh - 260px)*1.777778)); }
+.watch-main { --video-width:min(100%,calc((100dvh - 210px)*1.777778)); }
 .watch-main .player-shell,.watch-main .lesson-actions { width:max(280px,var(--video-width));max-width:100%;margin-inline:auto; }
 .watch-main .player-frame { min-height:200px!important; }
 .watch-main .player-shell:fullscreen { width:100vw;max-width:none;margin:0; }
@@ -1919,10 +1920,10 @@ html[data-section-motion=native] .results-enter[role=tabpanel] { view-transition
 .video-actions-trigger:disabled,.video-actions-panel button:disabled { opacity:.45; }
 @media(hover:hover) { .video-actions-trigger:hover,.video-actions-panel button:not(:disabled):hover { background:#edf4ff; } }
 @media(min-width:840px) {
- .watch-layout { grid-template-columns:minmax(0,1fr) 280px;gap:16px;max-width:calc((100dvh - 260px)*1.777778 + 296px);margin-inline:auto;align-items:start; }
+ .watch-layout { grid-template-columns:minmax(0,1fr) 280px;gap:16px;max-width:calc((100dvh - 210px)*1.777778 + 296px);margin-inline:auto;align-items:start; }
  .watch-main { grid-column:1;grid-row:1;--video-width:100%; }
- .watch-playlist { grid-column:2;grid-row:1;max-height:calc(100dvh - 148px);overflow:auto;overscroll-behavior-y:contain;scrollbar-width:thin; }
- .watch-playlist .episode-list { max-height:calc(100dvh - 240px); }
+ .watch-playlist { grid-column:2;grid-row:1;max-height:calc(100dvh - 100px);overflow:auto;overscroll-behavior-y:contain;scrollbar-width:thin; }
+ .watch-playlist .episode-list { max-height:calc(100dvh - 192px); }
  .watch-playlist .chapter-targets { max-height:180px;overflow:auto; }
 }
 @media(min-width:601px) and (max-width:839px) {
