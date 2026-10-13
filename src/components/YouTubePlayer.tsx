@@ -189,6 +189,11 @@ export function YouTubePlayer({
     let bufferingTimer: ReturnType<typeof setTimeout> | undefined;
     let lastSavedAt = 0;
     let lastSavedPosition = -1;
+    // Count real playing time, not the seek position or the amount jumped.
+    const watchedBase = recordRef.current.watchedSeconds ?? 0;
+    let watchedInSession = 0;
+    let lastSavedWatched = Math.floor(watchedBase);
+    let watchSample: { mediaTime: number; wallTime: number } | null = null;
     if (mountedVideoId.current !== video.id) {
       mountedVideoId.current = video.id;
       positionRef.current = recordRef.current.playbackEnded
@@ -212,6 +217,7 @@ export function YouTubePlayer({
         })
         .catch((reason: unknown) => {
           lastSavedPosition = -1;
+          lastSavedWatched = -1;
           if (!disposed)
             setSaveError(
               "再生位置を保存できませんでした。端末の空き容量を確認してください。",
@@ -242,18 +248,24 @@ export function YouTubePlayer({
       )
         return;
       positionRef.current = position;
+      const watchedSeconds = Math.floor(watchedBase + watchedInSession);
       if (
         Math.floor(position) === lastSavedPosition &&
+        watchedSeconds === lastSavedWatched &&
         !ended &&
         forcedPosition === undefined
       )
         return;
       lastSavedPosition = Math.floor(position);
+      lastSavedWatched = watchedSeconds;
       lastSavedAt = Date.now();
       await write({
         position: Math.floor(position),
         duration: Math.floor(duration),
         playbackEnded: ended,
+        ...(watchedSeconds > 0 || recordRef.current.watchedSeconds !== undefined
+          ? { watchedSeconds }
+          : {}),
       });
     };
     savePositionRef.current = persist;
@@ -307,6 +319,24 @@ export function YouTubePlayer({
       if (disposed || !ready || !player) return;
       const duration = Math.max(0, player.getDuration() || 0);
       const time = Math.max(0, player.getCurrentTime() || 0);
+      const playing = player.getPlayerState() === 1;
+      if (playing && !seeking.current && !document.hidden) {
+        const now = performance.now();
+        if (watchSample) {
+          const elapsed = (now - watchSample.wallTime) / 1000;
+          const advanced = time - watchSample.mediaTime;
+          const rate = Math.max(0.25, player.getPlaybackRate() || 1);
+          // Skip gaps caused by seeks, tab throttling, buffering and stalled media.
+          if (elapsed > 0 && elapsed < 2.5 &&
+              advanced >= elapsed * rate * 0.25 &&
+              advanced <= elapsed * rate * 2.5) {
+            watchedInSession += Math.min(elapsed, advanced / rate);
+          }
+        }
+        watchSample = { mediaTime: time, wallTime: now };
+      } else {
+        watchSample = null;
+      }
       if (!seeking.current && (hasStarted || time > 0))
         positionRef.current = time;
       const availableRates = player.getAvailablePlaybackRates();

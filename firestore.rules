@@ -12,9 +12,11 @@ service cloud.firestore {
           && data.deviceSequences is map
           && data.committedAt == request.time
           && record is map && record.videoId == videoId
-          && record.keys().hasOnly(['videoId', 'position', 'duration', 'playbackEnded', 'status', 'understanding', 'favorite', 'watchLater', 'review', 'note', 'noteVersions', 'lastViewedAt', 'updatedAt', 'deviceId', 'versions'])
+          && record.keys().hasOnly(['videoId', 'position', 'duration', 'watchedSeconds', 'playbackEnded', 'resumeDismissed', 'status', 'understanding', 'favorite', 'watchLater', 'review', 'note', 'noteVersions', 'lastViewedAt', 'updatedAt', 'deviceId', 'versions'])
           && record.position is number && record.position >= 0
           && record.duration is number && record.duration >= 0
+          && (!('watchedSeconds' in record) || (record.watchedSeconds is number && record.watchedSeconds >= 0))
+          && (!('resumeDismissed' in record) || record.resumeDismissed is bool)
           && record.playbackEnded is bool
           && record.status in ['unstarted', 'learning', 'completed']
           && record.understanding in ['unset', 'understood', 'unsure', 'review']

@@ -334,6 +334,31 @@ button[aria-pressed="true"] {
   margin-top: 5px;
   font-size: 14px;
 }
+.resume-card {
+  position: relative;
+  margin-bottom: 26px;
+}
+.resume-card .resume-panel { margin-bottom: 0; }
+.resume-card .resume-copy { padding-right: 32px; }
+.resume-dismiss {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.resume-dismiss:hover, .resume-dismiss:focus-visible {
+  color: var(--blue);
+  background: #dce8fb;
+}
+.resume-dismiss:disabled { opacity: .5; cursor: default; }
 .resume-panel {
   display: flex;
   gap: 25px;

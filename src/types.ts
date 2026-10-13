@@ -95,7 +95,9 @@ export interface LearningRecord {
   videoId: string;
   position: number;
   duration: number;
+  watchedSeconds?: number;
   playbackEnded: boolean;
+  resumeDismissed?: boolean;
   status: LearningStatus;
   understanding: Understanding;
   favorite: boolean;
@@ -113,7 +115,9 @@ export type LearningPatch = Partial<
     LearningRecord,
     | "position"
     | "duration"
+    | "watchedSeconds"
     | "playbackEnded"
+    | "resumeDismissed"
     | "status"
     | "understanding"
     | "favorite"
