@@ -63,6 +63,7 @@ import { usePwa } from "./hooks/usePwa";
 import { durationSummary, durationTime, videoDuration } from "./lib/duration";
 import { WatchPlaylist } from "./components/WatchPlaylist";
 import { VideoActions } from "./components/VideoActions";
+import { selectResumeRecommendation } from "./lib/resume-selection";
 const LazyHierarchyPage = lazy(preloadHierarchy);
 const LazyLearningRoutePage=lazy(()=>preloadHierarchy().then(module=>({default:module.LearningRoutePage})));
 const LazyCollectionPage = lazy(()=>preloadHierarchy().then(module=>({default:module.CollectionPage})));
@@ -77,10 +78,9 @@ function HomePage({ learning }: { learning: Learning }) {
   const recent = Object.values(learning.records)
     .filter((r) => r.lastViewedAt > 0 && videoMap.has(r.videoId))
     .sort((a, b) => b.lastViewedAt - a.lastViewedAt);
-  const resume =
-    recent.find((r) => r.status !== "completed" && !r.playbackEnded) ||
-    recent[0];
-  const v = resume && videoMap.get(resume.videoId);
+  const recommendation = selectResumeRecommendation(catalog.videos, catalog.series, learning.records);
+  const v = recommendation?.video;
+  const resume = v ? learning.records[v.id] : undefined;
   const recentSeries = [
     ...new Set(recent.flatMap((r) => videoMap.get(r.videoId)?.seriesIds || [])),
   ]
@@ -98,24 +98,34 @@ function HomePage({ learning }: { learning: Learning }) {
         <h1>{v ? "今日も、続きから。" : "学びたいことから、はじめよう。"}</h1>
         <p>授業を見つける。理解をつなぐ。自分のペースで進める。</p>
       </header>
-      {v && (
-        <a className="resume-panel" href={videoHref(v)}>
-          <div className="resume-copy">
-            <span className="eyebrow">続きから学ぶ</span>
-            <h2>{v.title}</h2>
-            <p>
-              {subjectMap.get(v.subjectId)?.name} ·{" "}
-              {unitMap.get(v.unitIds[0])?.name}
-            </p>
-            <span className="resume-action">
-              <Play size={16} fill="currentColor" />
-              {resume.playbackEnded
-                ? "もう一度見る"
-                : `${time(resume.position)} から再開`}
-            </span>
-          </div>
-          <Thumb video={v} />
-        </a>
+      {v && recommendation && (
+        <div className="resume-card">
+          <a className="resume-panel" href={videoHref(v)}>
+            <div className="resume-copy">
+              <span className="eyebrow">{recommendation.kind === "next" ? "次の授業へ" : "続きから学ぶ"}</span>
+              <h2>{v.title}</h2>
+              <p>
+                {subjectMap.get(v.subjectId)?.name} ·{" "}
+                {unitMap.get(v.unitIds[0])?.name}
+              </p>
+              <span className="resume-action">
+                <Play size={16} fill="currentColor" />
+                {recommendation.kind === "next" ? "次の授業を始める" : `${time(resume?.position ?? 0)} から再開`}
+              </span>
+            </div>
+            <Thumb video={v} />
+          </a>
+          <button
+            type="button"
+            className="resume-dismiss"
+            disabled={!learning.ready}
+            aria-label={`${v.title}を続きから学ぶの候補から除外`}
+            title="この授業を候補から除外"
+            onClick={() => void learning.save(v.id, { resumeDismissed: true }).catch(() => {})}
+          >
+            <X size={18} />
+          </button>
+        </div>
       )}
       <SearchBox onSearch={(q) => go(`/discover?q=${encodeURIComponent(q)}`)} />
       <section className="section">
