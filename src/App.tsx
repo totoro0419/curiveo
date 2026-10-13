@@ -52,6 +52,7 @@ import {
 import type { Video, SubjectId, Series, LearningPatch } from "./types";
 import { useLearning } from "./hooks/useLearning";
 import { YouTubePlayer } from "./components/YouTubePlayer";
+import { PLAYBACK_RATES, readPlaybackPreferences, savePlaybackPreferences, type PlaybackPreferences } from "./lib/playback-preferences";
 import { SearchBox, SubjectTiles, SectionHeading, Thumb, VideoList, ProgressBar, CourseList, icons } from "./components/catalog-ui";
 import { go, useRoute, useViewState } from "./navigation/route";
 import { useInteractionMotion, usePageMotion } from "./lib/motion";
@@ -759,6 +760,16 @@ function WatchPage({
 function SettingsPage({ learning }: { learning: Learning }) {
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
+  const [playerPreferences, setPlayerPreferences] = useState(readPlaybackPreferences);
+  const updatePlayerPreferences = (patch: Partial<PlaybackPreferences>) => {
+    const next = { ...playerPreferences, ...patch };
+    if (!savePlaybackPreferences(next)) {
+      setMessage("再生設定をこの端末に保存できませんでした。ブラウザの保存設定を確認してください。");
+      return;
+    }
+    setPlayerPreferences(next);
+    setMessage("");
+  };
   const pwa=usePwa();
   const action = async (fn: () => Promise<unknown>, success?: string) => {
     setBusy(true);
@@ -838,6 +849,40 @@ function SettingsPage({ learning }: { learning: Learning }) {
             )}
           </>
         )}
+      </section>
+      <section className="settings-section">
+        <h2>
+          <Play size={21} />
+          動画の再生設定
+        </h2>
+        <p>再生速度と字幕の初期設定を保存し、次の授業にも引き継ぎます。</p>
+        <div className="playback-preference-fields">
+          <label>
+            <span>標準の再生速度</span>
+            <select
+              value={playerPreferences.rate}
+              onChange={(event) => updatePlayerPreferences({ rate: Number(event.currentTarget.value) })}
+            >
+              {PLAYBACK_RATES.map((rate) => <option key={rate} value={rate}>{rate}×</option>)}
+            </select>
+          </label>
+          <label>
+            <span>字幕の初期設定</span>
+            <select
+              value={playerPreferences.captions}
+              onChange={(event) => updatePlayerPreferences({ captions: event.currentTarget.value as PlaybackPreferences["captions"] })}
+            >
+              <option value="youtube">YouTubeの設定に従う</option>
+              <option value="ja">日本語字幕を優先して表示</option>
+              <option value="en">英語字幕を優先して表示</option>
+            </select>
+          </label>
+        </div>
+        <p className="small muted">
+          設定はこの端末に保存します。速度は動画が対応する倍率のみ適用されます。
+          字幕は動画に提供されている場合に表示できます。YouTube公式APIでは字幕を常に非表示に固定することはできません。
+          字幕の変更は次の動画から適用されます。
+        </p>
       </section>
       <section className="settings-section">
         <h2>
