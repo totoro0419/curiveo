@@ -759,6 +759,9 @@ export function YouTubePlayer({
             <RotateCcw size={16} />
             再試行
           </button>
+          <a href={youtubeUrl} target="_blank" rel="noopener noreferrer" className="text-link">
+            YouTubeで再生する<ExternalLink size={14}/>
+          </a>
         </div>
       )}
       {offline && (
@@ -779,10 +782,6 @@ export function YouTubePlayer({
       )}
       <div className="player-footer">
         <span>再生位置は自動保存</span>
-        <a href={youtubeUrl} target="_blank" rel="noopener noreferrer">
-          YouTubeで開く
-          <ExternalLink size={14} />
-        </a>
       </div>
     </div>
   );
