@@ -81,3 +81,7 @@ PWAは版をそろえたローカルshellをキャッシュし、更新は明示
 [監査統合・検証報告](docs/audit-integration-2026-10-13.md)。原本9資料、検証結果、保留5件、未解決課題を `data/audits/2026-10-13/` に保持。追加46本は `data/source-catalogs/audit-2026-10-13.json` を生成スクリプトが明示的に読み込みます。`npm run audit:integrate`で監査ソースを再生成し、`npm run audit:validate`で資料一致・元ID・授業順・共有参照を検査できます。
 
 基礎と演習を講座別に分けた6つの学習ルートを追加。動画の主教科`subjectId`は互換維持し、共有教材のみ`subjectIds`を追加。学習記録は引き続き動画IDごとに1件です。
+
+動画・講座・学習ルートには、取得済みの公開YouTubeメタデータから動画時間を表示します。合計は1倍速での動画の長さで、同じIDは一度だけ集計します。未取得の時間を0秒として網羅済みにせず、未取得件数を明示します。視聴後の保存済み時間も参照します。
+
+時間メタデータの出典は `data/video-metadata/durations.json`、アプリ用の軽い索引は `src/data/video-durations.json` です。`npm run durations:generate`で索引を再生成、`npm run durations:collect`で公開プレイリスト・動画ページの時間だけを補充できます。動画ストリームは取得しません。学習記録やカタログのID・公式授業順は変更しません。

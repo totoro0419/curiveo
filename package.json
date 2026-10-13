@@ -10,7 +10,9 @@
     "preview": "vite preview --host 0.0.0.0",
     "catalog:validate": "node scripts/validate-catalog.mjs",
     "audit:validate": "node scripts/validate-audit.mjs",
-    "audit:integrate": "node scripts/integrate-audit.mjs"
+    "audit:integrate": "node scripts/integrate-audit.mjs",
+    "durations:generate": "python3 scripts/collect-video-durations.py",
+    "durations:collect": "python3 scripts/collect-video-durations.py --network"
   },
   "dependencies": {
     "firebase": "^12.4.0",

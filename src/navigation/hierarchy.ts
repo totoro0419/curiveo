@@ -1,5 +1,6 @@
 import { catalog, videoSubjects, seriesInSubject, seriesMap, unitMap, videoMap } from "../catalog";
 import type { Series, SubjectId, Unit, Video } from "../types";
+import { compareCategory } from './curriculum-order';
 
 export interface LearningNode {
   id: string;
@@ -353,6 +354,12 @@ for(const node of learningNodes.values()){
  if(node.title==='図形と座標'&&parent?.title==='数学C')node.title='ベクトル・平面上の曲線と複素数平面';
 }
 for (const [id, node] of learningNodes) if (node.kind !== "subject" && node.videoIds.length === 0) learningNodes.delete(id);
+// Pedagogical display order is independent of import order and the source's lesson sequence.
+for(const node of learningNodes.values())node.children.sort((a,b)=>{
+ const left=learningNodes.get(a)!,right=learningNodes.get(b)!;
+ return compareCategory(node.subjectId,node.title,left.title,right.title,node.kind==='subject') ||
+  (sourceRank.get(a)??Infinity)-(sourceRank.get(b)??Infinity);
+});
 
 export function getNodePath(id: string): LearningNode[] {
   const path: LearningNode[] = [];
