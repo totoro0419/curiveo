@@ -4,6 +4,7 @@ export type ResumeChoice = {
   video: Video;
   kind: "resume" | "next";
   previousVideoId?: string;
+  seriesId?: string;
 };
 
 /**
@@ -53,7 +54,7 @@ export function selectResumeRecommendation(
     if (!meaningfulViewing(record, video) && record.status !== "completed") continue;
 
     if (!finished && record.status === "learning") {
-      return { video, kind: "resume" };
+      return { video, kind: "resume", seriesId: video.seriesIds[0] };
     }
 
     if (finished) {
@@ -68,7 +69,7 @@ export function selectResumeRecommendation(
           const nextRecord = records[nextId];
           if (nextRecord?.status === "completed" || nextRecord?.playbackEnded || nextRecord?.resumeDismissed)
             continue;
-          return { video: nextVideo, kind: "next", previousVideoId: video.id };
+          return { video: nextVideo, kind: "next", previousVideoId: video.id, seriesId };
         }
       }
     }
