@@ -1,5 +1,8 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
+import { transitionSurface } from '../lib/motion';
+let hierarchyModule: Promise<unknown> | undefined;
+export function preloadHierarchy(){return hierarchyModule ??= import('../pages/HierarchyPage').catch(error=>{hierarchyModule=undefined;throw error;});}
 type Entry = { key:string; index:number; route:string; fromRoute?:string; x:number; y:number };
 const memory = new Map<string, unknown>();
 const read = <T,>(key:string, fallback:T):T => { if(memory.has(key))return memory.get(key) as T;try {const value=sessionStorage.getItem(`curiveo:view:${key}`);if(value!==null){const parsed=JSON.parse(value) as T;memory.set(key,parsed);return parsed;}}catch{}return fallback; };
@@ -25,11 +28,14 @@ export function useRoute(){
   const prior=history.scrollRestoration;history.scrollRestoration='manual';storeEntry(current.current);
   const save=()=>{const value={...current.current,x:window.scrollX,y:window.scrollY};current.current=value;write(`scroll:${value.key}`,{x:value.x,y:value.y});};
   const onNavigate=()=>{
-   save();const known=getEntry();const route=currentRoute();
+   const from=current.current.route;save();const known=getEntry();const route=currentRoute();
    const next=known?.key!==current.current.key&&known?.route===route?known:{key:crypto.randomUUID(),index:current.current.index+1,route,fromRoute:current.current.route,x:0,y:0};
    const backwards=next.index<current.current.index||backHint.current;backHint.current=false;current.current=next;storeEntry(next);
    restore.current=known?.key===next.key?read(`scroll:${next.key}`,{x:next.x,y:next.y}):{x:0,y:0};
-   setState({route,direction:backwards?'back':'forward',key:next.key});
+   const apply=()=>{if(current.current.key===next.key)transitionSurface(()=>{if(current.current.key===next.key)setState({route,direction:backwards?'back':'forward',key:next.key});},backwards?'back':'forward',from,route);};
+   // Capture the actual destination, never a skeleton that gets replaced mid-flight.
+   if(/^\/(subject|category|course|channel|unit|route)\//.test(route))void preloadHierarchy().then(apply,apply);
+   else apply();
   };
   const onClick=(event:MouseEvent)=>{const target=event.target instanceof Element?event.target.closest<HTMLAnchorElement>('a[href^="#/"]'):null;if(!target||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey||event.button!==0)return;save();if(target.matches('.back-link')||target.closest('.breadcrumbs')){backHint.current=true;if(target.hash.slice(1)===current.current.fromRoute){event.preventDefault();history.back();}}};
   window.addEventListener('hashchange',onNavigate);document.addEventListener('click',onClick,true);window.addEventListener('pagehide',save);

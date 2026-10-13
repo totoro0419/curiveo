@@ -5,6 +5,8 @@ import { catalog, inSubject, videoSubjects, subjectMap, unitMap, channelMap, rol
 import type { Video, Series } from "../types";
 import type { useLearning } from "../hooks/useLearning";
 import { listKey, useViewState } from "../navigation/route";
+import { videoDuration, durationTime, durationSummary } from '../lib/duration';
+import { sortCourses } from '../navigation/curriculum-order';
 export type Learning = ReturnType<typeof useLearning>;
 export const icons: Record<string, LucideIcon> = {
   Sigma,
@@ -154,6 +156,7 @@ export function VideoList({
       <div className="video-list">
         {videos.slice(0, limit).map((v, i) => {
           const r = learning.get(v.id);
+          const length=videoDuration(v,learning.records);
           return (
             <a href={videoHref(v, seriesId,routeId,subjectId)} className="video-row" key={v.id}>
               <span
@@ -176,6 +179,7 @@ export function VideoList({
                   </span>
                 </p>
                 <div className="row-meta">
+                  <span className="lesson-duration">{length!==null?durationTime(length):'時間未取得'}</span>
                   {r.position > 0 && (
                     <span>
                       {time(r.position)}
@@ -232,6 +236,7 @@ export function CourseList({
   learning: Learning;
   subjectId?: string;
 }) {
+  courses=sortCourses(courses);
   if (!courses.length)
     return <p className="empty">収録済みの講座はありません。</p>;
   return (
@@ -254,6 +259,7 @@ export function CourseList({
               <h3>{s.title}</h3>
               <p className="small muted">
                 {s.videoIds.length}授業 · {s.level}
+                {' · '}{durationSummary(list,learning.records)}
                 {p.completed ? ` · ${p.completed}授業 学習済み` : ""}
               </p>
             </div>

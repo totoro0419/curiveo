@@ -32,6 +32,7 @@ import {
   Binary,
   ExternalLink,
   CheckCircle2,
+  Circle,
   X,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -54,16 +55,16 @@ import { useLearning } from "./hooks/useLearning";
 import { YouTubePlayer } from "./components/YouTubePlayer";
 import { PLAYBACK_RATES, readPlaybackPreferences, savePlaybackPreferences, type PlaybackPreferences } from "./lib/playback-preferences";
 import { SearchBox, SubjectTiles, SectionHeading, Thumb, VideoList, ProgressBar, CourseList, icons } from "./components/catalog-ui";
-import { go, useRoute, useViewState } from "./navigation/route";
+import { go, preloadHierarchy, useRoute, useViewState } from "./navigation/route";
 import { useInteractionMotion, usePageMotion } from "./lib/motion";
 import { Disclosure } from "./components/Disclosure";
 import { SectionTabs } from "./components/SectionTabs";
 import { usePwa } from "./hooks/usePwa";
-import { registerUpdateGuard } from "./lib/pwa";
+import { durationSummary } from "./lib/duration";
 const HierarchyPage = lazy(()=>import("./pages/HierarchyPage"));
 const LearningRoutePage=lazy(()=>import("./pages/HierarchyPage").then(module=>({default:module.LearningRoutePage})));
 const CollectionPage = lazy(()=>import("./pages/HierarchyPage").then(module=>({default:module.CollectionPage})));
-const WatchTrail = lazy(()=>import("./pages/HierarchyPage").then(module=>({default:module.WatchTrail})));
+
 type Learning = ReturnType<typeof useLearning>;
 const navItems = [
   { path: "/", label: "ホーム", icon: Home },
@@ -399,108 +400,6 @@ function LibraryPage({
     </>
   );
 }
-function NoteEditor({ video, learning }: { video: Video; learning: Learning }) {
-  const record = learning.get(video.id);
-  const [draft, setDraft] = useState(record.note);
-  const draftRef = useRef(draft);
-  const dirty = useRef(false);
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const [saving, setSaving] = useState(false);
-  const [error, setError] = useState("");
-  const pending=useRef<Promise<void>|null>(null);
-  const commitRef = useRef<() => Promise<void>>(() => Promise.resolve());
-  commitRef.current = async () => {
-    if (timer.current) clearTimeout(timer.current);
-    if(pending.current)await pending.current;
-    if (!dirty.current) return;
-    const value = draftRef.current;
-    setSaving(true);
-    const request=learning.save(video.id,{note:value});pending.current=request;
-    try{await request;if(draftRef.current===value)dirty.current=false;setError("");}
-    catch(e){setError(e instanceof Error?e.message:String(e));throw e;}
-    finally{pending.current=null;setSaving(false);}
-  };
-  useEffect(()=>registerUpdateGuard(()=>commitRef.current()),[video.id]);
-  useEffect(() => {
-    if (!dirty.current) {
-      setDraft(record.note);
-      draftRef.current = record.note;
-    }
-  }, [record.note]);
-  useEffect(() => {
-    const flush = () => {void commitRef.current().catch(()=>{});};
-    window.addEventListener("pagehide", flush);
-    document.addEventListener("visibilitychange", flush);
-    return () => {
-      flush();
-      window.removeEventListener("pagehide", flush);
-      document.removeEventListener("visibilitychange", flush);
-      if (timer.current) clearTimeout(timer.current);
-    };
-  }, [video.id]);
-  return (
-    <section className="notes">
-      <div className="section-heading">
-        <h2>授業メモ</h2>
-        <span className="small muted" role="status">
-          {error
-            ? "保存に失敗"
-            : saving
-              ? "保存中…"
-              : dirty.current
-                ? "保存待ち"
-                : "自動保存"}
-        </span>
-      </div>
-      <textarea
-        aria-label="授業メモ"
-        disabled={!learning.ready}
-        value={draft}
-        placeholder="わかったこと、あとで確かめたいこと。"
-        onChange={(e) => {
-          dirty.current = true;
-          draftRef.current = e.target.value;
-          setDraft(e.target.value);
-          if (timer.current) clearTimeout(timer.current);
-          timer.current = setTimeout(() => {void commitRef.current().catch(()=>{});}, 700);
-        }}
-        onBlur={() => {void commitRef.current().catch(()=>{});}}
-      />
-      {error && (
-        <div className="notice error">
-          {error}
-          <button className="button" onClick={() => {void commitRef.current().catch(()=>{});}}>
-            再試行
-          </button>
-        </div>
-      )}
-      {record.noteVersions?.length > 0 && (
-        <details className="note-versions">
-          <summary>
-            保存されたメモの別の版 ({record.noteVersions.length})
-          </summary>
-          {record.noteVersions.map((n) => (
-            <div key={n.id}>
-              <time>{new Date(n.updatedAt).toLocaleString("ja-JP")}</time>
-              <p>{n.text || "（空のメモ）"}</p>
-              <button
-                className="button secondary"
-                onClick={() => {
-                  dirty.current = true;
-                  draftRef.current = n.text;
-                  setDraft(n.text);
-                  void commitRef.current().catch(()=>{});
-                }}
-              >
-                この内容を使う
-              </button>
-            </div>
-          ))}
-        </details>
-      )}
-    </section>
-  );
-}
 function WatchPage({
   id,
   params,
@@ -530,195 +429,20 @@ function WatchPage({
       .sort((a, b) => a.order - b.order)
       .map((x) => x.id);
   const index = sequence.indexOf(id);
-  const previous = videoMap.get(sequence[index - 1]),
-    next = videoMap.get(sequence[index + 1]);
   const save = (patch: LearningPatch) =>
     learning
       .save(id, patch)
       .catch((e) => setActionError(String(e.message || e)));
   return (
     <>
-      <a
-        className="back-link"
-        href={learningRoute?`#/route/${routeId}`:series ? `#/course/${series.id}${subjectContext!==series.subjectId?`?subject=${subjectContext}`:""}` : `#/subject/${subjectContext}`}
-      >
-        <ArrowLeft size={17} />
-        {learningRoute?.title || series?.title || subjectMap.get(v.subjectId)?.name}
-      </a>
-      <Suspense fallback={null}><WatchTrail video={v} seriesId={series?.id} subjectId={subjectContext}/></Suspense>
-      <div className="watch-layout">
-        <div className="watch-main">
-          {learning.ready ? (
-            <YouTubePlayer
-              key={id}
-              video={v}
-              record={r}
-              save={learning.save}
-              initialSeek={seek}
-              seekNonce={seekNonce}
-            />
-          ) : (
-            <div className="player-placeholder">
-              学習記録を読み込んでいます…
-            </div>
-          )}
-          {series?.notice&&<p className="notice">{series.notice}</p>}
-          <div className="lesson-heading">
-            <p className="eyebrow">
-              {subjectMap.get(subjectContext as SubjectId)?.name} ·{" "}
-              {unitMap.get(v.unitIds[0])?.name}
-            </p>
-            <h1>{v.title}</h1>
-            <a className="muted text-link" href={`#/channel/${v.channelId}`}>
-              {v.uploaderName || channelMap.get(v.channelId)?.name}
-              <ChevronRight size={14} />
-            </a>
-          </div>
-          <div className="lesson-actions" aria-busy={!learning.ready}>
-            <button
-              disabled={!learning.ready}
-              className={`button ${r.status === "completed" ? "completed" : "primary"}`}
-              onClick={() =>
-                save({
-                  status: r.status === "completed" ? "learning" : "completed",
-                })
-              }
-              aria-pressed={r.status === "completed"}
-            >
-              <CheckCircle2 size={18} />
-              {r.status === "completed" ? "学習済み" : "学習済みにする"}
-            </button>
-            <button
-              className="icon-button"
-              disabled={!learning.ready}
-              onClick={() => save({ favorite: !r.favorite })}
-              aria-label={r.favorite ? "お気に入りを解除" : "お気に入りに登録"}
-              aria-pressed={r.favorite}
-            >
-              <Heart size={22} fill={r.favorite ? "currentColor" : "none"} />
-            </button>
-            <button
-              className="icon-button"
-              disabled={!learning.ready}
-              onClick={() => save({ watchLater: !r.watchLater })}
-              aria-label={r.watchLater ? "後で見るから解除" : "後で見るに登録"}
-              aria-pressed={r.watchLater}
-            >
-              <Bookmark
-                size={22}
-                fill={r.watchLater ? "currentColor" : "none"}
-              />
-            </button>
-          </div>
-          <div className="understanding-row">
-            <label>
-              理解度
-              <select
-                disabled={!learning.ready}
-                value={r.understanding}
-                onChange={(e) =>
-                  save({
-                    understanding: e.target.value as typeof r.understanding,
-                  })
-                }
-              >
-                <option value="unset">まだ記録しない</option>
-                <option value="understood">理解できた</option>
-                <option value="unsure">少し不安</option>
-                <option value="review">要復習</option>
-              </select>
-            </label>
-            <button
-              className="text-button"
-              disabled={!learning.ready}
-              aria-pressed={r.review}
-              onClick={() => save({ review: !r.review })}
-            >
-              <RotateCcw size={17} />
-              {r.review ? "復習リストに登録済み" : "復習リストに追加"}
-            </button>
-          </div>
-          {r.playbackEnded && (
-            <p className="small muted">
-              最後まで再生しました。学習状態と理解度は、ご自身で記録できます。
-            </p>
-          )}
-          {actionError && <p className="notice error">{actionError}</p>}
-          <nav className="lesson-navigation" aria-label="前後の授業">
-            {previous ? (
-              <a href={videoHref(previous,steps.find(step=>step.videoId===previous.id)?.seriesId||series?.id,routeId,subjectContext)}>
-                <ArrowLeft size={18} />
-                <span>
-                  <small>前の授業</small>
-                  {previous.title}
-                </span>
-              </a>
-            ) : (
-              <span />
-            )}
-            {next ? (
-              <a href={videoHref(next,steps.find(step=>step.videoId===next.id)?.seriesId||series?.id,routeId,subjectContext)}>
-                <span>
-                  <small>次の授業</small>
-                  {next.title}
-                </span>
-                <ArrowRight size={18} />
-              </a>
-            ) : (
-              <span />
-            )}
-          </nav>
-          {v.chapters?.length && (
-            <details className="chapters">
-              <summary>単元へジャンプ ({v.chapters.length})</summary>
-              <div>
-                {v.chapters.map((c, i) => (
-                  <button
-                    key={`${c.startSeconds}-${i}`}
-                    onClick={() => {setSeek(c.startSeconds);setSeekNonce(n=>n+1);}}
-                  >
-                    <span>{time(c.startSeconds)}</span>
-                    {c.title}
-                  </button>
-                ))}
-              </div>
-            </details>
-          )}
-          <NoteEditor key={id} video={v} learning={learning} />
-          <details className="coverage">
-            <summary>動画情報・出典</summary>
-            <p>
-              {v.level} · {roleLabels[v.role]} ·{" "}
-              {v.curriculum === "mixed"
-                ? "旧課程表記を含む講座"
-                : v.curriculum === "legacy"
-                  ? "旧課程の講座"
-                  : v.curriculum === "current"
-                    ? "現行課程"
-                    : "課程年度未確認"}
-            </p>
-            <p>{v.classificationEvidence}</p>
-            <a
-              className="text-link"
-              href={v.sourceUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              収録元を確認
-              <ExternalLink size={14} />
-            </a>
-            <a
-              className="text-link"
-              href={`https://www.youtube.com/watch?v=${v.id}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              YouTubeで開く
-              <ExternalLink size={14} />
-            </a>
-          </details>
-        </div>
-        <aside className="watch-sidebar">
+      <div className="watch-toolbar">
+        <a className="back-link" href={learningRoute?`#/route/${routeId}`:series?`#/course/${series.id}${subjectContext!==series.subjectId?`?subject=${subjectContext}`:""}`:`#/subject/${subjectContext}`}>
+          <ArrowLeft size={17}/>講座に戻る
+        </a>
+        <div className="watch-course-menu">
+          <Disclosure stateKey="watch-course-list" title={`授業 ${index+1} / ${sequence.length}`}>
+        <div className="watch-sidebar">
+          <p className="duration-summary">{durationSummary(sequence.map(id=>videoMap.get(id)!),learning.records)}</p>
           <div className="section-heading">
             <h2>{learningRoute?"この学習ルートの授業":series ? "この講座の授業" : "関連する授業"}</h2>
             <span className="small muted">
@@ -752,7 +476,27 @@ function WatchPage({
             })}
           </div>
           {sequence.length>30&&<div className="episode-pager"><button className="icon-button" aria-label="目次の前の30授業" disabled={episodePage===0} onClick={()=>setEpisodePage(n=>n-1)}><ArrowLeft size={16}/></button><span>{episodePage*30+1}–{Math.min((episodePage+1)*30,sequence.length)}</span><button className="icon-button" aria-label="目次の次の30授業" disabled={(episodePage+1)*30>=sequence.length} onClick={()=>setEpisodePage(n=>n+1)}><ArrowRight size={16}/></button></div>}
-        </aside>
+        </div>
+            {!!v.chapters?.length&&<div className="chapter-targets">{v.chapters.map((chapter,i)=><button className="text-button" key={i} onClick={()=>{setSeek(chapter.startSeconds);setSeekNonce(n=>n+1);}}>{time(chapter.startSeconds)} · {chapter.title}</button>)}</div>}
+          </Disclosure>
+        </div>
+      </div>
+      <div className="watch-layout">
+        <div className="watch-main">
+          {learning.ready?<YouTubePlayer key={id} video={v} record={r} save={learning.save} initialSeek={seek} seekNonce={seekNonce}/>:<div className="player-placeholder">学習記録を読み込んでいます…</div>}
+          <div className="lesson-actions compact" aria-label="学習操作" aria-busy={!learning.ready}>
+            <button className={`study-action ${r.status==="completed"?"completed":""}`} disabled={!learning.ready} aria-pressed={r.status==="completed"} aria-label={r.status==="completed"?"学習済みを解除":"学習済みにする"} onClick={()=>save({status:r.status==="completed"?"learning":"completed"})}>
+              {r.status==='completed'?<CheckCircle2 size={16}/>:<Circle size={16}/>}<span>学習済み</span>
+            </button>
+            <button className="study-action icon-only" disabled={!learning.ready} aria-label={r.favorite?"お気に入りを解除":"お気に入りに登録"} aria-pressed={r.favorite} onClick={()=>save({favorite:!r.favorite})}>
+              <Heart size={17} fill={r.favorite?"currentColor":"none"}/>
+            </button>
+            <button className="study-action icon-only" disabled={!learning.ready} aria-label={r.watchLater?"後で見るから解除":"後で見るに登録"} aria-pressed={r.watchLater} onClick={()=>save({watchLater:!r.watchLater})}>
+              <Bookmark size={17} fill={r.watchLater?"currentColor":"none"}/>
+            </button>
+          </div>
+          {actionError&&<p className="notice error" role="alert">{actionError}</p>}
+        </div>
       </div>
     </>
   );
@@ -1001,7 +745,7 @@ export function App() {
   const {route,direction} = useRoute();
   const mainRef=useRef<HTMLElement>(null);
   useInteractionMotion();
-  useEffect(()=>{const preload=()=>{void import("./pages/HierarchyPage").catch(()=>{});};if(typeof window.requestIdleCallback==="function"){const handle=window.requestIdleCallback(preload,{timeout:1000});return()=>window.cancelIdleCallback(handle);}const handle=setTimeout(preload,350);return()=>clearTimeout(handle);},[]);
+  useEffect(()=>{const preload=()=>{void preloadHierarchy().catch(()=>{});};if(typeof window.requestIdleCallback==="function"){const handle=window.requestIdleCallback(preload,{timeout:1000});return()=>window.cancelIdleCallback(handle);}const handle=setTimeout(preload,350);return()=>clearTimeout(handle);},[]);
   usePageMotion(mainRef,route.split("?")[0],direction);
   const pwa=usePwa();
   const [path, queryString = ""] = route.split("?");
@@ -1038,7 +782,7 @@ export function App() {
         本文へ
       </a>
       <aside className="sidebar">
-        <a className="brand" href="#/">
+        <a className="brand" href="#/" aria-label="Curiveo">
           <img className="brand-symbol" src={`${import.meta.env.BASE_URL}brand/symbol.webp`} alt="" /><img className="brand-wordmark" src={`${import.meta.env.BASE_URL}brand/wordmark.webp`} alt="Curiveo" />
         </a>
         <nav className="main-nav" aria-label="メインナビゲーション">
@@ -1046,6 +790,8 @@ export function App() {
             <a
               key={n.path}
               href={`#${n.path}`}
+              aria-label={n.label}
+              title={n.label}
               className={navCurrent === n.path ? "active" : ""}
               aria-current={navCurrent === n.path ? "page" : undefined}
             >
@@ -1059,7 +805,7 @@ export function App() {
             <span className="status-dot" />
             学習記録は自動保存
           </p>
-          <a href="#/settings">
+          <a href="#/settings" aria-label="設定・同期" title="設定・同期">
             <Settings size={19} />
             <span>設定・同期</span>
           </a>
