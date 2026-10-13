@@ -5,6 +5,8 @@ import {
   Search,
   Library,
   Settings,
+  Bell,
+  AlertCircle,
   ArrowRight,
   ArrowLeft,
   Play,
@@ -19,7 +21,6 @@ import {
   Monitor,
   LogIn,
   LogOut,
-  WifiOff,
   Bookmark,
   RotateCcw,
   Sigma,
@@ -63,12 +64,21 @@ import { usePwa } from "./hooks/usePwa";
 import { durationSummary, durationTime, videoDuration } from "./lib/duration";
 import { WatchPlaylist } from "./components/WatchPlaylist";
 import { VideoActions } from "./components/VideoActions";
+import { collectAppNotices, type AppNotice } from "./lib/app-notifications";
 import { selectResumeRecommendation } from "./lib/resume-selection";
 const LazyHierarchyPage = lazy(preloadHierarchy);
 const LazyLearningRoutePage=lazy(()=>preloadHierarchy().then(module=>({default:module.LearningRoutePage})));
 const LazyCollectionPage = lazy(()=>preloadHierarchy().then(module=>({default:module.CollectionPage})));
 
 type Learning = ReturnType<typeof useLearning>;
+function SettingsGlyph({ count, size = 21 }: { count: number; size?: number }) {
+  return (
+    <span className="settings-glyph">
+      <Settings size={size} aria-hidden="true" />
+      {count > 0 && <span className="settings-alert-dot" aria-hidden="true" />}
+    </span>
+  );
+}
 const navItems = [
   { path: "/", label: "ホーム", icon: Home },
   { path: "/discover", label: "探す", icon: Search },
@@ -306,9 +316,11 @@ function DiscoverPage({
 function LibraryPage({
   learning,
   params,
+  notificationCount,
 }: {
   learning: Learning;
   params: URLSearchParams;
+  notificationCount: number;
 }) {
   const tab = params.get("tab") || "continue";
   const entries = catalog.videos
@@ -345,9 +357,9 @@ function LibraryPage({
         <a
           href="#/settings"
           className="icon-button"
-          aria-label="設定・同期・バックアップ"
+          aria-label={notificationCount ? `設定・通知${notificationCount}件` : "設定・同期・バックアップ"}
         >
-          <Settings size={22} />
+          <SettingsGlyph count={notificationCount} size={22} />
         </a>
       </header>
       <div className="chips library-tabs">
@@ -416,17 +428,18 @@ function WatchPage({
   id,
   params,
   learning,
+  notificationCount,
 }: {
   id: string;
   params: URLSearchParams;
   learning: Learning;
+  notificationCount: number;
 }) {
   const v = videoMap.get(id);
   const [seek, setSeek] = useState<number | undefined>(()=>{const value=params.get("t");return value!==null&&Number.isFinite(Number(value))?Math.max(0,Number(value)):undefined;});
   const [seekNonce,setSeekNonce]=useState(0);
   const [episodePage,setEpisodePage]=useViewState("episode-page",Math.floor(Math.max(0,params.get("route")?routeSequence(params.get("route")!).findIndex(step=>step.videoId===id):(seriesMap.get(params.get("series") || videoMap.get(id)?.seriesIds[0] || "")?.videoIds.indexOf(id)||0))/30));
   useEffect(()=>{const value=params.get("t");if(value!==null&&Number.isFinite(Number(value))){setSeek(Math.max(0,Number(value)));setSeekNonce(n=>n+1);}},[params.get("t")]);
-  const [actionError, setActionError] = useState("");
   if (!v) return <NotFound />;
   const subjectContext=params.get("subject")&&inSubject(v,params.get("subject")!)?params.get("subject")!:v.subjectId;
   const r = learning.get(id);
@@ -442,10 +455,9 @@ function WatchPage({
       .map((x) => x.id);
   const index = sequence.indexOf(id);
   const nextLesson=videoMap.get(sequence[index+1]);
-  const save = (patch: LearningPatch) =>
-    learning
-      .save(id, patch)
-      .catch((e) => setActionError(String(e.message || e)));
+  const save = (patch: LearningPatch) => learning.save(id, patch).catch(() => {
+    // useLearning publishes the error to the settings notification center.
+  });
   // Advancing on purpose is stronger evidence of skipping than playback position.
   const markAdvancedLesson = () => {
     if (learning.ready && r.status !== "completed" && !r.playbackEnded)
@@ -503,10 +515,15 @@ function WatchPage({
         <a className="back-link" href={learningRoute?`#/route/${routeId}`:series?`#/course/${series.id}${subjectContext!==series.subjectId?`?subject=${subjectContext}`:""}`:`#/subject/${subjectContext}`}>
           <ArrowLeft size={17}/>講座に戻る
         </a>
-        {nextLesson?<a className="watch-next" href={videoHref(nextLesson,steps.find(step=>step.videoId===nextLesson.id)?.seriesId||series?.id,routeId,subjectContext)} onClick={(event) => {
-          if (!event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey)
-            markAdvancedLesson();
-        }}>次の授業<ArrowRight size={16}/></a>:<span className="small muted">最後の授業</span>}
+        <div className="watch-toolbar-actions">
+          {nextLesson?<a className="watch-next" href={videoHref(nextLesson,steps.find(step=>step.videoId===nextLesson.id)?.seriesId||series?.id,routeId,subjectContext)} onClick={(event) => {
+            if (!event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey)
+              markAdvancedLesson();
+          }}>次の授業<ArrowRight size={16}/></a>:<span className="small muted">最後の授業</span>}
+          <a className="icon-button watch-settings-link" href="#/settings" aria-label={notificationCount ? `設定・通知${notificationCount}件` : "設定"} title="設定・通知">
+            <SettingsGlyph count={notificationCount} size={19} />
+          </a>
+        </div>
       </div>
       <div className="watch-layout">
         <WatchPlaylist currentId={id} index={index} count={sequence.length}>{playlist}</WatchPlaylist>
@@ -523,13 +540,12 @@ function WatchPage({
               <Bookmark size={17} fill={r.watchLater?"currentColor":"none"}/>
             </button>
           </div>
-          {actionError&&<p className="notice error" role="alert">{actionError}</p>}
         </div>
       </div>
     </>
   );
 }
-function SettingsPage({ learning }: { learning: Learning }) {
+function SettingsPage({ learning, notifications }: { learning: Learning; notifications: AppNotice[] }) {
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
   const [playerPreferences, setPlayerPreferences] = useState(readPlaybackPreferences);
@@ -565,12 +581,46 @@ function SettingsPage({ learning }: { learning: Learning }) {
         <h1>設定・データ管理</h1>
         <p>学習記録は、この端末に自動保存されます。</p>
       </header>
+      <section className="settings-section settings-notifications" id="notifications" aria-labelledby="notifications-heading">
+        <h2 id="notifications-heading">
+          <Bell size={21} />
+          通知
+          {notifications.length > 0 && <span className="notification-total">{notifications.length}件</span>}
+        </h2>
+        {notifications.length === 0 ? (
+          <p className="small muted">現在、確認が必要な通知はありません。</p>
+        ) : (
+          <ul className="notification-items">
+            {notifications.map((notice) => (
+              <li className="notification-item" key={notice.kind}>
+                <span className="notification-symbol" aria-hidden="true">
+                  {notice.kind === "learning" || notice.kind === "pwa" ? <AlertCircle size={18} /> : <Bell size={18} />}
+                </span>
+                <div className="notification-copy">
+                  <strong>{notice.title}</strong>
+                  <p>{notice.detail}</p>
+                  {notice.kind === "learning" && learning.user && (
+                    <button className="text-button notification-action" type="button" disabled={busy} onClick={() => void action(learning.retrySync)}>同期を再試行</button>
+                  )}
+                  {notice.kind === "pwa" && (
+                    <button className="text-button notification-action" type="button" disabled={busy || pwa.applying} onClick={() => void action(pwa.checkForUpdate)}>更新を確認</button>
+                  )}
+                  {notice.kind === "update" && (
+                    <button className="text-button notification-action" type="button" disabled={busy || pwa.applying} onClick={() => void action(pwa.applyUpdate)}>保存して更新</button>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
       <section className="settings-section">
         <h2>
           <Cloud size={21} />
           端末間同期
         </h2>
         <p className="sync-status">{learning.syncState}</p>
+        <p className="small muted">端末への保存状態：{learning.saveState}</p>
         {learning.user ? (
           <>
             <p>{learning.user.displayName || learning.user.email}</p>
@@ -719,7 +769,6 @@ function SettingsPage({ learning }: { learning: Learning }) {
         {pwa.installAvailable&&<button className="button primary" onClick={()=>void pwa.install().catch(()=>{})}><Download size={17}/>Curiveoをインストール</button>}
         <p className="small muted">{pwa.offlineReady?"オフライン用のアプリを端末に保存済み。":"オフライン用のアプリを準備中。初回はオンラインで開いてください。"}</p>
         <div className="action-row"><button className="button" disabled={pwa.applying} onClick={()=>void(pwa.updateAvailable?pwa.applyUpdate():pwa.checkForUpdate()).catch(()=>{})}><RotateCcw size={16}/>{pwa.applying?"記録を保存中…":pwa.updateAvailable?"保存して更新":"更新を確認"}</button></div>
-        {pwa.error&&<p className="notice error" role="alert">{pwa.error}</p>}
       </section>
       <section className="settings-section">
         <h2>収録について</h2>
@@ -796,6 +845,14 @@ export function App() {
       window.removeEventListener("offline", update);
     };
   }, []);
+  const notifications = collectAppNotices({
+    learningError: learning.error,
+    syncState: learning.syncState,
+    pwaError: pwa.error,
+    updateAvailable: pwa.updateAvailable,
+    online,
+  });
+  const notificationCount = notifications.length;
   const current = parts[0] || "home";
   const navCurrent =
     current === "home"
@@ -839,9 +896,9 @@ export function App() {
             <span className="status-dot" />
             学習記録は自動保存
           </p>
-          <a href="#/settings" aria-label="設定・同期" title="設定・同期">
-            <Settings size={19} />
-            <span>設定・同期</span>
+          <a href="#/settings" aria-label={notificationCount ? `設定・通知${notificationCount}件` : "設定・同期"} title="設定・通知">
+            <SettingsGlyph count={notificationCount} size={19} />
+            <span className="sidebar-setting-label">設定・同期</span>
           </a>
         </div>
       </aside>
@@ -852,35 +909,15 @@ export function App() {
           </a>
           <span className="desktop-kicker">学びを、つなぐ。</span>
           <div className="topbar-actions">
-            <span className="save-status" role="status">
-              {learning.saveState}
-            </span>
             <a
               className="icon-button"
               href="#/settings"
-              aria-label="設定・同期・バックアップ"
+              aria-label={notificationCount ? `設定・通知${notificationCount}件` : "設定・同期・バックアップ"}
             >
-              <Settings size={21} />
+              <SettingsGlyph count={notificationCount} />
             </a>
           </div>
         </header>
-        {!online && (
-          <div className="offline-banner" role="status">
-            <WifiOff size={17} />
-            オフライン ·
-            学習記録は端末内に保存します。動画再生には通信が必要です。
-          </div>
-        )}
-        {/* Non-playback app alerts belong outside the focused lesson view.
-            Sync, backup and app-update controls remain available in Settings. */}
-        {current !== "watch" && pwa.updateAvailable && <div className="update-banner" role="status"><span>新しいCuriveoを利用できます</span><button className="button" disabled={pwa.applying} onClick={()=>void pwa.applyUpdate().catch(()=>{})}>{pwa.applying?"記録を保存中…":"保存して更新"}</button></div>}
-        {current !== "watch" && pwa.error && <p className="notice error" role="alert">{pwa.error}</p>}
-        {current !== "watch" && learning.error && (
-          <div className="notice error" role="alert">
-            {learning.error}
-            <a href="#/settings">バックアップ・再試行</a>
-          </div>
-        )}
         <main ref={mainRef} id="main-content" className="main-content" tabIndex={-1}>
           <Suspense fallback={<div className="page-skeleton" role="status">講座を開いています…</div>}>{current === "home" ? (
             <HomePage learning={learning} />
@@ -903,16 +940,17 @@ export function App() {
               learning={learning}
             />
           ) : current === "library" ? (
-            <LibraryPage learning={learning} params={params} />
+            <LibraryPage learning={learning} params={params} notificationCount={notificationCount} />
           ) : current === "watch" ? (
             <WatchPage
               key={parts[1]}
               id={parts[1]}
               params={params}
               learning={learning}
+              notificationCount={notificationCount}
             />
           ) : current === "settings" ? (
-            <SettingsPage learning={learning} />
+            <SettingsPage learning={learning} notifications={notifications} />
           ) : (
             <NotFound />
           )}
