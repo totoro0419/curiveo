@@ -871,9 +871,11 @@ export function App() {
             学習記録は端末内に保存します。動画再生には通信が必要です。
           </div>
         )}
-        {pwa.updateAvailable&&<div className="update-banner" role="status"><span>新しいCuriveoを利用できます</span><button className="button" disabled={pwa.applying} onClick={()=>void pwa.applyUpdate().catch(()=>{})}>{pwa.applying?"記録を保存中…":"保存して更新"}</button></div>}
-        {pwa.error&&<p className="notice error" role="alert">{pwa.error}</p>}
-        {learning.error && (
+        {/* Non-playback app alerts belong outside the focused lesson view.
+            Sync, backup and app-update controls remain available in Settings. */}
+        {current !== "watch" && pwa.updateAvailable && <div className="update-banner" role="status"><span>新しいCuriveoを利用できます</span><button className="button" disabled={pwa.applying} onClick={()=>void pwa.applyUpdate().catch(()=>{})}>{pwa.applying?"記録を保存中…":"保存して更新"}</button></div>}
+        {current !== "watch" && pwa.error && <p className="notice error" role="alert">{pwa.error}</p>}
+        {current !== "watch" && learning.error && (
           <div className="notice error" role="alert">
             {learning.error}
             <a href="#/settings">バックアップ・再試行</a>
