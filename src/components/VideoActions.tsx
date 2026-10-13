@@ -9,6 +9,7 @@ export function VideoActions({video,learning}:{video:Video;learning:ReturnType<t
  const id=useId();
  const trigger=useRef<HTMLButtonElement>(null);
  const panel=useRef<HTMLDivElement>(null);
+ const pending=useRef(false);
  const [open,setOpen]=useState(false);
  const [busy,setBusy]=useState(false);
  const record=learning.get(video.id);
@@ -25,10 +26,12 @@ export function VideoActions({video,learning}:{video:Video;learning:ReturnType<t
   return()=>{window.removeEventListener('resize',close);window.removeEventListener('scroll',close,true);};
  },[open]);
  const save=async(patch:LearningPatch)=>{
+  if(pending.current)return;
+  pending.current=true;
   const button=trigger.current;const list=button?.closest<HTMLElement>('.video-list,.episode-list');
   setBusy(true);
   try {await learning.save(video.id,patch);}catch{/* The shared learning error banner reports failed writes. */}
-  finally {setBusy(false);if(button&&!button.isConnected)list?.focus({preventScroll:true});}
+  finally {pending.current=false;setBusy(false);if(button&&!button.isConnected)list?.focus({preventScroll:true});}
  };
  const items=[
   {label:'学習済み',selected:record.status==='completed',icon:record.status==='completed'?<CheckCircle2 size={17}/>:<Circle size={17}/>,patch:{status:record.status==='completed'?'learning':'completed'} as LearningPatch},
@@ -38,7 +41,7 @@ export function VideoActions({video,learning}:{video:Video;learning:ReturnType<t
  return <div className="video-actions">
   <button ref={trigger} type="button" className="video-actions-trigger" disabled={!learning.ready} popoverTarget={id} aria-controls={id} aria-expanded={open} aria-label={`学習操作：${video.title}`} title="学習済み・お気に入り・保存"><MoreHorizontal size={19}/></button>
   <div ref={panel} id={id} popover="auto" role="group" aria-label={`${video.title}の学習操作`} className="video-actions-panel" onBeforeToggle={event=>{if(event.newState==='open')place();}} onToggle={event=>setOpen(event.newState==='open')}>
-   {items.map(item=><button key={item.label} type="button" disabled={busy||!learning.ready} aria-pressed={item.selected} onClick={()=>void save(item.patch)}>{item.icon}<span>{item.label}</span>{item.selected&&<Check size={15}/>}</button>)}
+   {items.map(item=><button key={item.label} type="button" disabled={!learning.ready} aria-disabled={busy||!learning.ready} aria-pressed={item.selected} onClick={()=>void save(item.patch)}>{item.icon}<span>{item.label}</span>{item.selected&&<Check size={15}/>}</button>)}
   </div>
  </div>;
 }
