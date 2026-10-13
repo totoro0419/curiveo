@@ -13,6 +13,7 @@ const hash = createHash('sha256');
 for (const path of paths) hash.update(path.slice(5)).update(readFileSync(path));
 const version = hash.digest('hex').slice(0, 12);
 const urls = paths.map(path => './' + path.slice(5).split('/').map(encodeURIComponent).join('/'));
+const shellHtml = readFileSync('dist/index.html', 'utf8');
 
 writeFileSync('dist/sw.js', `
 const VERSION = ${JSON.stringify(version)};
@@ -20,6 +21,7 @@ const CACHE = 'curiveo-' + VERSION;
 const SCOPE = new URL(self.registration.scope);
 const MARKER = new URL('__curiveo_cache_status__', SCOPE).href;
 const SHELL = new URL('index.html', SCOPE).href;
+const SHELL_HTML = ${JSON.stringify(shellHtml)};
 const ASSETS = ${JSON.stringify(urls)}.map(path => new URL(path, SCOPE).href)
   .filter(url => { const value = new URL(url); return value.origin === SCOPE.origin && value.pathname.startsWith(SCOPE.pathname); });
 const local = url => url.origin === SCOPE.origin && url.pathname.startsWith(SCOPE.pathname);
@@ -27,7 +29,10 @@ const ownCache = name => /^curiveo-[a-f0-9]{12}$/.test(name);
 
 self.addEventListener('install', event => event.waitUntil((async () => {
   const cache = await caches.open(CACHE);
-  await cache.addAll(ASSETS);
+  // The unversioned HTML URL can still have an older HTTP-cache response.
+  // Pair this worker's exact build shell with its immutable asset URLs.
+  await cache.addAll(ASSETS.filter(url => url !== SHELL).map(url => new Request(url, { cache: 'reload' })));
+  await cache.put(SHELL, new Response(SHELL_HTML, { headers: { 'Content-Type': 'text/html; charset=utf-8' } }));
   await cache.put(MARKER, new Response(JSON.stringify({ version: VERSION, installedAt: Date.now(), activeAt: 0 })));
   // Updates wait for explicit apply. The first install uses the browser's normal activation lifecycle.
 })()));
