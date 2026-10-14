@@ -1,7 +1,7 @@
 import { catalog, videoSubjects, seriesInSubject, seriesMap, unitMap, videoMap } from "../catalog";
 import type { Series, SubjectId, Unit, Video } from "../types";
 import { compareCategory } from './curriculum-order';
-import { historyPeriodFromUnit } from './history-periods';
+import { historyPeriodForVideo } from './history-periods';
 
 export interface LearningNode {
   id: string;
@@ -232,11 +232,15 @@ function addChemistry(video: Video, units: Unit[]) {
 
 function addHistory(video: Video, units: Unit[]) {
   for (const source of units) {
-    const period = historyPeriodFromUnit(video.subjectId, source.name);
+    const period = historyPeriodForVideo(video.subjectId, video, source.name);
     if (!period) { unknown(video, [source]); continue; }
     const field = child(root(video.subjectId), period, "field", "Historia Mundi公式授業目次の章名と第1〜20話の順序に基づく時代・地域別の入口。現行課程との一致は未確認。");
     const number = Number(norm(source.name).match(/第\s*(\d+)\s*話/)?.[1]);
-    const onlyChapter = number === 20;
+    const onlyChapter = video.subjectId === "world-history" && number === 20;
+    // Japan's chapter 6/7/13/19 straddles historical boundaries.
+    // Group by era first; keep the official numbered chapter underneath, unless
+    // that chapter has been split, in which case its child node belongs to the
+    // verified era portion only.
     attach(onlyChapter ? field : child(field, source.name, "unit", "元単元に保存されたHistoria Mundi公式目次の章名・章順を維持。"), video, [source]);
   }
 }
