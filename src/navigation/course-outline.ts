@@ -2,7 +2,7 @@ import { unitMap, videoMap } from "../catalog";
 import { learningNodes } from "./hierarchy";
 import type { LearningNode } from "./hierarchy";
 import type { Series, Unit, Video } from "../types";
-import { historyPeriodFromUnit } from "./history-periods";
+import { historyPeriodForVideo } from "./history-periods";
 
 export interface CourseChapter {
   id: string;
@@ -25,6 +25,16 @@ for (const node of learningNodes.values()) {
 function sourceUnit(series: Series, video: Video): Unit | undefined {
   const title = normalize(video.title);
   const candidates = video.unitIds.map(id => unitMap.get(id)).filter((u): u is Unit => !!u && u.subjectId === series.subjectId);
+  // Source chapters must win over secondary audit/theme tags for the two
+  // Historia Mundi courses. Otherwise a "文化史" tag can hijack an era.
+  if (series.id === "mundi-japan" || series.id === "mundi-world") {
+    const chapterNumber = Number(title.match(/第\s*0*(\d+)\s*話/)?.[1]);
+    const chapterUnit = candidates.find(unit =>
+      Number(normalize(unit.name).match(/第\s*0*(\d+)\s*話/)?.[1]) === chapterNumber &&
+      chapterNumber >= 1 && chapterNumber <= 20,
+    );
+    if (chapterUnit) return chapterUnit;
+  }
   const isReview = /総復習|総集編/.test(series.title);
   const score = (unit: Unit) => {
     const name = normalize(unit.name);
@@ -67,7 +77,7 @@ export function courseOutline(series: Series): CourseChapter[] {
   // History courses should have chronological eras, not one disclosure per
   // numbered episode. Only group when every source chapter can be verified.
   if (series.subjectId === "japanese-history" || series.subjectId === "world-history") {
-    const periods = units.map(unit => historyPeriodFromUnit(series.subjectId, unit!.name));
+    const periods = units.map((unit, index) => historyPeriodForVideo(series.subjectId, videos[index]!, unit!.name));
     if (periods.every((period): period is string => !!period)) {
       return runs(series, periods.map(period => ({ key: `history-era:${period}`, title: period })));
     }
