@@ -49,6 +49,15 @@ assert.equal(historyPeriodFromUnit("world-history", "第２０話 戦後の世�
 for (const chapter of [-1, 0, 21, 42, 1.5, NaN]) assert.equal(historyPeriod("world-history", chapter), undefined);
 assert.equal(historyPeriod("mathematics", 1), undefined);
 
+const sourceDurations = JSON.parse(readFileSync("src/data/history-duration-supplement.json", "utf8"));
+const firstSevenIds = ["O0TOWEBjXa8", "ABFgnonvlsQ", "_zIu3JEvMSU", "GIimcbhuvfw", "fg8UK5IGO5Q", "Sfyx43bDKOs", "uvYb3oaAjDM"];
+assert.equal(firstSevenIds.reduce((sum, id) => sum + sourceDurations[id], 0), 14070, "縄文・弥生 group must have exact 3:54:30");
+for (const [id, value] of Object.entries(sourceDurations)) {
+  assert.match(id, /^[A-Za-z0-9_-]{11}$/);
+  assert.ok(Number.isSafeInteger(value) && value > 0);
+}
+assert.ok(readFileSync("src/lib/duration.ts", "utf8").includes("historyMetadata[video.id]"), "Exact supplemental durations must reach group summary");
+
 const catalog = JSON.parse(readFileSync("src/data/catalog.json", "utf8"));
 const videos = new Map(catalog.videos.map(video => [video.id, video]));
 const units = new Map(catalog.units.map(unit => [unit.id, unit]));
