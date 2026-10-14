@@ -1,6 +1,7 @@
 import { catalog, videoSubjects, seriesInSubject, seriesMap, unitMap, videoMap } from "../catalog";
 import type { Series, SubjectId, Unit, Video } from "../types";
 import { compareCategory } from './curriculum-order';
+import { historyPeriodFromUnit } from './history-periods';
 
 export interface LearningNode {
   id: string;
@@ -229,29 +230,13 @@ function addChemistry(video: Video, units: Unit[]) {
   attach(child(child(root("chemistry"), fieldName, "field"), unitName || "分類確認中", "unit"), video, units);
 }
 
-function historyField(subject: SubjectId, chapter: number) {
-  if (subject === "japanese-history") {
-    if (chapter <= 5) return "縄文・弥生〜平安中期";
-    if (chapter <= 9) return "平安後期〜安土桃山";
-    if (chapter <= 12) return "江戸時代";
-    if (chapter <= 16) return "幕末・明治・大正";
-    if (chapter <= 19) return "昭和・平成";
-    return "近現代の文化";
-  }
-  if (chapter <= 3) return "古代文明・地中海世界";
-  if (chapter <= 8) return "アジア・イスラーム世界";
-  if (chapter <= 10) return "中世ヨーロッパ";
-  if (chapter <= 12) return "近世ヨーロッパ";
-  if (chapter <= 16) return "近現代の欧米";
-  if (chapter <= 19) return "近現代のアジア";
-  return "戦後の世界";
-}
 function addHistory(video: Video, units: Unit[]) {
   for (const source of units) {
+    const period = historyPeriodFromUnit(video.subjectId, source.name);
+    if (!period) { unknown(video, [source]); continue; }
+    const field = child(root(video.subjectId), period, "field", "Historia Mundi公式授業目次の章名と第1〜20話の順序に基づく時代・地域別の入口。現行課程との一致は未確認。");
     const number = Number(norm(source.name).match(/第\s*(\d+)\s*話/)?.[1]);
-    if (!number) { unknown(video, [source]); continue; }
-    const field = child(root(video.subjectId), historyField(video.subjectId, number), "field", "Historia Mundi公式授業目次の章名と第1〜20話の順序に基づく時代・地域別の入口。現行課程との一致は未確認。");
-    const onlyChapter = (video.subjectId === "world-history" && number === 20) || (video.subjectId === "japanese-history" && number === 20);
+    const onlyChapter = number === 20;
     attach(onlyChapter ? field : child(field, source.name, "unit", "元単元に保存されたHistoria Mundi公式目次の章名・章順を維持。"), video, [source]);
   }
 }

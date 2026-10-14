@@ -2000,3 +2000,10 @@ html[data-section-motion=native] .results-enter[role=tabpanel] { view-transition
   .watch-toolbar-actions { gap:2px; }
   .watch-toolbar .watch-settings-link { width:44px;height:44px; }
 }
+
+/* Source-backed durations are secondary information, not additional controls. */
+.disclosure-title { display:flex;flex:1;min-width:0;flex-direction:column;align-items:flex-start;gap:3px;text-align:left; }
+.disclosure-title > span { line-height:1.5;overflow-wrap:anywhere; }
+.disclosure-meta { display:block;font-weight:400;font-size:11px;line-height:1.55;color:#72849e;overflow-wrap:anywhere; }
+.hierarchy-card .group-duration { color:#6b829d;font-size:11px;line-height:1.65;margin-top:4px; }
+.subject-duration-summary { font-size:11px;margin:8px 0 5px;color:#7589a2; }

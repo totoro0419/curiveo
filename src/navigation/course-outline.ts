@@ -2,6 +2,7 @@ import { unitMap, videoMap } from "../catalog";
 import { learningNodes } from "./hierarchy";
 import type { LearningNode } from "./hierarchy";
 import type { Series, Unit, Video } from "../types";
+import { historyPeriodFromUnit } from "./history-periods";
 
 export interface CourseChapter {
   id: string;
@@ -62,6 +63,15 @@ export function courseOutline(series: Series): CourseChapter[] {
   const units = videos.map(v => sourceUnit(series, v!));
   if (units.some(u => !u)) return fallback();
   const names = units.map(u => normalize(u!.name));
+
+  // History courses should have chronological eras, not one disclosure per
+  // numbered episode. Only group when every source chapter can be verified.
+  if (series.subjectId === "japanese-history" || series.subjectId === "world-history") {
+    const periods = units.map(unit => historyPeriodFromUnit(series.subjectId, unit!.name));
+    if (periods.every((period): period is string => !!period)) {
+      return runs(series, periods.map(period => ({ key: `history-era:${period}`, title: period })));
+    }
+  }
 
   // Different level-specific unit IDs with the same canonical unit name (e.g. 力学)
   // remain one learning unit; provider/grade selection belongs outside this outline.
