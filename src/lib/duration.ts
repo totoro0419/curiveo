@@ -1,8 +1,10 @@
 import durations from '../data/video-durations.json';
+import historySupplement from '../data/history-duration-supplement.json';
 import type { Video, LearningRecord } from '../types';
 const metadata=durations as Record<string,number>;
+const historyMetadata=historySupplement as Record<string,number>;
 export function videoDuration(video:Video,records:Record<string,LearningRecord>={}){
- const candidates=[records[video.id]?.duration,metadata[video.id],video.durationSeconds];
+ const candidates=[records[video.id]?.duration,metadata[video.id],historyMetadata[video.id],video.durationSeconds];
  return candidates.find((value):value is number=>typeof value==='number'&&Number.isFinite(value)&&value>0)??null;
 }
 export function durationTime(seconds:number){
