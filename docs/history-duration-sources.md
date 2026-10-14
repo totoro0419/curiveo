@@ -1,15 +1,9 @@
-# 日本史動画の再生時間データ補完
+# 日本史の旧補完データ（元ID未検証）
 
-## 目的
-Curiveoの動画時間は秒数をそのまま加算する。YouTube動画の再生時間が元カタログに存在しない場合、確かな外部表示と照合できたものだけを補う。推定値・平均値を実測の秒数として登録しない。
+2026-10-14の再監査で、最初の10授業の保存値は同名のBilibili転載動画の時間に基づき、元YouTube動画IDの正式全長との同一性を確認できていないことが判明した。
 
-## 2026-10-14 に照合できた項目
-- `src/data/history-duration-supplement.json` の最初の10授業（001〜010）
-- 001 の長さ 36:46 は、[Historia Mundi 動画統計ページ](https://digitalcreators.jp/channel/UCzSU4Vjk2VBJFHPvB5SJxHA/) と同名動画の公開メタデータで照合。
-- 001〜010 の時間表示は[「日本歴史（日本語）」動画目次](https://www.bilibili.com/video/BV1gs411J7E1/)の該当同名授業の再生時間を使用（秒へ変換）。
-- 001〜007 は「縄文・弥生」に該当し、合計 **3時間54分30秒**。
+元の秒数は証拠として `src/data/history-duration-supplement.json` に保持し、単一の `video-durations.json` に安全移行した。実行時に補完ファイルを読み込まない。今回新規取得・正式検証した値とは数えず、状態インデックスで未検証と表示する。
 
-## 未完了
-この時点で元の歴史動画201本の多くは秒数が未収録。完全な合計時間は、残りの実際の再生時間を取得し、動画IDと照合するまで計算できない。
+旧出典: https://www.bilibili.com/video/BV1gs411J7E1/ 、https://digitalcreators.jp/channel/UCzSU4Vjk2VBJFHPvB5SJxHA/ 。タイトル一致や授業番号一致だけで元IDの時間を確定しない。
 
-再生済み授業についてはプレーヤーの `getDuration()` による既存の端末記録を再利用し、重複した動画を1回だけ数える。未収録動画の長さを仮定値で水増ししない。
+詳細は [全動画監査](VIDEO_DURATION_COVERAGE_REPORT.md) を参照。

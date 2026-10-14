@@ -51,12 +51,14 @@ assert.equal(historyPeriod("mathematics", 1), undefined);
 
 const sourceDurations = JSON.parse(readFileSync("src/data/history-duration-supplement.json", "utf8"));
 const firstSevenIds = ["O0TOWEBjXa8", "ABFgnonvlsQ", "_zIu3JEvMSU", "GIimcbhuvfw", "fg8UK5IGO5Q", "Sfyx43bDKOs", "uvYb3oaAjDM"];
-assert.equal(firstSevenIds.reduce((sum, id) => sum + sourceDurations[id], 0), 14070, "縄文・弥生 group must have exact 3:54:30");
+assert.equal(firstSevenIds.reduce((sum, id) => sum + sourceDurations[id], 0), 14070, "Preserve historical evidence pending original-ID verification");
 for (const [id, value] of Object.entries(sourceDurations)) {
   assert.match(id, /^[A-Za-z0-9_-]{11}$/);
   assert.ok(Number.isSafeInteger(value) && value > 0);
 }
-assert.ok(readFileSync("src/lib/duration.ts", "utf8").includes("historyMetadata[video.id]"), "Exact supplemental durations must reach group summary");
+const unifiedDurations = JSON.parse(readFileSync("src/data/video-durations.json", "utf8"));
+for (const [id, value] of Object.entries(sourceDurations)) assert.equal(unifiedDurations[id], value, "Legacy evidence must survive migration");
+assert.ok(!readFileSync("src/lib/duration.ts", "utf8").includes("historyMetadata"), "Runtime must use a single index");
 
 const catalog = JSON.parse(readFileSync("src/data/catalog.json", "utf8"));
 const videos = new Map(catalog.videos.map(video => [video.id, video]));

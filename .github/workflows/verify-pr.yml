@@ -16,3 +16,16 @@ jobs:
       - run: npm ci --no-audit --no-fund
       - run: npm run build
       - run: npm run audit:validate
+  duration-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 scripts/collect-video-durations.py --require-complete
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: video-duration-audit
+          path: data/video-metadata/duration*json
