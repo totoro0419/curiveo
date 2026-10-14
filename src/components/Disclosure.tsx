@@ -4,7 +4,7 @@ import { ChevronDown } from 'lucide-react';
 import { useViewState } from '../navigation/route';
 import { motionEase, motionReduced } from '../lib/motion';
 
-export function Disclosure({title,children,stateKey,defaultOpen=false,count}:{title:string;children:ReactNode;stateKey:string;defaultOpen?:boolean;count?:number}){
+export function Disclosure({title,children,stateKey,defaultOpen=false,count,meta}:{title:string;children:ReactNode;stateKey:string;defaultOpen?:boolean;count?:number;meta?:string}){
  const id=useId();const [open,setOpen]=useViewState(stateKey,defaultOpen);
  const [rendered,setRendered]=useState(open);
  const body=useRef<HTMLDivElement>(null);const inner=useRef<HTMLDivElement>(null);
@@ -30,5 +30,5 @@ export function Disclosure({title,children,stateKey,defaultOpen=false,count}:{ti
   const cancel=()=>animation.current?.finish();preference.addEventListener('change',cancel);
   return()=>{preference.removeEventListener('change',cancel);animation.current?.cancel();};
  },[]);
- return <section className={`disclosure ${open?'is-open':''}`}><h3><button className="disclosure-trigger" aria-expanded={open} aria-controls={id} onClick={()=>setOpen(value=>!value)}><span>{title}</span>{count!==undefined&&<span className="disclosure-count">{count}</span>}<ChevronDown size={18}/></button></h3><div ref={body} style={initialStyle.current} className="disclosure-body" id={id} aria-hidden={!open} inert={!open}><div ref={inner} className="disclosure-inner">{(open||rendered)&&children}</div></div></section>;
+ return <section className={`disclosure ${open?'is-open':''}`}><h3><button className="disclosure-trigger" aria-expanded={open} aria-controls={id} onClick={()=>setOpen(value=>!value)}><span className="disclosure-title"><span>{title}</span>{meta&&<small className="disclosure-meta">{meta}</small>}</span>{count!==undefined&&<span className="disclosure-count">{count}</span>}<ChevronDown size={18}/></button></h3><div ref={body} style={initialStyle.current} className="disclosure-body" id={id} aria-hidden={!open} inert={!open}><div ref={inner} className="disclosure-inner">{(open||rendered)&&children}</div></div></section>;
 }
