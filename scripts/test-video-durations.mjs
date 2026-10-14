@@ -15,10 +15,11 @@ for(const [id,e] of Object.entries(metadata)){
  assert.match(id,/^[\w-]{11}$/);assert.equal(id,e.videoId);
  if(e.durationSeconds!==null){assert.ok(Number.isSafeInteger(e.durationSeconds)&&e.durationSeconds>0);assert.equal(index[id],e.durationSeconds);}
  if(e.status==='verified'){
-  assert.equal(e.sourceVideoId,id);assert.equal(e.source,'youtube-data-api-v3');assert.ok(e.verifiedAt);assert.ok(e.refreshBy);
+  assert.equal(e.sourceVideoId,id);assert.ok(['youtube-data-api-v3','youtube-iframe-player-api'].includes(e.source));assert.ok(e.verifiedAt);assert.ok(e.refreshBy);
  }
  if(e.sourceVideoId!==null)assert.equal(e.sourceVideoId,id);
  assert.ok(statuses[id]);
+ if(e.status==='reviewed_legacy'){assert.equal(e.sourceVideoId,id);assert.ok(e.identityEvidence);assert.ok(e.reviewedAt);assert.equal(e.verifiedAt,null);}
 }
 assert.ok(Object.keys(index).every(id=>unique.has(id)));
 const {videoDuration,totalDuration,durationSummary,durationTime}=await loadTs('src/lib/duration.ts');
@@ -31,7 +32,7 @@ assert.equal(durationTime(4565),'1:16:05');
 assert.equal(totalDuration([sample,sample]).seconds,index[sample.id]);
 assert.equal(totalDuration([{id:'unknown'}]).missing,1);
 assert.ok(!durationSummary([sample,{id:'unknown'}]).startsWith('合計 '));
-if(!statuses[sample.id].startsWith('verified@'))assert.ok(!durationSummary([sample]).startsWith('合計 '));
+if(!/^(verified|accepted)@/.test(statuses[sample.id]))assert.ok(!durationSummary([sample]).startsWith('合計 '));
 const {learningNodes}=await loadTs('src/navigation/hierarchy.ts');
 const {courseOutline}=await loadTs('src/navigation/course-outline.ts');
 const {routeSequence}=await loadTs('src/catalog.ts');
@@ -43,7 +44,7 @@ const check=(kind,id,title,videoIds,subjectId=null)=>{
  const seconds=dedup.reduce((sum,id)=>sum+(index[id]??0),0);
  assert.equal(result.seconds,seconds);assert.equal(result.total,dedup.length);
  assert.equal(result.missing,dedup.filter(id=>!index[id]).length);
- groups.push({kind,id,title,subjectId,count:dedup.length,videos:dedup.map(videoId=>({videoId,durationSeconds:index[videoId]??null,status:statuses[videoId]})),recordedSeconds:seconds,verifiedTotalSeconds:result.missing||result.unverified?null:seconds,recordedTime:durationTime(seconds),missing:result.missing,unverified:result.unverified});
+ groups.push({kind,id,title,subjectId,count:dedup.length,videos:dedup.map(videoId=>({videoId,durationSeconds:index[videoId]??null,status:statuses[videoId]})),recordedSeconds:seconds,acceptedTotalSeconds:result.missing||result.unverified?null:seconds,independentlyReverifiedTotalSeconds:dedup.every(id=>statuses[id].startsWith('verified@'))?seconds:null,recordedTime:durationTime(seconds),missing:result.missing,unverified:result.unverified});
 };
 for(const node of learningNodes.values())check(node.kind,node.id,node.title,node.videoIds,node.subjectId);
 for(const unit of catalog.units)check('source-unit',unit.id,unit.name,catalog.videos.filter(v=>v.unitIds.includes(unit.id)).map(v=>v.id));

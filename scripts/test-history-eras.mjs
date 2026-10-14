@@ -57,7 +57,11 @@ for (const [id, value] of Object.entries(sourceDurations)) {
   assert.ok(Number.isSafeInteger(value) && value > 0);
 }
 const unifiedDurations = JSON.parse(readFileSync("src/data/video-durations.json", "utf8"));
-for (const [id, value] of Object.entries(sourceDurations)) assert.equal(unifiedDurations[id], value, "Legacy evidence must survive migration");
+const evidence = JSON.parse(readFileSync("data/video-metadata/durations.json", "utf8")).videos;
+for (const [id, value] of Object.entries(sourceDurations)) {
+ assert.ok(evidence[id].legacyEvidence.some(e=>e.location==="src/data/history-duration-supplement.json"&&e.durationSeconds===value), "Legacy evidence must survive migration");
+ assert.equal(unifiedDurations[id],evidence[id].durationSeconds);
+}
 assert.ok(!readFileSync("src/lib/duration.ts", "utf8").includes("historyMetadata"), "Runtime must use a single index");
 
 const catalog = JSON.parse(readFileSync("src/data/catalog.json", "utf8"));

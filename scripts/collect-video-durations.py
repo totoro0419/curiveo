@@ -2,7 +2,7 @@
 
 Default: migrate legacy evidence and generate a reproducible audit without network.
 --network: requires server-only YOUTUBE_API_KEY; batches at most 50 IDs.
---require-complete: exit nonzero unless every catalog video is officially verified.
+--require-complete: exit nonzero unless every catalog ID is accepted by the agreed source-review policy.
 """
 import argparse
 import datetime as dt
@@ -134,16 +134,22 @@ def fresh(entry):
     except (KeyError, ValueError):
         return False
 
+def accepted(entry):
+    try:
+        return entry.get('status') in ('verified', 'reviewed_legacy') and dt.datetime.fromisoformat(entry['refreshBy']) > dt.datetime.now(dt.timezone.utc)
+    except (KeyError, ValueError):
+        return False
+
 def save(data, catalog):
     entries = data['videos']
     atomic(REPO / 'data/video-metadata/durations.json', data)
     # Keep original evidence, including unresolved supplement values, without calling it verified.
     index = {vid: e['durationSeconds'] for vid, e in sorted(entries.items()) if positive(e.get('durationSeconds'))}
     atomic(REPO / 'src/data/video-durations.json', index)
-    atomic(REPO / 'src/data/duration-status.json', {vid: 'verified@' + e['refreshBy'] if fresh(e) else e['status'] if e['status'] != 'verified' else 'stale' for vid, e in sorted(entries.items())})
+    atomic(REPO / 'src/data/duration-status.json', {vid: ('verified@' if fresh(e) else 'accepted@') + e['refreshBy'] if accepted(e) else e['status'] if e['status'] not in ('verified','reviewed_legacy') else 'stale' for vid, e in sorted(entries.items())})
     units = {u['id']: u for u in catalog['units']}
     series = {s['id']: s for s in catalog['series']}
-    rows = [{**{k: e.get(k) for k in ['videoId', 'durationSeconds', 'source', 'sourceUrl', 'sourceVideoId', 'verifiedAt', 'status', 'lastAttemptStatus', 'failureReason', 'verificationIssue']}, 'metadataRef': 'durations.json#/videos/' + e['videoId'], 'title': v['title'], 'subjects': v.get('subjectIds', [v['subjectId']]),
+    rows = [{**{k: e.get(k) for k in ['videoId', 'durationSeconds', 'source', 'sourceUrl', 'sourceVideoId', 'verifiedAt', 'reviewedAt', 'refreshBy', 'status', 'lastAttemptStatus', 'failureReason', 'verificationIssue']}, 'metadataRef': 'durations.json#/videos/' + e['videoId'], 'title': v['title'], 'subjects': v.get('subjectIds', [v['subjectId']]),
              'units': [{'id': uid, 'name': units[uid]['name']} for uid in v['unitIds']],
              'series': [{'id': sid, 'title': series[sid]['title']} for sid in v['seriesIds']]}
             for v in catalog['videos'] for e in [entries[v['id']]]]
@@ -152,9 +158,9 @@ def save(data, catalog):
         members = [r for r in rows if s['id'] in r['subjects']]
         subjects.append({'id': s['id'], 'name': s['name'], 'total': len(members),
                          'recorded': sum(positive(r['durationSeconds']) for r in members),
-                         'verified': sum(fresh(r) for r in members)})
+                         'verified': sum(fresh(r) for r in members), 'accepted': sum(accepted(r) for r in members)})
     summary = {'total': len(rows), 'recorded': len(index), 'verified': sum(fresh(e) for e in entries.values()),
-               'missing': len(rows) - len(index), 'conflicts': sum(e['status'] == 'conflict' for e in entries.values()),
+               'accepted': sum(accepted(e) for e in entries.values()), 'missing': len(rows) - len(index), 'conflicts': sum(e['status'] == 'conflict' for e in entries.values()),
                'subjects': subjects}
     atomic(REPO / 'data/video-metadata/duration-audit.json', {'summary': summary, 'videos': rows})
     return summary
@@ -199,8 +205,8 @@ def main():
         data.pop('collectionBlocker', None)
     summary = save(data, catalog)
     print(json.dumps(summary, ensure_ascii=False))
-    if args.require_complete and summary['verified'] != summary['total']:
-        raise SystemExit('INCOMPLETE: not every catalog ID has a fresh verified duration.')
+    if args.require_complete and summary['accepted'] != summary['total']:
+        raise SystemExit('INCOMPLETE: not every catalog ID has an accepted duration under the agreed source-review policy.')
 
 if __name__ == '__main__':
     main()

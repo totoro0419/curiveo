@@ -1,0 +1,2660 @@
+{
+  "reviewedAt": "2026-10-14T14:42:13+00:00",
+  "conflicts": [
+    {
+      "videoId": "OcrieXuZ2gg",
+      "adoptedSeconds": 155,
+      "otherSeconds": [
+        155,
+        156
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "zntsK1JmiUQ",
+      "adoptedSeconds": 164,
+      "otherSeconds": [
+        164,
+        165
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "hTGMPASzEKU",
+      "adoptedSeconds": 109,
+      "otherSeconds": [
+        109,
+        110
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "xX-yyH7_oW0",
+      "adoptedSeconds": 112,
+      "otherSeconds": [
+        112,
+        113
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "r4wHl39JVB8",
+      "adoptedSeconds": 240,
+      "otherSeconds": [
+        240,
+        241
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "_nZPOT3F0kI",
+      "adoptedSeconds": 116,
+      "otherSeconds": [
+        116,
+        117
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "6MYBZq2PayE",
+      "adoptedSeconds": 229,
+      "otherSeconds": [
+        229,
+        230
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "6k018B3X9To",
+      "adoptedSeconds": 154,
+      "otherSeconds": [
+        154,
+        155
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "v--2PqSme3c",
+      "adoptedSeconds": 141,
+      "otherSeconds": [
+        141,
+        142
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "XhrvtQa7yzg",
+      "adoptedSeconds": 113,
+      "otherSeconds": [
+        113,
+        114
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "FprBdZEEX1E",
+      "adoptedSeconds": 259,
+      "otherSeconds": [
+        259,
+        260
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "n09Vtg0tSOE",
+      "adoptedSeconds": 208,
+      "otherSeconds": [
+        208,
+        209
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "RjVTgqRCiqU",
+      "adoptedSeconds": 81,
+      "otherSeconds": [
+        81,
+        82
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "AViqa1miOBA",
+      "adoptedSeconds": 127,
+      "otherSeconds": [
+        127,
+        128
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "LvVO6SV0IC4",
+      "adoptedSeconds": 268,
+      "otherSeconds": [
+        268,
+        269
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "UsTQkzkGRbA",
+      "adoptedSeconds": 158,
+      "otherSeconds": [
+        158,
+        159
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "PEMsb2Puhus",
+      "adoptedSeconds": 177,
+      "otherSeconds": [
+        177,
+        178
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "2ipylzZktMA",
+      "adoptedSeconds": 92,
+      "otherSeconds": [
+        92,
+        93
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "N5f_klwbJvA",
+      "adoptedSeconds": 164,
+      "otherSeconds": [
+        164,
+        165
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "FHtcVgilTB4",
+      "adoptedSeconds": 197,
+      "otherSeconds": [
+        197,
+        198
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "UREEl3jat0o",
+      "adoptedSeconds": 164,
+      "otherSeconds": [
+        164,
+        165
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "tSZyRPfNLOk",
+      "adoptedSeconds": 102,
+      "otherSeconds": [
+        102,
+        103
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "biOIp21eKmI",
+      "adoptedSeconds": 340,
+      "otherSeconds": [
+        340,
+        341
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "J7HeUet1BHs",
+      "adoptedSeconds": 150,
+      "otherSeconds": [
+        150,
+        151
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "5ApmG2JuKPM",
+      "adoptedSeconds": 406,
+      "otherSeconds": [
+        406,
+        407
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "eZM-Ej5o8GQ",
+      "adoptedSeconds": 209,
+      "otherSeconds": [
+        209,
+        210
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "c4yCRsX2p5A",
+      "adoptedSeconds": 287,
+      "otherSeconds": [
+        287,
+        288
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "mIltZdTsUDg",
+      "adoptedSeconds": 150,
+      "otherSeconds": [
+        150,
+        151
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "zb_UD61ChNQ",
+      "adoptedSeconds": 224,
+      "otherSeconds": [
+        224,
+        225
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "sW8zCRWG324",
+      "adoptedSeconds": 133,
+      "otherSeconds": [
+        133,
+        134
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "pzxp08SOeCk",
+      "adoptedSeconds": 150,
+      "otherSeconds": [
+        150,
+        151
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "4BHC92twBD0",
+      "adoptedSeconds": 227,
+      "otherSeconds": [
+        227,
+        228
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "pbGkUyzdl5g",
+      "adoptedSeconds": 300,
+      "otherSeconds": [
+        300,
+        301
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "wr8uRonPnIg",
+      "adoptedSeconds": 157,
+      "otherSeconds": [
+        157,
+        158
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "BobKdD5HVl0",
+      "adoptedSeconds": 357,
+      "otherSeconds": [
+        357,
+        358
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "ISnpgYajt7Y",
+      "adoptedSeconds": 206,
+      "otherSeconds": [
+        206,
+        207
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "6b_ay9W0T_Q",
+      "adoptedSeconds": 519,
+      "otherSeconds": [
+        519,
+        520
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Pq2yPeu85Yo",
+      "adoptedSeconds": 145,
+      "otherSeconds": [
+        145,
+        146
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "ApGpRVVkL5Y",
+      "adoptedSeconds": 376,
+      "otherSeconds": [
+        376,
+        377
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "qPBC6oDEJno",
+      "adoptedSeconds": 199,
+      "otherSeconds": [
+        199,
+        200
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "WCZaRtXoi5I",
+      "adoptedSeconds": 179,
+      "otherSeconds": [
+        179,
+        180
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "gCUgWJnx0L8",
+      "adoptedSeconds": 95,
+      "otherSeconds": [
+        95,
+        96
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "yBeAsRQXvMI",
+      "adoptedSeconds": 196,
+      "otherSeconds": [
+        196,
+        197
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "I6NhZJQYdJg",
+      "adoptedSeconds": 114,
+      "otherSeconds": [
+        114,
+        115
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "KaS3CeNKAcE",
+      "adoptedSeconds": 345,
+      "otherSeconds": [
+        345,
+        346
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "SBvlfSlDLuE",
+      "adoptedSeconds": 176,
+      "otherSeconds": [
+        176,
+        177
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "I8F3poYNV1s",
+      "adoptedSeconds": 334,
+      "otherSeconds": [
+        334,
+        335
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "NQL_IqFWhuA",
+      "adoptedSeconds": 146,
+      "otherSeconds": [
+        146,
+        147
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "ePDZRHkO7oI",
+      "adoptedSeconds": 144,
+      "otherSeconds": [
+        144,
+        145
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "1aRrj3kzSQk",
+      "adoptedSeconds": 124,
+      "otherSeconds": [
+        124,
+        125
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "TEROtFXZsRE",
+      "adoptedSeconds": 174,
+      "otherSeconds": [
+        174,
+        175
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "nSrsOb61gvY",
+      "adoptedSeconds": 195,
+      "otherSeconds": [
+        195,
+        196
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Vbw_BcxguY0",
+      "adoptedSeconds": 105,
+      "otherSeconds": [
+        105,
+        106
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "6bnda5hYOco",
+      "adoptedSeconds": 332,
+      "otherSeconds": [
+        332,
+        333
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "pnxCdrnvxRU",
+      "adoptedSeconds": 109,
+      "otherSeconds": [
+        109,
+        110
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "BhcN1Fgb-3E",
+      "adoptedSeconds": 184,
+      "otherSeconds": [
+        184,
+        185
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "sLxhTkyjS80",
+      "adoptedSeconds": 580,
+      "otherSeconds": [
+        580,
+        581
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "JcdmQxlA5cc",
+      "adoptedSeconds": 170,
+      "otherSeconds": [
+        170,
+        171
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "1ljZLJGq-xk",
+      "adoptedSeconds": 289,
+      "otherSeconds": [
+        289,
+        290
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "pvs9RRfHOmY",
+      "adoptedSeconds": 115,
+      "otherSeconds": [
+        115,
+        116
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "-L-8imtttoU",
+      "adoptedSeconds": 174,
+      "otherSeconds": [
+        174,
+        175
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "saNf7kXknsY",
+      "adoptedSeconds": 177,
+      "otherSeconds": [
+        177,
+        178
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "n2eCQTcVcjg",
+      "adoptedSeconds": 163,
+      "otherSeconds": [
+        163,
+        164
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Z5Aj7qzm9So",
+      "adoptedSeconds": 129,
+      "otherSeconds": [
+        129,
+        130
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "7gCG0hEntWs",
+      "adoptedSeconds": 223,
+      "otherSeconds": [
+        223,
+        224
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "4wswVd2AGlA",
+      "adoptedSeconds": 101,
+      "otherSeconds": [
+        101,
+        102
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Shb3nQcCb3Y",
+      "adoptedSeconds": 189,
+      "otherSeconds": [
+        189,
+        190
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "aqoN--WULIs",
+      "adoptedSeconds": 177,
+      "otherSeconds": [
+        177,
+        178
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "PP6s5DSt1zo",
+      "adoptedSeconds": 164,
+      "otherSeconds": [
+        164,
+        165
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "A0XXL2Yrnls",
+      "adoptedSeconds": 200,
+      "otherSeconds": [
+        200,
+        201
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "-piEirY_O18",
+      "adoptedSeconds": 322,
+      "otherSeconds": [
+        322,
+        323
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "QDr28Co0Pbc",
+      "adoptedSeconds": 208,
+      "otherSeconds": [
+        208,
+        209
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "BcdKD_CWBVk",
+      "adoptedSeconds": 589,
+      "otherSeconds": [
+        589,
+        590
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "GfO75LQELCQ",
+      "adoptedSeconds": 118,
+      "otherSeconds": [
+        118,
+        119
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "UeRTcLy1xxY",
+      "adoptedSeconds": 222,
+      "otherSeconds": [
+        222,
+        223
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "e5q5yISayEU",
+      "adoptedSeconds": 188,
+      "otherSeconds": [
+        188,
+        189
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "UQswRcP5gs8",
+      "adoptedSeconds": 469,
+      "otherSeconds": [
+        469,
+        470
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "ImHGh_dq4y0",
+      "adoptedSeconds": 139,
+      "otherSeconds": [
+        139,
+        140
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "c9DSbR1FIy4",
+      "adoptedSeconds": 163,
+      "otherSeconds": [
+        163,
+        164
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "V9GgAdCPZ-g",
+      "adoptedSeconds": 142,
+      "otherSeconds": [
+        142,
+        143
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "0kxlFYpgapo",
+      "adoptedSeconds": 103,
+      "otherSeconds": [
+        103,
+        104
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "R7PWJ-U4dRA",
+      "adoptedSeconds": 97,
+      "otherSeconds": [
+        97,
+        98
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Ua4Olhd6eOU",
+      "adoptedSeconds": 355,
+      "otherSeconds": [
+        355,
+        356
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "0VkFFttOPnI",
+      "adoptedSeconds": 219,
+      "otherSeconds": [
+        219,
+        220
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "zNkAI3IwIc0",
+      "adoptedSeconds": 207,
+      "otherSeconds": [
+        207,
+        208
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "VuMN2alzBzI",
+      "adoptedSeconds": 242,
+      "otherSeconds": [
+        242,
+        243
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "JSVLXxQrvik",
+      "adoptedSeconds": 250,
+      "otherSeconds": [
+        250,
+        251
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "L757hhiYQA0",
+      "adoptedSeconds": 180,
+      "otherSeconds": [
+        180,
+        181
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Eif9a-QK-Ss",
+      "adoptedSeconds": 156,
+      "otherSeconds": [
+        156,
+        157
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "6PiGKA3oFzc",
+      "adoptedSeconds": 108,
+      "otherSeconds": [
+        108,
+        109
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "VTPkQK0-XcE",
+      "adoptedSeconds": 692,
+      "otherSeconds": [
+        692,
+        693
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "RSMp1DywWpM",
+      "adoptedSeconds": 160,
+      "otherSeconds": [
+        160,
+        161
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "JQsV2xCJRU4",
+      "adoptedSeconds": 101,
+      "otherSeconds": [
+        101,
+        102
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "ztSTY9A6BiA",
+      "adoptedSeconds": 114,
+      "otherSeconds": [
+        114,
+        115
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "rW3UjFbOxWI",
+      "adoptedSeconds": 105,
+      "otherSeconds": [
+        105,
+        106
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "JFe9Pz_NNTA",
+      "adoptedSeconds": 206,
+      "otherSeconds": [
+        206,
+        207
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "jDwNjtph3oA",
+      "adoptedSeconds": 214,
+      "otherSeconds": [
+        214,
+        215
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "-CI3-zTeDB0",
+      "adoptedSeconds": 171,
+      "otherSeconds": [
+        171,
+        172
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Gpw-efiHZcA",
+      "adoptedSeconds": 122,
+      "otherSeconds": [
+        122,
+        123
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "dWDU_23B_o8",
+      "adoptedSeconds": 307,
+      "otherSeconds": [
+        307,
+        308
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Bt_w5J4dwzA",
+      "adoptedSeconds": 190,
+      "otherSeconds": [
+        190,
+        191
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "HUdEU1l0mmw",
+      "adoptedSeconds": 162,
+      "otherSeconds": [
+        162,
+        163
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "0VFf3meNImk",
+      "adoptedSeconds": 151,
+      "otherSeconds": [
+        151,
+        152
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "rKvFQhVo7us",
+      "adoptedSeconds": 116,
+      "otherSeconds": [
+        116,
+        117
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "MaEm0VqPMc4",
+      "adoptedSeconds": 330,
+      "otherSeconds": [
+        330,
+        331
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "NUQvJyD3WuI",
+      "adoptedSeconds": 129,
+      "otherSeconds": [
+        129,
+        130
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Fel1vWgXMgg",
+      "adoptedSeconds": 655,
+      "otherSeconds": [
+        655,
+        656
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "3PnXskgbEoo",
+      "adoptedSeconds": 406,
+      "otherSeconds": [
+        406,
+        407
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "JS-P3x0Hajs",
+      "adoptedSeconds": 211,
+      "otherSeconds": [
+        211,
+        212
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "ky-0RakzCVs",
+      "adoptedSeconds": 180,
+      "otherSeconds": [
+        180,
+        181
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Y2eKByA9kVk",
+      "adoptedSeconds": 255,
+      "otherSeconds": [
+        255,
+        256
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "CsfH7VPcwKA",
+      "adoptedSeconds": 134,
+      "otherSeconds": [
+        134,
+        135
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "LpPj86kd1Oc",
+      "adoptedSeconds": 476,
+      "otherSeconds": [
+        476,
+        477
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "1BywXeHZ5ng",
+      "adoptedSeconds": 207,
+      "otherSeconds": [
+        207,
+        208
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "eyieDmjipZA",
+      "adoptedSeconds": 149,
+      "otherSeconds": [
+        149,
+        150
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "3GAhErAoh_E",
+      "adoptedSeconds": 190,
+      "otherSeconds": [
+        190,
+        191
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "WjuYf0Zk2Uk",
+      "adoptedSeconds": 325,
+      "otherSeconds": [
+        325,
+        326
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "7_AAv70_UP4",
+      "adoptedSeconds": 436,
+      "otherSeconds": [
+        436,
+        437
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "dVfwMtK3_RM",
+      "adoptedSeconds": 159,
+      "otherSeconds": [
+        159,
+        160
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Ew51gH4J4ok",
+      "adoptedSeconds": 228,
+      "otherSeconds": [
+        228,
+        229
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "HTs8zMvdoAc",
+      "adoptedSeconds": 287,
+      "otherSeconds": [
+        287,
+        288
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Q8_F6uoWkTI",
+      "adoptedSeconds": 281,
+      "otherSeconds": [
+        281,
+        282
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "0Bj2T7O7uE8",
+      "adoptedSeconds": 462,
+      "otherSeconds": [
+        462,
+        463
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "P2oPaM4og38",
+      "adoptedSeconds": 421,
+      "otherSeconds": [
+        421,
+        422
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "GUOf7IQfhFc",
+      "adoptedSeconds": 229,
+      "otherSeconds": [
+        229,
+        230
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "johyZTXB_H4",
+      "adoptedSeconds": 1046,
+      "otherSeconds": [
+        1046,
+        1047
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "DdIeWLP3LW8",
+      "adoptedSeconds": 562,
+      "otherSeconds": [
+        562,
+        563
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "qup8tbNNMYI",
+      "adoptedSeconds": 366,
+      "otherSeconds": [
+        366,
+        367
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "RW62V6nDdK8",
+      "adoptedSeconds": 420,
+      "otherSeconds": [
+        420,
+        421
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "tEbGAfhCNg4",
+      "adoptedSeconds": 248,
+      "otherSeconds": [
+        248,
+        249
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "nllMKE6NeA0",
+      "adoptedSeconds": 469,
+      "otherSeconds": [
+        469,
+        470
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Gr99zf168no",
+      "adoptedSeconds": 287,
+      "otherSeconds": [
+        287,
+        288
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "RNYN_V3Pnf8",
+      "adoptedSeconds": 325,
+      "otherSeconds": [
+        325,
+        326
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "YciywpvlPos",
+      "adoptedSeconds": 253,
+      "otherSeconds": [
+        253,
+        254
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "spwgNxpiM_E",
+      "adoptedSeconds": 254,
+      "otherSeconds": [
+        254,
+        255
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "A-Hx-iHKszE",
+      "adoptedSeconds": 333,
+      "otherSeconds": [
+        333,
+        334
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "I5XPtl-KI-Y",
+      "adoptedSeconds": 314,
+      "otherSeconds": [
+        314,
+        315
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Y1RUq_Yemlg",
+      "adoptedSeconds": 1033,
+      "otherSeconds": [
+        1033,
+        1034
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "EjM87t15qiU",
+      "adoptedSeconds": 124,
+      "otherSeconds": [
+        124,
+        125
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "c3Cec8gM3o8",
+      "adoptedSeconds": 194,
+      "otherSeconds": [
+        194,
+        195
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "ALYJKUhsFr0",
+      "adoptedSeconds": 128,
+      "otherSeconds": [
+        128,
+        129
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "TUBsACDzEIA",
+      "adoptedSeconds": 97,
+      "otherSeconds": [
+        97,
+        98
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "4K6nD9bdp-0",
+      "adoptedSeconds": 306,
+      "otherSeconds": [
+        306,
+        307
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "2aoyhQzmnAI",
+      "adoptedSeconds": 291,
+      "otherSeconds": [
+        291,
+        292
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "EfwcqcVurOw",
+      "adoptedSeconds": 172,
+      "otherSeconds": [
+        172,
+        173
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "CJrFUNoTonM",
+      "adoptedSeconds": 111,
+      "otherSeconds": [
+        111,
+        112
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "aXqBWgwej54",
+      "adoptedSeconds": 94,
+      "otherSeconds": [
+        94,
+        95
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "xiU4lzETLXg",
+      "adoptedSeconds": 145,
+      "otherSeconds": [
+        145,
+        146
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "YGuqfZ1DXbY",
+      "adoptedSeconds": 283,
+      "otherSeconds": [
+        283,
+        284
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "zy3uwkgdO4g",
+      "adoptedSeconds": 197,
+      "otherSeconds": [
+        197,
+        198
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "dMnGlmNcdrk",
+      "adoptedSeconds": 267,
+      "otherSeconds": [
+        267,
+        268
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "jbvTsUW9dGg",
+      "adoptedSeconds": 290,
+      "otherSeconds": [
+        290,
+        291
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "MoTNy_w2Thk",
+      "adoptedSeconds": 247,
+      "otherSeconds": [
+        247,
+        248
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "p5gjKhDJ24E",
+      "adoptedSeconds": 254,
+      "otherSeconds": [
+        254,
+        255
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "DDlP6LycLwo",
+      "adoptedSeconds": 402,
+      "otherSeconds": [
+        402,
+        403
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "kSj7tRGQx-w",
+      "adoptedSeconds": 138,
+      "otherSeconds": [
+        138,
+        139
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "18u29CDtpdU",
+      "adoptedSeconds": 263,
+      "otherSeconds": [
+        263,
+        264
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "BM2fVuB-Ins",
+      "adoptedSeconds": 200,
+      "otherSeconds": [
+        200,
+        201
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "aZ_9aYBg5nI",
+      "adoptedSeconds": 211,
+      "otherSeconds": [
+        211,
+        212
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "uoe-xlarRxY",
+      "adoptedSeconds": 148,
+      "otherSeconds": [
+        148,
+        149
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "-xWdmTOo1gE",
+      "adoptedSeconds": 175,
+      "otherSeconds": [
+        175,
+        176
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "NpjrFRIwDjE",
+      "adoptedSeconds": 721,
+      "otherSeconds": [
+        721,
+        722
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "tUahxh3gMMg",
+      "adoptedSeconds": 304,
+      "otherSeconds": [
+        304,
+        305
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "ZYC7HOs9R6U",
+      "adoptedSeconds": 144,
+      "otherSeconds": [
+        144,
+        145
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "_3tplE7340A",
+      "adoptedSeconds": 235,
+      "otherSeconds": [
+        235,
+        236
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Sr708uYqoiE",
+      "adoptedSeconds": 187,
+      "otherSeconds": [
+        187,
+        188
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "zPeAyLcaLIQ",
+      "adoptedSeconds": 223,
+      "otherSeconds": [
+        223,
+        224
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Oik0ZjupfrI",
+      "adoptedSeconds": 292,
+      "otherSeconds": [
+        292,
+        293
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "G5u0Vt2jpZ4",
+      "adoptedSeconds": 227,
+      "otherSeconds": [
+        227,
+        228
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "B7kK3kAj7vI",
+      "adoptedSeconds": 251,
+      "otherSeconds": [
+        251,
+        252
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "D8MZqnGofg0",
+      "adoptedSeconds": 300,
+      "otherSeconds": [
+        300,
+        301
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "ZpBP2v0sZyw",
+      "adoptedSeconds": 188,
+      "otherSeconds": [
+        188,
+        189
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "BCW9ohzWsHI",
+      "adoptedSeconds": 257,
+      "otherSeconds": [
+        257,
+        258
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Vu5br-TIpbo",
+      "adoptedSeconds": 125,
+      "otherSeconds": [
+        125,
+        126
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "8Z87txhOCxk",
+      "adoptedSeconds": 362,
+      "otherSeconds": [
+        362,
+        363
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "bGp5OIHW5mg",
+      "adoptedSeconds": 254,
+      "otherSeconds": [
+        254,
+        255
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "HmoNh1S4iZ4",
+      "adoptedSeconds": 178,
+      "otherSeconds": [
+        178,
+        179
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "R4MMgG_1k4w",
+      "adoptedSeconds": 94,
+      "otherSeconds": [
+        94,
+        95
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "mBS2BTLqTQk",
+      "adoptedSeconds": 195,
+      "otherSeconds": [
+        195,
+        196
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "pEi6YIHNZ3o",
+      "adoptedSeconds": 279,
+      "otherSeconds": [
+        279,
+        280
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "-Rj41rbBMUE",
+      "adoptedSeconds": 237,
+      "otherSeconds": [
+        237,
+        238
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "8KAE8HwY7uU",
+      "adoptedSeconds": 224,
+      "otherSeconds": [
+        224,
+        225
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "hlDamfgrs-8",
+      "adoptedSeconds": 140,
+      "otherSeconds": [
+        140,
+        141
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "_QPPpgWostY",
+      "adoptedSeconds": 268,
+      "otherSeconds": [
+        268,
+        269
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "JsOL_eViPQE",
+      "adoptedSeconds": 152,
+      "otherSeconds": [
+        152,
+        153
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "0KPC1kgcUp8",
+      "adoptedSeconds": 224,
+      "otherSeconds": [
+        224,
+        225
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "84Dbpdc0p_k",
+      "adoptedSeconds": 299,
+      "otherSeconds": [
+        299,
+        300
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "iX12PBaWpD8",
+      "adoptedSeconds": 333,
+      "otherSeconds": [
+        333,
+        334
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "mxEkXaQodPs",
+      "adoptedSeconds": 202,
+      "otherSeconds": [
+        202,
+        203
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "TKGZT3rv-dk",
+      "adoptedSeconds": 733,
+      "otherSeconds": [
+        733,
+        734
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "rKeeq3bDl5s",
+      "adoptedSeconds": 192,
+      "otherSeconds": [
+        192,
+        193
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "OCrpNJ28Yas",
+      "adoptedSeconds": 295,
+      "otherSeconds": [
+        295,
+        296
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "btszf0ReDRA",
+      "adoptedSeconds": 145,
+      "otherSeconds": [
+        145,
+        146
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "JRjVCTpg5VI",
+      "adoptedSeconds": 369,
+      "otherSeconds": [
+        369,
+        370
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "gqasv2OaFYM",
+      "adoptedSeconds": 283,
+      "otherSeconds": [
+        283,
+        284
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "6CSAPw0x1Oo",
+      "adoptedSeconds": 234,
+      "otherSeconds": [
+        234,
+        235
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "_a_20XiwmuA",
+      "adoptedSeconds": 251,
+      "otherSeconds": [
+        251,
+        252
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "7REFJOemEVM",
+      "adoptedSeconds": 131,
+      "otherSeconds": [
+        131,
+        132
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "SrVMUt1T8-o",
+      "adoptedSeconds": 93,
+      "otherSeconds": [
+        93,
+        94
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "VlOHQi9uHCM",
+      "adoptedSeconds": 283,
+      "otherSeconds": [
+        283,
+        284
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "iGwTd1EHkG0",
+      "adoptedSeconds": 456,
+      "otherSeconds": [
+        456,
+        457
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "WJEVPXc_1ww",
+      "adoptedSeconds": 150,
+      "otherSeconds": [
+        150,
+        151
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "44JaPZGgZU8",
+      "adoptedSeconds": 151,
+      "otherSeconds": [
+        151,
+        152
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "MUMiSPCSaTs",
+      "adoptedSeconds": 135,
+      "otherSeconds": [
+        135,
+        136
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "yqApSnMh3G8",
+      "adoptedSeconds": 216,
+      "otherSeconds": [
+        216,
+        217
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "5qhjY4EljEk",
+      "adoptedSeconds": 185,
+      "otherSeconds": [
+        185,
+        186
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "kTBEwleFLNY",
+      "adoptedSeconds": 107,
+      "otherSeconds": [
+        107,
+        108
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "r7u63IazK8w",
+      "adoptedSeconds": 107,
+      "otherSeconds": [
+        107,
+        108
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "BxL5rb8m57Y",
+      "adoptedSeconds": 153,
+      "otherSeconds": [
+        153,
+        154
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "OXsoHARZcmk",
+      "adoptedSeconds": 198,
+      "otherSeconds": [
+        198,
+        199
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "6GAinh8xObw",
+      "adoptedSeconds": 225,
+      "otherSeconds": [
+        225,
+        226
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "1CMFlsPq7pk",
+      "adoptedSeconds": 155,
+      "otherSeconds": [
+        155,
+        156
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "ChYVpw1EHJ4",
+      "adoptedSeconds": 174,
+      "otherSeconds": [
+        174,
+        175
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "n5k_mt9e9uI",
+      "adoptedSeconds": 231,
+      "otherSeconds": [
+        231,
+        232
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "7kpL86ve6ZM",
+      "adoptedSeconds": 186,
+      "otherSeconds": [
+        186,
+        187
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "dLK9OS-8f8g",
+      "adoptedSeconds": 566,
+      "otherSeconds": [
+        566,
+        567
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "MMTjpnR27yU",
+      "adoptedSeconds": 145,
+      "otherSeconds": [
+        145,
+        146
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "5DGoQdEvrXw",
+      "adoptedSeconds": 108,
+      "otherSeconds": [
+        108,
+        109
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "9xknacPVyf0",
+      "adoptedSeconds": 178,
+      "otherSeconds": [
+        178,
+        179
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "5nrv-arLmnY",
+      "adoptedSeconds": 119,
+      "otherSeconds": [
+        119,
+        120
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "bOZPc8BYIOo",
+      "adoptedSeconds": 288,
+      "otherSeconds": [
+        288,
+        289
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "p47U17PHGtE",
+      "adoptedSeconds": 199,
+      "otherSeconds": [
+        199,
+        200
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "rhm6N3P-R98",
+      "adoptedSeconds": 87,
+      "otherSeconds": [
+        87,
+        88
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "un-bm2p4EmU",
+      "adoptedSeconds": 217,
+      "otherSeconds": [
+        217,
+        218
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Q5Miar8F8jI",
+      "adoptedSeconds": 196,
+      "otherSeconds": [
+        196,
+        197
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "7AWwNLJkPE4",
+      "adoptedSeconds": 262,
+      "otherSeconds": [
+        262,
+        263
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "vClTv0iHv9o",
+      "adoptedSeconds": 88,
+      "otherSeconds": [
+        88,
+        89
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Fqi0SjGWkGw",
+      "adoptedSeconds": 210,
+      "otherSeconds": [
+        210,
+        211
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "0eOlzimOVIw",
+      "adoptedSeconds": 297,
+      "otherSeconds": [
+        297,
+        298
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Rt0jxzfLiec",
+      "adoptedSeconds": 215,
+      "otherSeconds": [
+        215,
+        216
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Eab2R3bhvKs",
+      "adoptedSeconds": 178,
+      "otherSeconds": [
+        178,
+        179
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "jdBvoxZkqyM",
+      "adoptedSeconds": 226,
+      "otherSeconds": [
+        226,
+        227
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "kQbKlu1OT-o",
+      "adoptedSeconds": 252,
+      "otherSeconds": [
+        252,
+        253
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "jN6RRLBmA58",
+      "adoptedSeconds": 289,
+      "otherSeconds": [
+        289,
+        290
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "wwKysiBxZ98",
+      "adoptedSeconds": 270,
+      "otherSeconds": [
+        270,
+        271
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "_ULf7ndfNgY",
+      "adoptedSeconds": 187,
+      "otherSeconds": [
+        187,
+        188
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Q-4uUhGRal4",
+      "adoptedSeconds": 376,
+      "otherSeconds": [
+        376,
+        377
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "TncPJ-0Cnyo",
+      "adoptedSeconds": 200,
+      "otherSeconds": [
+        200,
+        201
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "pzdsX7TgkG8",
+      "adoptedSeconds": 237,
+      "otherSeconds": [
+        237,
+        238
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "c6aNuOa1gug",
+      "adoptedSeconds": 146,
+      "otherSeconds": [
+        146,
+        147
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "t7RTIcEgqaI",
+      "adoptedSeconds": 190,
+      "otherSeconds": [
+        190,
+        191
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "8MmOhi_R3Yc",
+      "adoptedSeconds": 144,
+      "otherSeconds": [
+        144,
+        145
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Dsu3hsKRmFw",
+      "adoptedSeconds": 181,
+      "otherSeconds": [
+        181,
+        182
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "_n5BWmRlROM",
+      "adoptedSeconds": 190,
+      "otherSeconds": [
+        190,
+        191
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "w1hLjpn8KOw",
+      "adoptedSeconds": 177,
+      "otherSeconds": [
+        177,
+        178
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "85hN3ZP38ZA",
+      "adoptedSeconds": 324,
+      "otherSeconds": [
+        324,
+        325
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "VpasD3PQUcE",
+      "adoptedSeconds": 253,
+      "otherSeconds": [
+        253,
+        254
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "E1waT9JHe_0",
+      "adoptedSeconds": 194,
+      "otherSeconds": [
+        194,
+        195
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "cnKEBSUqPm0",
+      "adoptedSeconds": 289,
+      "otherSeconds": [
+        289,
+        290
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "V8iZNmLArxE",
+      "adoptedSeconds": 234,
+      "otherSeconds": [
+        234,
+        235
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Rypif1FNXtU",
+      "adoptedSeconds": 160,
+      "otherSeconds": [
+        160,
+        161
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "4EURtfoIEJA",
+      "adoptedSeconds": 220,
+      "otherSeconds": [
+        220,
+        221
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "JTdIxIZu8OI",
+      "adoptedSeconds": 297,
+      "otherSeconds": [
+        297,
+        298
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "_OEzQAKcg1A",
+      "adoptedSeconds": 203,
+      "otherSeconds": [
+        203,
+        204
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "lCCgU3XweFA",
+      "adoptedSeconds": 368,
+      "otherSeconds": [
+        368,
+        369
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "DKkxPEuUwH4",
+      "adoptedSeconds": 254,
+      "otherSeconds": [
+        254,
+        255
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "HXjoFaY_SYU",
+      "adoptedSeconds": 135,
+      "otherSeconds": [
+        135,
+        136
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "46xBDYfz5sc",
+      "adoptedSeconds": 256,
+      "otherSeconds": [
+        256,
+        257
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "WBURVmKHaS0",
+      "adoptedSeconds": 135,
+      "otherSeconds": [
+        135,
+        136
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "AxtyBZ7Awbo",
+      "adoptedSeconds": 164,
+      "otherSeconds": [
+        164,
+        165
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "cHBSsjfU0yA",
+      "adoptedSeconds": 214,
+      "otherSeconds": [
+        214,
+        215
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "UpOXuLSAtNo",
+      "adoptedSeconds": 185,
+      "otherSeconds": [
+        185,
+        186
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "HpTFpdapejU",
+      "adoptedSeconds": 158,
+      "otherSeconds": [
+        158,
+        159
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "5x-pKgoYnF8",
+      "adoptedSeconds": 230,
+      "otherSeconds": [
+        230,
+        231
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "px05Z32ev3w",
+      "adoptedSeconds": 350,
+      "otherSeconds": [
+        350,
+        351
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "v9hEBjmKUQI",
+      "adoptedSeconds": 522,
+      "otherSeconds": [
+        522,
+        523
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "3f_wjvF1Wm0",
+      "adoptedSeconds": 172,
+      "otherSeconds": [
+        172,
+        173
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "adoQHKd-rNY",
+      "adoptedSeconds": 240,
+      "otherSeconds": [
+        240,
+        241
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "9Wm_o3b0qEY",
+      "adoptedSeconds": 128,
+      "otherSeconds": [
+        128,
+        129
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "eYz2mPiRDNI",
+      "adoptedSeconds": 185,
+      "otherSeconds": [
+        185,
+        186
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "85yMk7dvMRw",
+      "adoptedSeconds": 215,
+      "otherSeconds": [
+        215,
+        216
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "YBmgMCzILt8",
+      "adoptedSeconds": 271,
+      "otherSeconds": [
+        271,
+        272
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "24wyWvr2zuE",
+      "adoptedSeconds": 229,
+      "otherSeconds": [
+        229,
+        230
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "ivKY9R5HDVs",
+      "adoptedSeconds": 337,
+      "otherSeconds": [
+        337,
+        338
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "siJP5DNxyKI",
+      "adoptedSeconds": 195,
+      "otherSeconds": [
+        195,
+        196
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "jqhuSRldE90",
+      "adoptedSeconds": 244,
+      "otherSeconds": [
+        244,
+        245
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "ecEGD4B8Dwo",
+      "adoptedSeconds": 318,
+      "otherSeconds": [
+        318,
+        319
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "por9dOUBmHA",
+      "adoptedSeconds": 212,
+      "otherSeconds": [
+        212,
+        213
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "kZk6rXManRk",
+      "adoptedSeconds": 228,
+      "otherSeconds": [
+        228,
+        229
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "wW6rXJR4GtI",
+      "adoptedSeconds": 100,
+      "otherSeconds": [
+        100,
+        101
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "uR8J-NrfRF8",
+      "adoptedSeconds": 261,
+      "otherSeconds": [
+        261,
+        262
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "LnxTNN3Geo4",
+      "adoptedSeconds": 171,
+      "otherSeconds": [
+        171,
+        172
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "ZXJyE5Kg-G0",
+      "adoptedSeconds": 139,
+      "otherSeconds": [
+        139,
+        140
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "k2NBVcUefSU",
+      "adoptedSeconds": 187,
+      "otherSeconds": [
+        187,
+        188
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "FaMO3vulojA",
+      "adoptedSeconds": 200,
+      "otherSeconds": [
+        200,
+        201
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "umTmujeRth4",
+      "adoptedSeconds": 234,
+      "otherSeconds": [
+        234,
+        235
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "_WJn7uemu_o",
+      "adoptedSeconds": 343,
+      "otherSeconds": [
+        343,
+        344
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "Zw2uST9vQAA",
+      "adoptedSeconds": 305,
+      "otherSeconds": [
+        305,
+        306
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "74fx7C2gDfg",
+      "adoptedSeconds": 346,
+      "otherSeconds": [
+        346,
+        347
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "29DWklEgIA8",
+      "adoptedSeconds": 354,
+      "otherSeconds": [
+        354,
+        355
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "hsal36fzfRg",
+      "adoptedSeconds": 178,
+      "otherSeconds": [
+        178,
+        179
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "PerKwCMnxKo",
+      "adoptedSeconds": 60,
+      "otherSeconds": [
+        60,
+        61
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "TjGaS69XKUg",
+      "adoptedSeconds": 351,
+      "otherSeconds": [
+        351,
+        352
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "C6iSGiKq7f8",
+      "adoptedSeconds": 328,
+      "otherSeconds": [
+        328,
+        329
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    },
+    {
+      "videoId": "mqbZUpvGGYo",
+      "adoptedSeconds": 92,
+      "otherSeconds": [
+        92,
+        93
+      ],
+      "reason": "Source identity is stronger than historical checkpoint; one-second discrepancy is retained in evidence."
+    }
+  ]
+}
