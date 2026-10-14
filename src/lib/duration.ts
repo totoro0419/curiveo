@@ -1,11 +1,12 @@
 import durations from '../data/video-durations.json';
-import historySupplement from '../data/history-duration-supplement.json';
+import durationStatuses from '../data/duration-status.json';
 import type { Video, LearningRecord } from '../types';
 const metadata=durations as Record<string,number>;
-const historyMetadata=historySupplement as Record<string,number>;
+const statuses=durationStatuses as Record<string,string>;
+function isAccepted(id:string){const status=statuses[id]??'';return /^(verified|accepted)@/.test(status)&&Date.parse(status.split('@')[1])>Date.now();}
 export function videoDuration(video:Video,records:Record<string,LearningRecord>={}){
- const candidates=[records[video.id]?.duration,metadata[video.id],historyMetadata[video.id],video.durationSeconds];
- return candidates.find((value):value is number=>typeof value==='number'&&Number.isFinite(value)&&value>0)??null;
+ const candidates=[metadata[video.id],video.durationSeconds,records[video.id]?.duration];
+ return candidates.find((value):value is number=>typeof value==='number'&&Number.isSafeInteger(value)&&value>0)??null;
 }
 export function durationTime(seconds:number){
  const value=Math.floor(Math.max(0,seconds));const hours=Math.floor(value/3600);
@@ -13,9 +14,9 @@ export function durationTime(seconds:number){
 }
 export function totalDuration(videos:Video[],records:Record<string,LearningRecord>={}){
  const unique=[...new Map(videos.map(video=>[video.id,video])).values()];
- let seconds=0,missing=0;
- for(const video of unique){const duration=videoDuration(video,records);if(duration===null)missing++;else seconds+=duration;}
- return {seconds:Math.floor(seconds),missing,total:unique.length};
+ let seconds=0,missing=0,unverified=0;
+ for(const video of unique){const duration=videoDuration(video,records);if(duration===null)missing++;else {seconds+=duration;if(!isAccepted(video.id))unverified++;}}
+ return {seconds:Math.floor(seconds),missing,unverified,total:unique.length};
 }
 export function durationSummary(videos:Video[],records:Record<string,LearningRecord>={}){
  const result=totalDuration(videos,records);
@@ -23,5 +24,6 @@ export function durationSummary(videos:Video[],records:Record<string,LearningRec
  if(result.missing===result.total)return '合計時間未取得（'+result.missing+'本）';
  const hours=Math.floor(result.seconds/3600),minutes=Math.floor(result.seconds%3600/60),seconds=result.seconds%60;
  const label=(hours?hours+'時間':'')+(minutes?minutes+'分':'')+seconds+'秒';
- return result.missing?'取得済み '+label+' · '+result.missing+'本の時間は未取得':'合計 '+label;
+ const notes=[result.missing?result.missing+'本の時間は未取得':'',result.unverified?result.unverified+'本の出典は再確認中':''].filter(Boolean);
+ return notes.length?'記録済み '+label+' · '+notes.join(' · '):'合計 '+label;
 }
