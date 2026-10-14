@@ -2,74 +2,100 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import ts from "typescript";
 
-const text = readFileSync("src/navigation/history-periods.ts", "utf8");
-const compiled = ts.transpileModule(text, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 } }).outputText;
-const { historyPeriod, historyPeriodFromUnit } = await import("data:text/javascript;base64," + Buffer.from(compiled).toString("base64"));
+const source = readFileSync("src/navigation/history-periods.ts", "utf8");
+const compiled = ts.transpileModule(source, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 } }).outputText;
+const { historyPeriod, historyPeriodFromUnit, historyPeriodForVideo, japaneseHistoryPeriodFromTitle, JAPANESE_HISTORY_PERIODS } =
+  await import("data:text/javascript;base64," + Buffer.from(compiled).toString("base64"));
 
-for (const [subjectId, chapter, expected] of [
-  ["japanese-history", 1, "縄文・弥生〜平安中期"],
-  ["japanese-history", 5, "縄文・弥生〜平安中期"],
-  ["japanese-history", 6, "平安後期〜安土桃山"],
-  ["japanese-history", 9, "平安後期〜安土桃山"],
-  ["japanese-history", 10, "江戸時代"],
-  ["japanese-history", 13, "幕末・明治・大正"],
-  ["japanese-history", 17, "昭和・平成"],
-  ["japanese-history", 20, "近現代の文化"],
-  ["world-history", 1, "古代文明・地中海世界"],
-  ["world-history", 4, "アジア・イスラーム世界"],
-  ["world-history", 9, "中世ヨーロッパ"],
-  ["world-history", 11, "近世ヨーロッパ"],
-  ["world-history", 13, "近現代の欧米"],
-  ["world-history", 17, "近現代のアジア"],
-  ["world-history", 20, "戦後の世界"],
-]) {
-  assert.equal(historyPeriod(subjectId, chapter), expected, `${subjectId} chapter ${chapter}`);
+const boundaries = [
+  [1, 7, "縄文・弥生"],
+  [8, 23, "古墳・飛鳥"],
+  [24, 29, "奈良"],
+  [30, 48, "平安"],
+  [49, 61, "鎌倉"],
+  [62, 77, "室町・南北朝"],
+  [78, 88, "戦国・安土桃山"],
+  [89, 123, "江戸"],
+  [124, 130, "幕末"],
+  [131, 155, "明治"],
+  [156, 163, "大正"],
+  [164, 187, "昭和"],
+  [188, 189, "平成"],
+  [190, 200, "近現代の文化史"],
+];
+assert.deepEqual(JAPANESE_HISTORY_PERIODS.map(p => p.label), boundaries.map(([, , label]) => label));
+for (const [start, end, expected] of boundaries) {
+  for (let number = start; number <= end; number++) {
+    const title = String(number).padStart(3, "0") + " 日本史ストーリーノート";
+    assert.equal(japaneseHistoryPeriodFromTitle(title), expected, title);
+    assert.equal(historyPeriodForVideo("japanese-history", { title }, "第6話 混在する章"), expected, title);
+  }
 }
+for (const title of ["", "文化史", "201 日本史", "第6話 平安・鎌倉", "999 未登録", "0123 数字", "1 単元"]) {
+  assert.equal(japaneseHistoryPeriodFromTitle(title), undefined, title);
+}
+// Deliberately ambiguous Japanese provider chapters must not be used as eras.
+assert.equal(historyPeriodFromUnit("japanese-history", "第6話 平安〜鎌倉"), undefined);
+for (const [chapter, expected] of [
+  [1, "古代文明・地中海世界"],
+  [4, "アジア・イスラーム世界"],
+  [9, "中世ヨーロッパ"],
+  [11, "近世ヨーロッパ"],
+  [13, "近現代の欧米"],
+  [17, "近現代のアジア"],
+  [20, "戦後の世界"],
+]) assert.equal(historyPeriod("world-history", chapter), expected);
 assert.equal(historyPeriodFromUnit("world-history", "第２０話 戦後の世界"), "戦後の世界");
-assert.equal(historyPeriodFromUnit("japanese-history", "第1話 原始"), "縄文・弥生〜平安中期");
-assert.equal(historyPeriodFromUnit("world-history", "歴史総合・世界史"), undefined);
-for (const chapter of [-1, 0, 21, 42, 1.5, NaN]) {
-  assert.equal(historyPeriod("japanese-history", chapter), undefined);
-}
+for (const chapter of [-1, 0, 21, 42, 1.5, NaN]) assert.equal(historyPeriod("world-history", chapter), undefined);
 assert.equal(historyPeriod("mathematics", 1), undefined);
 
 const catalog = JSON.parse(readFileSync("src/data/catalog.json", "utf8"));
 const videos = new Map(catalog.videos.map(video => [video.id, video]));
 const units = new Map(catalog.units.map(unit => [unit.id, unit]));
-const historySubjects = ["japanese-history", "world-history"];
-const info = [];
-for (const subjectId of historySubjects) {
+const data = [];
+for (const subjectId of ["japanese-history", "world-history"]) {
   const series = catalog.series.filter(series => series.subjectId === subjectId);
-  assert.ok(series.length > 0, `No catalog series for ${subjectId}`);
+  assert.ok(series.length);
   const supported = series.filter(course => course.videoIds.every(id => {
     const video = videos.get(id);
     return video.unitIds.some(unitId => {
       const unit = units.get(unitId);
-      return unit?.subjectId === subjectId && historyPeriodFromUnit(subjectId, unit.name);
+      return unit?.subjectId === subjectId && historyPeriodForVideo(subjectId, video, unit.name);
     });
   }));
-  info.push({ subjectId, series: series.length, eraReady: supported.length });
-  assert.ok(supported.length > 0, `No source-supported era-groupable course for ${subjectId}`);
+  assert.ok(supported.length, "No source-backed era course for " + subjectId);
   for (const course of supported) {
     const labels = course.videoIds.map(id => {
       const video = videos.get(id);
-      const unit = video.unitIds.map(uid => units.get(uid))
-        .find(unit => unit?.subjectId === subjectId && historyPeriodFromUnit(subjectId, unit.name));
-      return historyPeriodFromUnit(subjectId, unit.name);
+      const unit = video.unitIds.map(uid => units.get(uid)).find(unit =>
+        unit?.subjectId === subjectId && historyPeriodForVideo(subjectId, video, unit.name));
+      return historyPeriodForVideo(subjectId, video, unit.name);
     });
-    const runs = [];
+    const groups = [];
     for (const [index, label] of labels.entries()) {
-      if (index === 0 || labels[index - 1] !== label) runs.push([]);
-      runs[runs.length - 1].push(course.videoIds[index]);
+      if (!index || labels[index - 1] !== label) groups.push([]);
+      groups.at(-1).push(course.videoIds[index]);
     }
-    assert.deepEqual(runs.flat(), course.videoIds, "Era grouping must preserve canonical lesson order and IDs");
+    assert.deepEqual(groups.flat(), course.videoIds, "Course order and IDs must be retained");
+    if (subjectId === "japanese-history" && course.id === "mundi-japan") {
+      assert.equal(new Set(labels).size, boundaries.length, "All expected eras must appear");
+      assert.equal(labels[47], "平安");
+      assert.equal(labels[48], "鎌倉");
+      assert.equal(labels[60], "鎌倉");
+      assert.equal(labels[61], "室町・南北朝");
+      assert.equal(labels[129], "幕末");
+      assert.equal(labels[130], "明治");
+      assert.equal(labels[186], "昭和");
+      assert.equal(labels[187], "平成");
+    }
   }
+  data.push({ subjectId, series: series.length, supported: supported.length });
 }
 const hierarchy = readFileSync("src/pages/HierarchyPage.tsx", "utf8");
-assert.ok(hierarchy.includes("label:'時代から探す'"), "History navigation must show era-first entry");
-assert.ok(hierarchy.includes("historySubject?'topics':'courses'"), "History must default to era browsing");
-assert.ok(hierarchy.includes('meta={durationSummary(videos,learning.records)}'), "Group durations should be on outline headers");
-assert.ok(hierarchy.includes('className="group-duration"'), "Era and unit cards must show total duration");
+assert.ok(hierarchy.includes("label:'時代から探す'"));
+assert.ok(hierarchy.includes("historySubject?'topics':'courses'"));
+assert.ok(hierarchy.includes('meta={durationSummary(videos,learning.records)}'));
+assert.ok(hierarchy.includes('className="group-duration"'));
 const disclosure = readFileSync("src/components/Disclosure.tsx", "utf8");
-assert.ok(disclosure.includes('className="disclosure-meta"'), "Expandable group headings must show duration");
-console.log("History era and duration regression tests passed:", info);
+assert.ok(disclosure.includes('className="disclosure-meta"'));
+console.log("History era boundary and sequence tests passed:", data);
