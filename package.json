@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "tsc --noEmit && node scripts/validate-catalog.mjs && node scripts/test-resume-selection.mjs && node scripts/test-app-notifications.mjs && node scripts/test-history-eras.mjs && npm run durations:test && vite build && node scripts/build-sw.mjs",
+    "build": "tsc --noEmit && node scripts/validate-catalog.mjs && node scripts/test-resume-selection.mjs && node scripts/test-app-notifications.mjs && node scripts/test-history-eras.mjs && node scripts/test-watch-playlist-duration.mjs && npm run durations:test && vite build && node scripts/build-sw.mjs",
     "typecheck": "tsc --noEmit",
     "test:resume": "node scripts/test-resume-selection.mjs",
     "preview": "vite preview --host 0.0.0.0",

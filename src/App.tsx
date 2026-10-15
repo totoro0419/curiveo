@@ -62,6 +62,7 @@ import { Disclosure } from "./components/Disclosure";
 import { SectionTabs } from "./components/SectionTabs";
 import { usePwa } from "./hooks/usePwa";
 import { durationSummary, durationTime, videoDuration } from "./lib/duration";
+import { watchPlaylistPage, WATCH_PLAYLIST_PAGE_SIZE } from "./lib/watch-playlist-page";
 import { WatchPlaylist } from "./components/WatchPlaylist";
 import { VideoActions } from "./components/VideoActions";
 import { collectAppNotices, type AppNotice } from "./lib/app-notifications";
@@ -463,9 +464,11 @@ function WatchPage({
     if (learning.ready && r.status !== "completed" && !r.playbackEnded)
       void save({ resumeDismissed: true });
   };
+  const visiblePlaylist = watchPlaylistPage(sequence, episodePage);
+  const playlistVideos = visiblePlaylist.entries.map(videoId=>videoMap.get(videoId)!).filter(Boolean);
   const playlist=(<>
         <div className="watch-sidebar">
-          <p className="duration-summary">{durationSummary(sequence.map(id=>videoMap.get(id)!),learning.records)}</p>
+          <p className="duration-summary">{sequence.length>WATCH_PLAYLIST_PAGE_SIZE?"表示中の授業 · ":""}{durationSummary(playlistVideos,learning.records)}</p>
           <div className="section-heading">
             <h2>{learningRoute?"この学習ルートの授業":series ? "この講座の授業" : "関連する授業"}</h2>
             <span className="small muted">
@@ -473,8 +476,8 @@ function WatchPage({
             </span>
           </div>
           <div className="episode-list" tabIndex={-1}>
-            {sequence.slice(episodePage*30,(episodePage+1)*30).map((videoId, offset) => {
-              const i=episodePage*30+offset;
+            {visiblePlaylist.entries.map((videoId, offset) => {
+              const i=visiblePlaylist.start+offset;
               const episode = videoMap.get(videoId);
               if (!episode) return null;
               const done = learning.records[videoId]?.status === "completed";
@@ -505,7 +508,7 @@ function WatchPage({
               );
             })}
           </div>
-          {sequence.length>30&&<div className="episode-pager"><button className="icon-button" aria-label="目次の前の30授業" disabled={episodePage===0} onClick={()=>setEpisodePage(n=>n-1)}><ArrowLeft size={16}/></button><span>{episodePage*30+1}–{Math.min((episodePage+1)*30,sequence.length)}</span><button className="icon-button" aria-label="目次の次の30授業" disabled={(episodePage+1)*30>=sequence.length} onClick={()=>setEpisodePage(n=>n+1)}><ArrowRight size={16}/></button></div>}
+          {sequence.length>WATCH_PLAYLIST_PAGE_SIZE&&<div className="episode-pager"><button className="icon-button" aria-label="目次の前の30授業" disabled={visiblePlaylist.page===0} onClick={()=>setEpisodePage(visiblePlaylist.page-1)}><ArrowLeft size={16}/></button><span>{visiblePlaylist.start+1}–{visiblePlaylist.end}</span><button className="icon-button" aria-label="目次の次の30授業" disabled={visiblePlaylist.end>=sequence.length} onClick={()=>setEpisodePage(visiblePlaylist.page+1)}><ArrowRight size={16}/></button></div>}
         </div>
             {!!v.chapters?.length&&<div className="chapter-targets">{v.chapters.map((chapter,i)=><button className="text-button" key={i} onClick={()=>{setSeek(chapter.startSeconds);setSeekNonce(n=>n+1);}}>{time(chapter.startSeconds)} · {chapter.title}</button>)}</div>}
   </>);
