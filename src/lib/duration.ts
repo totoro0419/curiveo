@@ -27,3 +27,29 @@ export function durationSummary(videos:Video[],records:Record<string,LearningRec
  const notes=[result.missing?result.missing+'本の時間は未取得':'',result.unverified?result.unverified+'本の出典は再確認中':''].filter(Boolean);
  return notes.length?'記録済み '+label+' · '+notes.join(' · '):'合計 '+label;
 }
+
+/** Remaining content duration from the selected lesson through the end of its source playlist.
+ * Unlike the visible 30-row pagination, this always includes all following lessons. */
+export function remainingPlaylistSeconds(
+  videos: Video[], index: number, position: number,
+  records: Record<string, LearningRecord> = {}, currentDuration?: number,
+): number | null {
+  if (!Number.isInteger(index) || index < 0 || index >= videos.length) return null;
+  let seconds = 0;
+  for (let i = index; i < videos.length; i++) {
+    const fallback = videoDuration(videos[i], records);
+    const duration = i === index && typeof currentDuration === 'number' &&
+      Number.isFinite(currentDuration) && currentDuration > 0 ? currentDuration : fallback;
+    if (duration === null) return null;
+    seconds += i === index
+      ? Math.max(0, duration - Math.min(duration, Math.max(0, Number.isFinite(position) ? position : 0)))
+      : duration;
+  }
+  return Math.ceil(seconds);
+}
+export function remainingDurationLabel(seconds: number, rate = 1): string {
+  const validRate = Number.isFinite(rate) && rate > 0 ? rate : 1;
+  const minutes = Math.ceil(Math.max(0, seconds) / validRate / 60);
+  const hours = Math.floor(minutes / 60);
+  return hours ? `${hours}時間${minutes % 60 ? `${minutes % 60}分` : ''}` : `${minutes}分`;
+}
