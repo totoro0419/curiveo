@@ -530,7 +530,7 @@ function WatchPage({
         </div>
       </div>
       <div className="watch-layout">
-        <WatchPlaylist currentId={id} index={index} count={sequence.length}>{playlist}</WatchPlaylist>
+        <WatchPlaylist currentId={id} index={index} count={sequence.length} page={visiblePlaylist.page}>{playlist}</WatchPlaylist>
         <div className="watch-main">
           {learning.ready?<YouTubePlayer key={id} video={v} record={r} save={learning.save} initialSeek={seek} seekNonce={seekNonce} onProgress={progress=>setLiveProgress({videoId:id,...progress})}/>:<div className="player-placeholder">学習記録を読み込んでいます…</div>}
           <div className="lesson-actions compact" aria-label="学習操作" aria-busy={!learning.ready}>
