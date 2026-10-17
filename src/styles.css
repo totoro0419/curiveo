@@ -1911,7 +1911,7 @@ html[data-section-motion=native] .results-enter[role=tabpanel] { view-transition
 .watch-playlist .duration-summary { padding:10px 12px 0;font-size:11px;margin:0; }
 .watch-playlist .watch-remaining { margin:7px 12px 8px;padding:8px 10px;border-radius:7px;background:var(--wash);color:var(--blue);font-size:11px;font-weight:600;line-height:1.6;font-variant-numeric:tabular-nums; }
 .watch-playlist .watch-remaining small { margin-left:3px;font-size:10px;font-weight:400;color:var(--muted); }
-.watch-playlist .episode-list { position:relative;max-height:240px;overscroll-behavior-y:contain; }
+.watch-playlist .episode-list { position:relative;max-height:240px;overflow-y:auto;scroll-padding-block:8px;padding-bottom:8px;overscroll-behavior-y:contain; }
 .watch-playlist .episode-list a { min-width:0;flex:1;min-height:44px;padding:10px;gap:6px;border:0; }
 .episode-row { display:flex;align-items:center;border-bottom:1px solid #f0f3f8; }
 .episode-row:has(a.active) { background:#edf4ff; }
@@ -1925,7 +1925,9 @@ html[data-section-motion=native] .results-enter[role=tabpanel] { view-transition
 .watch-main .player-shell:fullscreen { width:100vw;max-width:none;margin:0; }
 .watch-main .player-controls { padding:6px 10px 4px; }
 .watch-main .player-footer { padding:0 10px 2px; }
-.watch-main .lesson-actions.compact { display:flex;gap:2px;align-items:center;margin-top:2px;margin-bottom:0; }
+.watch-main .lesson-actions.compact { display:flex;gap:2px;align-items:center;margin-top:2px;margin-bottom:0;min-width:0; }
+.watch-main .lesson-actions .study-next { margin-inline-start:auto;flex:0 0 auto;white-space:nowrap;padding:8px 12px;min-height:44px;font-weight:600; }
+@media(max-width:360px) { .watch-main .lesson-actions .study-action:not(.icon-only) { padding-inline:5px; } .watch-main .lesson-actions .study-action.icon-only { width:40px;padding:8px; } .watch-main .lesson-actions .study-next { padding-inline:7px;font-size:10px; } }
 .study-action { display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:44px;padding:8px 10px;background:transparent;border:0;border-radius:8px;color:#788a9f;font-size:11px; }
 .study-action.icon-only { width:44px;padding:12px; }
 .study-action[aria-pressed=true] { color:#2868c9; }
@@ -1949,9 +1951,11 @@ html[data-section-motion=native] .results-enter[role=tabpanel] { view-transition
 @media(min-width:840px) {
  .watch-layout { grid-template-columns:minmax(0,1fr) 280px;gap:16px;max-width:calc((100dvh - 210px)*1.777778 + 296px);margin-inline:auto;align-items:start; }
  .watch-main { grid-column:1;grid-row:1;--video-width:100%; }
- .watch-playlist { grid-column:2;grid-row:1;max-height:calc(100dvh - 100px);overflow:auto;overscroll-behavior-y:contain;scrollbar-width:thin; }
- .watch-playlist .episode-list { max-height:calc(100dvh - 192px); }
- .watch-playlist .chapter-targets { max-height:180px;overflow:auto; }
+ .watch-playlist { grid-column:2;grid-row:1;display:flex;flex-direction:column;max-height:calc(100dvh - 100px);min-height:0;overflow:hidden; }
+ .watch-playlist .watch-sidebar { align-self:stretch;display:flex;flex-direction:column;flex:1 1 auto;min-height:0; }
+ .watch-playlist .watch-sidebar .section-heading,.watch-playlist .watch-sidebar .duration-summary,.watch-playlist .watch-sidebar .watch-remaining,.watch-playlist .episode-pager { flex:0 0 auto; }
+ .watch-playlist .episode-list { flex:1 1 auto;min-height:0;max-height:none;overflow-y:auto;scrollbar-width:thin; }
+ .watch-playlist .chapter-targets { flex:0 1 auto;min-height:0;max-height:min(180px,25dvh);overflow-y:auto; }
 }
 @media(min-width:601px) and (max-width:839px) {
  .watch-toolbar { max-width:100%; }

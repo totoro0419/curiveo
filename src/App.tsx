@@ -524,17 +524,13 @@ function WatchPage({
           <ArrowLeft size={17}/>講座に戻る
         </a>
         <div className="watch-toolbar-actions">
-          {nextLesson?<a className="watch-next" href={videoHref(nextLesson,steps.find(step=>step.videoId===nextLesson.id)?.seriesId||series?.id,routeId,subjectContext,selection.scope)} onClick={(event) => {
-            if (!event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey)
-              markAdvancedLesson();
-          }}>次の授業<ArrowRight size={16}/></a>:<span className="small muted">最後の授業</span>}
           <a className="icon-button watch-settings-link" href="#/settings" aria-label={notificationCount ? `設定・通知${notificationCount}件` : "設定"} title="設定・通知">
             <SettingsGlyph count={notificationCount} size={19} />
           </a>
         </div>
       </div>
       <div className="watch-layout">
-        <WatchPlaylist currentId={id} index={index} count={sequence.length}>{playlist}</WatchPlaylist>
+        <WatchPlaylist currentId={id} index={index} count={sequence.length} page={visiblePlaylist.page}>{playlist}</WatchPlaylist>
         <div className="watch-main">
           {learning.ready?<YouTubePlayer key={id} video={v} record={r} save={learning.save} initialSeek={seek} seekNonce={seekNonce} onProgress={progress=>setLiveProgress({videoId:id,...progress})}/>:<div className="player-placeholder">学習記録を読み込んでいます…</div>}
           <div className="lesson-actions compact" aria-label="学習操作" aria-busy={!learning.ready}>
@@ -547,6 +543,10 @@ function WatchPage({
             <button className="study-action icon-only" disabled={!learning.ready} aria-label={r.watchLater?"後で見るから解除":"後で見るに登録"} aria-pressed={r.watchLater} onClick={()=>save({watchLater:!r.watchLater})}>
               <Bookmark size={17} fill={r.watchLater?"currentColor":"none"}/>
             </button>
+            {nextLesson&&<a className="watch-next study-next" href={videoHref(nextLesson,steps.find(step=>step.videoId===nextLesson.id)?.seriesId||series?.id,routeId,subjectContext,selection.scope)} onClick={(event) => {
+              if (!event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey)
+                markAdvancedLesson();
+            }}>次の授業へ<ArrowRight size={16} aria-hidden="true"/></a>}
           </div>
         </div>
       </div>
