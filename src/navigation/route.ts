@@ -51,4 +51,4 @@ export function useRoute(){
  },[state.key]);
  return state;
 }
-export function listKey(ids:string[]){let hash=2166136261;for(const id of ids)for(let i=0;i<id.length;i++)hash=Math.imul(hash^id.charCodeAt(i),16777619);return `${ids.length}-${(hash>>>0).toString(16)}`;}
+export { listKey } from '../lib/list-key';
