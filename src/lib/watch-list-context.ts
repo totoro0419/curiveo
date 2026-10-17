@@ -1,14 +1,14 @@
 import { catalog, routeMap, routeSequence, seriesMap, videoMap } from '../catalog';
 import { courseOutline } from '../navigation/course-outline';
 import { learningNodes } from '../navigation/hierarchy';
-import { listKey } from '../navigation/route';
+import { listKey } from './list-key';
 
 const PREFIX = 'curiveo:watch-list:';
 const dedup = (ids: readonly string[]) => [...new Set(ids)].filter(id => videoMap.has(id));
 
 /** Persist only explicitly displayed ad-hoc lists (search/library), not entire course catalogs. */
 export function saveWatchList(scope: string, ids: readonly string[], title = 'この一覧') {
-  if (!scope.startsWith('saved:') || listKey(ids as string[]) !== scope.slice(6)) return;
+  if (!scope.startsWith('saved:') || listKey(ids) !== scope.slice(6)) return;
   try {
     sessionStorage.setItem(PREFIX + scope, JSON.stringify({ ids, title }));
   } catch { /* Storage may be disabled; direct links still use a safe fallback. */ }
