@@ -126,17 +126,20 @@ export function YouTubePlayer({
   save,
   initialSeek,
   seekNonce,
+  onProgress,
 }: {
   video: Video;
   record: LearningRecord;
   save: (id: string, patch: LearningPatch) => Promise<void>;
   initialSeek?: number;
   seekNonce?: number;
+  onProgress?: (progress: {time:number;duration:number;rate:number}) => void;
 }) {
   const root = useRef<HTMLDivElement>(null);
   const container = useRef<HTMLDivElement>(null);
   const playerRef = useRef<Player | null>(null);
   const saveRef = useRef(save);
+  const onProgressRef = useRef(onProgress);
   const recordRef = useRef(record);
   const positionRef = useRef(record.playbackEnded ? 0 : record.position);
   const mountedVideoId = useRef(video.id);
@@ -161,6 +164,7 @@ export function YouTubePlayer({
   const [fullscreen, setFullscreen] = useState(false);
   const [offline, setOffline] = useState(!navigator.onLine);
   saveRef.current = save;
+  onProgressRef.current = onProgress;
   recordRef.current = record;
   initialSeekRef.current = initialSeek;
 
@@ -194,6 +198,7 @@ export function YouTubePlayer({
     let watchedInSession = 0;
     let lastSavedWatched = Math.floor(watchedBase);
     let watchSample: { mediaTime: number; wallTime: number } | null = null;
+    let reportedProgress: {time:number;duration:number;rate:number} | null = null;
     if (mountedVideoId.current !== video.id) {
       mountedVideoId.current = video.id;
       positionRef.current = recordRef.current.playbackEnded
@@ -340,6 +345,12 @@ export function YouTubePlayer({
       if (!seeking.current && (hasStarted || time > 0))
         positionRef.current = time;
       const availableRates = player.getAvailablePlaybackRates();
+      const rate = player.getPlaybackRate() || 1;
+      if (onProgressRef.current && (!reportedProgress ||
+          Math.abs(reportedProgress.time-time) >= 5 || reportedProgress.duration !== duration || reportedProgress.rate !== rate)) {
+        reportedProgress = {time,duration,rate};
+        onProgressRef.current(reportedProgress);
+      }
       setPlayback((current) => ({
         time: seeking.current ? current.time : time,
         duration,

@@ -61,7 +61,8 @@ import { useInteractionMotion, usePageMotion } from "./lib/motion";
 import { Disclosure } from "./components/Disclosure";
 import { SectionTabs } from "./components/SectionTabs";
 import { usePwa } from "./hooks/usePwa";
-import { durationSummary, durationTime, videoDuration } from "./lib/duration";
+import { durationSummary, durationTime, videoDuration, remainingPlaylistSeconds, remainingDurationLabel } from "./lib/duration";
+import { resolveWatchList } from "./lib/watch-list-context";
 import { watchPlaylistPage, WATCH_PLAYLIST_PAGE_SIZE } from "./lib/watch-playlist-page";
 import { WatchPlaylist } from "./components/WatchPlaylist";
 import { VideoActions } from "./components/VideoActions";
@@ -307,7 +308,7 @@ function DiscoverPage({
               </div>
             </details>
           </div>
-          <VideoList videos={list} learning={learning} subjectId={subject==='all'?undefined:subject}/>
+          <VideoList videos={list} learning={learning} subjectId={subject==='all'?undefined:subject} contextLabel={query?"検索結果":"すべての授業"}/>
         </>
       )}
       </div>
@@ -401,6 +402,7 @@ function LibraryPage({
         <VideoList
           videos={entries}
           learning={learning}
+          contextLabel={tab==="favorite"?"お気に入り":tab==="later"?"後で見る":tab==="review"?"復習":tab==="history"?"視聴履歴":"続きから"}
           empty={
             tab === "history"
               ? "まだ視聴履歴がありません。"
@@ -439,22 +441,24 @@ function WatchPage({
   const v = videoMap.get(id);
   const [seek, setSeek] = useState<number | undefined>(()=>{const value=params.get("t");return value!==null&&Number.isFinite(Number(value))?Math.max(0,Number(value)):undefined;});
   const [seekNonce,setSeekNonce]=useState(0);
-  const [episodePage,setEpisodePage]=useViewState("episode-page",Math.floor(Math.max(0,params.get("route")?routeSequence(params.get("route")!).findIndex(step=>step.videoId===id):(seriesMap.get(params.get("series") || videoMap.get(id)?.seriesIds[0] || "")?.videoIds.indexOf(id)||0))/30));
   useEffect(()=>{const value=params.get("t");if(value!==null&&Number.isFinite(Number(value))){setSeek(Math.max(0,Number(value)));setSeekNonce(n=>n+1);}},[params.get("t")]);
+  const routeId=params.get("route")||undefined;
+  const selection=useMemo(()=>resolveWatchList(id,params.get("series")||v?.seriesIds[0],routeId,params.get("playlist")||undefined),
+    [id,params.get("series"),routeId,params.get("playlist")]);
+  const sequence=selection.ids;
+  const index=sequence.indexOf(id);
+  const [episodePage,setEpisodePage]=useViewState("episode-page",Math.floor(Math.max(0,index)/WATCH_PLAYLIST_PAGE_SIZE));
+  const [liveProgress,setLiveProgress]=useState<{videoId:string;time:number;duration:number;rate:number}|null>(null);
   if (!v) return <NotFound />;
   const subjectContext=params.get("subject")&&inSubject(v,params.get("subject")!)?params.get("subject")!:v.subjectId;
   const r = learning.get(id);
   const series = seriesMap.get(params.get("series") || v.seriesIds[0]);
-  const routeId=params.get("route")||undefined;
   const learningRoute=routeId?routeMap.get(routeId):undefined;
   const steps=routeId?routeSequence(routeId):[];
-  const sequence =
-    learningRoute?steps.map(step=>step.videoId):series?.videoIds ||
-    catalog.videos
-      .filter((x) => x.unitIds.some((id) => v.unitIds.includes(id)))
-      .sort((a, b) => a.order - b.order)
-      .map((x) => x.id);
-  const index = sequence.indexOf(id);
+  const activeProgress=liveProgress?.videoId===id?liveProgress:undefined;
+  const remaining=remainingPlaylistSeconds(sequence.map(videoId=>videoMap.get(videoId)!).filter(Boolean),
+    index,activeProgress?.time??(seek??(r.playbackEnded?0:r.position)),learning.records,activeProgress?.duration);
+  const remainingRate=activeProgress?.rate??readPlaybackPreferences().rate;
   const nextLesson=videoMap.get(sequence[index+1]);
   const save = (patch: LearningPatch) => learning.save(id, patch).catch(() => {
     // useLearning publishes the error to the settings notification center.
@@ -469,8 +473,9 @@ function WatchPage({
   const playlist=(<>
         <div className="watch-sidebar">
           <p className="duration-summary">{sequence.length>WATCH_PLAYLIST_PAGE_SIZE?"表示中の授業 · ":""}{durationSummary(playlistVideos,learning.records)}</p>
+          <p className="watch-remaining" aria-label="プレイリスト終了までの残り再生時間">{remaining===null?"残り時間は未取得":`ここから最後まで約${remainingDurationLabel(remaining,remainingRate)}`}{remaining!==null&&remainingRate!==1&&<small>（{remainingRate}倍速換算）</small>}</p>
           <div className="section-heading">
-            <h2>{learningRoute?"この学習ルートの授業":series ? "この講座の授業" : "関連する授業"}</h2>
+            <h2>{selection.scope?`${selection.title}の授業`:selection.title}</h2>
             <span className="small muted">
               {index + 1} / {sequence.length}
             </span>
@@ -485,7 +490,7 @@ function WatchPage({
               return (
                 <div className="episode-row" key={videoId}>
                 <a
-                  href={videoHref(episode,steps.find(step=>step.videoId===episode.id)?.seriesId||series?.id,routeId,subjectContext)}
+                  href={videoHref(episode,steps.find(step=>step.videoId===episode.id)?.seriesId||series?.id,routeId,subjectContext,selection.scope)}
                   onClick={(event) => {
                     if (i > index && index >= 0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey)
                       markAdvancedLesson();
@@ -519,7 +524,7 @@ function WatchPage({
           <ArrowLeft size={17}/>講座に戻る
         </a>
         <div className="watch-toolbar-actions">
-          {nextLesson?<a className="watch-next" href={videoHref(nextLesson,steps.find(step=>step.videoId===nextLesson.id)?.seriesId||series?.id,routeId,subjectContext)} onClick={(event) => {
+          {nextLesson?<a className="watch-next" href={videoHref(nextLesson,steps.find(step=>step.videoId===nextLesson.id)?.seriesId||series?.id,routeId,subjectContext,selection.scope)} onClick={(event) => {
             if (!event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey)
               markAdvancedLesson();
           }}>次の授業<ArrowRight size={16}/></a>:<span className="small muted">最後の授業</span>}
@@ -531,7 +536,7 @@ function WatchPage({
       <div className="watch-layout">
         <WatchPlaylist currentId={id} index={index} count={sequence.length}>{playlist}</WatchPlaylist>
         <div className="watch-main">
-          {learning.ready?<YouTubePlayer key={id} video={v} record={r} save={learning.save} initialSeek={seek} seekNonce={seekNonce}/>:<div className="player-placeholder">学習記録を読み込んでいます…</div>}
+          {learning.ready?<YouTubePlayer key={id} video={v} record={r} save={learning.save} initialSeek={seek} seekNonce={seekNonce} onProgress={progress=>setLiveProgress({videoId:id,...progress})}/>:<div className="player-placeholder">学習記録を読み込んでいます…</div>}
           <div className="lesson-actions compact" aria-label="学習操作" aria-busy={!learning.ready}>
             <button className={`study-action ${r.status==="completed"?"completed":""}`} disabled={!learning.ready} aria-pressed={r.status==="completed"} aria-label={r.status==="completed"?"学習済みを解除":"学習済みにする"} onClick={()=>save({status:r.status==="completed"?"learning":"completed"})}>
               {r.status==='completed'?<CheckCircle2 size={16}/>:<Circle size={16}/>}<span>学習済み</span>

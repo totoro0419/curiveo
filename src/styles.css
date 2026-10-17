@@ -1909,6 +1909,8 @@ html[data-section-motion=native] .results-enter[role=tabpanel] { view-transition
 .watch-playlist .watch-sidebar { border-radius:8px;margin:0; }
 .watch-playlist .section-heading { padding:10px 12px; }
 .watch-playlist .duration-summary { padding:10px 12px 0;font-size:11px;margin:0; }
+.watch-playlist .watch-remaining { margin:7px 12px 8px;padding:8px 10px;border-radius:7px;background:var(--wash);color:var(--blue);font-size:11px;font-weight:600;line-height:1.6;font-variant-numeric:tabular-nums; }
+.watch-playlist .watch-remaining small { margin-left:3px;font-size:10px;font-weight:400;color:var(--muted); }
 .watch-playlist .episode-list { position:relative;max-height:240px;overscroll-behavior-y:contain; }
 .watch-playlist .episode-list a { min-width:0;flex:1;min-height:44px;padding:10px;gap:6px;border:0; }
 .episode-row { display:flex;align-items:center;border-bottom:1px solid #f0f3f8; }
