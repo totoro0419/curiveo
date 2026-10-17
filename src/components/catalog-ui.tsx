@@ -7,6 +7,7 @@ import type { useLearning } from "../hooks/useLearning";
 import { listKey, useViewState } from "../navigation/route";
 import { videoDuration, durationTime, durationSummary } from '../lib/duration';
 import { sortCourses } from '../navigation/curriculum-order';
+import { saveWatchList } from '../lib/watch-list-context';
 import { VideoActions } from './VideoActions';
 export type Learning = ReturnType<typeof useLearning>;
 export const icons: Record<string, LucideIcon> = {
@@ -129,6 +130,7 @@ export function VideoList({
   routeId,
   subjectId,
   contextLabel,
+  playlistScope,
   empty = "該当する授業がありません。",
 }: {
   videos: Video[];
@@ -137,9 +139,15 @@ export function VideoList({
   routeId?: string;
   subjectId?: string;
   contextLabel?: string;
+  playlistScope?: string;
   empty?: string;
 }) {
-  const [limit, setLimit] = useViewState(`video-list:${seriesId || "all"}:${listKey(videos.map(v=>v.id))}`, 40);
+  const listSignature = listKey(videos.map(v=>v.id));
+  const sourceScope = playlistScope ?? (routeId ? undefined : `saved:${listSignature}`);
+  const [limit, setLimit] = useViewState(`video-list:${seriesId || "all"}:${listSignature}`, 40);
+  useEffect(() => {
+    if (sourceScope?.startsWith("saved:")) saveWatchList(sourceScope, videos.map(v=>v.id), contextLabel || "この一覧");
+  }, [sourceScope, listSignature, contextLabel]);
   if (!videos.length)
     return (
       <div className="empty">
@@ -160,7 +168,9 @@ export function VideoList({
           const length=videoDuration(v,learning.records);
           return (
             <div className="video-row-shell" key={v.id}>
-            <a href={videoHref(v, seriesId,routeId,subjectId)} className="video-row">
+            <a href={videoHref(v, seriesId,routeId,subjectId,sourceScope)} className="video-row" onClick={() => {
+              if (sourceScope?.startsWith("saved:")) saveWatchList(sourceScope, videos.map(item=>item.id), contextLabel || "この一覧");
+            }}>
               <span
                 className={`row-index ${r.status === "completed" ? "is-completed" : ""}`}
               >
