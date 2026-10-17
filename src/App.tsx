@@ -443,7 +443,8 @@ function WatchPage({
   const [seekNonce,setSeekNonce]=useState(0);
   useEffect(()=>{const value=params.get("t");if(value!==null&&Number.isFinite(Number(value))){setSeek(Math.max(0,Number(value)));setSeekNonce(n=>n+1);}},[params.get("t")]);
   const routeId=params.get("route")||undefined;
-  const selection=resolveWatchList(id,params.get("series")||v?.seriesIds[0],routeId,params.get("playlist")||undefined);
+  const selection=useMemo(()=>resolveWatchList(id,params.get("series")||v?.seriesIds[0],routeId,params.get("playlist")||undefined),
+    [id,params.get("series"),routeId,params.get("playlist")]);
   const sequence=selection.ids;
   const index=sequence.indexOf(id);
   const [episodePage,setEpisodePage]=useViewState("episode-page",Math.floor(Math.max(0,index)/WATCH_PLAYLIST_PAGE_SIZE));
