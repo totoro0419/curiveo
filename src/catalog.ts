@@ -75,4 +75,4 @@ export function time(seconds: number) {
   const s = Math.max(0, Math.floor(seconds));
   return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
 }
-export function videoHref(v:Video,seriesId?:string,routeId?:string,subjectId?:string){const params=new URLSearchParams();if(seriesId)params.set("series",seriesId);if(routeId)params.set("route",routeId);if(subjectId&&subjectId!==v.subjectId)params.set("subject",subjectId);return `#/watch/${v.id}${params.size?`?${params}`:""}`;}
+export function videoHref(v:Video,seriesId?:string,routeId?:string,subjectId?:string,playlistScope?:string){const params=new URLSearchParams();if(seriesId)params.set("series",seriesId);if(routeId)params.set("route",routeId);if(subjectId&&subjectId!==v.subjectId)params.set("subject",subjectId);if(playlistScope)params.set("playlist",playlistScope);return `#/watch/${v.id}${params.size?`?${params}`:""}`;}
