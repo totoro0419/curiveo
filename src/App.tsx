@@ -64,6 +64,7 @@ import { usePwa } from "./hooks/usePwa";
 import { durationSummary, durationTime, videoDuration, remainingPlaylistSeconds, remainingDurationLabel } from "./lib/duration";
 import { resolveWatchList } from "./lib/watch-list-context";
 import { watchPlaylistPage, WATCH_PLAYLIST_PAGE_SIZE } from "./lib/watch-playlist-page";
+import { playlistLessonLabel } from "./lib/playlist-lesson-label";
 import { WatchPlaylist } from "./components/WatchPlaylist";
 import { VideoActions } from "./components/VideoActions";
 import { collectAppNotices, type AppNotice } from "./lib/app-notifications";
@@ -487,6 +488,7 @@ function WatchPage({
               if (!episode) return null;
               const done = learning.records[videoId]?.status === "completed";
               const duration=videoDuration(episode,learning.records);
+              const lessonLabel=playlistLessonLabel(episode);
               return (
                 <div className="episode-row" key={videoId}>
                 <a
@@ -498,15 +500,21 @@ function WatchPage({
                   aria-current={videoId === id ? "page" : undefined}
                   className={videoId === id ? "active" : ""}
                 >
-                  <span>
+                  <span className="episode-number">
                     {done ? (
                       <Check size={16} />
                     ) : (
                       String(i + 1).padStart(2, "0")
                     )}
                   </span>
-                  <span><span className="episode-title" title={episode.title}>{episode.title}</span>{duration!==null&&<small className="episode-duration">{durationTime(duration)}</small>}</span>
-                  {videoId === id && <Play size={13} />}
+                  <span className="episode-thumb-wrap">
+                    <Thumb video={episode} className="episode-thumbnail"/>
+                    {videoId === id && <Play className="episode-playing-icon" size={15} fill="currentColor" aria-hidden="true"/>}
+                  </span>
+                  <span className="episode-copy">
+                    <span className="episode-title" title={episode.title}>{lessonLabel.title}</span>
+                    <small className="episode-duration">{[lessonLabel.detail,duration!==null?durationTime(duration):"時間未取得"].filter(Boolean).join(" · ")}</small>
+                  </span>
                 </a>
                 <VideoActions video={episode} learning={learning}/>
                 </div>
